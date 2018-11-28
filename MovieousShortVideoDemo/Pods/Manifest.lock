@@ -1,0 +1,27 @@
+PODS:
+  - Masonry (1.1.0)
+  - MovieousBase (1.0.0)
+  - MovieousShortVideo (1.0.0):
+    - MovieousBase (= 1.0.0)
+
+DEPENDENCIES:
+  - Masonry
+  - MovieousShortVideo (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Masonry
+    - MovieousBase
+
+EXTERNAL SOURCES:
+  MovieousShortVideo:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MovieousBase: 5d6ecb362b78d4785095af84ba9813cb51ed31c9
+  MovieousShortVideo: 3b5cec1239e18c4fc81661e9be2803d80eccdfd8
+
+PODFILE CHECKSUM: 6ae5cc534eb98289bb7d640ea04835e189e4a80f
+
+COCOAPODS: 1.5.3

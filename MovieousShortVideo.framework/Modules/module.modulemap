@@ -1,0 +1,6 @@
+framework module MovieousShortVideo {
+  umbrella header "MovieousShortVideo.h"
+
+  export *
+  module * { export * }
+}
