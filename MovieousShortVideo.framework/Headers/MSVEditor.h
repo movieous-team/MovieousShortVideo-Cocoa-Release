@@ -69,6 +69,9 @@ extern NSString *kMSVEditorCurrentTimeUpdatedNotification;
  */
 @property (nonatomic, strong) dispatch_queue_t delegateQueue;
 
+- (instancetype)init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+
 /**
  * @brief 通过音视频 URL 初始化一个 MSVEditor 对象
  * @param URL 音视频地址

@@ -85,13 +85,23 @@ typedef NS_ENUM(NSInteger, MSVMainTrackClipType) {
  */
 @property (nonatomic, assign) float volume;
 
-
+/**
+ * @brief 开始应用倒放效果到该片段
+ * @discussion 倒放操作在首次应用时需要耗费一定的时间，传入 progressHandler 以获取操作的进度，传入 completionHandler 以获取操作的结果。首次倒放操作完成之后如果再次应用倒放效果将会瞬间完成，无需再次等待。
+ * @param reverse 是否应用倒放效果
+ * @param progressHandler 操作进度回调，参数 progress 为操作进度
+ * @param completionHandler 操作结果回调，如果发生错误，参数 error 返回发生的错误，否则 error 为 nil。
+ */
 - (void)setReverse:(BOOL)reverse progressHandler:(void(^)(float progress))progressHandler completionHandler:(void(^)(NSError *error))completionHandler;
 
+/**
+ * @brief 是否取消正在进行的倒放处理
+ * @warning 此处的取消倒放并非将已经倒放的视频恢复正常播放，如果需要清除已经应用成功的倒放效果请调用 -setReverse:progressHandler:completionHandler: 并传入参数 NO。
+ */
 - (void)cancelReverse;
 
 /**
- * @brief 是否倒放该段视频
+ * @brief 是否倒放该片段
  */
 @property (nonatomic, assign, readonly) BOOL reverse;
 
@@ -117,14 +127,6 @@ typedef NS_ENUM(NSInteger, MSVMainTrackClipType) {
 + (instancetype)mainTrackClipWithType:(MSVMainTrackClipType)type URL:(NSURL *)URL error:(NSError **)outError;
 
 /**
- * @brief 使用 AVAsset 创建一个音视频类型的主轨片段
- * @param asset 用于创建主轨片段的 AVAsset 对象
- * @param outError 如果发生错误，返回发生的错误
- * @return 创建成功返回创建完成的对象，失败返回 nil
- */
-+ (instancetype)mainTrackClipWithAsset:(AVAsset *)asset error:(NSError **)outError;
-
-/**
  * @brief 使用 UIImage 创建一个图片类型的主轨片段
  * @param image 用于创建主轨片段的 UIImage 对象
  * @param outError 如果发生错误，返回发生的错误
@@ -142,14 +144,6 @@ typedef NS_ENUM(NSInteger, MSVMainTrackClipType) {
 - (instancetype)initWithType:(MSVMainTrackClipType)type URL:(NSURL *)URL error:(NSError **)outError;
 
 /**
- * @brief 使用 AVAsset 初始化一个音视频类型的主轨片段
- * @param asset 用于创建主轨片段的 AVAsset 对象
- * @param outError 如果发生错误，返回发生的错误
- * @return 初始化成功返回创建完成的对象，失败返回 nil
- */
-- (instancetype)initWithAsset:(AVAsset *)asset error:(NSError **)outError;
-
-/**
  * @brief 使用 UIImage 初始化一个图片类型的主轨片段
  * @param image 用于创建主轨片段的 UIImage 对象
  * @param duration 图片时长
@@ -164,5 +158,7 @@ typedef NS_ENUM(NSInteger, MSVMainTrackClipType) {
  * @return 有效返回 YES，无效返回 NO
  */
 - (BOOL)validateWithError:(NSError **)outError;
+
+- (void)refreshAsset;
 
 @end

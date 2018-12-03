@@ -251,6 +251,9 @@
  */
 - (BOOL)setPointOfInterest:(CGPoint)pointOfInterest error:(NSError **)outError;
 
+- (instancetype)init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+
 /**
  * @brief 初始化一个空的录制器
  * @param audioConfiguration 音频配置，传入 nil 将使用默认配置

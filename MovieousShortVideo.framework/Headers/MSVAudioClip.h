@@ -68,7 +68,9 @@
  * @param outError 如果发生错误，返回发生的错误
  * @return 初始化成功返回初始化后的对象，否则返回 nil
  */
-- (instancetype)initWithURL:(NSURL *)URL error:(NSError **)outError NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithURL:(NSURL *)URL error:(NSError **)outError;
+
+- (void)refreshAsset;
 
 /**
  * @brief 验证草稿是否有效

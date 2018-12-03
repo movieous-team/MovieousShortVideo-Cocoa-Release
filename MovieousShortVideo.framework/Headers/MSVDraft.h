@@ -57,15 +57,15 @@
 @property (nonatomic, assign) MovieousTimeRange timeRange;
 
 /**
- * @brief 使用音视频文件地址来初始化一份草稿，初始化后的草稿将包含一个 MSVMainTrackClip 指向该文件的地址
+ * @brief 使用音视频文件地址来创建一份草稿，创建的草稿将包含一个 MSVMainTrackClip 指向该文件的地址
  * @param URL 音视频文件的地址
  * @param outError 如果发生错误，返回发生的错误
- * @return 初始化成功的草稿对象
+ * @return 创建成功则返回草稿对象，失败返回 nil
  */
 + (instancetype)draftWithAVURL:(NSURL *)URL error:(NSError **)outError;
 
 /**
- * @brief 使用图片文件地址来创建一个草稿对象，初始化后的草稿将包含一个 MSVMainTrackClip 指向该文件的地址
+ * @brief 使用图片文件地址来创建一个草稿对象，创建的草稿将包含一个 MSVMainTrackClip 指向该文件的地址
  * @param URL 图片文件的地址
  * @param outError 如果发生错误，返回发生的错误
  * @return 创建成功则返回草稿对象，失败返回 nil

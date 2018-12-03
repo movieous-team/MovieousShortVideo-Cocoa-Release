@@ -21,3 +21,13 @@ FOUNDATION_EXPORT const unsigned char MovieousShortVideoVersionString[];
 #import <MovieousShortVideo/MSVVideoExporter.h>
 #import <MovieousShortVideo/MSVRepeatEffect.h>
 #import <MovieousShortVideo/MSVSpeedEffect.h>
+
+@interface MovieousShortVideo : NSObject
+
+@property (nonatomic, assign, readonly, class) BOOL registered;
+
++ (void)registerWithLicense:(NSString *)license;
+
++ (BOOL)checkAuthState;
+
+@end

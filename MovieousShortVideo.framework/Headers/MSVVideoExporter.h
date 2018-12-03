@@ -79,6 +79,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, copy, nullable) void(^completionHandler)(NSURL *URL);
 
+- (instancetype)init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+
 /**
  * @brief 使用 draft 初始化导出对象
  * @param draft 需要导出的草稿对象
