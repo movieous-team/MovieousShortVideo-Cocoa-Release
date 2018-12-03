@@ -1,6 +1,6 @@
 # MovieousShortVideo-Cocoa
 
-`Movieous short video SDK` is a one-step video production SDK developed by [Movieous] (https://movieous.cn/), which provides a concise  and flexible API , features includes recording, editing, uploading, filter function, effects function, background music,etc. `Movieous short video SDK` with superior model and version compatibility and extreme performance, rich features and numerous tripartite ecological support. Integrated `Movieous short video SDK` enables developers to quickly generate an excellent mobile short video app.
+`Movieous short video SDK` is a one-step video production SDK developed by [Movieous](https://movieous.cn/), which provides a concise  and flexible API , features includes recording, editing, uploading, filter function, effects function, background music,etc. `Movieous short video SDK` with superior model and version compatibility and extreme performance, rich features and numerous tripartite ecological support. Integrated `Movieous short video SDK` enables developers to quickly generate an excellent mobile short video app.
 
 *Read this in other languages: [English](README.md), [简体中文](README.zh-cn.md).*
 
