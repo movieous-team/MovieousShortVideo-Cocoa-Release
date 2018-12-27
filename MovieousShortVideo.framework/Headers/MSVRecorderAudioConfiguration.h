@@ -12,7 +12,7 @@
 #import <MovieousBase/MovieousBase.h>
 
 /**
- * @brief 音频录制配置类
+ * @brief Audio configuration class
  */
 @interface MSVRecorderAudioConfiguration : NSObject
 <
@@ -20,36 +20,36 @@ MovieousMicrophoneConfiguration
 >
 
 /**
- * @brief 音频输入源，默认为 MSVAudioSourceMicrophone
+ * @brief Audio input source, the default is MSVAudioSourceMicrophone
  */
 @property (nonatomic, assign) MSVAudioSource source;
 
 /**
- * @brief 采集音频数据的声道数，默认为 1
- * @warning 并非所有采集设备都支持多声道数据的采集
+ * @brief The number of channels for collecting audio data. The default is 1
+ * @warning Not all capturing devices support multichannel data acquisition
  */
 @property (assign, nonatomic) NSUInteger numberOfChannels;
 
 /**
- * @brief 音频采样率 sampleRate 默认为 MSVAudioSampleRate_44100Hz
+ * @brief Audio sample rate sampleRate The default is MSVAudioSampleRate_44100Hz
  */
 @property (assign, nonatomic) MSVAudioSampleRate sampleRate;
 
 /**
- * @brief 音频编码码率 bitRate 默认为 MSVAudioBitRate_128Kbps
+ * @brief Audio encoding rate bitRate The default is MSVAudioBitRate_128Kbps
  */
 @property (assign, nonatomic) MSVAudioBitRate bitRate;
 
 /**
- * @brief 创建一个默认配置的 MSVAudioConfiguration 实例.
- * @return 创建的默认 MSVAudioConfiguration 对象
+ * @brief Create a default configuration of the MSVAudioConfiguration instance
+ * @return Create a default object of MSVAudioConfiguration
  */
 + (instancetype)defaultConfiguration;
 
 /**
- * @brief 验证对象是否有效
- * @param outError 如果发生错误，返回发生的错误
- * @return 有效返回 YES，无效返回 NO
+ * @brief Verify the object is valid or not
+ * @param outError If an error occurs, return the error that occurred
+ * @return Valid operation return YES, invalid operation return NO
  */
 - (BOOL)validateWithError:(NSError **)outError;
 

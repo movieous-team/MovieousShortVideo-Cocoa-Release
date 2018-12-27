@@ -25,91 +25,88 @@ extern NSString *kMSVEditorCurrentTimeUpdatedNotification;
 @interface MSVEditor : NSObject
 
 /**
- * @brief 底层，草稿对象，相关编辑请通过该草稿对象进行操作
+ * @brief Please operate the underlying, draft object and related edits through the draft object
  */
 @property (nonatomic, strong, readonly) MSVDraft *draft;
 
 /**
- * @brief 编辑预览视图
+ * @brief Edit preview view
  */
 @property (nonatomic, strong, readonly) UIView *preview;
 
 /**
- * @brief 视频内容在 preview 中展示的区域
+ * @brief The area where the video content is displayed in the preview
  */
 @property (nonatomic, assign, readonly) CGRect contentFrame;
 
 /**
- * @brief 预览视图的填充模式，默认为 MovieousScalingModeAspectFit
+ * @brief The fill mode of preview view , the default is MovieousScalingModeAspectFit
  */
 @property (nonatomic, assign) MovieousScalingMode previewScalingMode;
 
 /**
- * @brief 当前播放进度
+ * @brief Current playback progress
  */
 @property (nonatomic, assign, readonly) NSTimeInterval currentTime;
 
 /**
- * @brief 当前是否正在播放
+ * @brief Whether it currently playback
  */
 @property (nonatomic, assign, readonly) BOOL playing;
 
 /**
- * @brief 是否循环播放
+ * @brief Whether to loop
  */
 @property (nonatomic, assign) BOOL loop;
 
 /**
- * @brief 编辑器代理对象
+ * @brief Editor proxy object
  */
 @property (nonatomic, weak) id<MSVEditorDelegate> delegate;
 
 /**
- * @brief 代理方法回调的队列，默认为主队列
+ * @brief The queue callback made by the proxy method, the default is the main queue
  */
 @property (nonatomic, strong) dispatch_queue_t delegateQueue;
 
-- (instancetype)init NS_UNAVAILABLE;
-+ (instancetype)new NS_UNAVAILABLE;
-
 /**
- * @brief 通过音视频 URL 初始化一个 MSVEditor 对象
- * @param URL 音视频地址
- * @param outError 如果发生错误，返回发生的错误
- * @return 初始化成功则返回草稿对象，失败返回 nil
+ * @brief Initialize an MSVEditor object with an audio and video URL
+ * @param URL Audio and video address
+ * @param outError If an error occurs, return the error that occurred
+ * @return It returns the draft object if the initialization is successful, returns nil if it fails.
  */
 - (instancetype)initWithAVURL:(NSURL *)URL error:(NSError **)outError;
 
 /**
- * @brief 使用图片 URL 初始化一个 MSVEditor 对象
- * @param URL 图片地址
- * @param outError 如果发生错误，返回发生的错误
- * @return 初始化成功则返回草稿对象，失败返回 nil
+ * @brief Initialize an MSVEditor object with a image URL
+ * @param URL Image address
+ * @param outError If an error occurs, return the error that occurred
+ * @return It returns the draft object if the initialization is successful, returns nil if it fails.
  */
 - (instancetype)initWithImageURL:(NSURL *)URL error:(NSError **)outError;
 
 /**
- * @brief 使用一个草稿对象初始化一个 MSVEditor 对象
- * @param draft 草稿对象
- * @param outError 如果发生错误，返回发生的错误
- * @return 初始化成功则返回草稿对象，失败返回 nil
+ * @brief Initialize an MSVEditor object with a draft object
+ * @param draft Draft object
+ * @param outError If an error occurs, return the error that occurred
+ * @return It returns the draft object if the initialization is successful, returns nil if it fails.
  */
 - (instancetype)initWithDraft:(MSVDraft *)draft error:(NSError **)outError;
 
 /**
- * @brief 开始预览
+ * @brief Start previewing
  */
 - (void)play;
 
 /**
- * @brief 暂停预览
+ * @brief Pause previewing
  */
 - (void)pause;
 
 /**
- * @brief 播放器快进到相应的位置
- * @param time 目的位置
- * @param completionHandler 快进结束的回调，finished：快进是否完成。
+ * @brief The player fast forwards to the appropriate position
+ * @param time Target position
+ * @param completionHandler The callback at the end of fast-forwarding, finished: whether the fast forward is complete。
  */
 - (void)seekToTime:(NSTimeInterval)time completionHandler:(void (^)(BOOL finished))completionHandler;
 

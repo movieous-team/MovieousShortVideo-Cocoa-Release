@@ -12,45 +12,45 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * 录制片段的配置类，用于进行当前录制片段的配置
+ * Recorder clip configuration class, used to configure current recording clip
  */
 @interface MSVClipConfiguration : NSObject
 
 /**
- * @brief 片段录制的文件地址，默认为自动生成的地址
+ * @brief Clip file URL, default to auto generated URL
  */
 @property (nonatomic, strong) NSURL *URL;
 
 /**
- * @brief 片段录制的媒体文件类型，默认为 MSVFileTypeMPEG4
+ * @brief Media file type of the clip to be recorded, default to MSVFileTypeMPEG4
  */
 @property (nonatomic, assign) MSVFileType fileType;
 
 /**
- * @brief 将要录制的片段的速度，默认值为：1.0
- * 一般来说可以进行如下配置：
- * 极快：2.0
- * 快：1.5
- * 正常：1.0
- * 慢：0.75
- * 极慢：0.5
+ * @brief Clip speed of the clip to be recorded, default to 1.0
+ * Recommend configurations:
+ * very fast：2.0
+ * fast：1.5
+ * normal：1.0
+ * slow：0.75
+ * very slow：0.5
  */
 @property (nonatomic, assign) CGFloat speed;
 
 /**
- * @brief 所录制的片段的原声音量，默认为 1.0
+ * @brief Original sound volume of the clip to be recorded, default to 1.0
  */
 @property (nonatomic, assign) float volume;
 
 /**
- * @brief 用于录制的 view，当且仅当 videoConfiguration.source = MSVVideoSourceUIView 时有效
- * 默认为 nil
+ * @brief View used for recording, only valid when videoConfiguration.source = MSVVideoSourceUIView
+ * Default to nil
  */
 @property (nonatomic, strong) UIView *viewForRecording;
 
 /**
- * @brief 生成默认配置对象
- * @return 返回生成的默认配置对象
+ * @brief Create a default configuration instance
+ * @return Created instance
  */
 + (instancetype)defaultConfiguration;
 

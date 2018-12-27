@@ -10,24 +10,24 @@
 #import <MovieousBase/MovieousBase.h>
 
 /**
- * @brief 媒体片段
+ * @brief Media clip protocol
  */
 @protocol MSVClip <NSObject>
 
 /**
- * @brief 媒体片段的 URL，只支持本地文件
+ * @brief Media clip URL, only local file is supported
  */
 @property (nonatomic, strong, readonly) NSURL *URL;
 
 /**
- * @brief 媒体片段在主轨中的时间区间
+ * @brief Time range on main track in draft
  */
 @property (nonatomic, assign) MovieousTimeRange timeRangeAtMainTrack;
 
 /**
- * @brief 验证草稿是否有效
- * @param outError 如果发生错误，返回发生的错误
- * @return 有效返回 YES，无效返回 NO
+ * @brief Check if the clip is valid
+ * @param outError If an error occurs, return the error that occurred
+ * @return Return YES if valid, or else NO
  */
 - (BOOL)validateWithError:(NSError **)outError;
 

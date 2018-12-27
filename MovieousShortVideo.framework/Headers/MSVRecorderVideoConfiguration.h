@@ -13,7 +13,7 @@
 #import <MovieousBase/MovieousBase.h>
 
 /**
- * @brief 视频录制配置类
+ * @brief Video configuration class
  */
 @interface MSVRecorderVideoConfiguration : NSObject
 <
@@ -21,85 +21,85 @@ MovieousCameraConfiguration
 >
 
 /**
- * @brief 视频输入源，默认为 MSVAudioSourceMicrophone
+ * @brief Video input source, the default is MSVAudioSourceMicrophone
  */
 @property (nonatomic, assign) MSVVideoSource source;
 
 /**
- * @brief 使用 MSVVideoSourceCamera 时采集的视频数据的帧率，默认为 30
+ * @brief The frame rate of the video data captured when using MSVVideoSourceCamera, the default is 30
  */
 @property (assign, nonatomic) NSUInteger frameRate;
 
 /**
- * @brief 使用 MSVVideoSourceCamera 时采集的视频的分辨率，默认为 AVCaptureSessionPresetHigh
+ * @brief The resolution of the video captured when using MSVVideoSourceCamera, the default is AVCaptureSessionPresetHigh
  */
 @property (strong, nonatomic) AVCaptureSessionPreset cameraResolution;
 
 /**
- * @brief 使用 MSVVideoSourceCamera 时前置预览是否开启镜像，默认为 YES
+ * @brief Front preview mirror is enabled or not when using MSVVideoSourceCamera. The default is YES.
  */
 @property (assign, nonatomic) BOOL mirrorFrontPreview;
 
 /**
- * @brief 使用 MSVVideoSourceCamera 时后置预览是否开启镜像，默认为 NO
+ * @brief Rear preview mirror is enabled or not when using MSVVideoSourceCamera, the default is NO
  */
 @property (assign, nonatomic) BOOL mirrorBackPreview;
 
 /**
- * @brief 使用 MSVVideoSourceCamera 时前置摄像头，录制的流是否开启镜像，默认 NO
+ * @brief When using MSVVideoSourceCamera, Whether the recorded stream is enable to mirror in the front camera,  the default is NO
  */
 @property (assign, nonatomic) BOOL mirrorFrontEncoded;
 
 /**
- * @brief 使用 MSVVideoSourceCamera 时后置摄像头，录制的流是否开启镜像，默认 NO
+ * @brief When using MSVVideoSourceCamera, whether the recorded stream is enabled to mirror in the rear camera, the default NO
  */
 @property (assign, nonatomic) BOOL mirrorBackEncoded;
 
 /**
- * @brief 使用 MSVVideoSourceCamera 时采集摄像头位置，默认为 AVCaptureDevicePositionBack
+ * @brief The captured camera position when using MSVVideoSourceCamera, the default is AVCaptureDevicePositionBack
  */
 @property (assign, nonatomic) AVCaptureDevicePosition cameraPosition;
 
 /**
- * @brief 使用 MSVVideoSourceCamera 时的采集摄像头的旋转方向，默认为 AVCaptureVideoOrientationPortrait
+ * @brief The camera rotation orientation captured when using MSVVideoSourceCamera, the default is AVCaptureVideoOrientationPortrait
  */
 @property (assign, nonatomic) AVCaptureVideoOrientation cameraOrientation;
 
 /**
- * @brief   编码时的视频分辨率，默认 (1280, 720)
- * @discussion 需要注意的是，这个参数影响的是视频编码时的分辨率，而非摄像头采集到数据的预览大小，传递给编码器的图像尺寸与此尺寸不同时，会按照保持比例并填充的方式生成最终的视频，从而确保图像不会出现压缩的现象（但编码视频的比例与采集视频的比例不同时会出现裁剪的现象）。
+ * @brief   Video resolution when encoding, default (1280, 720)
+ * @discussion It should be noted that this parameter affects the resolution of the video encoding, rather than the preview size of the data captured by the camera. When the image size passed to the encoder is different from this size, it will be generated in the same way The video ensures that the image does not appear to be compressed (but the cropping phenomenon occurs when the ratio of the encoded video is different from the ratio of the captured video).
  */
 @property (assign, nonatomic) CGSize size;
 
 /**
- * @brief 平均视频编码码率。默认为 1024*1000
- * @discussion 单位为 bps(Bits per Second)。该参数的视频编码实际过程中，并不是恒定的数值，所以只能设定平均视频编码码率。
+ * @brief Average video encoding rate. The default is 1024*1000
+ * @discussion unit is bps(Bits per Second). The parameters of the video encoding are not constant values in the actual process, so the average video encoding rate can be set only.
  */
 @property (nonatomic, assign) NSUInteger averageVideoBitRate;
 
 /**
- * @brief 视频编码关键帧最大间隔（GOP）。
- * @discussion h.264 编码时，两个关键帧之间间隔的最多的帧数，一般为 fps 的两倍或者三倍。默认为 2*fps
+ * @brief The Maximum Interval of video encoding Keyframe. (GOP)
+ * @discussion During h.264 encoding, The maximum number of frames between two keyframes typically is twice or three times than the fps. The default is 2*fps
  */
 @property (nonatomic, assign) NSUInteger videoMaxKeyframeInterval;
 
 /**
- * @brief H.264 编码时使用的 Profile Level。
- * @discussion 默认情况下使用 AVVideoProfileLevelH264HighAutoLevel，如果对于视频编码有额外的需求并且知晓该参数带来的影响可以自行更改。
- * @warning 当你不清楚该参数更改对分辨率要求，码率等影响时，请不要随意更改。
+ * @brief During H.264 encoding, the Profile Level will be used.
+ * @discussion By default, AVVideoProfileLevelH264HighAutoLevel is used, if you have additional requirements for video encoding, you can change it yourself if understanding that the impacts  from this parameter.
+ * @warning When you are not sure about the impact of this parameter change on resolution requirements, code rate, etc., please do not change it.
  */
 @property (nonatomic, copy) NSString *videoProfileLevel;
 
 /**
- * @brief 创建一个默认配置的 MSVVideoConfiguration 实例.
- * @return 创建的默认 MSVVideoConfiguration 对象
+ * @brief Create a default configuration of the MSVVideoConfiguration instance.
+ * @return The created default MSVVideoConfiguration object
  */
 + (instancetype)defaultConfiguration;
 
 /**
- * @brief 验证对象是否有效
- * @param outError 如果发生错误，返回发生的错误
- * @return 有效返回 YES，无效返回 NO
+ * @brief Verify the object is valid or not
+ * @param outError If an error occurs, return the error that occurred
+ * @return Valid operation return YES, invalid operation return NO
  */
 - (BOOL)validateWithError:(NSError **)outError;
 

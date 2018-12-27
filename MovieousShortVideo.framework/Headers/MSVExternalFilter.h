@@ -9,23 +9,23 @@
 #import <AVFoundation/AVFoundation.h>
 
 /**
- * @brief 外部滤镜效果协议，所有外部滤镜都需要遵守此协议
+ * @brief The external filter effect protocol, which should be followed by all of the external filters.
  */
 @protocol MSVExternalFilter <NSObject>
 
 @required
 /**
- * @brief 生成一个共享的外部滤镜对象
- * @return 生成的外部滤镜对象
+ * @brief Generate a shared external filter object
+ * @return Generated external filter object
  */
 + (instancetype)sharedInstance;
 @optional
 
 /**
- * @brief 处理视频数据
- * @param pixelBuffer 待处理的视频数据
- * @param sampleTimingInfo 待处理视频数据的时间戳
- * @return 处理完成的视频数据，可以直接返回待处理的视频数据，即不进行任何处理
+ * @brief Processin video data
+ * @param pixelBuffer Pending video data
+ * @param sampleTimingInfo Timestamp of pending video data
+ * @return Video data after processing, can feedback the pending video data directly, which is, without any processing.
  */
 - (CVPixelBufferRef)processPixelBuffer:(CVPixelBufferRef)pixelBuffer sampleTimingInfo:(CMSampleTimingInfo)sampleTimingInfo;
 

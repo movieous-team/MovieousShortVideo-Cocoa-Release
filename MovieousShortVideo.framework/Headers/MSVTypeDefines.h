@@ -10,79 +10,79 @@
 #import <AVFoundation/AVFoundation.h>
 
 /**
- * 视频输入源类型
+ * Video input souce type
  */
 typedef NS_ENUM(NSInteger, MSVVideoSource) {
     /**
-     * @brief 不录制视频，请不要同时使 video source 和 audio source 都为 none
+     * @brief No video，please don't set both video source and audio source to none.
      */
     MSVVideoSourceNone,
     /**
-     * @brief 摄像头输入源
+     * @brief Camera input source
      */
     MSVVideoSourceCamera,
     /**
-     * @brief UIView 输入源，当使用此输入源时请在 MSVRecorder 的 `startRecordingWithClipConfiguration:error:` 中指定 viewForRecording 对象
+     * @brief UIView input source, when you use this input source please specify viewForRecording property in `startRecordingWithClipConfiguration:error:` method
      */
     MSVVideoSourceUIView,
     /**
-     * @brief 外部视频源
-     * @warning 使用此输入源时请使用 `writeVideoData:error:` 方法输入视频数据，如果选择外部数据源又不导入视频会导致未知问题
+     * @brief External video source
+     * @warning When you use this input source, please use `writeVideoData:error:` to write video data, if you choose external video source but don't input video data, unknown error may come out
      */
     MSVVideoSourceExtern,
 };
 
 /**
- * @brief 音频输入源类型
+ * @brief Audio input source
  */
 typedef NS_ENUM(NSInteger, MSVAudioSource) {
     /**
-    * @brief 不录制音频，请不要同时使 video source 和 audio source 都为 none
+     * @brief No audio，please don't set both video source and audio source to none.
      */
     MSVAudioSourceNone,
     /**
-     * @brief 麦克风输入源
+     * @brief Microphone input source.
      */
     MSVAudioSourceMicrophone,
     /**
-     * @brief 外部输入源
-     * @warning 使用此输入源时请使用 `writeAudioData:error:` 方法输入音频数据，如果选择外部数据源又不导入视频会导致未知问题
+     * @brief External input source
+     * @warning You must use `writeAudioData:error:` method to input audio data when use this input source, if you choose external audio source but don't input audio data, unknown error may come out
      */
     MSVAudioSourceExtern,
 };
 
 /**
- * @brief 录制进入后台时采取的操作类型
+ * @brief Action to take when enter background
  */
 typedef NS_ENUM(NSInteger, MSVBackgroundAction) {
     /**
-     * @brief 退出到后台之后不做任何操作，调用者需要负责进行正确的操作，一般是取消或结束当前片段的录制
+     * @brief Take no action, caller is responsible to take right actions such as cancel or finish recording current clip
      */
     MSVBackgroundActionContinue,
     /**
-     * @brief 退出到后台之后结束并保存当前录制的片段
+     * @brief Finish and save clip being recording when enter background
      */
     MSVBackgroundActionFinish,
 };
 
 /**
- * @brief 预览视图的方向
+ * @brief Orientation of preview
  */
 typedef NS_ENUM(NSInteger, MSVPreviewOrientation) {
     /**
-     * @brief 正立方向
+     * @brief Portrait orientation
      */
     MSVPreviewOrientationPortrait = 0,
     /**
-     * @brief 倒立方向
+     * @brief Upside down orientation
      */
     MSVPreviewOrientationPortraitUpsideDown = 1,
     /**
-     * @brief 横置并且 Home 键位于右侧
+     * @brief LandscapeRight orientation
      */
     MSVPreviewOrientationLandscapeRight = 2,
     /**
-     * @brief 横置并且 Home 键位于左侧
+     * @brief LandscapeLeft orientation
      */
     MSVPreviewOrientationLandscapeLeft = 3,
 };
@@ -90,23 +90,23 @@ typedef NS_ENUM(NSInteger, MSVPreviewOrientation) {
 #pragma mark - Audio SampleRate
 
 /**
- * @brief 音频编码采样率
+ * @brief Audio sample rate
  */
 typedef NS_ENUM(NSUInteger, MSVAudioSampleRate) {
     /**
-     * @brief 48000Hz 音频编码采样率
+     * @brief 48000Hz sample rate
      */
     MSVAudioSampleRate_48000Hz = 48000,
     /**
-     * @brief 44100Hz 音频编码采样率
+     * @brief 44100Hz sample rate
      */
     MSVAudioSampleRate_44100Hz = 44100,
     /**
-     * @brief 22050Hz 音频编码采样率
+     * @brief 22050Hz sample rate
      */
     MSVAudioSampleRate_22050Hz = 22050,
     /**
-     * @brief 11025Hz 音频编码采样率
+     * @brief 11025Hz sample rate
      */
     MSVAudioSampleRate_11025Hz = 11025,
 };
@@ -114,20 +114,20 @@ typedef NS_ENUM(NSUInteger, MSVAudioSampleRate) {
 #pragma mark - Audio BitRate
 
 /**
- * @brief 音频编码码率
+ * @brief Audio bitrate
  */
 
 typedef NS_ENUM(NSInteger, MSVAudioBitRate) {
     /**
-     * @brief 64Kbps 音频码率
+     * @brief 64Kbps bitrate
      */
     MSVAudioBitRate_64Kbps = 64000,
     /**
-     * @brief 96Kbps 音频码率
+     * @brief 96Kbps bitrate
      */
     MSVAudioBitRate_96Kbps = 96000,
     /**
-     * @brief 128Kbps 音频码率
+     * @brief 128Kbps bitrate
      */
     MSVAudioBitRate_128Kbps = 128000,
 };
@@ -135,65 +135,65 @@ typedef NS_ENUM(NSInteger, MSVAudioBitRate) {
 #pragma mark - Video File Type
 
 /**
- * @brief 录制目标文件类型
+ * @brief Destination file type for recording
  */
 typedef NS_ENUM(NSUInteger, MSVFileType) {
     /**
-     * @brief mp4 文件，一般以 .mp4 为后缀
+     * @brief mp4 file type，suffixed .mp4
      */
     MSVFileTypeMPEG4,
     /**
-     * @brief QuickTime Movie 文件，一般以 .mov 为后缀
+     * @brief QuickTime Movie file type，suffixed .mov
      */
     MSVFileTypeQuickTimeMovie, // .mov
     /**
-     * @brief m4a 文件，一般以 .m4a 为后缀
+     * @brief m4a file type，suffixed .m4a
      */
     MSVFileTypeM4A, // .m4a
 };
 
 /**
- * @brief 视频转场类型
+ * @brief Video transition type
  */
 typedef NS_ENUM(NSInteger, MSVVideoTransitionType) {
     /**
-     * @brief 溶解转场效果
+     * @brief Dissolve transition type
      */
     MSVVideoTransitionTypeDissolve,
     /**
-     * @brief 向右扫入转场效果
+     * @brief Wipe right transition type
      */
     MSVVideoTransitionTypeWipeRight,
     /**
-     * @brief 向左扫入转场效果
+     * @brief Wipe left transition type
      */
     MSVVideoTransitionTypeWipeLeft,
     /**
-     * @brief 向上扫入转场效果
+     * @brief Wipe up transition type
      */
     MSVVideoTransitionTypeWipeUp,
     /**
-     * @brief 向下扫入转场效果
+     * @brief Wipe down transition type
      */
     MSVVideoTransitionTypeWipeDown,
     /**
-     * @brief 向右划入转场效果
+     * @brief Slide right transition type
      */
     MSVVideoTransitionTypeSlideRight,
     /**
-     * @brief 向左划入转场效果
+     * @brief Slide left transition type
      */
     MSVVideoTransitionTypeSlideLeft,
     /**
-     * @brief 向上划入转场效果
+     * @brief Slide up transition type
      */
     MSVVideoTransitionTypeSlideUp,
     /**
-     * @brief 向下划入转场效果
+     * @brief Slide down transition type
      */
     MSVVideoTransitionTypeSlideDown,
     /**
-     * @brief 渐隐渐现转场效果
+     * @brief Fade transition type
      */
     MSVVideoTransitionTypeFade
 };

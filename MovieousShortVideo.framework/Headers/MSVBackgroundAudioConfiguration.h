@@ -10,36 +10,36 @@
 #import <MovieousBase/MovieousBase.h>
 
 /**
- * @brief 背景音效的配置类
+ * @brief Background audio configuration class
  */
 @interface MSVBackgroundAudioConfiguration : NSObject
 
 /**
- * @brief 背景音效源文件路径
- * @warning 当前仅支持本地文件
+ * @brief Background audio source file URL
+ * @warning Only local file URL is supported
  */
 @property (nonatomic, strong, readonly) NSURL *URL;
 
 /**
- * @brief URL 指向的音频当中截取使用的区间，默认全部使用
+ * @brief The time range to use of the audio source
  */
 @property (nonatomic, assign) MovieousTimeRange timeRange;
 
 /**
- * @brief 背景音效的音量，默认为音频文件中自带的 preferredVolume
+ * @brief Volume of background audio, default to the preferredVolume in the audio file
  */
 @property (nonatomic, assign) float volume;
 
 /**
- * @brief 是否循环播放背景音效直到录制结束，默认为 NO
+ * @brief NO Loop audio play untill recording finishes
  */
 @property (nonatomic, assign) BOOL loop;
 
 /**
- * @brief 初始化背景音效对象
- * @param URL 背景音效源文件路径，当前仅支持本地文件
- * @param outError 如发生错误，返回具体的错误对象
- * @return 生成成功返回初始化的对象，发生错误返回 nil
+ * @brief Create a new MSVBackgroundAudioConfiguration instance
+ * @param URL Audio source file URL, only local file is supported
+ * @param outError Return error if any
+ * @return Created instance if success or else nil
  */
 + (instancetype)backgroundAudioConfigurationWithURL:(NSURL *)URL error:(NSError **)outError;
 

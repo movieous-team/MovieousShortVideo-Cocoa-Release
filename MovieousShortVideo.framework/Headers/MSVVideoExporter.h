@@ -15,96 +15,99 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MSVVideoExporter : NSObject
 
 /**
- * @brief 草稿对象
+ * @brief Draft object
  */
 @property (nonatomic, strong, readonly, nullable) MSVDraft *draft;
 
 /**
- * @brief 导出任务是否正在运行
+ * @brief Whether the export task is running
  */
 @property (nonatomic, assign) BOOL running;
 
 /**
- * @brief 是否同时将视频导出到相册，默认为 NO
+ * @brief Whether to export the video to the album at the same time, the default is NO
  */
 @property (assign, nonatomic) BOOL saveToPhotosAlbum;
 
 /**
- * @brief 视频导出的文件类型，默认为 MSVFileTypeMPEG4(.mp4)
+ * @brief The file type of the video export, the default is MSVFileTypeMPEG4(.mp4)
  */
 @property (assign, nonatomic) MSVFileType outputFileType;
 
 /**
- * @brief 视频导出的路径，只支持本地文件地址，默认为自动生成的地址
+ * @brief The path of the video export only supports the local file address. The default is the automatically generated address.
  */
 @property (strong, nonatomic, nullable) NSURL *outputURL;
 
 /**
- * @brief 视频的码率，默认为原视频的码率
+ * @brief The bitrate of the video, the default is the bitrate of the original video.
  */
 @property (assign, nonatomic) NSUInteger videoBitrate;
 
 /**
- * @brief 导出视频的声道数量，默认使用原音频的声道数量
+ * @brief The number of channels of the exported video, the default number of channels use the original audio
  */
 @property (nonatomic, assign) UInt32 numberOfChannels;
 
 /**
- * @brief 导出视频的音频采样率，默认使用原音频的采样率
+ * @brief The audio sample rate of the video that exported, using the original audio sample rate by default.
  */
 @property (nonatomic, assign) Float64 sampleRate;
 
 /**
- * @brief 导出视频的音频码率，默认使用原视频的码率
+ * @brief The audio bitrate of the video that exported, using the original video's bitrate by default.
  */
 @property (nonatomic, assign) Float64 audioBitRate;
 
 /**
- * @brief 是否设置便于网络环境下的传输，默认为 YES
+ * @brief Whether set up the transmission in the network environment, the default is YES
  */
 @property (assign, nonatomic) BOOL shouldOptimizeForNetworkUse;
 
 /**
- * @brief 导出进度回调
+ * @brief Export progress callback
  */
 @property (nonatomic, copy, nullable) void(^progressHandler)(float progress);
 
 /**
- * @brief 导出失败回调
+ * @brief Export failure callback
  */
 @property (nonatomic, copy, nullable) void(^failureHandler)(NSError *error);
 
 /**
- * @brief 导出成功回调
+ * @brief Export successful callback
  */
 @property (nonatomic, copy, nullable) void(^completionHandler)(NSURL *URL);
 
+/**
+ * @brief Init and new are both not available, use other initialization method instead.
+ */
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
 
 /**
- * @brief 使用 draft 初始化导出对象
- * @param draft 需要导出的草稿对象
- * @param outError 如果发生错误，返回发生的具体错误
- * @return 如果初始化成功返回初始化后的对象，否则返回 nil
+ * @brief Export objects with initialization draft
+ * @param draft Draft object that needs to be exported
+ * @param outError If an error occurs, return the error that occurred
+ * @return It returns the initialized object if the initial succeeded, otherwise returns nil
  */
 - (instancetype _Nullable)initWithDraft:(MSVDraft *_Nullable)draft error:(NSError * _Nullable * _Nullable)outError;
 
 /**
- * @brief 更新草稿
- * @param draft 新草稿
- * @param outError 如果发生错误，返回发生的具体错误
- * @return 更新成功返回 YES，否则返回 NO
+ * @brief Update draft
+ * @param draft New draft
+ * @param outError If an error occurs, return the error that occurred
+ * @return It returns YES if update successfully otherwise returns NO
  */
 - (BOOL)updateDraft:(MSVDraft *)draft error:(NSError * _Nullable * _Nullable)outError;
 
 /**
- * @brief 开始导出任务
+ * @brief Start exporting tasks
  */
 - (void)startExport;
 
 /**
- * @brief 取消导出任务
+ * @brief Cancel the export task
  */
 - (void)cancelExport;
 

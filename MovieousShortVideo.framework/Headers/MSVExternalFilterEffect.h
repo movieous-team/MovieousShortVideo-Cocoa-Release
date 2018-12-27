@@ -13,18 +13,19 @@
 @interface MSVExternalFilterEffect : NSObject
 
 /**
- * @brief 用户自定义 ID 字段，业务使用用于区分对象
+ * @brief User-defined ID field, business usage is used to distinguish objects
  */
 @property (nonatomic, strong) NSString *ID;
 
 /**
- * @brief 外部滤镜的 class
+ * @brief  The external filter class
  */
 @property (nonatomic, assign) Class<MSVExternalFilter> externalFilterClass;
 
 /**
- * @brief 在主轨当中应用外部滤镜的时间区间
+ * @brief The time interval for applying an external filter in the main track
  */
 @property (nonatomic, assign) MovieousTimeRange timeRangeAtMainTrack;
 
 @end
+

@@ -22,12 +22,25 @@ FOUNDATION_EXPORT const unsigned char MovieousShortVideoVersionString[];
 #import <MovieousShortVideo/MSVRepeatEffect.h>
 #import <MovieousShortVideo/MSVSpeedEffect.h>
 
+/**
+ * @brief This class contains common configurations
+ */
 @interface MovieousShortVideo : NSObject
 
+/**
+ * @brief Is `-registerWithLicense` been called before
+ */
 @property (nonatomic, assign, readonly, class) BOOL registered;
 
+/**
+ * @brief Register the SDK with license string
+ * @param license The license string from Movieous team
+ */
 + (void)registerWithLicense:(NSString *)license;
 
+/**
+ * @brief Return the auth state for the SDK
+ */
 + (BOOL)checkAuthState;
 
 @end

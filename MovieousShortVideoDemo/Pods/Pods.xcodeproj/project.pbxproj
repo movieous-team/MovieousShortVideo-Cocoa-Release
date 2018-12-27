@@ -58,6 +58,7 @@
 		10513A85B1E6710F55BBECF10742F839 /* MASConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraint.m; path = Masonry/MASConstraint.m; sourceTree = "<group>"; };
 		11E666FA9CD7DD4D0951AE118510F6DB /* Pods-MovieousShortVideoDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MovieousShortVideoDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		1A2D6093E6305DABA612975770564502 /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
+		1F5687C372DB7E5A6362DD016A4B1EBD /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		27437D8EF5976C760D3B2D72B999D4FE /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
 		2EFB40531CB700ADF867FEEE78561E78 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		313692F435C9EB3A9B81D73A2B2ED288 /* Pods-MovieousShortVideoDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MovieousShortVideoDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -66,6 +67,7 @@
 		47E86A7F3800926894542CF82F5DA03F /* Pods-MovieousShortVideoDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MovieousShortVideoDemo-dummy.m"; sourceTree = "<group>"; };
 		58D4ED2B888F3D834DACE3822D40589D /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		5B315E5A22B4D202D8E1F9D1D348B6C7 /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
+		6007179102640A50A9D47BC2D1324F54 /* MovieousShortVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MovieousShortVideo.framework; sourceTree = "<group>"; };
 		680F5E0BB1921ED86BA162C9C669E8AE /* Masonry.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.xcconfig; sourceTree = "<group>"; };
 		68E8A59BE2861A15B337C6EC5E3B1356 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69121B9B9B4C512331FF3FFD11F117F7 /* View+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
@@ -84,13 +86,11 @@
 		A42735FFB2459B7A7116709EFD6D363C /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
 		A6989677CDD25CC9EC1266EDF2DEF82F /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
 		A87DF296B034AB705C31777EA5BFD60C /* MASUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASUtilities.h; path = Masonry/MASUtilities.h; sourceTree = "<group>"; };
-		A94D14C7C493834F6237817F057EC866 /* MovieousShortVideo.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = MovieousShortVideo.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AF1574D8F1798C902A3A41FADEEAD7D0 /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Masonry.framework; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6844189986DC0AE6ED1A3E1E090BFE1 /* Pods-MovieousShortVideoDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MovieousShortVideoDemo-umbrella.h"; sourceTree = "<group>"; };
 		BA087956EC0786D049715E51EFE2029B /* MovieousBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MovieousBase.framework; sourceTree = "<group>"; };
 		BE93F5A0E3953D8F0E5035DBA23A214A /* Masonry-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-umbrella.h"; sourceTree = "<group>"; };
 		BEAF261AFAF812564090780C0246F93F /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASShorthandAdditions.h"; path = "Masonry/NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
-		C86B62282E14E7A1D542A975238CE96C /* MovieousShortVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MovieousShortVideo.framework; sourceTree = "<group>"; };
 		D00CBB060798A8459F40EB607A704A05 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ViewController+MASAdditions.m"; path = "Masonry/ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		D1957B5C5251A73A65A8E378C1FC6EAF /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+MASDebugAdditions.h"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
 		D3CC401E6200261542F8A3B66BBFD365 /* MASConstraintMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraintMaker.m; path = Masonry/MASConstraintMaker.m; sourceTree = "<group>"; };
@@ -98,6 +98,7 @@
 		D9F3C2F01A80E0A87EFE8871C69587D0 /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
 		E49BEDFFAC62B8D6CA339306E00F8F43 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E98F20CC10ED7FB8778950B8345C6C20 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASLayoutConstraint.h; path = Masonry/MASLayoutConstraint.h; sourceTree = "<group>"; };
+		F1A1343C7A8421EF5951049BDDAD4794 /* MovieousShortVideo.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = MovieousShortVideo.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F7A018F18254F07A2A6643C44D5EC9B7 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASLayoutConstraint.m; path = Masonry/MASLayoutConstraint.m; sourceTree = "<group>"; };
 		FD01BEB3A31FB11808D9913EFE284CE3 /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
 		FF722BF892838C423EF63C4E58FAAAA0 /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
@@ -131,14 +132,6 @@
 				74E404AA6957590324067E330E0EC533 /* UIKit.framework */,
 			);
 			name = iOS;
-			sourceTree = "<group>";
-		};
-		08CAB97B2B2F5886EEF5E497C15203A4 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C86B62282E14E7A1D542A975238CE96C /* MovieousShortVideo.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		1740B5688F0D8C5FF55B469A3E03A893 /* Masonry */ = {
@@ -200,14 +193,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		593557465E74731BAE70ABE2E3E64175 /* MovieousShortVideo */ = {
+		555E1615799FE66792EEC66AED68229D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				08CAB97B2B2F5886EEF5E497C15203A4 /* Frameworks */,
-				6FEE5EC75DFBA990C73ADCD2C9CB771B /* Pod */,
+				6007179102640A50A9D47BC2D1324F54 /* MovieousShortVideo.framework */,
 			);
-			name = MovieousShortVideo;
-			path = ../..;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		5D08FE5399049FEE847C100E4D99FAF3 /* Support Files */ = {
@@ -241,18 +232,10 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		6FEE5EC75DFBA990C73ADCD2C9CB771B /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				A94D14C7C493834F6237817F057EC866 /* MovieousShortVideo.podspec */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
 		7BA1C5531BDF0FFD0B9DED4BD4A22AC9 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				593557465E74731BAE70ABE2E3E64175 /* MovieousShortVideo */,
+				889AEC2E1BAA9EC7D97AAB3DCB439A0C /* MovieousShortVideo */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
@@ -267,6 +250,25 @@
 				66F0999FCF9628FA3490FEBD8236A0E9 /* Products */,
 				6B67AC7A16E7AD968604369FE4E98CFF /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		889AEC2E1BAA9EC7D97AAB3DCB439A0C /* MovieousShortVideo */ = {
+			isa = PBXGroup;
+			children = (
+				555E1615799FE66792EEC66AED68229D /* Frameworks */,
+				CB1BDDC540F55D481C03F8A3D11620A9 /* Pod */,
+			);
+			name = MovieousShortVideo;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		CB1BDDC540F55D481C03F8A3D11620A9 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				F1A1343C7A8421EF5951049BDDAD4794 /* MovieousShortVideo.podspec */,
+				1F5687C372DB7E5A6362DD016A4B1EBD /* README.md */,
+			);
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		F6634A234A2733BA50C1B81BF773B33C /* Pods */ = {
