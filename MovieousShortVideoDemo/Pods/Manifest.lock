@@ -1,7 +1,7 @@
 PODS:
   - Masonry (1.1.0)
   - MovieousBase (1.0.0)
-  - MovieousShortVideo (1.0.3):
+  - MovieousShortVideo (1.0.4):
     - MovieousBase (= 1.0.0)
 
 DEPENDENCIES:

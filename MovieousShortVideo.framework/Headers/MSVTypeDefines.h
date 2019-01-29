@@ -149,7 +149,7 @@ typedef NS_ENUM(NSUInteger, MSVFileType) {
     /**
      * @brief m4a file type，suffixed .m4a
      */
-    MSVFileTypeM4A, // .m4a
+    MSVFileTypeM4V, // .m4v
 };
 
 /**

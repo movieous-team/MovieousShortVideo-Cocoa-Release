@@ -21,6 +21,7 @@ FOUNDATION_EXPORT const unsigned char MovieousShortVideoVersionString[];
 #import <MovieousShortVideo/MSVVideoExporter.h>
 #import <MovieousShortVideo/MSVRepeatEffect.h>
 #import <MovieousShortVideo/MSVSpeedEffect.h>
+#import <MovieousShortVideo/MSVTranscoder.h>
 
 /**
  * @brief This class contains common configurations
