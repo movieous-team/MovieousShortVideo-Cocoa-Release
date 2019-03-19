@@ -24,12 +24,13 @@ MovieousMicrophoneConfiguration
  */
 @property (nonatomic, assign) MSVAudioSource source;
 
-/**
- * @brief The number of channels for collecting audio data. The default is 1
- * @warning Not all capturing devices support multichannel data acquisition
+#pragma mark - microphone configurations
+/*!
+ * Whether to allow to compromise some parameters which are not supported by the current device to ensure component initialization's success. Default to YES
  */
-@property (assign, nonatomic) NSUInteger numberOfChannels;
+@property (nonatomic, assign) BOOL compromise;
 
+#pragma mark - encoder configurations
 /**
  * @brief Audio sample rate sampleRate The default is MSVAudioSampleRate_44100Hz
  */

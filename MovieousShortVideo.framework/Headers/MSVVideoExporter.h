@@ -86,12 +86,20 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)new NS_UNAVAILABLE;
 
 /**
- * @brief Export objects with initialization draft
+ * @brief Initialize an exporter objects with initialization draft
  * @param draft Draft object that needs to be exported
  * @param outError If an error occurs, return the error that occurred
  * @return It returns the initialized object if the initial succeeded, otherwise returns nil
  */
 - (instancetype _Nullable)initWithDraft:(MSVDraft *_Nullable)draft error:(NSError * _Nullable * _Nullable)outError;
+
+/**
+ * @brief Create an exporter objects with initialization draft
+ * @param draft Draft object that needs to be exported
+ * @param outError If an error occurs, return the error that occurred
+ * @return It returns the initialized object if the initial succeeded, otherwise returns nil
+ */
++ (instancetype _Nullable)exporterWithDraft:(MSVDraft *_Nullable)draft error:(NSError * _Nullable * _Nullable)outError;
 
 /**
  * @brief Update draft

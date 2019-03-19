@@ -7,12 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <MovieousBase/MovieousBase.h>
+#import "MSVTimeEffect.h"
 
 /**
  * @brief Repeat effects
  */
 @interface MSVRepeatEffect : NSObject
+<
+MSVTimeEffect
+>
 
 /**
  * @brief User-defined ID field, business usage is used to distinguish objects

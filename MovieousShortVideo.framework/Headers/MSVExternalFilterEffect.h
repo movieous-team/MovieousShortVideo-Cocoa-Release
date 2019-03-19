@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "MSVExternalFilter.h"
-#import <MovieousBase/MovieousBase.h>
+#import "MSVBasicEffect.h"
 
 @interface MSVExternalFilterEffect : NSObject
+<
+MSVBasicEffect
+>
 
 /**
  * @brief User-defined ID field, business usage is used to distinguish objects

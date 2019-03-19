@@ -7,12 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <MovieousBase/MovieousBase.h>
+#import "MSVBasicEffect.h"
 
 /**
  * @brief Image sticker effects
  */
 @interface MSVImageStickerEffect : NSObject
+<
+MSVBasicEffect
+>
 
 /**
  * @brief User-defined ID field, business usage is used to distinguish objects
@@ -30,6 +33,8 @@
  */
 @property (nonatomic, assign) CGRect destRect;
 
+@property (nonatomic, assign) CGFloat rotation;
+
 /**
  * @brief The time interval for applying an external filter in the main track
  */
@@ -37,7 +42,7 @@
 
 - (instancetype)initWithImage:(UIImage *)image;
 
-+ (instancetype)stickerEffectWithImage:(UIImage *)image;
++ (instancetype)imageStickerEffectWithImage:(UIImage *)image;
 
 @end
 
