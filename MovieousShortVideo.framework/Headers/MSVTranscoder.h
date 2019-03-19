@@ -14,11 +14,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MSVTranscoder : NSObject
 
+/**
+ * @brief The URL of the media source file you would like to transcode
+ */
 @property (nonatomic, strong, readonly) NSURL *URL;
 
+/**
+ * @brief The running status of the transcoder
+ */
 @property (nonatomic, assign, readonly) BOOL running;
 
-
+/**
+ * @brief The time range you would like to trim from the source media
+ */
 @property (nonatomic, assign) MovieousTimeRange timeRange;
 
 /**

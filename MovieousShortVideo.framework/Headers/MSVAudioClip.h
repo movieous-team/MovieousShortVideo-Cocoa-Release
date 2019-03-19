@@ -11,7 +11,10 @@
 /**
  * @brief Audio clip
  */
-@interface MSVAudioClip<MSVClip> : NSObject
+@interface MSVAudioClip : NSObject
+<
+MSVClip
+>
 
 /**
  * @brief User-defined ID field, business usage is used to distinguish objects
@@ -24,14 +27,14 @@
 @property (nonatomic, strong, readonly) NSURL *URL;
 
 /**
+ * @brief Time range on main track in draft
+ */
+@property (nonatomic, assign) MovieousTimeRange timeRangeAtMainTrack;
+
+/**
  * @brief The underlying AVAsset object can get media parameters such as duration
  */
 @property (nonatomic, strong, readonly) AVAsset *asset;
-
-/**
- * @brief The time when the audio clip starts in the main track,the actual duration of the audio clip in the main track is timeRange.duration / speed
- */
-@property (nonatomic, assign) NSTimeInterval startTimeAtMainTrack;
 
 /**
  * @brief Intercepting the time range used in the audio clip, this time range refers to the time range without the fast and slow processing, please be note: timeRange.startTime + timeRange.duration <= total media duration

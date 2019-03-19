@@ -10,14 +10,32 @@
 #import "MSVDraft.h"
 #import "MSVClip.h"
 
+/**
+ * @brief Notify the current play time of the editor has updated
+ */
 extern NSString *kMSVEditorCurrentTimeUpdatedNotification;
+
+/**
+ * @brief The current time key of kMSVEditorCurrentTimeUpdatedNotification
+ */
+extern NSString *kMSVEditorCurrentTimeKey;
 
 @class MSVEditor;
 @protocol MSVEditorDelegate <NSObject>
 
 @optional
+/**
+ * @brief Notify the delegate that current play time has updated
+ * @param editor The editor that send the event
+ * @param currentTime The current play time of the editor
+ */
 - (void)editor:(MSVEditor *)editor currentTimeDidUpdate:(NSTimeInterval)currentTime;
 
+/**
+ * @brief Notify the delegate that current play state has changed
+ * @param editor The editor that send the event
+ * @param playing The current play state of the editor
+ */
 - (void)editor:(MSVEditor *)editor playStateChanged:(BOOL)playing;
 
 @end

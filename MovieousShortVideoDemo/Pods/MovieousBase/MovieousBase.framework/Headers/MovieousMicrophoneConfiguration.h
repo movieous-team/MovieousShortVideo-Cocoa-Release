@@ -10,6 +10,9 @@
 
 @protocol MovieousMicrophoneConfiguration <NSObject>
 
-@property (assign, nonatomic) NSUInteger numberOfChannels;
+/*!
+ * Whether to allow to compromise some parameters which are not supported by the current device to ensure component initialization's success. Default to YES
+ */
+@property (nonatomic, assign) BOOL compromise;
 
 @end

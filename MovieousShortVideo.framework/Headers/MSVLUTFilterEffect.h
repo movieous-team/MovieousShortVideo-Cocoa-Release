@@ -7,12 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <MovieousBase/MovieousBase.h>
+#import "MSVBasicEffect.h"
 
 /**
  * @brief Color lookup table filter effect class
  */
 @interface MSVLUTFilterEffect : NSObject
+<
+MSVBasicEffect
+>
 
 /**
  * @brief User defined ID field, used to store any information you want

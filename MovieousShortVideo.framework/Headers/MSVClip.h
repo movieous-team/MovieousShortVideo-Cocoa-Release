@@ -12,7 +12,17 @@
 /**
  * @brief Media clip protocol
  */
-@protocol MSVClip <NSObject>
+@protocol MSVClip
+<
+NSObject,
+NSCopying
+>
+
+/**
+ * @brief User-defined ID field, business usage is used to distinguish objects
+ */
+@property (nonatomic, strong) NSString *ID;
+
 
 /**
  * @brief Media clip URL, only local file is supported
