@@ -26,7 +26,7 @@ MovieousMicrophoneConfiguration
 
 #pragma mark - microphone configurations
 /*!
- * Whether to allow to compromise some parameters which are not supported by the current device to ensure component initialization's success. Default to YES
+ * Whether to allow to compromise some parameters which are not supported by the current device to ensure component initialization's success. The default is YES
  */
 @property (nonatomic, assign) BOOL compromise;
 

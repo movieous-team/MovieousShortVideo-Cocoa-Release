@@ -44,7 +44,7 @@ MovieousCameraConfiguration
 
 /**
  * The scaling mode you want to use if the aspect ratio of cameraResolution and size are not equal.
- * Default to MovieousScalingModeAspectFill
+ * The default is MovieousScalingModeAspectFill
  */
 @property (nonatomic, assign) MovieousScalingMode scalingMode;
 
@@ -79,7 +79,7 @@ MovieousCameraConfiguration
 @property (nonatomic, assign) AVCaptureVideoOrientation cameraOrientation;
 
 /*!
- * Whether to allow to compromise some parameters which are not supported by the current device to ensure component initialization's success. Default to YES
+ * Whether to allow to compromise some parameters which are not supported by the current device to ensure component initialization's success. The default is YES
  */
 @property (nonatomic, assign) BOOL compromise;
 

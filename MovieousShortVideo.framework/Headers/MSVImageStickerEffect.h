@@ -33,6 +33,9 @@ MSVBasicEffect
  */
 @property (nonatomic, assign) CGRect destRect;
 
+/**
+ * @brief Rotation applied to the sticker in radian
+ */
 @property (nonatomic, assign) CGFloat rotation;
 
 /**
@@ -40,9 +43,19 @@ MSVBasicEffect
  */
 @property (nonatomic, assign) MovieousTimeRange timeRangeAtMainTrack;
 
-- (instancetype)initWithImage:(UIImage *)image;
-
+/**
+ * @brief Instantiate the MSVImageStickerEffect instance with image;
+ * @param image The image used
+ * @return The instantiated instance
+ */
 + (instancetype)imageStickerEffectWithImage:(UIImage *)image;
+
+/**
+ * @brief Initiate the MSVImageStickerEffect instance with image;
+ * @param image The image used
+ * @return The initiated instance
+ */
+- (instancetype)initWithImage:(UIImage *)image;
 
 @end
 

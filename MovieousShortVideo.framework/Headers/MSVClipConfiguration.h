@@ -17,17 +17,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MSVClipConfiguration : NSObject
 
 /**
- * @brief Clip file URL, default to auto generated URL
+ * @brief Clip file URL, the default is auto generated URL
  */
 @property (nonatomic, strong) NSURL *URL;
 
 /**
- * @brief Media file type of the clip to be recorded, default to MSVFileTypeMPEG4
+ * @brief Media file type of the clip to be recorded, the default is MSVFileTypeMPEG4
  */
 @property (nonatomic, assign) MSVFileType fileType;
 
 /**
- * @brief Clip speed of the clip to be recorded, default to 1.0
+ * @brief Clip speed of the clip to be recorded, the default is 1.0
  * Recommend configurations:
  * very fast：2.0
  * fast：1.5
@@ -38,13 +38,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat speed;
 
 /**
- * @brief Original sound volume of the clip to be recorded, default to 1.0
+ * @brief Original sound volume of the clip to be recorded, the default is 1.0
  */
 @property (nonatomic, assign) float volume;
 
 /**
  * @brief View used for recording, only valid when videoConfiguration.source = MSVVideoSourceUIView
- * Default to nil
+ * The default is nil
  */
 @property (nonatomic, strong) UIView *viewForRecording;
 

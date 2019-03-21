@@ -26,7 +26,7 @@
 @property (nonatomic, assign) MovieousTimeRange timeRange;
 
 /**
- * @brief Volume of background audio, default to the preferredVolume in the audio file
+ * @brief Volume of background audio, the default is the preferredVolume in the audio file
  */
 @property (nonatomic, assign) float volume;
 

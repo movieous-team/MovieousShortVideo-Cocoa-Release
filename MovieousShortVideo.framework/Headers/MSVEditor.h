@@ -112,6 +112,14 @@ extern NSString *kMSVEditorCurrentTimeKey;
 - (instancetype)initWithDraft:(MSVDraft *)draft error:(NSError **)outError;
 
 /**
+ * @brief Update the underlying MSVDraft object
+ * @param draft Draft object
+ * @param outError If an error occurs, return the error that occurred
+ * @return It returns YES if the update is successful, returns NO if it fails.
+ */
+- (BOOL)updateDraft:(MSVDraft *)draft error:(NSError **)outError;
+
+/**
  * @brief Start previewing
  */
 - (void)play;
