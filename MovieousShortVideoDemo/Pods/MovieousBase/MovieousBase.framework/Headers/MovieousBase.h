@@ -19,3 +19,8 @@ FOUNDATION_EXPORT const unsigned char MovieousBaseVersionString[];
 #import <MovieousBase/MovieousMicrophoneConfiguration.h>
 #import <MovieousBase/MovieousCameraConfiguration.h>
 #import <MovieousBase/MovieousTypeDefines.h>
+#import <MovieousBase/MovieousMacros.h>
+#import <MovieousBase/MovieousExternalFilterCaptureEffect.h>
+#import <MovieousBase/MovieousImageStickerCaptureEffect.h>
+#import <MovieousBase/MovieousLUTFilterCaptureEffect.h>
+#import <MovieousBase/MovieousFaceBeautyCaptureEffect.h>

@@ -87,21 +87,8 @@ extern NSString *kMSVEditorCurrentTimeKey;
  */
 @property (nonatomic, strong) dispatch_queue_t delegateQueue;
 
-/**
- * @brief Initialize an MSVEditor object with an audio and video URL
- * @param URL Audio and video address
- * @param outError If an error occurs, return the error that occurred
- * @return It returns the draft object if the initialization is successful, returns nil if it fails.
- */
-- (instancetype)initWithAVURL:(NSURL *)URL error:(NSError **)outError;
-
-/**
- * @brief Initialize an MSVEditor object with a image URL
- * @param URL Image address
- * @param outError If an error occurs, return the error that occurred
- * @return It returns the draft object if the initialization is successful, returns nil if it fails.
- */
-- (instancetype)initWithImageURL:(NSURL *)URL error:(NSError **)outError;
+- (instancetype)init UNAVAILABLE_ATTRIBUTE;
++ (instancetype)new UNAVAILABLE_ATTRIBUTE;
 
 /**
  * @brief Initialize an MSVEditor object with a draft object
@@ -109,7 +96,15 @@ extern NSString *kMSVEditorCurrentTimeKey;
  * @param outError If an error occurs, return the error that occurred
  * @return It returns the draft object if the initialization is successful, returns nil if it fails.
  */
-- (instancetype)initWithDraft:(MSVDraft *)draft error:(NSError **)outError;
++ (instancetype)editorWithDraft:(MSVDraft *)draft error:(NSError **)outError;
+
+/**
+ * @brief Initialize an MSVEditor object with a draft object
+ * @param draft Draft object
+ * @param outError If an error occurs, return the error that occurred
+ * @return It returns the draft object if the initialization is successful, returns nil if it fails.
+ */
+- (instancetype)initWithDraft:(MSVDraft *)draft error:(NSError **)outError NS_DESIGNATED_INITIALIZER;
 
 /**
  * @brief Update the underlying MSVDraft object
@@ -132,8 +127,7 @@ extern NSString *kMSVEditorCurrentTimeKey;
 /**
  * @brief The player fast forwards to the appropriate position
  * @param time Target position
- * @param completionHandler The callback at the end of fast-forwarding, finished: whether the fast forward is complete。
  */
-- (void)seekToTime:(NSTimeInterval)time completionHandler:(void (^)(BOOL finished))completionHandler;
+- (void)seekToTime:(NSTimeInterval)time accurate:(BOOL)accurate;
 
 @end

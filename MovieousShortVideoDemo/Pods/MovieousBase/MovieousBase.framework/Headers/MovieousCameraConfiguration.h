@@ -1,6 +1,6 @@
 //
 //  MovieousCameraConfiguration.h
-//  MovieousLive
+//  MovieousBase
 //
 //  Created by Chris Wang on 2018/9/20.
 //  Copyright © 2018 Movieous Team. All rights reserved.
@@ -10,75 +10,68 @@
 #define MovieousCameraConfiguration_h
 
 #import <AVFoundation/AVFoundation.h>
-#import "MovieousTypeDefines.h"
+#import <MovieousBase/MovieousTypeDefines.h>
 
-@protocol MovieousCameraConfiguration <NSObject>
-
-@required
-/*!
- * Number of maximum frames per seconds captured by the camera
- * Default to 30
- */
-@property (nonatomic, assign) NSUInteger frameRate;
-
-/*!
- * You may use an AVCaptureSessionPreset to set the resolution for camera output data
- * Default to AVCaptureSessionPresetHigh
- */
-@property (nonatomic, strong) AVCaptureSessionPreset cameraResolution;
+@protocol MovieousCameraConfiguration
+<
+NSObject
+>
 
 /**
- * @brief   Video resolution when encoding. Default to (1280, 720)
+ * @brief   Video resolution when encoding. The default is (1280, 720)
  * @discussion It should be noted that this parameter affects the resolution of the video encoding, rather than the preview size of the data captured by the camera. When the image size passed to the encoder is different from this size, it will be generated in the same way The video ensures that the image does not appear to be compressed (but the cropping phenomenon occurs when the ratio of the encoded video is different from the ratio of the captured video).
  */
 @property (nonatomic, assign) CGSize size;
 
 /**
  * The scaling mode you want to use if the aspect ratio of cameraResolution and size are not equal
- * Default to MovieousScalingModeAspectFill
+ * The default is MovieousScalingModeAspectFill
  */
 @property (nonatomic, assign) MovieousScalingMode scalingMode;
 
 /*!
  * Turn mirrorFrontPreview means preview for front camera will be mirrored
- * Default to YES
+ * The default is YES
  */
 @property (nonatomic, assign) BOOL mirrorFrontPreview;
 
 /*!
  * Turn mirrorBackPreview means preview for back camera will be mirrored
- * Default to NO
+ * The default is NO
  */
 @property (nonatomic, assign) BOOL mirrorBackPreview;
 
 /*!
  * Turn mirrorFrontStream means stream broadcasted for front camera will be mirrored
- * Default to NO
+ * The default is NO
  */
 @property (nonatomic, assign) BOOL mirrorFrontEncoded;
 
 /*!
  * Turn mirrorBackStream means stream broadcasted for back camera will be mirrored
- * Default to NO
+ * The default is NO
  */
 @property (nonatomic, assign) BOOL mirrorBackEncoded;
 
-/*!
- * Indicates the physical position of camera on the system.
- * Default to AVCaptureDevicePositionFront
+/**
+ * @brief Specify the preferred minimum frames per second on camera, what needs to note is that the preferredMinFrameRate is not guaranteed to be applied succesfully, the actual minimum frames per second can be accessed by the property minFrameRate
  */
-@property (nonatomic, assign) AVCaptureDevicePosition cameraPosition;
+@property (nonatomic, assign) Float64 preferredMinFrameRate;
 
-/*!
- * Indicates the orientation of out put video.
- * Default to AVCaptureVideoOrientationPortrait
+/**
+ * @brief Specify the preferred maximum frames per second on camera, what needs to note is that the preferredMaxFrameRate is not guaranteed to be applied succesfully, the actual maximum frames per second can be accessed by the property maxFrameRate
  */
-@property (nonatomic, assign) AVCaptureVideoOrientation cameraOrientation;
+@property (nonatomic, assign) Float64 preferredMaxFrameRate;
 
-/*!
- * Whether to allow to compromise some parameters which are not supported by the current device to ensure component initialization's success. Default to YES
+/**
+ * @brief Specify the resolution for capturing, what needs to note is that the preferredSessionPreset is not guaranteed to be applied succesfully, the actual resolution can be accessed by the property sessionPreset
  */
-@property (nonatomic, assign) BOOL compromise;
+@property (nonatomic, strong) AVCaptureSessionPreset preferredSessionPreset;
+
+/**
+ * @brief Specify the Camera position for capturing, what needs to note is that the preferredDevicePosition is not guaranteed to be applied succesfully, the actual Camera position can be accessed by the property devicePosition
+ */
+@property (nonatomic, assign) AVCaptureDevicePosition preferredDevicePosition;
 
 @end
 

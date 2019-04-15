@@ -1,6 +1,6 @@
 //
 //  MovieousMicrophoneConfiguration.h
-//  Movieous
+//  MovieousBase
 //
 //  Created by Chris Wang on 2018/9/26.
 //  Copyright © 2018 Movieous Team. All rights reserved.
@@ -11,7 +11,7 @@
 @protocol MovieousMicrophoneConfiguration <NSObject>
 
 /*!
- * Whether to allow to compromise some parameters which are not supported by the current device to ensure component initialization's success. Default to YES
+ * Whether to allow to compromise some parameters which are not supported by the current device to ensure component initialization's success. The default is YES
  */
 @property (nonatomic, assign) BOOL compromise;
 

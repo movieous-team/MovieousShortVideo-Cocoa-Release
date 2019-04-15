@@ -52,20 +52,6 @@ typedef NS_ENUM(NSInteger, MSVAudioSource) {
 };
 
 /**
- * @brief Action to take when enter background
- */
-typedef NS_ENUM(NSInteger, MSVBackgroundAction) {
-    /**
-     * @brief Take no action, caller is responsible to take right actions such as cancel or finish recording current clip
-     */
-    MSVBackgroundActionContinue,
-    /**
-     * @brief Finish and save clip being recording when enter background
-     */
-    MSVBackgroundActionFinish,
-};
-
-/**
  * @brief Orientation of preview
  */
 typedef NS_ENUM(NSInteger, MSVPreviewOrientation) {
@@ -85,51 +71,6 @@ typedef NS_ENUM(NSInteger, MSVPreviewOrientation) {
      * @brief LandscapeLeft orientation
      */
     MSVPreviewOrientationLandscapeLeft = 3,
-};
-
-#pragma mark - Audio SampleRate
-
-/**
- * @brief Audio sample rate
- */
-typedef NS_ENUM(NSUInteger, MSVAudioSampleRate) {
-    /**
-     * @brief 48000Hz sample rate
-     */
-    MSVAudioSampleRate_48000Hz = 48000,
-    /**
-     * @brief 44100Hz sample rate
-     */
-    MSVAudioSampleRate_44100Hz = 44100,
-    /**
-     * @brief 22050Hz sample rate
-     */
-    MSVAudioSampleRate_22050Hz = 22050,
-    /**
-     * @brief 11025Hz sample rate
-     */
-    MSVAudioSampleRate_11025Hz = 11025,
-};
-
-#pragma mark - Audio BitRate
-
-/**
- * @brief Audio bitrate
- */
-
-typedef NS_ENUM(NSInteger, MSVAudioBitRate) {
-    /**
-     * @brief 64Kbps bitrate
-     */
-    MSVAudioBitRate_64Kbps = 64000,
-    /**
-     * @brief 96Kbps bitrate
-     */
-    MSVAudioBitRate_96Kbps = 96000,
-    /**
-     * @brief 128Kbps bitrate
-     */
-    MSVAudioBitRate_128Kbps = 128000,
 };
 
 #pragma mark - Video File Type
@@ -197,3 +138,40 @@ typedef NS_ENUM(NSInteger, MSVVideoTransitionType) {
      */
     MSVVideoTransitionTypeFade
 };
+
+/**
+ * @brief Type of a clip
+ */
+typedef NS_ENUM(NSInteger, MSVClipType) {
+    /**
+     * Audio and video media resource type
+     */
+    MSVClipTypeAV,
+    /**
+     * Image resource type
+     */
+    MSVClipTypeImage
+};
+
+/**
+ * @brief The effective scope for MSVTimeEffect
+ */
+typedef NS_ENUM(NSInteger, MSVTimeEffectScope) {
+    /**
+     * @brief The effective scope is main track
+     */
+    MSVTimeEffectScopeMainTracks = 1 << 0,
+    /**
+     * @brief The effective scope is mix track
+     */
+    MSVTimeEffectScopeMixTracks = 1 << 1,
+    /**
+     * @brief The effective scope is all track
+     */
+    MSVTimeEffectScopeAllTracks = MSVTimeEffectScopeMainTracks | MSVTimeEffectScopeMixTracks,
+};
+
+/**
+ * @brief Notify that the media service has reset, you should do neccessary restart on your audio services;
+ */
+extern NSString *kMediaServiceResetNotification;

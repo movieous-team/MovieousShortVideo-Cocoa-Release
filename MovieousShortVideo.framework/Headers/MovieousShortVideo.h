@@ -19,31 +19,13 @@ FOUNDATION_EXPORT const unsigned char MovieousShortVideoVersionString[];
 #import <MovieousShortVideo/MSVRecorder.h>
 #import <MovieousShortVideo/MSVEditor.h>
 #import <MovieousShortVideo/MSVVideoExporter.h>
-#import <MovieousShortVideo/MSVRepeatEffect.h>
-#import <MovieousShortVideo/MSVSpeedEffect.h>
+#import <MovieousShortVideo/MSVRepeatEditorEffect.h>
+#import <MovieousShortVideo/MSVSpeedEditorEffect.h>
 #import <MovieousShortVideo/MSVTranscoder.h>
 #import <MovieousShortVideo/MSVBrush.h>
 #import <MovieousShortVideo/MSVGraffitiView.h>
-
-/**
- * @brief This class contains common configurations
- */
-@interface MovieousShortVideo : NSObject
-
-/**
- * @brief Is `-registerWithLicense` been called before
- */
-@property (nonatomic, assign, readonly, class) BOOL registered;
-
-/**
- * @brief Register the SDK with license string
- * @param license The license string from Movieous team
- */
-+ (void)registerWithLicense:(NSString *)license;
-
-/**
- * @brief Return the auth state for the SDK
- */
-+ (BOOL)checkAuthState;
-
-@end
+#import <MovieousShortVideo/MSVImageGenerator.h>
+#import <MovieousShortVideo/MSVImageStickerEditorEffect.h>
+#import <MovieousShortVideo/MSVExternalFilterEditorEffect.h>
+#import <MovieousShortVideo/MSVLUTFilterEditorEffect.h>
+#import <MovieousShortVideo/MSVAuthentication.h>

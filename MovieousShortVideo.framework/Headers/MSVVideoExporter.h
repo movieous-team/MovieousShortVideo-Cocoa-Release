@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * @brief Draft object
  */
-@property (nonatomic, strong, readonly, nullable) MSVDraft *draft;
+@property (nonatomic, strong, nullable) MSVDraft *draft;
 
 /**
  * @brief Whether the export task is running
@@ -88,26 +88,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * @brief Initialize an exporter objects with initialization draft
  * @param draft Draft object that needs to be exported
- * @param outError If an error occurs, return the error that occurred
  * @return It returns the initialized object if the initial succeeded, otherwise returns nil
  */
-- (instancetype _Nullable)initWithDraft:(MSVDraft *_Nullable)draft error:(NSError * _Nullable * _Nullable)outError;
+- (instancetype _Nullable)initWithDraft:(MSVDraft *_Nullable)draft;
 
 /**
  * @brief Create an exporter objects with initialization draft
  * @param draft Draft object that needs to be exported
- * @param outError If an error occurs, return the error that occurred
  * @return It returns the initialized object if the initial succeeded, otherwise returns nil
  */
-+ (instancetype _Nullable)exporterWithDraft:(MSVDraft *_Nullable)draft error:(NSError * _Nullable * _Nullable)outError;
-
-/**
- * @brief Update draft
- * @param draft New draft
- * @param outError If an error occurs, return the error that occurred
- * @return It returns YES if update successfully otherwise returns NO
- */
-- (BOOL)updateDraft:(MSVDraft *)draft error:(NSError * _Nullable * _Nullable)outError;
++ (instancetype _Nullable)exporterWithDraft:(MSVDraft *_Nullable)draft;
 
 /**
  * @brief Start exporting tasks

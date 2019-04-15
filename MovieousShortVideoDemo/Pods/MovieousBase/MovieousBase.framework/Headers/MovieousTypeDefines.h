@@ -25,9 +25,11 @@ typedef struct {
 
 extern MovieousTimeRange kMovieousTimeRangeDefault;
 
+MovieousTimeRange MovieousTimeRangeMake(NSTimeInterval startTime, NSTimeInterval duration);
+
 BOOL MovieousTimeRangeIsEqual(MovieousTimeRange time1,MovieousTimeRange time2);
 
-BOOL MovieousIsDefaultTimeRange(MovieousTimeRange timeRange);
+BOOL MovieousTimeRangeIsDefault(MovieousTimeRange timeRange);
 
 CMTimeRange MovieousGetCMTimeRange(MovieousTimeRange timeRange, int32_t timeScale);
 

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreMedia/CoreMedia.h>
 #import <AVFoundation/AVFoundation.h>
+#import <MovieousBase/MovieousBase.h>
 #import "MSVRecorderAudioConfiguration.h"
 #import "MSVRecorderVideoConfiguration.h"
 #import "MSVClipConfiguration.h"
@@ -16,7 +17,6 @@
 #import "MSVMainTrackClip.h"
 #import "MSVDraft.h"
 #import "MSVRecorderBackgroundAudioConfiguration.h"
-#import "MSVExternalFilter.h"
 
 @class MSVRecorder;
 
@@ -53,14 +53,6 @@
  * @param currentClipDuration The duration of current clip
  */
 - (void)recorder:(MSVRecorder *)recorder currentClipDurationDidUpdated:(NSTimeInterval)currentClipDuration;
-
-/**
- * @brief The camera obtains the callback of the video data, and the caller can customize and process the video data by using the method, and the processed data will be feedback to the preview image and encoded into the generated segment.
- * @param recorder Recorder object that generated the event
- * @param pixelBuffer The pending video data
- * @return Processed video data
- */
-- (CVPixelBufferRef)recorder:(MSVRecorder *)recorder didGetPixelBuffer:(CVPixelBufferRef)pixelBuffer;
 
 @end
 
@@ -104,10 +96,10 @@
 /**
  * @brief Preview view
  */
-@property (nonatomic, strong, readonly) UIView *preview;
+@property (nonatomic, strong, readonly) UIView *previewView;
 
 /**
- * @brief Proxy object for receiving event callbacks
+ * @brief Delegate object for receiving event callbacks
  */
 @property (nonatomic, weak) id<MSVRecorderDelegate> delegate;
 
@@ -115,6 +107,11 @@
  * @brief  The queue used by the proxy method callback, if not specified, will be called back in the main thread.
  */
 @property (nonatomic, strong) dispatch_queue_t delegateQueue;
+
+/**
+ * @brief Effects applied to recorder.
+ */
+@property (nonatomic, copy) NSArray<id<MovieousCaptureEffect>> *captureEffects;
 
 /**
  * @brief The fill mode used when the preview window does not match the configured videoSize ratio, the default is MovieousScalingModeAspectFit.
@@ -147,110 +144,167 @@
 @property (nonatomic, assign) BOOL mirrorBackEncoded;
 
 /**
+ * @brief Whether to enable touch to focus and exposure the specified point in the preview
+ */
+@property (nonatomic, assign) BOOL touchToFocusExposureEnabled;
+
+/**
  * @brief Whether to open the internal focus view, the default is NO
  */
-@property (nonatomic, assign) BOOL innerFocusView;
+@property (nonatomic, assign) BOOL innerFocusViewEnabled;
 
 /**
- * @brief Obtain a screenshot
+ * @brief The current torchMode being used on the camera
  */
-@property (nonatomic, strong, readonly) UIImage *snapshot;
+@property (nonatomic, assign, readonly) AVCaptureTorchMode torchMode;
 
 /**
- * @brief The action is taken automatically during recording operation runs from the background. If the operation is not automatic, the caller needs to perform the appropriate processing (complete or cancel the recording of the current clip). The default is MSVBackgroundActionContinue.
+ * @brief Specify the preferred torch mode to use on camera, what needs to note is that the preferredTorchMode is not guaranteed to be applied succesfully, the actual torch mode can be accessed by the property torchMode
  */
-@property (nonatomic, assign) MSVBackgroundAction backgroundAction;
+@property (nonatomic, assign) AVCaptureTorchMode preferredTorchMode;
 
 /**
- * @brief Whether the flashlight is turned on, the default is NO
+ * @brief A property indicating the format's supported frame rate ranges. videoSupportedFrameRateRanges is an array of AVFrameRateRange objects, one for each of the format's supported video frame rate ranges
  */
-@property (nonatomic, assign, readonly) BOOL torchOn;
+@property(nonatomic, readonly) NSArray<AVFrameRateRange *> *videoSupportedFrameRateRanges;
 
 /**
- * @brief  the interface of switching flashlight
- * @param torchOn Turn it on or off
- * @param outError If an error occurs, return the error that occurred
- * @return It returns YES when the setting is successful, otherwise, it returns NO
+ * @brief The current minimum frames per second on camera
  */
-- (BOOL)setTorchOn:(BOOL)torchOn error:(NSError **)outError;
+@property (nonatomic, assign, readonly) Float64 minFrameRate;
 
 /**
- * @brief The frame rate of capturing video
+ * @brief Specify the preferred minimum frames per second on camera, what needs to note is that the preferredMinFrameRate is not guaranteed to be applied succesfully, the actual minimum frames per second can be accessed by the property minFrameRate
  */
-@property (nonatomic, assign, readonly) NSUInteger frameRate;
+@property (nonatomic, assign) Float64 preferredMinFrameRate;
 
 /**
- * @brief Setup the frame rate of capturing video
- * @param frameRate New frame rate
- * @param outError If an error occurs, return the error that occurred
- * @return  It returns YES when the setting is successful, otherwise, it returns NO
+ * @brief The current maximum frames per second on camera
  */
-- (BOOL)setFrameRate:(NSUInteger)frameRate error:(NSError **)outError;
+@property (nonatomic, assign, readonly) Float64 maxFrameRate;
+
+/**
+ * @brief Specify the preferred maximum frames per second on camera, what needs to note is that the preferredMaxFrameRate is not guaranteed to be applied succesfully, the actual maximum frames per second can be accessed by the property maxFrameRate
+ */
+@property (nonatomic, assign) Float64 preferredMaxFrameRate;
 
 /**
  * @brief The resolution captured by the camera, the default is AVCaptureSessionPresetHigh
  */
-@property (nonatomic, strong, readonly) AVCaptureSessionPreset cameraResolution;
+@property (nonatomic, strong, readonly) AVCaptureSessionPreset sessionPreset;
 
 /**
- * @brief Setup the resolution captured by the camera
- * @param cameraResolution New resolution rate
- * @param outError If an error occurs, return the error that occurred
- * @return It returns YES when the setting is successful, otherwise, it returns NO
+ * @brief Specify the resolution for capturing, what needs to note is that the preferredSessionPreset is not guaranteed to be applied succesfully, the actual resolution can be accessed by the property sessionPreset
  */
-- (BOOL)setCameraResolution:(AVCaptureSessionPreset)cameraResolution error:(NSError **)outError;
+@property (nonatomic, assign) AVCaptureSessionPreset preferredSessionPreset;
 
 /**
  * @brief Camera position, the default is AVCaptureDevicePositionBack
  */
-@property (nonatomic, assign, readonly) AVCaptureDevicePosition cameraPosition;
+@property (nonatomic, assign, readonly) AVCaptureDevicePosition devicePosition;
 
 /**
- * @brief Set the position of the camera
- * @param cameraPosition New camera position
- * @param outError If an error occurs, return the error that occurred
- * @return It returns YES when the setting is successful, otherwise, it returns NO
+ * @brief Specify the Camera position for capturing, what needs to note is that the preferredDevicePosition is not guaranteed to be applied succesfully, the actual Camera position can be accessed by the property devicePosition
  */
-- (BOOL)setCameraPosition:(AVCaptureDevicePosition)cameraPosition error:(NSError **)outError;
+@property (nonatomic, assign) AVCaptureDevicePosition preferredDevicePosition;
 
 /**
- * @brief The direction of the camera rotation, the default is AVCaptureVideoOrientationPortrait
+ * @brief Set the orientation of the camera
  */
-@property (nonatomic, assign, readonly) AVCaptureVideoOrientation cameraOrientation;
+@property (nonatomic, assign, readonly) AVCaptureVideoOrientation videoOrientation;
 
 /**
- * @brief Setup the camera orientation
- * @param cameraOrientation New camera orientation
- * @param outError If an error occurs, return the error that occurred
- * @return It returns YES when the setting is successful, otherwise, it returns NO
+ * @brief Specify the orientation of the camera, what needs to note is that the preferredVideoOrientation is not guaranteed to be applied succesfully, the actual Camera orientation can be accessed by the property videoOrientation
  */
-- (BOOL)setCameraOrientation:(AVCaptureVideoOrientation)cameraOrientation error:(NSError **)outError;
+@property (nonatomic, assign) AVCaptureVideoOrientation preferredVideoOrientation;
 
 /**
- * @brief Camera zoom factor, default is 1
+ * @brief The maximum video zoom factor that can be applied
  */
-@property (nonatomic, assign, readonly) CGFloat cameraZoomFactor;
+@property (nonatomic, assign, readonly) CGFloat videoMaxZoomFactor;
 
 /**
- * @brief Setup camera zoom factor
- * @param cameraZoomFactor New camera zoom factor
- * @param outError If an error occurs, return the error that occurred
- * @return It returns YES when the setting is successful, otherwise, it returns NO
+ * @brief The current video zoom factor
  */
-- (BOOL)setCameraZoomFactor:(CGFloat)cameraZoomFactor error:(NSError **)outError;
+@property (nonatomic, assign, readonly) CGFloat videoZoomFactor;
 
 /**
- * @brief Focus and exposure reference points (the position of the point is referenced by the acquisition resolution specified by cameraResolution, the upper left corner is the origin, and the right and down orientations are the orientation in which the x value and the y value increase respectively)
+ * @brief Specify the video zoom factor of the camera, what needs to note is that the preferredVideoZoomFactor is not guaranteed to be applied succesfully, the actual video zoom factor can be accessed by the property videoZoomFactor
  */
-@property (nonatomic, assign, readonly) CGPoint pointOfInterest;
+@property (nonatomic, assign) CGFloat preferredVideoZoomFactor;
 
 /**
- * @brief Set the reference point for focus and exposure
- * @param pointOfInterest New reference point for focus and exposure
- * @param outError If an error occurs, return the error that occurred
- * @return It returns YES when the setting is successful, otherwise, it returns NO
+ * @brief The current continuousAutoFocusEnable status
+ * @discussion ContinuousAutoFocus indicates that the device should automatically focus when needed.
  */
-- (BOOL)setPointOfInterest:(CGPoint)pointOfInterest error:(NSError **)outError;
+@property (nonatomic, assign, readonly) BOOL continuousAutoFocusEnable;
+
+/**
+ * @brief Specify the continuousAutoFocusEnable status of the camera, what needs to note is that the preferredContinuousAutoFocusEnable is not guaranteed to be applied succesfully, the actual continuousAutoFocusEnable can be accessed by the property continuousAutoFocusEnable
+ */
+@property (nonatomic, assign) BOOL preferredContinuousAutoFocusEnable;
+
+/**
+ @abstract
+ Indicates current focus point of interest of the receiver, if it has one.
+ 
+ @discussion
+ The value of this property is a CGPoint that determines the receiver's focus point of interest, if it has one. A value of (0,0) indicates that the camera should focus on the top left corner of the image, while a value of (1,1) indicates that it should focus on the bottom right. The default value is (0.5,0.5).
+ */
+@property (nonatomic, assign, readonly) CGPoint focusPointOfInterest;
+
+/**
+ * @brief Specify the preferredFocusPointOfInterest status of the camera, what needs to note is that the preferredFocusPointOfInterest is not guaranteed to be applied succesfully, the actual focusPointOfInterest can be accessed by the property focusPointOfInterest
+ */
+@property (nonatomic, assign) CGPoint preferredFocusPointOfInterest;
+
+/**
+ @abstract
+ The current continuousAutoExposureEnable status
+ 
+ @discussion
+ Indicates that the device should automatically adjust exposure when needed
+ */
+@property (nonatomic, assign, readonly) BOOL continuousAutoExposureEnable;
+
+/**
+ * @brief Specify the preferredContinuousAutoExposureEnable of the camera, what needs to note is that the preferredContinuousAutoExposureEnable is not guaranteed to be applied succesfully, the actual continuousAutoExposureEnable can be accessed by the property continuousAutoExposureEnable
+ */
+@property (nonatomic, assign) BOOL preferredContinuousAutoExposureEnable;
+
+/*!
+ @abstract
+ Indicates current exposure point of interest of the receiver, if it has one.
+ 
+ @discussion
+ The value of this property is a CGPoint that determines the receiver's exposure point of interest, if it has adjustable exposure. A value of (0,0) indicates that the camera should adjust exposure based on the top left corner of the image, while a value of (1,1) indicates that it should adjust exposure based on the bottom right corner. The default value is (0.5,0.5).
+ */
+@property (nonatomic, assign, readonly) CGPoint exposurePointOfInterest;
+
+/**
+ * @brief Specify the preferredExposurePointOfInterest of the camera, what needs to note is that the preferredExposurePointOfInterest is not guaranteed to be applied succesfully, the actual exposurePointOfInterest can be accessed by the property exposurePointOfInterest
+ */
+@property (nonatomic, assign) CGPoint preferredExposurePointOfInterest;
+
+/**
+ * @brief Mute sound while recording, if you want to record a movie with no sound, you can specify source property in audioConfiguration to MSVAudioSourceNone
+ */
+@property (nonatomic, assign) BOOL mute;
+
+/**
+ * @brief The preferred Transform used for the recorded file
+ */
+@property (nonatomic, assign, readonly) CGAffineTransform encoderPreferredTransform;
+
+/**
+ * @brief Turn on device orientation to auto detection
+ */
+@property (nonatomic, assign) BOOL autoOrientationAdaption;
+
+/**
+ * @brief The current device orientation, this property will only valid if autoOrientationAdaption is YES. This property is also key-value Observable, you can observe this value use KVO.
+ */
+@property (nonatomic, assign) UIDeviceOrientation currentDeviceOrientation;
 
 /**
  * @brief Initialize an empty recorder
@@ -304,6 +358,11 @@
 - (void)finishRecordingWithCompletionHandler:(void(^)(MSVMainTrackClip *clip, NSError *error))completionHandler;
 
 /**
+ * @brief Cancel the current recording progress
+ */
+- (void)cancelRecording;
+
+/**
  * @brief Delete the last recorded clip
  * @param outError If an error occurs, return the error that occurred
  * @return It returns YES when the setting is successful, otherwise, it returns NO
@@ -327,41 +386,8 @@
 
 /**
  * @brief Switch camera
- * @param outError If an error occurs, return the error that occurred
- * @return It returns YES when the setting is successful, otherwise, it returns NO
  */
-- (BOOL)switchCameraWithError:(NSError **)outError;
-
-/**
- * @brief Setup watermark
- * @param waterMark Watermark image
- * @param position Watermark position
- */
-- (void)setWaterMark:(UIImage *)waterMark position:(CGPoint)position;
-
-/**
- * @brief Clear watermark
- */
-- (void)clearWaterMark;
-
-/**
- * @brief Turn on device orientation to auto detection
- * @param orientationUpdatedBlock The callback when the rotated orientation of the device changes
- */
-- (void)enableAutoOrientationAdaptionWithOrientationUpdatedBlock:(void(^)(UIDeviceOrientation))orientationUpdatedBlock;
-
-/**
- * @brief Turn off device orientation to auto detection
- */
-- (void)disableAutoOrientationAdaption;
-
-/**
- * @brief Update the draft object used by the recorder
- * @param draft New draft object
- * @param outError If an error occurs, return the error that occurred
- * @return It returns YES when the setting is successful, otherwise, it returns NO
- */
-- (BOOL)updateDraft:(MSVDraft *)draft error:(NSError **)outError;
+- (void)switchCamera;
 
 /**
  * @brief Background audio configuration object
@@ -400,6 +426,11 @@
  * @return It returns YES when the setting is successful, otherwise, it returns NO
  */
 - (BOOL)writeAudioData:(CMSampleBufferRef)audioData error:(NSError **)outError;
+
+/**
+ * @brief Obtain a screenshot
+ */
+- (void)snapshotWithCompletion:(void(^)(UIImage *image))completionHandler;
 
 @end
 

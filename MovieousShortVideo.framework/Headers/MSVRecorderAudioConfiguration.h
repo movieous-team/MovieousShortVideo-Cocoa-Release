@@ -24,22 +24,12 @@ MovieousMicrophoneConfiguration
  */
 @property (nonatomic, assign) MSVAudioSource source;
 
-#pragma mark - microphone configurations
-/*!
- * Whether to allow to compromise some parameters which are not supported by the current device to ensure component initialization's success. The default is YES
- */
-@property (nonatomic, assign) BOOL compromise;
-
 #pragma mark - encoder configurations
-/**
- * @brief Audio sample rate sampleRate The default is MSVAudioSampleRate_44100Hz
- */
-@property (assign, nonatomic) MSVAudioSampleRate sampleRate;
 
 /**
- * @brief Audio encoding rate bitRate The default is MSVAudioBitRate_128Kbps
+ * @brief Audio encoding rate bitRate The default is 128 * 1024
  */
-@property (assign, nonatomic) MSVAudioBitRate bitRate;
+@property (assign, nonatomic) UInt32 bitrate;
 
 /**
  * @brief Create a default configuration of the MSVAudioConfiguration instance
