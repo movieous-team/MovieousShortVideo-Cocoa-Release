@@ -1,21 +1,23 @@
-# v2.1.0
+*Read this in other languages: [English](CHANGELOG.md), [简体中文](CHANGELOG.zh-cn.md).*
+
+# v2.1.0(2019-4-15)
 ## Feature
 - merge `MSVAudioClip` & `MSVVideoClip` to `MSVMixTrackClip`
 - add `MSVAuthentication` to authenticate SDK
 - add `MSVImageGenerator` to manage snapshots
-- add inner beautify and other filters to `MSVRecorder`
+- add embedded beautification and other filters to `MSVRecorder`
 - add more camera controll operations including exposure mode, torch mode, etc.
-- add scope for `MSVTimeEffect`
+- add `scope` configuration for `MSVTimeEffect`
 
-# v2.0.1
+# v2.0.1(2019-3-21)
 ## Features
 - add graffiti feature
 
-# v2.0.0
+# v2.0.0(2019-3-19)
 ## Features
 - add size, location, rotation and background color configuration for `MSVMainTrackClip`
 - add video mix feature
-- separate effects to basicEffects and timeEffects
+- separate `effects` to `basicEffects` and `timeEffects`
 - add current time notification for `MSVEditor`
 - rename some interfaces
 - remove max duration configuration for `MSVRecorder`, you can implement your own recorded time controll
@@ -28,7 +30,7 @@
 - fix video transform bug
 
 # v1.0.2(2018-12-27)
-## Miscs
+## Other
 - rename `MSVImagePasterEffect` to `MSVImageStickerEffect`
 - change interface documentation language to English
 
@@ -39,18 +41,4 @@
 - fix preview error when media service is resetted because of frequent backgroud audio switch operations, etc.
 
 # v1.0.0(2018-11-28)
-## Features
-- Audio/Video Acquisition
-- Audio/Video encoding（H.264 + AAC）
-- Real-time beautificaion, Filter
-- Support beatification and Filter from the third part 
-- Customized recording duration, bitrate, resolution
-- Support recording size as 1:1
-- Breakpoint recording
-- Delete the recorded clip
-- Place effects
-- Background replacement
-- Gesture recognition
-- Expression recognition
-- Video format save as Mp4
-- Support core system framework as  arm64, i386, x86_64 
+- initial release

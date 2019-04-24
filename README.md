@@ -1,56 +1,68 @@
 # MovieousShortVideo-Cocoa
 
-`Movieous short video SDK` is a one-step video production SDK developed by [Movieous](https://movieous.cn/), which provides a concise  and flexible API , features includes recording, editing, uploading, filter function, effects function, background music,etc. `Movieous short video SDK` with superior model and version compatibility and extreme performance, rich features and numerous tripartite ecological support. Integrated `Movieous short video SDK` enables developers to quickly generate an excellent mobile short video app.
+`MovieousShortVideo` is a one-stop short video composition SDK developed by [Movieous](http://movieous.video), which provide easy-to-use API, compatibility for multiple devices and OS versions, it provides high performance, abundant features and support for third-party SDK including face-beaty, special-effects and sound-distortion, etc. developers can build an excellent video composition app use `MovieousShortVideo` SDK.
 
 *Read this in other languages: [English](README.md), [简体中文](README.zh-cn.md).*
 
 ## Features
 
-| Function                          | Version       | Comments       |
-| ---------------------------- | -------- | -------------- |
-| Camera acquisition                        | 1.0.0(+) | No |
-| Microphone acquisition                        | 1.0.0(+) | No |
-| Mute function                         | 1.0.0(+) | No |
-| Pure audio recording                        | 1.0.0(+) | No |
-| Manual focus                         | 1.0.0(+) | No |
-| Auto focus                         | 1.0.0(+) | No |
-| Exposure adjustment                         | 1.0.0(+) | No |
-| Flash switch                        | 1.0.0(+) | No |
-| Horizontal screen shooting                         | 1.0.0(+) | No |
-| Variable speed shooting                         | 1.0.0(+) | No |
-| Customized shooting time                      | 1.0.0(+) | No |
-| Customized resolution                     | 1.0.0(+) | No |
-| Customized video frame rate                      | 1.0.0(+) | No |
-| Customized video bitrate                      | 1.0.0(+) | No |
-| Support recording size as 1:1                | 1.0.0(+) | No |
-| Segment recording                         | 1.0.0(+) | No |
-| Delete video                        | 1.0.0(+) | No |
-| H.264 Hardware encoding                     | 1.0.0(+) | No |
-| AAC Hardware encoding                      | 1.0.0(+) | No |
-| Video stitching                         | 1.0.0(+) | No |
-| Output format as Mp4                    | 1.0.0(+) | No |
-| Real-time watermark                        | 1.0.0(+) | No |
-| Real-time beautification/Filter                  | 1.0.0(+) | No |
-| Keyframe/non-keyframe preview              | 1.0.0(+) | No |
-| Video segment clip                      | 1.0.0(+) | No |
-| Make the GIF animated cover                | 1.0.0(+) | No |
-| Making transitions subtitle for video                     | 1.0.0(+) | No |
-| Text effects                       | 1.0.0(+) | No|
-| Dubbing                           | 1.0.0(+) | No |
-| Adjust the volume of original sound / background sound               | 1.0.0(+) | No |
-| Title / Ending  of video                    | 1.0.0    | No |
-| Images merge to be Mp4                    | 1.0.0(+) | No |
-| Third-party beautification interface                    | 1.0.0(+) | No |
-| Third-party filter interface                    | 1.0.0(+) | No |
-| Big eyes/Face-lifting                       | 1.0.0(+) | Contact us |
-| Sticker effects                        | 1.0.0(+) | Contact us |
-| Filter effects                        | 1.0.0(+) | Contact us |
-| Background replacement                         | 1.0.0(+) | Contact us |
-| Expression effects                         | 1.0.0(+) | Contact us |
-| Gesture recognition                      | 1.0.0(+) | Contact us |
-| Support for mainstream architecture like armv7、arm64、x86  | 1.0.0(+) | No |
-| Uploading to cloud-end                         | 1.0.1(+) | No |
-| Continue to transport after pause                        | 1.0.1(+) | No |
+### recording
+- [x] capture microphone audio data
+- [x] import external audio data
+- [x] capture camera video data
+- [x] record UIVIew
+- [x] import external video data
+- [x] hardware encode H.264 video
+- [x] software encode AAC audio
+- [x] record to mp4, mov and m4v format
+- [x] video resolution
+- [x] embedded face beautification
+- [x] LUT(look up table) filter
+- [x] image sticker(watermark)
+- [x] external video processing plugin
+- [x] preview and encoded video mirror independently configurable
+- [x] embedded touch to focus
+- [x] torch mode configurable
+- [x] configurable max and min capture frame rate
+- [x] configurable capture resolution
+- [x] switch between front and back camera
+- [x] video orientation configurable
+- [x] zoom factor configurable
+- [x] configurable focus and exposure parameters
+- [x] configurable H.264 GOP length
+- [x] configurable H.264 profile level
+- [x] mute
+- [x] audio and video bitrate configurable
+- [x] pure audio recording
+- [x] pure video recording
+- [x] automatically monitor recording orientation
+- [x] recording speed configurable
+- [x] recording volume configurable
+- [x] recording to segment
+- [x] discard video segment
+- [x] background music configurable, you can also trim, specify volume and loop it
+- [x] generate snapshot
+
+### editing
+- [x] configurable destination video duration, resolution, etc.
+- [x] concatenate multiple videos
+- [x] mix multiple videos
+- [x] indepoendently configurable location, size, rotation, volume, speed, valid time range, etc for every video segment
+- [x] embedded face beautification
+- [x] LUT(look up table)
+- [x] image sticker(watermark)
+- [x] external video processing plugin
+- [x] repeat effetc
+- [x] speed effect
+- [x] reverse effect
+- [x] batch generate video snapshot
+
+### exporting
+- [x] configurable export file format 
+- [x] save to photo album
+- [x] configurable export bitrate
+- [x] configurable export channel
+- [x] configurable export sample rate
 
 ## SDK Requirements
 
@@ -61,24 +73,15 @@ MovieousShortVideo supports multiple methods for installing the library in a pro
 
 ### Installation with CocoaPods
 
-[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like MovieousShortVideo in your projects. See the ["Getting Started" guide for more information](https://developer.movieous.cn/#/en-uk/iOS_ShortVideo?id=quict-start). You can install it with the following command:
-
-```bash
-$ gem install cocoapods
-```
-
-> CocoaPods 0.39.0+ is required to build MovieousShortVideo.
+[CocoaPods](http://cocoapods.org/) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries in your projects. See the [Get Started](http://cocoapods.org/#get_started) section for more details.
 
 #### Podfile
 
-To integrate MovieousShortVideo into your Xcode project using CocoaPods, specify it in your `Podfile`:
+To integrate MovieousLive into your Xcode project using CocoaPods, specify it in your `Podfile`, assume your target name is `YourTargetName`:
 
 ```ruby
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
-
-target 'TargetName' do
-pod 'MovieousShortVideo'
+target 'YourTargetName' do
+    pod 'MovieousShortVideo'
 end
 ```
 
