@@ -1,7 +1,17 @@
 *Read this in other languages: [English](CHANGELOG.md), [简体中文](CHANGELOG.zh-cn.md).*
 
+# v2.2.0(2019-4-24)
+## Features
+- add error return when set `MSVDraft.videoSize`
+- add more camera and microphone configuration to `MSVRecorderAudioConfiguration` and `MSVRecorderVideoConfiguration`
+## Fixes
+- fix crash happens when `-copy` is called by `MSVDraft`
+## Other 
+- rename `MSVVideoExporter` to `MSVExporter`
+- rename `MSVRecorderVideoConfiguration.scalingMode` to `MSVRecorderVideoConfiguration.previewScalingMode`
+
 # v2.1.0(2019-4-15)
-## Feature
+## Features
 - merge `MSVAudioClip` & `MSVVideoClip` to `MSVMixTrackClip`
 - add `MSVAuthentication` to authenticate SDK
 - add `MSVImageGenerator` to manage snapshots

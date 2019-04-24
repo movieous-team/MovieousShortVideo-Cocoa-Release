@@ -1,5 +1,15 @@
 *其他语言版本: [English](CHANGELOG.md), [简体中文](CHANGELOG.zh-cn.md).*
 
+# v2.2.0(2019-4-24)
+## 功能
+- 添加 `MSVDraft.videoSize` 设置的错误返回
+- 将更多的摄像头和麦克风配置项加入 `MSVRecorderAudioConfiguration` 和 `MSVRecorderVideoConfiguration` 中
+## 修复
+- 修复 `MSVDraft` 进行 `-copy` 时会 crash 的问题
+## 其他
+- 将 `MSVVideoExporter` 重命名为 `MSVExporter`
+- 将 `MSVRecorderVideoConfiguration.scalingMode` 重命名为 `MSVRecorderVideoConfiguration.previewScalingMode`
+
 # v2.1.0(2019-4-15)
 ## 功能
 - 将 `MSVAudioClip` 和 `MSVVideoClip` 合并为 `MSVMixTrackClip`
