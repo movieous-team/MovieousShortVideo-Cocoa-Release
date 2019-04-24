@@ -32,6 +32,8 @@ MovieousCaptureEffect
  */
 @property (nonatomic, assign) CGFloat rotation;
 
+- (instancetype)initWithImageStickerCaptureEffect:(MovieousImageStickerCaptureEffect *)imageStickerCaptureEffect;
+
 @end
 
 NS_ASSUME_NONNULL_END

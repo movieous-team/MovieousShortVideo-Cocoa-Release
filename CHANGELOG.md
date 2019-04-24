@@ -21,7 +21,6 @@
 - add current time notification for `MSVEditor`
 - rename some interfaces
 - remove max duration configuration for `MSVRecorder`, you can implement your own recorded time controll
-
 ## Fixes
 - fix many bugs found in v1.x.x
 

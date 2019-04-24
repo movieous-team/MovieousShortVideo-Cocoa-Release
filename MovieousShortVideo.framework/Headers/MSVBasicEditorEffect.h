@@ -8,9 +8,11 @@
 
 #import <MovieousBase/MovieousBase.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol MSVBasicEditorEffect
 <
-NSObject
+MovieousCaptureEffect
 >
 
 @required
@@ -26,3 +28,5 @@ NSObject
 @property (nonatomic, assign) MovieousTimeRange timeRangeAtMainTrack;
 
 @end
+
+NS_ASSUME_NONNULL_END

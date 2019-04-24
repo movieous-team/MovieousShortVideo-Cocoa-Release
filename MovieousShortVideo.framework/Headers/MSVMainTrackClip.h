@@ -11,6 +11,8 @@
 #import <MovieousBase/MovieousBase.h>
 #import "MSVClip.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * @brief Main track Clip
  */
@@ -50,3 +52,4 @@
 
 @end
 
+NS_ASSUME_NONNULL_END

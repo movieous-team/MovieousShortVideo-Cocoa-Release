@@ -24,7 +24,7 @@ NSCopying
  * @param outError If an error occurs, return the error that occurred
  * @return If the initialization is successful, the completed object is returned, otherwise returns nil
  */
-- (instancetype)initWithType:(MSVClipType)type URL:(NSURL *)URL error:(NSError **)outError;
+- (instancetype _Nullable)initWithType:(MSVClipType)type URL:(NSURL *)URL error:(NSError *_Nullable *_Nullable)outError;
 
 /**
  * @brief Initialize a clip of an audio and video type using AVAsset
@@ -32,7 +32,7 @@ NSCopying
  * @param outError If an error occurs, return the error that occurred
  * @return If the initialization is successful, the completed object is returned, otherwise returns nil
  */
-- (instancetype)initWithAsset:(AVAsset *)asset error:(NSError **)outError;
+- (instancetype _Nullable)initWithAsset:(AVAsset *)asset error:(NSError *_Nullable *_Nullable)outError;
 
 /**
  * @brief Initialize a clip of a image type using UIImage
@@ -41,7 +41,7 @@ NSCopying
  * @param outError If an error occurs, return the error that occurred
  * @return If the initialization is successful, the completed object is returned, otherwise returns nil
  */
-- (instancetype)initWithImage:(UIImage *)image duration:(NSTimeInterval)duration error:(NSError **)outError;
+- (instancetype _Nullable)initWithImage:(UIImage *)image duration:(NSTimeInterval)duration error:(NSError *_Nullable *_Nullable)outError;
 
 /**
  * @brief Initialize a clip with a existing clip

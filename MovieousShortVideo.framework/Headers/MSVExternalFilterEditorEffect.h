@@ -11,6 +11,8 @@
 
 #import "MSVBasicEditorEffect.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface MSVExternalFilterEditorEffect : MovieousExternalFilterCaptureEffect
 <
 MSVBasicEditorEffect
@@ -26,5 +28,8 @@ MSVBasicEditorEffect
  */
 @property (nonatomic, assign) MovieousTimeRange timeRangeAtMainTrack;
 
+- (instancetype)initWithExternalFilterCaptureEffect:(MSVExternalFilterEditorEffect *)externalFilterCaptureEffect;
+
 @end
 
+NS_ASSUME_NONNULL_END

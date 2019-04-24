@@ -18,7 +18,7 @@ FOUNDATION_EXPORT const unsigned char MovieousShortVideoVersionString[];
 
 #import <MovieousShortVideo/MSVRecorder.h>
 #import <MovieousShortVideo/MSVEditor.h>
-#import <MovieousShortVideo/MSVVideoExporter.h>
+#import <MovieousShortVideo/MSVExporter.h>
 #import <MovieousShortVideo/MSVRepeatEditorEffect.h>
 #import <MovieousShortVideo/MSVSpeedEditorEffect.h>
 #import <MovieousShortVideo/MSVTranscoder.h>

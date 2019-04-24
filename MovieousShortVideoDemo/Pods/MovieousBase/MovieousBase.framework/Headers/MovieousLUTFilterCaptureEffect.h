@@ -19,4 +19,6 @@ MovieousCaptureEffect
  */
 @property (nonatomic, strong) UIImage *image;
 
+- (instancetype)initWithLUTFilterCaptureEffect:(MovieousLUTFilterCaptureEffect *)LUTFilterCaptureEffect;
+
 @end

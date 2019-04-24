@@ -6,6 +6,10 @@
 //  Copyright © 2019 Movieous Team. All rights reserved.
 //
 
-@protocol MovieousCaptureEffect <NSObject>
+@protocol MovieousCaptureEffect
+<
+NSObject,
+NSCopying
+>
 
 @end

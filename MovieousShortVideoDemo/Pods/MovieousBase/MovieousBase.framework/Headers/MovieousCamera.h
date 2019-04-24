@@ -31,18 +31,18 @@ typedef void(^SnapshotCompletionHandler)(UIImage *image);
 /**
  * @brief Effects applied to recorder.
  */
-@property (nonatomic, copy) NSArray<id<MovieousCaptureEffect>> *captureEffects;
 @property (nonatomic, weak) id<MovieousCameraDelegate> delegate;
 @property (nonatomic, strong, readonly) UIView *previewView;
 @property (nonatomic, assign, readonly) BOOL running;
+@property (nonatomic, assign) CGSize size;
+@property (nonatomic, copy) NSArray<id<MovieousCaptureEffect>> *captureEffects;
+@property (nonatomic, assign) MovieousScalingMode previewScalingMode;
 @property (nonatomic, assign) BOOL mirrorFrontPreview;
 @property (nonatomic, assign) BOOL mirrorBackPreview;
 @property (nonatomic, assign) BOOL mirrorFrontEncoded;
 @property (nonatomic, assign) BOOL mirrorBackEncoded;
 @property (nonatomic, assign) BOOL touchToFocusExposureEnabled;
 @property (nonatomic, assign) BOOL innerFocusViewEnabled;
-@property (nonatomic, assign) MovieousScalingMode scalingMode;
-@property (nonatomic, assign) CGSize size;
 
 @property (nonatomic, assign, readonly) AVCaptureTorchMode torchMode;
 @property (nonatomic, assign) AVCaptureTorchMode preferredTorchMode;

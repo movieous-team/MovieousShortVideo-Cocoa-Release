@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "MSVTimeEditorEffect.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * @brief Speed effects
  */
@@ -40,3 +42,4 @@ MSVTimeEditorEffect
 
 @end
 
+NS_ASSUME_NONNULL_END

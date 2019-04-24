@@ -10,9 +10,6 @@
 
 @protocol MovieousMicrophoneConfiguration <NSObject>
 
-/*!
- * Whether to allow to compromise some parameters which are not supported by the current device to ensure component initialization's success. The default is YES
- */
-@property (nonatomic, assign) BOOL compromise;
+@property (nonatomic, assign) BOOL mute;
 
 @end

@@ -18,4 +18,6 @@ MovieousCaptureEffect
 @property (nonatomic, assign) CGFloat brightLevel;
 @property (nonatomic, assign) CGFloat toneLevel;
 
+- (instancetype)initWithFaceBeautyCaptureEffect:(MovieousFaceBeautyCaptureEffect *)faceBeautyCaptureEffect;
+
 @end

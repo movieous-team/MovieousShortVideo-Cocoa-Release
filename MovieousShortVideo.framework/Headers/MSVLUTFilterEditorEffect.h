@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "MSVBasicEditorEffect.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * @brief Color lookup table filter effect class
  */
@@ -27,4 +29,8 @@ MSVBasicEditorEffect
  */
 @property (nonatomic, assign) MovieousTimeRange timeRangeAtMainTrack;
 
+- (instancetype)initWithLUTFilterCaptureEffect:(MSVLUTFilterEditorEffect *)LUTFilterCaptureEffect;
+
 @end
+
+NS_ASSUME_NONNULL_END

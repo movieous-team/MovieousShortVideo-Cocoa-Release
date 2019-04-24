@@ -1,5 +1,5 @@
 //
-//  MSVVideoExporter.h
+//  MSVExporter.h
 //  MovieousShortVideo
 //
 //  Created by Chris Wang on 2018/10/18.
@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MSVVideoExporter : NSObject
+@interface MSVExporter : NSObject
 
 /**
  * @brief Draft object
@@ -109,6 +109,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)cancelExport;
 
-NS_ASSUME_NONNULL_END
-
 @end
+
+NS_ASSUME_NONNULL_END

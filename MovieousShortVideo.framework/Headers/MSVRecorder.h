@@ -18,6 +18,8 @@
 #import "MSVDraft.h"
 #import "MSVRecorderBackgroundAudioConfiguration.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class MSVRecorder;
 
 /**
@@ -64,7 +66,7 @@
 /**
  * @brief Recorder Automatically generated draft object that can be used to obtain draft objects for editing or exporting.
  */
-@property (nonatomic, strong, readonly) MSVDraft *draft;
+@property (nonatomic, strong, readonly, nullable) MSVDraft *draft;
 
 /**
  * @brief Video parameter configuration object
@@ -101,12 +103,12 @@
 /**
  * @brief Delegate object for receiving event callbacks
  */
-@property (nonatomic, weak) id<MSVRecorderDelegate> delegate;
+@property (nonatomic, weak, nullable) id<MSVRecorderDelegate> delegate;
 
 /**
  * @brief  The queue used by the proxy method callback, if not specified, will be called back in the main thread.
  */
-@property (nonatomic, strong) dispatch_queue_t delegateQueue;
+@property (nonatomic, strong, nullable) dispatch_queue_t delegateQueue;
 
 /**
  * @brief Effects applied to recorder.
@@ -313,7 +315,7 @@
  * @param outError If an error occurs, return the error that occurred
  * @return It returns YES when the initialization is successful, otherwise, it returns NO
  */
-- (instancetype)initWithAudioConfiguration:(MSVRecorderAudioConfiguration *)audioConfiguration videoConfiguration:(MSVRecorderVideoConfiguration *)videoConfiguration error:(NSError **)outError;
+- (instancetype _Nullable)initWithAudioConfiguration:(MSVRecorderAudioConfiguration *_Nullable)audioConfiguration videoConfiguration:(MSVRecorderVideoConfiguration *_Nullable)videoConfiguration error:(NSError *_Nullable *_Nullable)outError;
 
 /**
  * @brief Initialize a recorder with a saved draft, from the time on the recorder created with this method, all recorded clips and background music will be added to the draft object used for initialization.
@@ -323,13 +325,13 @@
  * @param outError If an error occurs, return the error that occurred
  * @return It returns YES when the initialization is successful, otherwise, it returns NO
  */
-- (instancetype)initWithDraft:(MSVDraft *)draft AudioConfiguration:(MSVRecorderAudioConfiguration *)audioConfiguration videoConfiguration:(MSVRecorderVideoConfiguration *)videoConfiguration error:(NSError **)outError;
+- (instancetype _Nullable)initWithDraft:(MSVDraft *)draft AudioConfiguration:(MSVRecorderAudioConfiguration *_Nullable)audioConfiguration videoConfiguration:(MSVRecorderVideoConfiguration *_Nullable)videoConfiguration error:(NSError *_Nullable *_Nullable)outError;
 
 /**
  * @brief Start collecting audio and video, call this method will request the usage permission of audio and video (if the specified audio and video data source is the camera or microphone)
  * @param completionHandler Callback is completed, audioGranted：Whether to obtain audio rights, audioError：Error in audio component initialization, videoGranted：Whether you have obtained the captured permissions of the video,videoError：Error in video component initialization
  */
-- (void)startCapturingWithCompletion:(void(^)(BOOL audioGranted, NSError *audioError, BOOL videoGranted, NSError *videoError))completionHandler;
+- (void)startCapturingWithCompletion:(void(^)(BOOL audioGranted, NSError *_Nullable audioError, BOOL videoGranted, NSError *_Nullable videoError))completionHandler;
 
 /**
  * @brief Stop capturing
@@ -341,7 +343,7 @@
  * @param outError If an error occurs, return the error that occurred
  * @return It returns YES when the setting is successful, otherwise, it returns NO
  */
-- (BOOL)startRecordingWithError:(NSError **)outError;
+- (BOOL)startRecordingWithError:(NSError *_Nullable *_Nullable)outError;
 
 /**
  * @brief Start recording with the specified configuration, if recorder has already started, return YES;
@@ -349,13 +351,13 @@
  * @param outError If an error occurs, return the error that occurred
  * @return It returns YES when the setting is successful, otherwise, it returns NO
  */
-- (BOOL)startRecordingWithClipConfiguration:(MSVClipConfiguration *)clipConfiguration error:(NSError **)outError;
+- (BOOL)startRecordingWithClipConfiguration:(MSVClipConfiguration *_Nullable)clipConfiguration error:(NSError *_Nullable *_Nullable)outError;
 
 /**
  * @brief Complete the record
  * @param completionHandler Stop the successful callback, clip: record the generated main track clip object, if recorder has already stopped, completion, this is the last main track clip, error: error occurred
  */
-- (void)finishRecordingWithCompletionHandler:(void(^)(MSVMainTrackClip *clip, NSError *error))completionHandler;
+- (void)finishRecordingWithCompletionHandler:(void(^)(MSVMainTrackClip *_Nullable clip, NSError *_Nullable error))completionHandler;
 
 /**
  * @brief Cancel the current recording progress
@@ -367,7 +369,7 @@
  * @param outError If an error occurs, return the error that occurred
  * @return It returns YES when the setting is successful, otherwise, it returns NO
  */
-- (BOOL)discardLastClipWithError:(NSError **)outError;
+- (BOOL)discardLastClipWithError:(NSError *_Nullable *_Nullable )outError;
 
 /**
  * @brief Delete the segment of the specified index
@@ -375,14 +377,14 @@
  * @param outError If an error occurs, return the error that occurred
  * @return It returns YES when the setting is successful, otherwise, it returns NO
  */
-- (BOOL)discardClipAtIndex:(NSUInteger)index error:(NSError **)outError;
+- (BOOL)discardClipAtIndex:(NSUInteger)index error:(NSError *_Nullable *_Nullable)outError;
 
 /**
  * @brief Delete all recorded clips
  * @param outError If an error occurs, return the error that occurred
  * @return It returns YES when the setting is successful, otherwise, it returns NO
  */
-- (BOOL)discardAllClipsWithError:(NSError **)outError;
+- (BOOL)discardAllClipsWithError:(NSError *_Nullable *_Nullable)outError;
 
 /**
  * @brief Switch camera
@@ -392,7 +394,7 @@
 /**
  * @brief Background audio configuration object
  */
-@property(nonatomic, strong, readonly) MSVRecorderBackgroundAudioConfiguration *backgroundAudioConfiguration;
+@property(nonatomic, strong, readonly, nullable) MSVRecorderBackgroundAudioConfiguration *backgroundAudioConfiguration;
 
 /**
  * @brief The background music can be set or canceled only after the recording has not started or all the recorded clips have been deleted, the background music information after set will be reflected in the draft.audioClips and will not be encoded into the generated recording file directly,  so that the background music can be replaced at any time during the editing phase.
@@ -400,7 +402,7 @@
  * @param outError If an error occurs, return the error that occurred
  * @return It returns YES when the setting is successful, otherwise, it returns NO
  */
-- (BOOL)setBackgroundAudioWithConfiguration:(MSVRecorderBackgroundAudioConfiguration *)configuration error:(NSError **)outError;
+- (BOOL)setBackgroundAudioWithConfiguration:(MSVRecorderBackgroundAudioConfiguration *)configuration error:(NSError *_Nullable *_Nullable)outError;
 
 /**
  * @brief The interface of externally write the video data, please ensure the configuration if this interface will be used.  videoConfiguration.source = MSVVideoSourceExtern
@@ -409,7 +411,7 @@
  * @param outError If an error occurs, return the error that occurred
  * @return It returns YES when the setting is successful, otherwise, it returns NO
  */
-- (BOOL)writeVideoData:(CVPixelBufferRef)videoData presentationTime:(CMTime)presentationTime error:(NSError **)outError;
+- (BOOL)writeVideoData:(CVPixelBufferRef)videoData presentationTime:(CMTime)presentationTime error:(NSError *_Nullable *_Nullable)outError;
 
 /**
  * @brief The interface of externally write the video data, please ensure the configuration if this interface will be used.  videoConfiguration.source = MSVVideoSourceExtern
@@ -417,7 +419,7 @@
  * @param outError If an error occurs, return the error that occurred
  * @return It returns YES when the setting is successful, otherwise, it returns NO
  */
-- (BOOL)writeVideoData:(CMSampleBufferRef)videoData error:(NSError **)outError;
+- (BOOL)writeVideoData:(CMSampleBufferRef)videoData error:(NSError *_Nullable *_Nullable)outError;
 
 /**
  * @brief The interface of externally write the video data, please ensure the configuration if this interface will be used. audioConfiguration.source = MSVAudioSourceExtern
@@ -425,7 +427,7 @@
  * @param outError If an error occurs, return the error that occurred
  * @return It returns YES when the setting is successful, otherwise, it returns NO
  */
-- (BOOL)writeAudioData:(CMSampleBufferRef)audioData error:(NSError **)outError;
+- (BOOL)writeAudioData:(CMSampleBufferRef)audioData error:(NSError *_Nullable *_Nullable)outError;
 
 /**
  * @brief Obtain a screenshot
@@ -434,3 +436,4 @@
 
 @end
 
+NS_ASSUME_NONNULL_END

@@ -16,6 +16,8 @@
 #import "MSVMixTrackClip.h"
 #import "MSVImageGenerator.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * @brief Video drafts, callers can generate drafts themselves or edit them arbitrarily with drafts，Then use MSVEditor to generate a preview of the draft in real time, or you can use MSVExporter to export the draft.
  */
@@ -130,9 +132,17 @@ NSCopying
 @property (nonatomic, assign) BOOL reverseVideo;
 
 /**
- * @brief The size of the video. If the size of the window does not match the size of the videoSize when previewing,Scaling depends on method specified by editor.previewScalingMode
+ * @brief The size of the video.
  */
-@property (nonatomic, assign) CGSize videoSize;
+@property (nonatomic, assign, readonly) CGSize videoSize;
+
+/**
+ * @brief Set the size of the video, if the size of the window does not match the size of the videoSize when previewing, Scaling depends on method specified by editor.previewScalingMode
+ * @param videoSize The new size of the video
+ * @param outError If an error occurs, return the error that occurred
+ * @return Valid operation returnsYES, invalid operation return NO
+ */
+- (BOOL)setVideoSize:(CGSize)videoSize error:(NSError **)outError;
 
 /**
  * @brief Valid time area, other parts will be ignored
@@ -200,3 +210,5 @@ NSCopying
 - (MovieousTimeRange)getOriginalTimeRangeFromEffectedTimeRange:(MovieousTimeRange)effectedTimeRange;
 
 @end
+
+NS_ASSUME_NONNULL_END

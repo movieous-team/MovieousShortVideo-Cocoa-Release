@@ -20,4 +20,6 @@ MovieousCaptureEffect
  */
 @property (nonatomic, assign) Class<MovieousExternalFilter> externalFilterClass;
 
+- (instancetype)initWithExternalFilterCaptureEffect:(MovieousExternalFilterCaptureEffect *)externalFilterCaptureEffect;
+
 @end

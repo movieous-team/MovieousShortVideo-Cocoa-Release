@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "MSVBasicEditorEffect.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * @brief Image sticker effects
  */
@@ -27,5 +29,8 @@ MSVBasicEditorEffect
  */
 @property (nonatomic, assign) MovieousTimeRange timeRangeAtMainTrack;
 
+- (instancetype)initWithImageStickerCaptureEffect:(MSVImageStickerEditorEffect *)imageStickerCaptureEffect;
+
 @end
 
+NS_ASSUME_NONNULL_END

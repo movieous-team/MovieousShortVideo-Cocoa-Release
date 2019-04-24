@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <MovieousBase/MovieousBase.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * @brief Background audio configuration class
  */
@@ -41,6 +43,8 @@
  * @param outError Return error if any
  * @return Created instance if success or else nil
  */
-+ (instancetype)backgroundAudioConfigurationWithURL:(NSURL *)URL error:(NSError **)outError;
++ (instancetype _Nullable)backgroundAudioConfigurationWithURL:(NSURL *)URL error:(NSError *_Nullable *_Nullable)outError;
 
 @end
+
+NS_ASSUME_NONNULL_END

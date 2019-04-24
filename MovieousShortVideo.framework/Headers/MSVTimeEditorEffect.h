@@ -9,9 +9,12 @@
 #import <MovieousBase/MovieousBase.h>
 #import "MSVTypeDefines.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol MSVTimeEditorEffect
 <
-NSObject
+NSObject,
+NSCopying
 >
 
 @required
@@ -32,3 +35,5 @@ NSObject
 @property (nonatomic, assign) MovieousTimeRange timeRangeAtMainTrack;
 
 @end
+
+NS_ASSUME_NONNULL_END

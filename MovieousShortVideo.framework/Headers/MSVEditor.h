@@ -10,6 +10,8 @@
 #import "MSVDraft.h"
 #import "MSVClip.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * @brief Notify the current play time of the editor has updated
  */
@@ -96,7 +98,7 @@ extern NSString *kMSVEditorCurrentTimeKey;
  * @param outError If an error occurs, return the error that occurred
  * @return It returns the draft object if the initialization is successful, returns nil if it fails.
  */
-+ (instancetype)editorWithDraft:(MSVDraft *)draft error:(NSError **)outError;
++ (instancetype _Nullable)editorWithDraft:(MSVDraft *_Nullable)draft error:(NSError *_Nullable *_Nullable)outError;
 
 /**
  * @brief Initialize an MSVEditor object with a draft object
@@ -104,7 +106,7 @@ extern NSString *kMSVEditorCurrentTimeKey;
  * @param outError If an error occurs, return the error that occurred
  * @return It returns the draft object if the initialization is successful, returns nil if it fails.
  */
-- (instancetype)initWithDraft:(MSVDraft *)draft error:(NSError **)outError NS_DESIGNATED_INITIALIZER;
+- (instancetype _Nullable)initWithDraft:(MSVDraft *_Nullable)draft error:(NSError *_Nullable *_Nullable)outError NS_DESIGNATED_INITIALIZER;
 
 /**
  * @brief Update the underlying MSVDraft object
@@ -131,3 +133,5 @@ extern NSString *kMSVEditorCurrentTimeKey;
 - (void)seekToTime:(NSTimeInterval)time accurate:(BOOL)accurate;
 
 @end
+
+NS_ASSUME_NONNULL_END

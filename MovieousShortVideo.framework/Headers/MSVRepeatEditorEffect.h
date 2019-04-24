@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "MSVTimeEditorEffect.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * @brief Repeat effects
  */
@@ -39,3 +41,5 @@ MSVTimeEditorEffect
 @property (nonatomic, assign) NSUInteger count;
 
 @end
+
+NS_ASSUME_NONNULL_END

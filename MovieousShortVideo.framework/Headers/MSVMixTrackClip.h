@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param outError If an error occurs, return the error that occurred
  * @return If the creation is successful, the completed object is returned, otherwise returns nil
  */
-+ (instancetype)mixTrackClipWithType:(MSVClipType)type URL:(NSURL *)URL startTimeAtMainTrack:(NSTimeInterval)startTimeAtMainTrack error:(NSError **)outError;
++ (instancetype _Nullable)mixTrackClipWithType:(MSVClipType)type URL:(NSURL *)URL startTimeAtMainTrack:(NSTimeInterval)startTimeAtMainTrack error:(NSError *_Nullable *_Nullable)outError;
 
 /**
  * @brief Use AVAsset Create the mix track clip of audio and video type using AVAsset
@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param outError If an error occurs, return the error that occurred
  * @return If the creation is successful, the completed object is returned, otherwise returns nil
  */
-+ (instancetype)mixTrackClipWithAsset:(AVAsset *)asset  startTimeAtMainTrack:(NSTimeInterval)startTimeAtMainTrack error:(NSError **)outError;
++ (instancetype _Nullable)mixTrackClipWithAsset:(AVAsset *)asset  startTimeAtMainTrack:(NSTimeInterval)startTimeAtMainTrack error:(NSError *_Nullable *_Nullable)outError;
 
 /**
  * @brief Create a mix track clip of a image type using UIImage
@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param outError If an error occurs, return the error that occurred
  * @return If the creation is successful, the completed object is returned, otherwise returns nil
  */
-+ (instancetype)mixTrackClipWithImage:(UIImage *)image duration:(NSTimeInterval)duration startTimeAtMainTrack:(NSTimeInterval)startTimeAtMainTrack error:(NSError **)outError;
++ (instancetype _Nullable)mixTrackClipWithImage:(UIImage *)image duration:(NSTimeInterval)duration startTimeAtMainTrack:(NSTimeInterval)startTimeAtMainTrack error:(NSError *_Nullable *_Nullable)outError;
 
 /**
  * @brief Initialize a mix track clip
@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param outError If an error occurs, return the error that occurred
  * @return If the initialization is successful, the completed object is returned, otherwise returns nil
  */
-- (instancetype)initWithType:(MSVClipType)type URL:(NSURL *)URL startTimeAtMainTrack:(NSTimeInterval)startTimeAtMainTrack error:(NSError **)outError;
+- (instancetype _Nullable)initWithType:(MSVClipType)type URL:(NSURL *)URL startTimeAtMainTrack:(NSTimeInterval)startTimeAtMainTrack error:(NSError *_Nullable *_Nullable)outError;
 
 /**
  * @brief Initialize a mix track clip of an audio and video type using AVAsset
@@ -59,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param outError If an error occurs, return the error that occurred
  * @return If the initialization is successful, the completed object is returned, otherwise returns nil
  */
-- (instancetype)initWithAsset:(AVAsset *)asset startTimeAtMainTrack:(NSTimeInterval)startTimeAtMainTrack error:(NSError **)outError;
+- (instancetype _Nullable)initWithAsset:(AVAsset *)asset startTimeAtMainTrack:(NSTimeInterval)startTimeAtMainTrack error:(NSError *_Nullable *_Nullable)outError;
 
 /**
  * @brief Initialize a mix track clip of a image type using UIImage
@@ -69,7 +69,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param outError If an error occurs, return the error that occurred
  * @return If the initialization is successful, the completed object is returned, otherwise returns nil
  */
-- (instancetype)initWithImage:(UIImage *)image duration:(NSTimeInterval)duration startTimeAtMainTrack:(NSTimeInterval)startTimeAtMainTrack error:(NSError **)outError;
+- (instancetype _Nullable)initWithImage:(UIImage *)image duration:(NSTimeInterval)duration startTimeAtMainTrack:(NSTimeInterval)startTimeAtMainTrack error:(NSError *_Nullable *_Nullable)outError;
 
 /**
  * @brief Initialize a MSVMixTrackClip with a existing MSVMixTrackClip

@@ -11,6 +11,8 @@
 #import "MSVTypeDefines.h"
 #import <MovieousBase/MovieousBase.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * @brief Audio configuration class
  */
@@ -23,6 +25,10 @@ MovieousMicrophoneConfiguration
  * @brief Audio input source, the default is MSVAudioSourceMicrophone
  */
 @property (nonatomic, assign) MSVAudioSource source;
+
+#pragma mark - microphone configurations
+
+@property (nonatomic, assign) BOOL mute;
 
 #pragma mark - encoder configurations
 
@@ -37,11 +43,6 @@ MovieousMicrophoneConfiguration
  */
 + (instancetype)defaultConfiguration;
 
-/**
- * @brief Verify the object is valid or not
- * @param outError If an error occurs, return the error that occurred
- * @return Valid operation return YES, invalid operation return NO
- */
-- (BOOL)validateWithError:(NSError **)outError;
-
 @end
+
+NS_ASSUME_NONNULL_END
