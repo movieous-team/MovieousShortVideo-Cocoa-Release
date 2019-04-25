@@ -1,0 +1,7 @@
+clean: true
+objc: true
+output: docs.zh-cn
+sdk: iphonesimulator
+readme: README.zh-cn.md
+umbrella_header: .jazzy.zh-cn/MovieousShortVideo/MovieousShortVideo.h
+framework_root: .jazzy.zh-cn

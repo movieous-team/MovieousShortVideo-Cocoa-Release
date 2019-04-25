@@ -1,0 +1,5 @@
+clean: true
+objc: true
+sdk: iphonesimulator
+umbrella_header: .jazzy/MovieousShortVideo/MovieousShortVideo.h
+framework_root: .jazzy
