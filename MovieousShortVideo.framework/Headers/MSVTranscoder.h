@@ -15,77 +15,87 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MSVTranscoder : NSObject
 
 /**
- * @brief The URL of the media source file you would like to transcode
+ * The URL of the media source file you would like to transcode.
  */
 @property (nonatomic, strong, readonly) NSURL *URL;
 
 /**
- * @brief The running status of the transcoder
+ * The running status of the transcoder.
  */
 @property (nonatomic, assign, readonly) BOOL running;
 
 /**
- * @brief The time range you would like to trim from the source media
+ * The time range you would like to trim from the source media.
+ * The default is kMovieousTimeRangeDefault
  */
 @property (nonatomic, assign) MovieousTimeRange timeRange;
 
 /**
- * @brief Whether to export the video to the album at the same time, the default is NO
+ * Whether to export the video to the album at the same time.
+ * the default is NO.
  */
 @property (assign, nonatomic) BOOL saveToPhotosAlbum;
 
 /**
- * @brief The file type of the video export, the default is MSVFileTypeMPEG4(.mp4)
+ * The file type of the video export.
+ * the default is MSVFileTypeMPEG4(.mp4).
  */
 @property (nonatomic, assign) MSVFileType outputFileType;
 
 /**
- * @brief The path of the video export only supports the local file address. The default is the automatically generated address.
+ * The path of the video export only supports the local file address.
+ * The default is the automatically generated address.
  */
 @property (strong, nonatomic, nullable) NSURL *outputURL;
 
 /**
- * @brief The average bitrate of the output video.
+ * The average bitrate of the output video.
+ * The default is the automatically generated bitrate by encoder.
  */
 @property (assign, nonatomic) NSUInteger averageBitrate;
 
 /**
- * @brief Whether set up the transmission in the network environment, the default is YES
+ * Whether set up the transmission in the network environment.
+ * the default is YES.
  */
 @property (assign, nonatomic) BOOL shouldOptimizeForNetworkUse;
 
 /**
- * @brief Export progress callback
+ * Export progress callback.
  */
 @property (nonatomic, copy, nullable) void(^progressHandler)(float progress);
 
 /**
- * @brief Export failure callback
+ * Export failure callback.
  */
 @property (nonatomic, copy, nullable) void(^failureHandler)(NSError *error);
 
 /**
- * @brief Export successful callback
+ * Export successful callback.
  */
 @property (nonatomic, copy, nullable) void(^completionHandler)(NSURL *URL);
 
 /**
- * @brief instantiate a MSVTranscoder object with video URL
+ * Instantiate a MSVTranscoder object with video URL.
+ *
+ * @return The instantiated MSVTranscoder object
  */
 + (instancetype)transcoderWithURL:(NSURL *)URL;
 
 /**
- * @brief init a MSVTranscoder object with video URL
+ * Initiate a MSVTranscoder object with video URL.
+ *
+ * @return The initiated MSVTranscoder object
  */
 - (instancetype)initWithURL:(NSURL *)URL;
 
 /**
- * @brief Start exporting tasks
+ * Start exporting tasks.
  */
 - (void)startExport;
 
 /**
- * @brief Cancel the export task
+ * Cancel the export task.
  */
 - (void)cancelExport;
 

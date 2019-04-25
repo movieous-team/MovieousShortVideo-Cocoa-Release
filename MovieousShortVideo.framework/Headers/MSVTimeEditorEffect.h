@@ -20,17 +20,17 @@ NSCopying
 @required
 
 /**
- * @brief User-defined ID field, business usage is used to distinguish objects
+ * User-defined ID field, business usage is used to distinguish objects.
  */
 @property (nonatomic, strong) NSString *ID;
 
 /**
- * @brief The scope in which you want to place this time effect
+ * The scope in which you want to place this time effect.
  */
 @property (nonatomic, assign) MSVTimeEffectScope scope;
 
 /**
- * @brief The time interval for applying an basic effect on the main track
+ * The time interval for applying an basic effect on the main track.
  */
 @property (nonatomic, assign) MovieousTimeRange timeRangeAtMainTrack;
 

@@ -18,12 +18,12 @@ MovieousCaptureEffect
 @required
 
 /**
- * @brief User-defined ID field, business usage is used to distinguish objects
+ * User-defined ID field, business usage is used to distinguish objects.
  */
 @property (nonatomic, strong) NSString *ID;
 
 /**
- * @brief The time interval for applying an basic effect on the main track
+ * The time interval for applying an basic effect on the main track.
  */
 @property (nonatomic, assign) MovieousTimeRange timeRangeAtMainTrack;
 

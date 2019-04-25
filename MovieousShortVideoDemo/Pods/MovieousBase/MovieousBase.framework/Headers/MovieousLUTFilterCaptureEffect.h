@@ -15,10 +15,17 @@ MovieousCaptureEffect
 >
 
 /**
- * @brief LUT(look up table) image
+ * LUT(look up table) image.
  */
 @property (nonatomic, strong) UIImage *image;
 
+/**
+ * Initiate the MovieousLUTFilterCaptureEffect with another MovieousLUTFilterCaptureEffect object.
+ *
+ * @param LUTFilterCaptureEffect Another MovieousLUTFilterCaptureEffect used to initiate the instance.
+ *
+ * @return The initialized MovieousLUTFilterCaptureEffect instance.
+ */
 - (instancetype)initWithLUTFilterCaptureEffect:(MovieousLUTFilterCaptureEffect *)LUTFilterCaptureEffect;
 
 @end

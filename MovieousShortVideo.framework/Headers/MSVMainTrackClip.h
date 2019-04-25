@@ -14,39 +14,47 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * @brief Main track Clip
+ * Main track Clip.
  */
 @interface MSVMainTrackClip : MSVClip
 
 /**
- * @brief Create a main track clip
- * @param type The type of main track clip
- * @param URL The file path of the main track clip supports local files only
- * @param outError If an error occurs, return the error that occurred
- * @return If the creation is successful, the completed object is returned, otherwise returns nil
+ * Create a main track clip.
+ *
+ * @param type The type of main track clip.
+ * @param URL The file path of the main track clip supports local files only.
+ * @param outError If an error occurs, return the error that occurred.
+ *
+ * @return If the creation is successful, the completed object is returned, otherwise returns nil.
  */
 + (instancetype)mainTrackClipWithType:(MSVClipType)type URL:(NSURL *)URL error:(NSError **)outError;
 
 /**
- * @brief 使用 AVAsset Create the main track clip of audio and video type using AVAsset
- * @param asset AVAsset object used to create the main track clip
- * @param outError If an error occurs, return the error that occurred
- * @return If the creation is successful, the completed object is returned, otherwise returns nil
+ * use AVAsset to create the main track clip of audio and video type using AVAsset.
+ *
+ * @param asset AVAsset object used to create the main track clip.
+ * @param outError If an error occurs, return the error that occurred.
+ *
+ * @return If the creation is successful, the completed object is returned, otherwise returns nil.
  */
 + (instancetype)mainTrackClipWithAsset:(AVAsset *)asset error:(NSError **)outError;
 
 /**
- * @brief Create a main track clip of a image type using UIImage
- * @param image UIImage object used to create the main track clip
- * @param outError If an error occurs, return the error that occurred
- * @return If the creation is successful, the completed object is returned, otherwise returns nil
+ * Create a main track clip of a image type using UIImage.
+ *
+ * @param image UIImage object used to create the main track clip.
+ * @param outError If an error occurs, return the error that occurred.
+ *
+ * @return If the creation is successful, the completed object is returned, otherwise returns nil.
  */
 + (instancetype)mainTrackClipWithImage:(UIImage *)image duration:(NSTimeInterval)duration error:(NSError **)outError;
 
 /**
- * @brief Initialize a MSVMainTrackClip with a existing MSVMainTrackClip
- * @param mainTrackClip The existing MSVMainTrackClip object
- * @return If the initialized instance
+ * Initialize a MSVMainTrackClip with a existing MSVMainTrackClip.
+ *
+ * @param mainTrackClip The existing MSVMainTrackClip object.
+ *
+ * @return If the initialized instance.
  */
 - (instancetype)initWithMainTrackClip:(MSVMainTrackClip *)mainTrackClip;
 

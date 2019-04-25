@@ -16,10 +16,17 @@ MovieousCaptureEffect
 >
 
 /**
- * @brief  The external filter class
+ *  The external filter class.
  */
 @property (nonatomic, assign) Class<MovieousExternalFilter> externalFilterClass;
 
+/**
+ * Initiate the MovieousExternalFilterCaptureEffect with another MovieousExternalFilterCaptureEffect object.
+ *
+ * @param externalFilterCaptureEffect Another MovieousExternalFilterCaptureEffect used to initiate the instance.
+ *
+ * @return The initialized MovieousExternalFilterCaptureEffect instance.
+ */
 - (instancetype)initWithExternalFilterCaptureEffect:(MovieousExternalFilterCaptureEffect *)externalFilterCaptureEffect;
 
 @end

@@ -19,48 +19,53 @@ NSObject
 >
 
 /**
- * @brief   Video resolution when encoding. The default is (1280, 720)
- * @discussion It should be noted that this parameter affects the resolution of the video encoding, rather than the preview size of the data captured by the camera. When the image size passed to the encoder is different from this size, it will be generated in the same way The video ensures that the image does not appear to be compressed (but the cropping phenomenon occurs when the ratio of the encoded video is different from the ratio of the captured video).
+ * @brief
+ * 编码时的视频分辨率，默认 (1280, 720)
+ * 
+ * @discussion 
+ * 需要注意的是，这个参数影响的是视频编码时的分辨率，而非摄像头采集到数据的预览大小，传递给编码器的图像尺寸与此尺寸不同时，会按照保持比例并填充的方式生成最终的视频，从而确保图像不会出现压缩的现象（但编码视频的比例与采集视频的比例不同时会出现裁剪的现象）。
  */
 @property (nonatomic, assign) CGSize size;
 
 /**
- * @brief Effects applied to recorder.
+ * @brief
+ * 应用到 MSVRecorder 的特效
  */
 @property (nonatomic, strong) NSArray<id<MovieousCaptureEffect>> *captureEffects;
 
 /**
- * The scaling mode you want to use if the aspect ratio of cameraResolution and size are not equal
- * The default is MovieousScalingModeAspectFill
+ * @brief 
+ * 当你设置的 size 和预览的 UIView 的比例不一致时填充视频的模式
+ * 默认为 MovieousScalingModeAspectFill
  */
 @property (nonatomic, assign) MovieousScalingMode previewScalingMode;
 
 /*!
- * Turn mirrorFrontPreview means preview for front camera will be mirrored
- * The default is YES
+ * 是否对前置摄像头的预览画面做镜像处理
+ * 默认值为 YES
  */
 @property (nonatomic, assign) BOOL mirrorFrontPreview;
 
 /*!
- * Turn mirrorBackPreview means preview for back camera will be mirrored
- * The default is NO
+ * 是否对后置摄像头的预览画面做镜像处理
+ * 默认值为 NO
  */
 @property (nonatomic, assign) BOOL mirrorBackPreview;
 
 /*!
- * Turn mirrorFrontStream means stream broadcasted for front camera will be mirrored
- * The default is NO
+ * 是否对前置摄像头编码后的图像做镜像处理
+ * 默认为 NO
  */
 @property (nonatomic, assign) BOOL mirrorFrontEncoded;
 
 /*!
- * Turn mirrorBackStream means stream broadcasted for back camera will be mirrored
- * The default is NO
+ * 是否对后置摄像头编码后的图像做镜像处理
+ * 默认为 NO
  */
 @property (nonatomic, assign) BOOL mirrorBackEncoded;
 
 /**
- * @brief Whether to enable touch to focus and exposure the specified point in the preview
+ * 是否开启点击屏幕调整对焦和曝光参考点的功能
  */
 @property (nonatomic, assign) BOOL touchToFocusExposureEnabled;
 

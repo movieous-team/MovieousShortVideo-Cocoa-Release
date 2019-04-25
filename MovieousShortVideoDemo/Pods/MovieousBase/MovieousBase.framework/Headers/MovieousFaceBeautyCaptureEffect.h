@@ -14,10 +14,28 @@
 MovieousCaptureEffect
 >
 
+/**
+ * The beauty level to use, which ranges between 0 and 1.
+ */
 @property (nonatomic, assign) CGFloat beautyLevel;
+
+/**
+ * The bright level to use, which ranges between 0 and 1.
+ */
 @property (nonatomic, assign) CGFloat brightLevel;
+
+/**
+ * The tone level to use, which ranges between 0 and 1.
+ */
 @property (nonatomic, assign) CGFloat toneLevel;
 
+/**
+ * Initiate the MovieousFaceBeautyCaptureEffect with another MovieousFaceBeautyCaptureEffect object.
+ *
+ * @param faceBeautyCaptureEffect Another MovieousFaceBeautyCaptureEffect used to initiate the instance.
+ *
+ * @return The initialized MovieousFaceBeautyCaptureEffect instance.
+ */
 - (instancetype)initWithFaceBeautyCaptureEffect:(MovieousFaceBeautyCaptureEffect *)faceBeautyCaptureEffect;
 
 @end
