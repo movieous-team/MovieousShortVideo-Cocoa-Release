@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * Color lookup table filter effect class.
+ * LUT(颜色查找表)滤镜特效类
  */
 @interface MSVLUTFilterEditorEffect : MovieousLUTFilterCaptureEffect
 <

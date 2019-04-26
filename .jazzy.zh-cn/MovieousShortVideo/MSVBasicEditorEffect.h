@@ -10,6 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * 基本编辑器特效类。
+ */
 @protocol MSVBasicEditorEffect
 <
 MovieousCaptureEffect

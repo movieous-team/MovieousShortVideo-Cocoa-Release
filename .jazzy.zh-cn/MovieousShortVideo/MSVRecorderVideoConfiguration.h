@@ -151,43 +151,40 @@ MovieousCameraConfiguration
 
 #pragma mark - encoder configurations
 /**
- * Average video encoding rate.
- * The default is 1024 * 1024(1 mbps).
- *
- * @discussion unit is bps(Bits per Second). The parameters of the video encoding are not constant values in the actual process, so the average video encoding rate can be set only.
+ * 平均视频编码码率。默认为 1024*1000
+ * 
+ * @discussion 单位为 bps(Bits per Second)。该参数的视频编码实际过程中，并不是恒定的数值，所以只能设定平均视频编码码率。
  */
 @property (nonatomic, assign) NSUInteger averageVideoBitRate;
 
 /**
- * The Maximum Interval of video encoding Keyframe. (GOP).
- * The default is 0 which means that the encoder decide what videoMaxKeyframeInterval to use.
- *
- * @discussion During h.264 encoding, The maximum number of frames between two keyframes typically is twice or three times than the fps. The default is 2*fps
+ * 视频编码关键帧最大间隔（GOP）。
+ * 
+ * @discussion h.264 编码时，两个关键帧之间间隔的最多的帧数，一般为 fps 的两倍或者三倍。默认为 2*fps
  */
 @property (nonatomic, assign) NSUInteger videoMaxKeyframeInterval;
 
 /**
- * During H.264 encoding, the Profile Level will be used.
- * The default is AVVideoProfileLevelH264HighAutoLevel.
- *
- * @discussion By default, AVVideoProfileLevelH264HighAutoLevel is used, if you have additional requirements for video encoding, you can change it yourself if understanding that the impacts  from this parameter.
- *
- * @warning When you are not sure about the impact of this parameter change on resolution requirements, code rate, etc., please do not change it.
+ * H.264 编码时使用的 Profile Level。
+ * 
+ * @discussion 默认情况下使用 AVVideoProfileLevelH264HighAutoLevel，如果对于视频编码有额外的需求并且知晓该参数带来的影响可以自行更改。
+ * 
+ * @warning 当你不清楚该参数更改对分辨率要求，码率等影响时，请不要随意更改。
  */
 @property (nonatomic, copy) NSString *videoProfileLevel;
 
 /**
- * Enables or disables frame reordering.
- * The default is NO.
+ * 是否允许帧重排序
+ * 默认为 NO.
  *
- * @discussion In order to achieve the best compression while maintaining image quality, some video encoders can reorder frames.  This means that the order in which the frames will be emitted and stored (the decode order) will be different from the order in which they are presented to the video encoder (the display order). Encoding using frame reordering requires more system resources than encoding without frame reordering, so encoding performance should be taken into account when deciding whether to enable frame reordering.  This is especially important when encoding video data from a real-time source, such as AVCaptureVideoDataOutput.  In this situation, using a value of NO may yield the best results.
+ * @discussion 当允许帧排序时会生成 B 帧，否则不会生成 B 帧。
 */
 @property (nonatomic, assign) BOOL allowFrameReordering;
 
 /**
- * Create a default configuration of the MSVVideoConfiguration instance.
- *
- * @return The created default MSVVideoConfiguration object
+ * 创建一个默认配置的 MSVVideoConfiguration 实例。
+ * 
+ * @return 创建的默认 MSVVideoConfiguration 对象。
  */
 + (instancetype)defaultConfiguration;
 

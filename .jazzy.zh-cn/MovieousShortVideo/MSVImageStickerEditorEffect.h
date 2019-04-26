@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * Image sticker effects.
+ * 图片贴纸编辑器特效。
  */
 @interface MSVImageStickerEditorEffect : MovieousImageStickerCaptureEffect
 <

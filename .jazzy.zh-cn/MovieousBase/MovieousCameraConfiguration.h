@@ -13,6 +13,9 @@
 #import <MovieousBase/MovieousTypeDefines.h>
 #import <MovieousBase/MovieousCaptureEffect.h>
 
+/**
+ * 摄像头配置对象。
+ */
 @protocol MovieousCameraConfiguration
 <
 NSObject

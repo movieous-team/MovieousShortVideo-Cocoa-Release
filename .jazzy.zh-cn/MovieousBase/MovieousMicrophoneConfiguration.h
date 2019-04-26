@@ -8,6 +8,9 @@
 
 #import <AVFoundation/AVFoundation.h>
 
+/**
+ * 麦克风采集配置对象。
+ */
 @protocol MovieousMicrophoneConfiguration <NSObject>
 
 /**

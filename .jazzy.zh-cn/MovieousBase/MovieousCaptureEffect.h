@@ -6,6 +6,9 @@
 //  Copyright © 2019 Movieous Team. All rights reserved.
 //
 
+/**
+ * 采集特效对象。
+ */
 @protocol MovieousCaptureEffect
 <
 NSObject,

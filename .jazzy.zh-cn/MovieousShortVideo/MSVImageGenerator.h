@@ -12,64 +12,71 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class MSVImageGeneratorResult;
+/**
+ * 图片生成完成代码块。
+ *
+ * @param results 生成的结果。
+ * @param result 生成的结果状态。
+ * @param error 如果错误发生，返回具体的错误对象。
+ */
 typedef void (^MSVImageGeneratorCompletionHandler)(NSArray<MSVImageGeneratorResult *> *_Nullable results, AVAssetImageGeneratorResult result, NSError *_Nullable error);
 
 /**
- * The generated result.
+ * 生成图片的结果。
  */
 @interface MSVImageGeneratorResult : NSObject
 
 /**
- * The time for which you requested an image.
+ * 请求图片的时间。
  */
 @property (nonatomic, assign) NSTimeInterval requestedTime;
 
 /**
- * A result code indicating whether the image generation process succeeded, failed, or was cancelled.
+ * 实际产生的图片的时间。
  */
 @property (nonatomic, assign) NSTimeInterval actualTime;
 
 /**
- * The image that was generated.
+ * 生成的图片。
  */
 @property (nonatomic, strong) UIImage *image;
 
 @end
 
 /**
- * The image generator used to generate snapshots.
+ * 用于生成快照的图片生成器。
  */
 @interface MSVImageGenerator : NSObject
 
 /**
- * The timeRange within which snapshots will be generated.
+ * 生成快照的时间范围。
  */
 @property (nonatomic, assign) MovieousTimeRange timeRange;
 
 /**
- * Count of image.
+ * 快照数量。
  */
 @property (nonatomic, assign) NSUInteger imageCount;
 
 /**
- * TimeInterval of the generation of snapshots.
+ * 生成快照的时间间隔。
  */
 @property (nonatomic, assign, readonly) NSTimeInterval timeInterval;
 
 /**
- * The inner AVAsset of the image generator.
+ * 底层的 AVAsset 对象。
  */
 @property (nonatomic, strong) AVAsset *innerAsset;
 
 /**
- * The inner AVAssetImageGenerator instance, you can use this to do your own image genration.
+ * 底层的 AVAssetImageGenerator 对象，你能用这个对象来进行你自己的图片生成动作。
  */
 @property (nonatomic, strong, readonly) AVAssetImageGenerator *innerImageGenerator;
 
 /**
- * Verify that the mix track clip is valid or not.
+ * 用生成器的参数来生成截图。
  *
- * @param handler A block called when an image generate request is completed.
+ * @param handler 当生成完成时调用改 block。
  */
 - (void)generateImagesWithCompletionHandler:(MSVImageGeneratorCompletionHandler)handler;
 

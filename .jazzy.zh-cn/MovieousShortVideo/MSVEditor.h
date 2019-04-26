@@ -13,37 +13,43 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * Notify the current play time of the editor has updated。
+ * 通知编辑器的当前播放时间已更新，userInfo 的 kMSVEditorCurrentTimeKey 中将携带当前的时间值。
  */
 extern NSString *kMSVEditorCurrentTimeUpdatedNotification;
 
 /**
- * The current time key of kMSVEditorCurrentTimeUpdatedNotification。
+ * 获取当前时间值的 key
  */
 extern NSString *kMSVEditorCurrentTimeKey;
 
 @class MSVEditor;
+/**
+ * 编辑器的代理对象，接受编辑器事件回调。
+ */
 @protocol MSVEditorDelegate <NSObject>
 
 @optional
 /**
- * Notify the delegate that current play time has updated。
+ * 当前播放时间已更新的回调。
  *
- * @param editor The editor that send the event。
- * @param currentTime The current play time of the editor。
+ * @param editor 事件发送者。
+ * @param currentTime 当前播放时间。
  */
 - (void)editor:(MSVEditor *)editor currentTimeDidUpdate:(NSTimeInterval)currentTime;
 
 /**
- * Notify the delegate that current play state has changed。
+ * 当前播放状态已改变的回调。
  *
- * @param editor The editor that send the event。
- * @param playing The current play state of the editor。
+ * @param editor 事件发送者。
+ * @param playing 当前是否正在播放的状态。
  */
 - (void)editor:(MSVEditor *)editor playStateChanged:(BOOL)playing;
 
 @end
 
+/**
+ * 编辑器对象。
+ */
 @interface MSVEditor : NSObject
 
 /**
@@ -117,29 +123,30 @@ extern NSString *kMSVEditorCurrentTimeKey;
 - (instancetype _Nullable)initWithDraft:(MSVDraft *_Nullable)draft error:(NSError *_Nullable *_Nullable)outError NS_DESIGNATED_INITIALIZER;
 
 /**
- * Update the underlying MSVDraft object。
+ * 更新底层 MSVDraft 对象。
  *
- * @param draft Draft object。
+ * @param draft 新的 MSVDraft 对象。
  * @param outError 如果发生错误，返回错误对象。
  *
- * @return It returns YES if the update is successful, returns NO if it fails。
+ * @return 如果操作成功返回 YES，否则返回 NO。
  */
 - (BOOL)updateDraft:(MSVDraft *)draft error:(NSError **)outError;
 
 /**
- * Start previewing。
+ * 开始预览草稿。
  */
 - (void)play;
 
 /**
- * Pause previewing。
+ * 暂停预览草稿。
  */
 - (void)pause;
 
 /**
- * The player fast forwards to the appropriate position。
+ * 快进到对应时间点。
  *
- * @param time Target position。
+ * @param time 目标时间点。
+ * @param accurate 是否是精确的快进，精确的快进将消耗更多的时间。
  */
 - (void)seekToTime:(NSTimeInterval)time accurate:(BOOL)accurate;
 

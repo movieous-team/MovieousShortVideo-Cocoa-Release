@@ -12,6 +12,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * 导出器对象。
+ */
 @interface MSVExporter : NSObject
 
 /**
@@ -43,8 +46,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic, nullable) NSURL *outputURL;
 
 /**
- * The 视频的码率。
- * The 默认为原视频的码率。
+ * 视频的码率。
+ * 默认为原视频的码率。
  */
 @property (assign, nonatomic) NSUInteger videoBitrate;
 

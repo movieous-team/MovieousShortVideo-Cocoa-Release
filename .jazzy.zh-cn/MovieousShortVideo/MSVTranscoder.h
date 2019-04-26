@@ -12,90 +12,94 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * 转码器类。
+ */
 @interface MSVTranscoder : NSObject
 
 /**
- * The URL of the media source file you would like to transcode.
+ * 转码源文件地址。
  */
 @property (nonatomic, strong, readonly) NSURL *URL;
 
 /**
- * The running status of the transcoder.
+ * 转码器当前是否在运行中。
  */
 @property (nonatomic, assign, readonly) BOOL running;
 
 /**
- * The time range you would like to trim from the source media.
- * The default is kMovieousTimeRangeDefault
+ * 源文件中你希望裁剪的时间区间。
+ * 默认为 kMovieousTimeRangeDefault
  */
 @property (nonatomic, assign) MovieousTimeRange timeRange;
 
 /**
- * Whether to export the video to the album at the same time.
- * the default is NO.
+ * 是否同时将视频导出到相册。
+ * 默认为 NO。
  */
 @property (assign, nonatomic) BOOL saveToPhotosAlbum;
 
 /**
- * The file type of the video export.
- * the default is MSVFileTypeMPEG4(.mp4).
+ * 视频导出的文件类型。
+ * 默认为 MSVFileTypeMPEG4(.mp4)。
  */
 @property (nonatomic, assign) MSVFileType outputFileType;
 
 /**
- * The path of the video export only supports the local file address.
- * The default is the automatically generated address.
+ * 视频导出的路径，只支持本地文件地址。
+ * 默认为自动生成的地址。
+ * 
  */
 @property (strong, nonatomic, nullable) NSURL *outputURL;
 
 /**
- * The average bitrate of the output video.
- * The default is the automatically generated bitrate by encoder.
+ * 视频的码率。
+ * 默认为原视频的码率。
  */
 @property (assign, nonatomic) NSUInteger averageBitrate;
 
 /**
- * Whether set up the transmission in the network environment.
- * the default is YES.
+ * 是否针对网络环境优化编码的文件。
+ * 默认为 YES.
  */
 @property (assign, nonatomic) BOOL shouldOptimizeForNetworkUse;
 
 /**
- * Export progress callback.
+ * Export 导出进度回调。
  */
 @property (nonatomic, copy, nullable) void(^progressHandler)(float progress);
 
 /**
- * Export failure callback.
+ * Export 导出失败回调。
  */
 @property (nonatomic, copy, nullable) void(^failureHandler)(NSError *error);
 
 /**
- * Export successful callback.
+ * Export 导出成功回调。
  */
 @property (nonatomic, copy, nullable) void(^completionHandler)(NSURL *URL);
 
 /**
- * Instantiate a MSVTranscoder object with video URL.
+ * 使用 URL 来创建一个 MSVTranscoder 对象。
  *
- * @return The instantiated MSVTranscoder object
+ * @return 创建完成的 MSVTranscoder 对象。
  */
 + (instancetype)transcoderWithURL:(NSURL *)URL;
 
 /**
- * Initiate a MSVTranscoder object with video URL.
+ * 使用 URL 来初始化一个 MSVTranscoder 对象。
  *
- * @return The initiated MSVTranscoder object
+ * @return 初始化完成的 MSVTranscoder 对象。
  */
 - (instancetype)initWithURL:(NSURL *)URL;
 
 /**
- * Start exporting tasks.
+ * 开始导出任务。
  */
 - (void)startExport;
 
 /**
- * Cancel the export task.
+ * 取消导出任务。
  */
 - (void)cancelExport;
 

@@ -11,6 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * 时间特效类型。
+ */
 @protocol MSVTimeEditorEffect
 <
 NSObject,
@@ -25,12 +28,12 @@ NSCopying
 @property (nonatomic, strong) NSString *ID;
 
 /**
- * The scope in which you want to place this time effect.
+ * 你希望应用事件特效的范围。
  */
 @property (nonatomic, assign) MSVTimeEffectScope scope;
 
 /**
- * The time interval for applying an basic effect on the main track.
+ * 你希望应用事件特效的主轨时间区间。
  */
 @property (nonatomic, assign) MovieousTimeRange timeRangeAtMainTrack;
 

@@ -11,6 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * 图片贴纸特效。
+ */
 @interface MovieousImageStickerCaptureEffect : NSObject
 <
 MovieousCaptureEffect

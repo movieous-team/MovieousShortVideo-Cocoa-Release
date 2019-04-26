@@ -14,7 +14,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * Audio configuration class
+ * 音频配置类
  */
 @interface MSVRecorderAudioConfiguration : NSObject
 <
@@ -22,7 +22,8 @@ MovieousMicrophoneConfiguration
 >
 
 /**
- * Audio input source, the default is MSVAudioSourceMicrophone
+ * 音频输入源类型。
+ * 默认为 MSVAudioSourceMicrophone。
  */
 @property (nonatomic, assign) MSVAudioSource source;
 
@@ -37,14 +38,15 @@ MovieousMicrophoneConfiguration
 #pragma mark - encoder configurations
 
 /**
- * Audio encoding rate bitRate The default is 128 * 1024
+ * 音频编码码率。
+ * 默认为 128 * 1024。
  */
 @property (assign, nonatomic) UInt32 bitrate;
 
 /**
- * Create a default configuration of the MSVAudioConfiguration instance.
+ * 创建一个默认的 MSVAudioConfiguration 对象。
  *
- * @return Create a default object of MSVAudioConfiguration.
+ * @return 创建完成的对象。
  */
 + (instancetype)defaultConfiguration;
 

@@ -12,6 +12,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * 媒体片段的基类。
+ */
 @interface MSVClip : NSObject
 <
 NSCopying

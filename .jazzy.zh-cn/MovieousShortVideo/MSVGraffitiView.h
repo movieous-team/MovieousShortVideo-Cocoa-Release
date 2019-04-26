@@ -11,96 +11,100 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class MSVGraffitiView;
+/**
+ * 涂鸦代理对象，用于接受 MSVGraffitiView 的回调。
+ */
 @protocol MSVGraffitiViewDelegate <NSObject>
 
 @optional
 /**
- * Notify the delegate that the canUndo or canRedo status of the graffiti view has changed.
+ * 涂鸦视图的撤销重做状态改变。
  *
- * @param graffitiView The graffitiView send the event.
+ * @param graffitiView 发生事件的 MSVGraffitiView 对象。
  */
 - (void)graffitiViewUndoRedoStatusChanged:(MSVGraffitiView *)graffitiView;
 
 @end
 
 /**
- * UIView subclass used for drawing graffiti.
+ * 用来画涂鸦的 UIView 子类。
  */
 @interface MSVGraffitiView : UIView
 
 /**
- * The delegate object used for receiving callbacks.
+ * 代理对象。
  */
 @property (nonatomic, weak) id<MSVGraffitiViewDelegate> delegate;
 
 /**
- * The maximum steps undo stack can save, if current undo stack has exceeded the limit, the oldest operation saved will be dropped, a limit of 0 indicates no limit. The default is 20.
+ * 最大的撤销栈深度，如果当前撤销堆栈超过此限制，最老的操作将会被清除，当设置限制为 0 时表示没有限制。
+ * 默认为 20。
  */
 @property (nonatomic, assign) NSUInteger maxUndoSteps;
 
 /**
- * The MSVBrush object defining drawing properties.
+ * 定义绘画参数的 MSVBrush 对象。
  */
 @property (nonatomic, strong) MSVBrush *brush;
 
 /**
- * Instantiate a MSVGraffitiView object with frame and brush.
+ * 使用 frame 和 brush 来创建一个 MSVGraffitiView 对象。
  *
- * @param frame Frame for the view.
- * @param brush Brush defining drawing properties.
+ * @param frame 用来创建 view 的 frame。
+ * @param brush 定义绘画参数的 brush。
  *
- * @return The instantiated brush instance.
+ * @return 创建完成的 MSVGraffitiView 对象。
  */
 + (instancetype)graffitiViewWithFrame:(CGRect)frame brush:(MSVBrush *)brush;
 
 /**
- * Initiate a MSVGraffitiView object with frame and brush.
+ * 使用 frame 和 brush 来初始化一个 MSVGraffitiView 对象。
  *
- * @param frame Frame for the view.
- * @param brush Brush defining drawing properties.
+ * @param frame 用来创建 view 的 frame。
+ * @param brush 定义绘画参数的 brush。
  *
- * @return The initiate brush instance.
+ * @return 初始化完成的 MSVGraffitiView 对象。
  */
 - (instancetype)initWithFrame:(CGRect)frame brush:(MSVBrush *)brush;
 
 /**
- * Take a snapshot of the MSVGraffitiView object.
+ * 获取 MSVGraffitiView 的快照
  *
- * @return The image taken.
+ * @return 获取到的快照
  */
 - (UIImage *)takeSnapshot;
 
 /**
- * Is there operation that can be undone in the undo stack.
+ * 当前是否可以撤销。
  *
- * @return YES so that you can perform undo operation, otherwise you can't.
+ * @return 当你可以撤销时返回 YES，否则返回 NO。
  */
 - (BOOL)canUndo;
 
 /**
- * Is there operation that can be redone in the redo stack.
+ * 当前是否可以重做。
  *
- * @return YES so that you can perform redo operation, otherwise you can't.
+ * @return 当你可以重做时返回 YES，否则返回 NO。
  */
 - (BOOL)canRedo;
 
 /**
- * Undo the last operation.
+ * 撤销之前的操作。
  */
 - (void)undo;
 
 /**
- * Redo the last undone operation, any drawing operation will clear the redo stack.
+ * 重做之前撤销的操作，所有绘画操作都将会清空重做堆栈。
  */
 - (void)redo;
 
 /**
- * Clear the undo stack and redo stack.
+ * 清除撤销堆栈和重做堆栈。
  */
 - (void)reset;
 
 /**
- * Clear the undo stack, redo stack and any thing drawn on the view.
+ * 清除撤销堆栈，重做堆栈以及 view 上已经绘画的内容。
  */
 - (void)clear;
 

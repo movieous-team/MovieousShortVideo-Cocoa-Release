@@ -12,41 +12,42 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * Background audio configuration class.
+ * 背景音效的配置类。
  */
 @interface MSVRecorderBackgroundAudioConfiguration : NSObject
 
 /**
- * Background audio source file URL.
- *
- * @warning Only local file URL is supported.
+ * 背景音效源文件路径。
+ * 
+ * @warning 当前仅支持本地文件。
  */
 @property (nonatomic, strong, readonly) NSURL *URL;
 
 /**
- * The time range to use of the audio source.
- * The default is kMovieousTimeRangeDefault
+ * URL 指向的音频当中截取使用的区间，默认全部使用。
+ * 默认为 kMovieousTimeRangeDefault。
  */
 @property (nonatomic, assign) MovieousTimeRange timeRange;
 
 /**
- * Volume of background audio, the default is the preferredVolume in the audio file.
- * The default is 1
+ * 背景音效的音量。
+ * 默认为 1。
  */
 @property (nonatomic, assign) float volume;
 
 /**
- * Loop audio play untill recording finishes.
- * The default is NO
+ * 是否循环播放背景音效直到录制结束。
+ * 默认为 NO
  */
 @property (nonatomic, assign) BOOL loop;
 
 /**
- * Create a new MSVRecorderBackgroundAudioConfiguration instance.
+ * 初始化背景音效对象。
  *
- * @param URL Audio source file URL, only local file is supported.
+ * @param URL 背景音效源文件路径，当前仅支持本地文件。
  * @param outError 如果发生错误，返回错误对象。
- * @return Created instance if success or else nil.
+ * 
+ * @return 生成成功返回初始化的对象，发生错误返回 nil。
  */
 + (instancetype _Nullable)backgroundAudioConfigurationWithURL:(NSURL *)URL error:(NSError *_Nullable *_Nullable)outError;
 

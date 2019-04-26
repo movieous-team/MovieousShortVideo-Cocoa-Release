@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * Speed effects.
+ * 速度特效。
  */
 @interface MSVSpeedEditorEffect : NSObject
 <
@@ -25,7 +25,7 @@ MSVTimeEditorEffect
 @property (nonatomic, strong) NSString *ID;
 
 /**
- * The scope in which you want to place this time effect.
+ * 你希望应用反复特效的范围。
  */
 @property (nonatomic, assign) MSVTimeEffectScope scope;
 

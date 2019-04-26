@@ -14,47 +14,47 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * Main track Clip.
+ * 主轨片段。
  */
 @interface MSVMainTrackClip : MSVClip
 
 /**
- * Create a main track clip.
+ * 创建一个主轨片段。
  *
- * @param type The type of main track clip.
- * @param URL The file path of the main track clip supports local files only.
+ * @param type 主轨片段的类型。
+ * @param URL 主轨片段的文件路径，仅支持本地路径。
  * @param outError 如果发生错误，返回错误对象。
  *
- * @return If the creation is successful, the completed object is returned, otherwise returns nil.
+ * @return 如果创建成功，返回创建后的对象，否则返回 nil。
  */
 + (instancetype)mainTrackClipWithType:(MSVClipType)type URL:(NSURL *)URL error:(NSError **)outError;
 
 /**
- * use AVAsset to create the main track clip of audio and video type using AVAsset.
+ * 用 AVAsset 来生成一个 MSVClipTypeAV 类型的 MSVMainTrackClip 对象。
  *
- * @param asset AVAsset object used to create the main track clip.
- * @param outError If an error occurs, return the error that occurred.
+ * @param asset 用来创建 MSVMainTrackClip 的 AVAsset 对象。
+ * @param outError 如果发生错误，返回错误对象。
  *
- * @return If the creation is successful, the completed object is returned, otherwise returns nil.
+ * @return 如果创建成功，返回创建后的对象，否则返回 nil。
  */
 + (instancetype)mainTrackClipWithAsset:(AVAsset *)asset error:(NSError **)outError;
 
 /**
- * Create a main track clip of a image type using UIImage.
+ * 使用 UIImage 对象来生成一个 MSVClipTypeImage 类型的 MSVMainTrackClip 对象。
  *
- * @param image UIImage object used to create the main track clip.
- * @param outError If an error occurs, return the error that occurred.
+ * @param image 用来创建 MSVMainTrackClip 对象的 UIImage 对象。
+ * @param outError 如果发生错误，返回错误对象。
  *
- * @return If the creation is successful, the completed object is returned, otherwise returns nil.
+ * @return 如果创建成功，返回创建后的对象，否则返回 nil。
  */
 + (instancetype)mainTrackClipWithImage:(UIImage *)image duration:(NSTimeInterval)duration error:(NSError **)outError;
 
 /**
- * Initialize a MSVMainTrackClip with a existing MSVMainTrackClip.
+ * 使用已存在的 MSVMainTrackClip 对象来初始化一个 MSVMainTrackClip 对象。
  *
- * @param mainTrackClip The existing MSVMainTrackClip object.
+ * @param mainTrackClip 已存在的 MSVMainTrackClip 对象.
  *
- * @return If the initialized instance.
+ * @return 返回初始化后的对象。
  */
 - (instancetype)initWithMainTrackClip:(MSVMainTrackClip *)mainTrackClip;
 

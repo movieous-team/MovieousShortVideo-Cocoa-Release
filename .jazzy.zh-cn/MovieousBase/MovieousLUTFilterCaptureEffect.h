@@ -9,18 +9,21 @@
 #import <UIKit/UIKit.h>
 #import <MovieousBase/MovieousCaptureEffect.h>
 
+/**
+ * LUT(颜色查找表)采集特效。
+ */
 @interface MovieousLUTFilterCaptureEffect : NSObject
 <
 MovieousCaptureEffect
 >
 
 /**
- * 颜色查找表(look up table) 图片.
+ * 颜色查找表(look up table) 图片。
  */
 @property (nonatomic, strong) UIImage *image;
 
 /**
- * 用另一个 MovieousLUTFilterCaptureEffect 对象初始化此 MovieousLUTFilterCaptureEffect
+ * 用另一个 MovieousLUTFilterCaptureEffect 对象初始化此 MovieousLUTFilterCaptureEffect。
  *
  * @param LUTFilterCaptureEffect 用于初始化的另一个 MovieousLUTFilterCaptureEffect 对象。
  *

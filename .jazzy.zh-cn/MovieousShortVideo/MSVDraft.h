@@ -143,7 +143,7 @@ NSCopying
 @property (nonatomic, assign, readonly) NSTimeInterval duration;
 
 /**
- * Whether to reverse video part of the draft, audio part will never be reversed.
+ * 是否将草稿的视频部分倒放，音频部分不会被倒放。
  */
 @property (nonatomic, assign) BOOL reverseVideo;
 
@@ -163,16 +163,16 @@ NSCopying
 - (BOOL)setVideoSize:(CGSize)videoSize error:(NSError **)outError;
 
 /**
- * 有效的时间区域，其他部分将被忽略
+ * 有效的时间区域，其他部分将被忽略。
  * 
- * @warning 这里的时间区间是以应用完时间特效之后的区间，调用者如果设置了 timeRange，对主轨进行相关增删改或更新时间特效之后要配合调整 timeRange，以保证应用正确的 timeRange
+ * @warning 这里的时间区间是以应用完时间特效之后的区间，调用者如果设置了 timeRange，对主轨进行相关增删改或更新时间特效之后要配合调整 timeRange，以保证应用正确的 timeRange。
  */
 @property (nonatomic, assign) MovieousTimeRange timeRange;
 
 /**
- * Get the image generator object used for generating snapshots.
+ * 获取图片生成器以生成草稿的快照。
  *
- * @return The instantiated MSVImageGenerator object.
+ * @return 生成的图片生成器对象。
  */
 @property (nonatomic, strong) MSVImageGenerator *imageGenerator;
 

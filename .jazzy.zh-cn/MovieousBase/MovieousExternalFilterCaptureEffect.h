@@ -10,6 +10,9 @@
 #import <MovieousBase/MovieousExternalFilter.h>
 #import <MovieousBase/MovieousCaptureEffect.h>
 
+/**
+ * 外部滤镜采集特效。
+ */
 @interface MovieousExternalFilterCaptureEffect : NSObject
 <
 MovieousCaptureEffect

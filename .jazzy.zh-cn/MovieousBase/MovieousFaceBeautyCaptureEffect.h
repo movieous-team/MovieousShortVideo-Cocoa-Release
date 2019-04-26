@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <MovieousBase/MovieousCaptureEffect.h>
 
+/**
+ * 美颜采集特效。
+ */
 @interface MovieousFaceBeautyCaptureEffect : NSObject
 <
 MovieousCaptureEffect
@@ -30,7 +33,7 @@ MovieousCaptureEffect
 @property (nonatomic, assign) CGFloat toneLevel;
 
 /**
- * 用另一个 MovieousFaceBeautyCaptureEffect 对象初始化此 MovieousFaceBeautyCaptureEffect
+ * 用另一个 MovieousFaceBeautyCaptureEffect 对象初始化此 MovieousFaceBeautyCaptureEffect。
  *
  * @param faceBeautyCaptureEffect 用于初始化的另一个 MovieousFaceBeautyCaptureEffect 对象。
  *
