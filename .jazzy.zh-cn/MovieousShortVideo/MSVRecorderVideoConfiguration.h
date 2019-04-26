@@ -15,7 +15,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * Video configuration class
+ * 录制视频配置对象
  */
 @interface MSVRecorderVideoConfiguration : NSObject
 <
@@ -23,128 +23,129 @@ MovieousCameraConfiguration
 >
 
 /**
- * Video input source, the default is MSVAudioSourceMicrophone
+ * 视频输入源类型。
+ * 默认为 MSVAudioSourceMicrophone。
  */
 @property (nonatomic, assign) MSVVideoSource source;
 
 #pragma mark - camera configurations
 /**
- * Video resolution when encoding. The default is (1280, 720).
+ * Video 编码时的视频分辨率，默认 (1280, 720)。
  *
- * @discussion It should be noted that this parameter affects the resolution of the video encoding, rather than the preview size of the data captured by the camera. When the image size passed to the encoder is different from this size, it will be generated in the same way The video ensures that the image does not appear to be compressed (but the cropping phenomenon occurs when the ratio of the encoded video is different from the ratio of the captured video).
+ * @discussion 需要注意的是，这个参数影响的是视频编码时的分辨率，而非摄像头采集到数据的预览大小，传递给编码器的图像尺寸与此尺寸不同时，会按照保持比例并填充的方式生成最终的视频，从而确保图像不会出现压缩的现象（但编码视频的比例与采集视频的比例不同时会出现裁剪的现象）。
  */
 @property (nonatomic, assign) CGSize size;
 
 /**
- * Effects applied to recorder.
+ * 采集时应用的特效组。
  */
 @property (nonatomic, strong) NSArray<id<MovieousCaptureEffect>> *captureEffects;
 
 /**
- * The scaling mode you want to use if the aspect ratio of cameraResolution and size are not equal.
- * The default is MovieousScalingModeAspectFill.
+ * 当 size（编码时的视频分辨率） 和 preview 的尺寸比例不一致时使用的填充模式。
+ * 默认为 MovieousScalingModeAspectFill。
  */
 @property (nonatomic, assign) MovieousScalingMode previewScalingMode;
 
 /*!
- * Turn mirrorFrontPreview means preview for front camera will be mirrored.
- * The default is YES.
+ * 是否对前置摄像头预览进行镜像处理。
+ * 默认为 YES。
  */
 @property (nonatomic, assign) BOOL mirrorFrontPreview;
 
 /*!
- * Turn mirrorBackPreview means preview for back camera will be mirrored.
- * The default is NO.
+ * 是否对后置摄像头预览进行镜像处理。
+ * 默认为 NO。
  */
 @property (nonatomic, assign) BOOL mirrorBackPreview;
 
 /*!
- * Turn mirrorFrontStream means stream broadcasted for front camera will be mirrored.
- * The default is NO.
+ * 是否对前置摄像头编码的视频进行镜像处理。
+ * 默认为 NO。
  */
 @property (nonatomic, assign) BOOL mirrorFrontEncoded;
 
 /*!
- * Turn mirrorBackStream means stream broadcasted for back camera will be mirrored
- * The default is NO.
+ * 是否对后置摄像头编码的视频进行镜像处理。
+ * 默认为 NO。
  */
 @property (nonatomic, assign) BOOL mirrorBackEncoded;
 
 /**
- * Whether to enable touch to focus and exposure the specified point in the preview.
- * The default is YES.
+ * 是否开启点击屏幕来设置对焦和曝光参考点。
+ * 默认为 YES。
  */
 @property (nonatomic, assign) BOOL touchToFocusExposureEnabled;
 
 /**
- * Whether to open the internal focus view.
- * The default is NO.
+ * 是否开启内置的对焦视图。
+ * 默认为 NO。
  */
 @property (nonatomic, assign) BOOL innerFocusViewEnabled;
 
 /**
- * Specify the preferred torch mode to use on camera, what needs to note is that the preferredTorchMode is not guaranteed to be applied succesfully, the actual torch mode can be accessed by the property torchMode.
- * The default is AVCaptureTorchModeAuto
+ * 指定期望的摄像头手电筒模式，需要注意的是 preferredTorchMode 的值不一定能够被成功应用，实际的手电筒模式可以通过 MSVRecorder.torchMode 来获取。
+ * 默认为 AVCaptureTorchModeAuto。
  */
 @property (nonatomic, assign) AVCaptureTorchMode preferredTorchMode;
 
 /**
- * Specify the preferred minimum frames per second on camera, what needs to note is that the preferredMinFrameRate is not guaranteed to be applied succesfully, the actual minimum frames per second can be accessed by the property minFrameRate.
- * The default is 24.
+ * 指定期望的最小采集帧率，需要注意的是 preferredMinFrameRate 的值不一定能够被成功应用，实际的最小采集帧率可以通过 MSVRecorder.minFrameRate 来获取。
+ * 默认为 24。
  */
 @property (nonatomic, assign) Float64 preferredMinFrameRate;
 
 /**
- * Specify the preferred maximum frames per second on camera, what needs to note is that the preferredMaxFrameRate is not guaranteed to be applied succesfully, the actual maximum frames per second can be accessed by the property maxFrameRate.
- * The default is 30.
+ * 指定期望的最大采集帧率，需要注意的是 preferredMaxFrameRate 的值不一定能够被成功应用，实际的最大采集帧率可以通过 MSVRecorder.maxFrameRate 来获取。
+ * 默认为 30。
  */
 @property (nonatomic, assign) Float64 preferredMaxFrameRate;
 
 /**
- * Specify the resolution for capturing, what needs to note is that the preferredSessionPreset is not guaranteed to be applied succesfully, the actual resolution can be accessed by the property sessionPreset.
- * The default is AVCaptureSessionPresetHigh.
+ * 指定期望的采集预设分辨率，需要注意的是 preferredSessionPreset 的值不一定能够被成功应用，实际的采集预设分辨率可以通过 MSVRecorder.sessionPreset 来获取。
+ * 默认为 AVCaptureSessionPresetHigh。
  */
 @property (nonatomic, strong) AVCaptureSessionPreset preferredSessionPreset;
 
 /**
- * Specify the Camera position for capturing, what needs to note is that the preferredDevicePosition is not guaranteed to be applied succesfully, the actual Camera position can be accessed by the property devicePosition.
- * The default is AVCaptureDevicePositionFront.
+ * 指定期望的摄像头位置，需要注意的是 preferredDevicePosition 的值不一定能够被成功应用，实际的摄像头位置可以通过 MSVRecorder.devicePosition 来获取。
+ * 默认为 AVCaptureDevicePositionFront。
  */
 @property (nonatomic, assign) AVCaptureDevicePosition preferredDevicePosition;
 
 /**
- * Specify the orientation of the camera, what needs to note is that the preferredVideoOrientation is not guaranteed to be applied succesfully, the actual Camera orientation can be accessed by the property videoOrientation.
- * The default is AVCaptureVideoOrientationPortrait.
+ * 指定期望的摄像头方向，需要注意的是 preferredVideoOrientation 的值不一定能够被成功应用，实际的摄像头方向可以通过 MSVRecorder.videoOrientation 来获取。
+ * 默认为 AVCaptureVideoOrientationPortrait。
  */
 @property (nonatomic, assign) AVCaptureVideoOrientation preferredVideoOrientation;
 
 /**
- * Specify the video zoom factor of the camera, what needs to note is that the preferredVideoZoomFactor is not guaranteed to be applied succesfully, the actual video zoom factor can be accessed by the property videoZoomFactor.
- * The default is 1.
+ * 指定期望的视频缩放比例，需要注意的是 preferredVideoZoomFactor 的值不一定能够被成功应用，实际的视频缩放比例可以通过 MSVRecorder.videoZoomFactor 来获取。
+ * 默认为 1。
  */
 @property (nonatomic, assign) CGFloat preferredVideoZoomFactor;
 
 /**
- * Specify the continuousAutoFocusEnable status of the camera, what needs to note is that the preferredContinuousAutoFocusEnable is not guaranteed to be applied succesfully, the actual continuousAutoFocusEnable can be accessed by the property continuousAutoFocusEnable.
- * The default is YES.
+ * 指定期望是否开启持续自动对焦，需要注意的是 preferredContinuousAutoFocusEnable 的值不一定能够被成功应用，实际是否开启持续自动对焦可以通过 MSVRecorder.continuousAutoFocusEnable 来获取。
+ * 默认为 YES。
  */
 @property (nonatomic, assign) BOOL preferredContinuousAutoFocusEnable;
 
 /**
- * Specify the preferredFocusPointOfInterest status of the camera, what needs to note is that the preferredFocusPointOfInterest is not guaranteed to be applied succesfully, the actual focusPointOfInterest can be accessed by the property focusPointOfInterest.
- * The default is CGPointMake(0.5, 0.5).
+ * 指定期望的对焦参考点，需要注意的是 preferredFocusPointOfInterest 的值不一定能够被成功应用，实际的对焦参考点可以通过 MSVRecorder.focusPointOfInterest 来获取。
+ * 默认为 CGPointMake(0。5, 0。5)。
  */
 @property (nonatomic, assign) CGPoint preferredFocusPointOfInterest;
 
 /**
- * Specify the preferredContinuousAutoExposureEnable of the camera, what needs to note is that the preferredContinuousAutoExposureEnable is not guaranteed to be applied succesfully, the actual continuousAutoExposureEnable can be accessed by the property continuousAutoExposureEnable.
- * The default is YES.
+ * 指定期望是否开启持续自动曝光调节，需要注意的是 preferredContinuousAutoExposureEnable 的值不一定能够被成功应用，实际是否开启持续自动曝光调节可以通过 MSVRecorder.continuousAutoExposureEnable 来获取。
+ * 默认为 YES。
  */
 @property (nonatomic, assign) BOOL preferredContinuousAutoExposureEnable;
 
 /**
- * Specify the preferredExposurePointOfInterest of the camera, what needs to note is that the preferredExposurePointOfInterest is not guaranteed to be applied succesfully, the actual exposurePointOfInterest can be accessed by the property exposurePointOfInterest.
- * The default is CGPointMake(0.5, 0.5).
+ * 指定期望的曝光参考点，需要注意的是 preferredExposurePointOfInterest 的值不一定能够被成功应用，实际的曝光参考点可以通过 MSVRecorder.exposurePointOfInterest 来获取。
+ * 默认为 CGPointMake(0.5, 0.5)。
  */
 @property (nonatomic, assign) CGPoint preferredExposurePointOfInterest;
 

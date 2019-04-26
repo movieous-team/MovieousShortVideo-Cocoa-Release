@@ -29,8 +29,8 @@ MovieousMicrophoneConfiguration
 #pragma mark - microphone configurations
 
 /**
- * Mute sound while recording, if you want to record a movie with no sound, you can specify source property in audioConfiguration to MSVAudioSourceNone.
- * The default is NO.
+ * 录制时是否静音。
+ * 默认为 NO。
  */
 @property (nonatomic, assign) BOOL mute;
 

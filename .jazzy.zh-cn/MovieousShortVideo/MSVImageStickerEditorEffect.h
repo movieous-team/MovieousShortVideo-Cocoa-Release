@@ -20,21 +20,21 @@ MSVBasicEditorEffect
 >
 
 /**
- * User-defined ID field, business usage is used to distinguish objects.
+ * 自定义 ID 字段，供用户使用来区分不同的对象类型。
  */
 @property (nonatomic, strong) NSString *ID;
 
 /**
- * The time interval for applying an external filter in the main track.
+ * 此特效在主轨中的有效时间区间.
  */
 @property (nonatomic, assign) MovieousTimeRange timeRangeAtMainTrack;
 
 /**
- * Initiate the MSVImageStickerEditorEffect with another MSVImageStickerEditorEffect object.
+ * 用另一个 MSVImageStickerEditorEffect 对象初始化此 MSVImageStickerEditorEffect
  *
- * @param imageStickerCaptureEffect Another MSVImageStickerEditorEffect used to initiate the instance.
+ * @param imageStickerCaptureEffect 用于初始化的另一个 MSVImageStickerEditorEffect 对象。
  *
- * @return The initialized MSVImageStickerEditorEffect instance.
+ * @return 初始化完成的 MSVImageStickerEditorEffect 对象。
  */
 - (instancetype)initWithImageStickerCaptureEffect:(MSVImageStickerEditorEffect *)imageStickerCaptureEffect;
 

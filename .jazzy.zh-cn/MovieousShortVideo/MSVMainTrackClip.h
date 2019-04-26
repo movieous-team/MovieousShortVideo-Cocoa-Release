@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @param type The type of main track clip.
  * @param URL The file path of the main track clip supports local files only.
- * @param outError If an error occurs, return the error that occurred.
+ * @param outError 如果发生错误，返回错误对象。
  *
  * @return If the creation is successful, the completed object is returned, otherwise returns nil.
  */

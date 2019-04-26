@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
  * Create a new MSVRecorderBackgroundAudioConfiguration instance.
  *
  * @param URL Audio source file URL, only local file is supported.
- * @param outError Return error if any.
+ * @param outError 如果发生错误，返回错误对象。
  * @return Created instance if success or else nil.
  */
 + (instancetype _Nullable)backgroundAudioConfigurationWithURL:(NSURL *)URL error:(NSError *_Nullable *_Nullable)outError;

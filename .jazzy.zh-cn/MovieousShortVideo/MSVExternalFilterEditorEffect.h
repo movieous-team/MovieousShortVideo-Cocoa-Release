@@ -19,21 +19,21 @@ MSVBasicEditorEffect
 >
 
 /**
- * User-defined ID field, business usage is used to distinguish objects.
+ * 自定义 ID 字段，供用户使用来区分不同的对象类型。
  */
 @property (nonatomic, strong) NSString *ID;
 
 /**
- * The time interval for applying an external filter in the main track.
+ * 此特效在主轨中的有效时间区间.
  */
 @property (nonatomic, assign) MovieousTimeRange timeRangeAtMainTrack;
 
 /**
- * Initiate the MSVExternalFilterEditorEffect with another MSVExternalFilterEditorEffect object.
+ * 用另一个 MSVExternalFilterEditorEffect 对象初始化此 MSVExternalFilterEditorEffect
  *
- * @param externalFilterCaptureEffect Another MSVExternalFilterEditorEffect used to initiate the instance.
+ * @param externalFilterCaptureEffect 用于初始化的另一个 MSVExternalFilterEditorEffect 对象。
  *
- * @return The initialized MSVExternalFilterEditorEffect instance.
+ * @return 初始化完成的 MSVExternalFilterEditorEffect 对象。
  */
 - (instancetype)initWithExternalFilterCaptureEffect:(MSVExternalFilterEditorEffect *)externalFilterCaptureEffect;
 

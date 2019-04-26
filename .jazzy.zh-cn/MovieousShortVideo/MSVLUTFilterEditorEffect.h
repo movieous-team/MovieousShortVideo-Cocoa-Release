@@ -20,21 +20,21 @@ MSVBasicEditorEffect
 >
 
 /**
- * User defined ID field, used to store any information you want.
+ * 自定义 ID 字段，供用户使用来区分不同的对象类型。
  */
 @property (nonatomic, strong) NSString *ID;
 
 /**
- * Time range on main track in draft to use this LUT effect.
+ * 此特效在主轨中的有效时间区间.
  */
 @property (nonatomic, assign) MovieousTimeRange timeRangeAtMainTrack;
 
 /**
- * Initiate the MSVExternalFilterEditorEffect with another MSVExternalFilterEditorEffect object.
+ * 用另一个 MSVLUTFilterEditorEffect 对象初始化此 MSVLUTFilterEditorEffect
  *
- * @param externalFilterCaptureEffect Another MSVExternalFilterEditorEffect used to initiate the instance.
+ * @param LUTFilterCaptureEffect 用于初始化的另一个 MSVLUTFilterEditorEffect 对象。
  *
- * @return The initialized MSVExternalFilterEditorEffect instance.
+ * @return 初始化完成的 MSVLUTFilterEditorEffect 对象。
  */
 - (instancetype)initWithLUTFilterCaptureEffect:(MSVLUTFilterEditorEffect *)LUTFilterCaptureEffect;
 

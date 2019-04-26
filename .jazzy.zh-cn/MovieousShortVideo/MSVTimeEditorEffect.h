@@ -20,7 +20,7 @@ NSCopying
 @required
 
 /**
- * User-defined ID field, business usage is used to distinguish objects.
+ * 自定义 ID 字段，供用户使用来区分不同的对象类型。
  */
 @property (nonatomic, strong) NSString *ID;
 

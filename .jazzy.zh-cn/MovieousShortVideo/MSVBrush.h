@@ -11,38 +11,38 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * Brush configuration for MSVGraffitiView.
+ * MSVGraffitiView 的笔刷相关配置。
  */
 @interface MSVBrush : NSObject
 
 /**
- * Line color of the brush.
+ * 笔刷的颜色。
  */
 @property (nonatomic, strong) UIColor *lineColor;
 
 
 /**
- * Line width of the brush.
+ * 笔刷的线宽。
  */
 @property (nonatomic, assign) CGFloat lineWidth;
 
 /**
- * Instantiate a brush with line width and line color.
+ * 使用线宽和颜色生成一个笔刷对象。
  *
- * @param lineWidth Line color of the brush.
- * @param lineColor Line width of the brush.
+ * @param lineWidth 笔刷线宽。
+ * @param lineColor 笔刷颜色。
  *
- * @return The instantiated brush instance.
+ * @return 生成的笔刷对象。
  */
 + (instancetype)brushWithLineWidth:(CGFloat)lineWidth lineColor:(UIColor *)lineColor;
 
 /**
- * Initiate a brush with line width and line color.
+ * 使用线宽和颜色初始化一个笔刷对象。
  *
- * @param lineWidth Line color of the brush.
- * @param lineColor Line width of the brush.
+ * @param lineWidth 笔刷线宽。
+ * @param lineColor 笔刷颜色。
  *
- * @return The initiated brush instance.
+ * @return 初始化的笔刷对象。
  */
 - (instancetype)initWithLineWidth:(CGFloat)lineWidth lineColor:(UIColor *)lineColor;
 

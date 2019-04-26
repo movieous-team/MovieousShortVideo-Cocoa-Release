@@ -20,7 +20,7 @@ MSVTimeEditorEffect
 >
 
 /**
- * User-defined ID field, business usage is used to distinguish objects.
+ * 自定义 ID 字段，供用户使用来区分不同的对象类型。
  */
 @property (nonatomic, strong) NSString *ID;
 
@@ -30,14 +30,14 @@ MSVTimeEditorEffect
 @property (nonatomic, assign) MSVTimeEffectScope scope;
 
 /**
- * The time interval in which the speed effect needs to be applied in the main track. This time interval refers to the time interval without the speed effect applied.
+ * 在主轨当中需要应用速度效果的时间区间，这个时间区间是指未应用速度效果前的时间区间。
  *
- * @warning It should be noted that if multiple time-related effects (MSVRepeatEditorEffect and MSVSpeedEditorEffect) are inserted, the timeRangeAtMainTrack in the inserted time effect should be based on the timeline after all previous special effects are applied.
+ * @warning 需要注意的是如果插入多个跟时间有关的特效时（MSVRepeatEffect 及 MSVSpeedEffect），后插入的时间特效中 timeRangeAtMainTrack 应当以之前所有特效应用之后的时间轴为标准。
  */
 @property (nonatomic, assign) MovieousTimeRange timeRangeAtMainTrack;
 
 /**
- * Speed, the actual speed in the corresponding effect time interval after adding the speed effect will become the speed of each MSVMainTrackClip object in the time interval multiplied by the special effect speed.
+ * 速度，添加速度特效后在相应特效时间区间内的实际速度将变为区间内各 MSVMainTrackClip 对象的 speed 乘以特效 speed
  */
 @property (nonatomic, assign) float speed;
 
