@@ -19,15 +19,22 @@ MSVBasicEditorEffect
 >
 
 /**
- * @brief User-defined ID field, business usage is used to distinguish objects
+ * User-defined ID field, business usage is used to distinguish objects.
  */
 @property (nonatomic, strong) NSString *ID;
 
 /**
- * @brief The time interval for applying an external filter in the main track
+ * The time interval for applying an external filter in the main track.
  */
 @property (nonatomic, assign) MovieousTimeRange timeRangeAtMainTrack;
 
+/**
+ * Initiate the MSVExternalFilterEditorEffect with another MSVExternalFilterEditorEffect object.
+ *
+ * @param externalFilterCaptureEffect Another MSVExternalFilterEditorEffect used to initiate the instance.
+ *
+ * @return The initialized MSVExternalFilterEditorEffect instance.
+ */
 - (instancetype)initWithExternalFilterCaptureEffect:(MSVExternalFilterEditorEffect *)externalFilterCaptureEffect;
 
 @end

@@ -16,10 +16,17 @@ MovieousCaptureEffect
 >
 
 /**
- * @brief  The external filter class
+ *  外部滤镜类。
  */
 @property (nonatomic, assign) Class<MovieousExternalFilter> externalFilterClass;
 
+/**
+ * 用另一个 MovieousExternalFilterCaptureEffect 对象初始化此 MovieousExternalFilterCaptureEffect。
+ *
+ * @param externalFilterCaptureEffect 用于初始化的另一个 MovieousExternalFilterCaptureEffect 对象。
+ *
+ * @return 初始化完成的 MovieousExternalFilterCaptureEffect 对象。
+ */
 - (instancetype)initWithExternalFilterCaptureEffect:(MovieousExternalFilterCaptureEffect *)externalFilterCaptureEffect;
 
 @end

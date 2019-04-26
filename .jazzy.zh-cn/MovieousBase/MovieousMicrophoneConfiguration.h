@@ -10,6 +10,10 @@
 
 @protocol MovieousMicrophoneConfiguration <NSObject>
 
+/**
+ * 录制时是否静音。
+ * 默认为 NO。
+ */
 @property (nonatomic, assign) BOOL mute;
 
 @end

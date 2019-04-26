@@ -19,113 +19,122 @@ NSObject
 >
 
 /**
- * @brief
- * 编码时的视频分辨率，默认 (1280, 720)
- * 
- * @discussion 
- * 需要注意的是，这个参数影响的是视频编码时的分辨率，而非摄像头采集到数据的预览大小，传递给编码器的图像尺寸与此尺寸不同时，会按照保持比例并填充的方式生成最终的视频，从而确保图像不会出现压缩的现象（但编码视频的比例与采集视频的比例不同时会出现裁剪的现象）。
+ * Video 编码时的视频分辨率，默认 (1280, 720)。
+ *
+ * @discussion 需要注意的是，这个参数影响的是视频编码时的分辨率，而非摄像头采集到数据的预览大小，传递给编码器的图像尺寸与此尺寸不同时，会按照保持比例并填充的方式生成最终的视频，从而确保图像不会出现压缩的现象（但编码视频的比例与采集视频的比例不同时会出现裁剪的现象）。
  */
 @property (nonatomic, assign) CGSize size;
 
 /**
- * @brief
- * 应用到 MSVRecorder 的特效
+ * 采集时应用的特效组。
  */
 @property (nonatomic, strong) NSArray<id<MovieousCaptureEffect>> *captureEffects;
 
 /**
- * @brief 
- * 当你设置的 size 和预览的 UIView 的比例不一致时填充视频的模式
- * 默认为 MovieousScalingModeAspectFill
+ * 当 size（编码时的视频分辨率） 和 preview 的尺寸比例不一致时使用的填充模式。
+ * 默认为 MovieousScalingModeAspectFill。
  */
 @property (nonatomic, assign) MovieousScalingMode previewScalingMode;
 
 /*!
- * 是否对前置摄像头的预览画面做镜像处理
- * 默认值为 YES
+ * 是否对前置摄像头预览进行镜像处理。
+ * 默认为 YES。
  */
 @property (nonatomic, assign) BOOL mirrorFrontPreview;
 
 /*!
- * 是否对后置摄像头的预览画面做镜像处理
- * 默认值为 NO
+ * 是否对后置摄像头预览进行镜像处理。
+ * 默认为 NO。
  */
 @property (nonatomic, assign) BOOL mirrorBackPreview;
 
 /*!
- * 是否对前置摄像头编码后的图像做镜像处理
- * 默认为 NO
+ * 是否对前置摄像头编码的视频进行镜像处理。
+ * 默认为 NO。
  */
 @property (nonatomic, assign) BOOL mirrorFrontEncoded;
 
 /*!
- * 是否对后置摄像头编码后的图像做镜像处理
- * 默认为 NO
+ * 是否对后置摄像头编码的视频进行镜像处理。
+ * 默认为 NO。
  */
 @property (nonatomic, assign) BOOL mirrorBackEncoded;
 
 /**
- * 是否开启点击屏幕调整对焦和曝光参考点的功能
+ * 是否开启点击屏幕来设置对焦和曝光参考点。
+ * 默认为 YES。
  */
 @property (nonatomic, assign) BOOL touchToFocusExposureEnabled;
 
 /**
- * @brief Whether to open the internal focus view, the default is NO
+ * 是否开启内置的对焦视图。
+ * 默认为 NO。
  */
 @property (nonatomic, assign) BOOL innerFocusViewEnabled;
 
 /**
- * @brief Specify the preferred torch mode to use on camera, what needs to note is that the preferredTorchMode is not guaranteed to be applied succesfully, the actual torch mode can be accessed by the property torchMode
+ * 指定期望的摄像头手电筒模式，需要注意的是 preferredTorchMode 的值不一定能够被成功应用，实际的手电筒模式可以通过 MSVRecorder.torchMode 来获取。
+ * 默认为 AVCaptureTorchModeAuto。
  */
 @property (nonatomic, assign) AVCaptureTorchMode preferredTorchMode;
 
 /**
- * @brief Specify the preferred minimum frames per second on camera, what needs to note is that the preferredMinFrameRate is not guaranteed to be applied succesfully, the actual minimum frames per second can be accessed by the property minFrameRate
+ * 指定期望的最小采集帧率，需要注意的是 preferredMinFrameRate 的值不一定能够被成功应用，实际的最小采集帧率可以通过 MSVRecorder.minFrameRate 来获取。
+ * 默认为 24。
  */
 @property (nonatomic, assign) Float64 preferredMinFrameRate;
 
 /**
- * @brief Specify the preferred maximum frames per second on camera, what needs to note is that the preferredMaxFrameRate is not guaranteed to be applied succesfully, the actual maximum frames per second can be accessed by the property maxFrameRate
+ * 指定期望的最大采集帧率，需要注意的是 preferredMaxFrameRate 的值不一定能够被成功应用，实际的最大采集帧率可以通过 MSVRecorder.maxFrameRate 来获取。
+ * 默认为 30。
  */
 @property (nonatomic, assign) Float64 preferredMaxFrameRate;
 
 /**
- * @brief Specify the resolution for capturing, what needs to note is that the preferredSessionPreset is not guaranteed to be applied succesfully, the actual resolution can be accessed by the property sessionPreset
+ * 指定期望的采集预设分辨率，需要注意的是 preferredSessionPreset 的值不一定能够被成功应用，实际的采集预设分辨率可以通过 MSVRecorder.sessionPreset 来获取。
+ * 默认为 AVCaptureSessionPresetHigh。
  */
 @property (nonatomic, strong) AVCaptureSessionPreset preferredSessionPreset;
 
 /**
- * @brief Specify the Camera position for capturing, what needs to note is that the preferredDevicePosition is not guaranteed to be applied succesfully, the actual Camera position can be accessed by the property devicePosition
+ * 指定期望的摄像头位置，需要注意的是 preferredDevicePosition 的值不一定能够被成功应用，实际的摄像头位置可以通过 MSVRecorder.devicePosition 来获取。
+ * 默认为 AVCaptureDevicePositionFront。
  */
 @property (nonatomic, assign) AVCaptureDevicePosition preferredDevicePosition;
 
 /**
- * @brief Specify the orientation of the camera, what needs to note is that the preferredVideoOrientation is not guaranteed to be applied succesfully, the actual Camera orientation can be accessed by the property videoOrientation
+ * 指定期望的摄像头方向，需要注意的是 preferredVideoOrientation 的值不一定能够被成功应用，实际的摄像头方向可以通过 MSVRecorder.videoOrientation 来获取。
+ * 默认为 AVCaptureVideoOrientationPortrait。
  */
 @property (nonatomic, assign) AVCaptureVideoOrientation preferredVideoOrientation;
 
 /**
- * @brief Specify the video zoom factor of the camera, what needs to note is that the preferredVideoZoomFactor is not guaranteed to be applied succesfully, the actual video zoom factor can be accessed by the property videoZoomFactor
+ * 指定期望的视频缩放比例，需要注意的是 preferredVideoZoomFactor 的值不一定能够被成功应用，实际的视频缩放比例可以通过 MSVRecorder.videoZoomFactor 来获取。
+ * 默认为 1。
  */
 @property (nonatomic, assign) CGFloat preferredVideoZoomFactor;
 
 /**
- * @brief Specify the continuousAutoFocusEnable status of the camera, what needs to note is that the preferredContinuousAutoFocusEnable is not guaranteed to be applied succesfully, the actual continuousAutoFocusEnable can be accessed by the property continuousAutoFocusEnable
+ * 指定期望是否开启持续自动对焦，需要注意的是 preferredContinuousAutoFocusEnable 的值不一定能够被成功应用，实际是否开启持续自动对焦可以通过 MSVRecorder.continuousAutoFocusEnable 来获取。
+ * 默认为 YES。
  */
 @property (nonatomic, assign) BOOL preferredContinuousAutoFocusEnable;
 
 /**
- * @brief Specify the preferredFocusPointOfInterest status of the camera, what needs to note is that the preferredFocusPointOfInterest is not guaranteed to be applied succesfully, the actual focusPointOfInterest can be accessed by the property focusPointOfInterest
+ * 指定期望的对焦参考点，需要注意的是 preferredFocusPointOfInterest 的值不一定能够被成功应用，实际的对焦参考点可以通过 MSVRecorder.focusPointOfInterest 来获取。
+ * 默认为 CGPointMake(0。5, 0。5)。
  */
 @property (nonatomic, assign) CGPoint preferredFocusPointOfInterest;
 
 /**
- * @brief Specify the preferredContinuousAutoExposureEnable of the camera, what needs to note is that the preferredContinuousAutoExposureEnable is not guaranteed to be applied succesfully, the actual continuousAutoExposureEnable can be accessed by the property continuousAutoExposureEnable
+ * 指定期望是否开启持续自动曝光调节，需要注意的是 preferredContinuousAutoExposureEnable 的值不一定能够被成功应用，实际是否开启持续自动曝光调节可以通过 MSVRecorder.continuousAutoExposureEnable 来获取。
+ * 默认为 YES。
  */
 @property (nonatomic, assign) BOOL preferredContinuousAutoExposureEnable;
 
 /**
- * @brief Specify the preferredExposurePointOfInterest of the camera, what needs to note is that the preferredExposurePointOfInterest is not guaranteed to be applied succesfully, the actual exposurePointOfInterest can be accessed by the property exposurePointOfInterest
+ * 指定期望的曝光参考点，需要注意的是 preferredExposurePointOfInterest 的值不一定能够被成功应用，实际的曝光参考点可以通过 MSVRecorder.exposurePointOfInterest 来获取。
+ * 默认为 CGPointMake(0.5, 0.5)。
  */
 @property (nonatomic, assign) CGPoint preferredExposurePointOfInterest;
 

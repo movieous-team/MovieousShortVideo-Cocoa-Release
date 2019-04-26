@@ -10,168 +10,148 @@
 #import <AVFoundation/AVFoundation.h>
 
 /**
- * Video input souce type
+ * 视频输入源类型。
  */
 typedef NS_ENUM(NSInteger, MSVVideoSource) {
     /**
-     * @brief No video，please don't set both video source and audio source to none.
+     * 无视频源，请不要同时将视频和音频源设置为无。
      */
     MSVVideoSourceNone,
     /**
-     * @brief Camera input source
+     * 摄像头视频源。
      */
     MSVVideoSourceCamera,
     /**
-     * @brief UIView input source, when you use this input source please specify viewForRecording property in `startRecordingWithClipConfiguration:error:` method
+     * UIView 输入源，当你使用此输入源时，请在 `startRecordingWithClipConfiguration:error:` 调用时指定 `viewForRecording` 属性。
      */
     MSVVideoSourceUIView,
     /**
-     * @brief External video source
-     * @warning When you use this input source, please use `writeVideoData:error:` to write video data, if you choose external video source but don't input video data, unknown error may come out
+     * 外部视频源
+     *
+     * @warning 当你使用此输入源时，请使用 `writeVideoData:error:` 方法来写入视频数据，如果你使用 MSVVideoSourceExtern 但是又不写入视频数据，未知的错误将会产生。
      */
     MSVVideoSourceExtern,
 };
 
 /**
- * @brief Audio input source
+ * 音频输入源。
  */
 typedef NS_ENUM(NSInteger, MSVAudioSource) {
     /**
-     * @brief No audio，please don't set both video source and audio source to none.
+     * 无音频输入源，请不要同时将视频和音频源设置为无。
      */
     MSVAudioSourceNone,
     /**
-     * @brief Microphone input source.
+     * 麦克风音频输入源。
      */
     MSVAudioSourceMicrophone,
     /**
-     * @brief External input source
-     * @warning You must use `writeAudioData:error:` method to input audio data when use this input source, if you choose external audio source but don't input audio data, unknown error may come out
+     * 外部音频输入源。
+     *
+     * @warning 当你使用此输入源时，请使用 `writeAudioData:error:` 方法来写入音频数据，如果你使用 MSVAudioSourceExtern 但是又不写入音频数据，未知的错误将会产生。
      */
     MSVAudioSourceExtern,
-};
-
-/**
- * @brief Orientation of preview
- */
-typedef NS_ENUM(NSInteger, MSVPreviewOrientation) {
-    /**
-     * @brief Portrait orientation
-     */
-    MSVPreviewOrientationPortrait = 0,
-    /**
-     * @brief Upside down orientation
-     */
-    MSVPreviewOrientationPortraitUpsideDown = 1,
-    /**
-     * @brief LandscapeRight orientation
-     */
-    MSVPreviewOrientationLandscapeRight = 2,
-    /**
-     * @brief LandscapeLeft orientation
-     */
-    MSVPreviewOrientationLandscapeLeft = 3,
 };
 
 #pragma mark - Video File Type
 
 /**
- * @brief Destination file type for recording
+ * 录制的目标文件类型。
  */
 typedef NS_ENUM(NSUInteger, MSVFileType) {
     /**
-     * @brief mp4 file type，suffixed .mp4
+     * mp4 文件类型，以 .mp4 为后缀。
      */
     MSVFileTypeMPEG4,
     /**
-     * @brief QuickTime Movie file type，suffixed .mov
+     * QuickTime Movie 文件类型，以 .mov 为后缀。
      */
     MSVFileTypeQuickTimeMovie, // .mov
     /**
-     * @brief m4a file type，suffixed .m4a
+     * m4a 文件类型，以 .m4a 为后缀。
      */
     MSVFileTypeM4V, // .m4v
 };
 
 /**
- * @brief Video transition type
+ * 视频转场类型。
  */
 typedef NS_ENUM(NSInteger, MSVVideoTransitionType) {
     /**
-     * @brief Dissolve transition type
+     * 溶解转场。
      */
     MSVVideoTransitionTypeDissolve,
     /**
-     * @brief Wipe right transition type
+     * 向右扫动转场。
      */
     MSVVideoTransitionTypeWipeRight,
     /**
-     * @brief Wipe left transition type
+     * 向左扫动转场。
      */
     MSVVideoTransitionTypeWipeLeft,
     /**
-     * @brief Wipe up transition type
+     * 向上扫动转场。
      */
     MSVVideoTransitionTypeWipeUp,
     /**
-     * @brief Wipe down transition type
+     * 向下扫动转场。
      */
     MSVVideoTransitionTypeWipeDown,
     /**
-     * @brief Slide right transition type
+     * 向右滑动转场。
      */
     MSVVideoTransitionTypeSlideRight,
     /**
-     * @brief Slide left transition type
+     * 向左滑动转场。
      */
     MSVVideoTransitionTypeSlideLeft,
     /**
-     * @brief Slide up transition type
+     * 向上滑动转场。
      */
     MSVVideoTransitionTypeSlideUp,
     /**
-     * @brief Slide down transition type
+     * 向下滑动转场。
      */
     MSVVideoTransitionTypeSlideDown,
     /**
-     * @brief Fade transition type
+     * 渐隐渐现转场。
      */
     MSVVideoTransitionTypeFade
 };
 
 /**
- * @brief Type of a clip
+ * 媒体片段的类型。
  */
 typedef NS_ENUM(NSInteger, MSVClipType) {
     /**
-     * Audio and video media resource type
+     * 音视频媒体类型的片段。
      */
     MSVClipTypeAV,
     /**
-     * Image resource type
+     * 图片类型的片段。
      */
     MSVClipTypeImage
 };
 
 /**
- * @brief The effective scope for MSVTimeEffect
+ * 时间特效的应用范围。
  */
 typedef NS_ENUM(NSInteger, MSVTimeEffectScope) {
     /**
-     * @brief The effective scope is main track
+     * 只应用到主轨中。
      */
     MSVTimeEffectScopeMainTracks = 1 << 0,
     /**
-     * @brief The effective scope is mix track
+     * 只应用到合成轨道中。
      */
     MSVTimeEffectScopeMixTracks = 1 << 1,
     /**
-     * @brief The effective scope is all track
+     * 同时应用所有轨道。
      */
     MSVTimeEffectScopeAllTracks = MSVTimeEffectScopeMainTracks | MSVTimeEffectScopeMixTracks,
 };
 
 /**
- * @brief Notify that the media service has reset, you should do neccessary restart on your audio services;
+ * 媒体服务重置通知，你需要在收到此通知后重置所有正在运行的音频服务。
  */
 extern NSString *kMediaServiceResetNotification;

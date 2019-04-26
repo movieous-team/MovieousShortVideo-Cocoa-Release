@@ -8,7 +8,7 @@
 
 #import <AVFoundation/AVFoundation.h>
 
-/// Scaling mode of MLController's preview content
+/// Scaling mode to
 typedef NS_ENUM(NSInteger, MovieousScalingMode) {
     /// Non-uniform scale. Both render dimensions will exactly match the visible bounds
     MovieousScalingModeFill,
@@ -18,19 +18,28 @@ typedef NS_ENUM(NSInteger, MovieousScalingMode) {
     MovieousScalingModeAspectFill
 };
 
+/// Time range
 typedef struct {
+    /// The start time of the time range
     NSTimeInterval startTime;
+    /// The duration of the time range
     NSTimeInterval duration;
 } MovieousTimeRange;
 
+/// The default time range
 extern MovieousTimeRange kMovieousTimeRangeDefault;
 
+/// Make a time range with start time and duration
 MovieousTimeRange MovieousTimeRangeMake(NSTimeInterval startTime, NSTimeInterval duration);
 
-BOOL MovieousTimeRangeIsEqual(MovieousTimeRange time1,MovieousTimeRange time2);
+/// Decide whether two time range are equal
+BOOL MovieousTimeRangeIsEqual(MovieousTimeRange timeRange1,MovieousTimeRange timeRange2);
 
+/// Decide whether a time range is default time range
 BOOL MovieousTimeRangeIsDefault(MovieousTimeRange timeRange);
 
-CMTimeRange MovieousGetCMTimeRange(MovieousTimeRange timeRange, int32_t timeScale);
+/// Make a CMTimeRange with MovieousTimeRange
+CMTimeRange CMTimeRangeMakeMovieousTimeRange(MovieousTimeRange timeRange, int32_t timeScale);
 
-MovieousTimeRange MovieousGetMovieousTimeRange(CMTimeRange timeRange);
+/// Make a MovieousTimeRange with CMTimeRange
+MovieousTimeRange MovieousTimeRangeMakeWithCMTimeRange(CMTimeRange timeRange);

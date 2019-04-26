@@ -9,7 +9,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 /**
- * @brief The external filter effect protocol, which should be followed by all of the external filters.
+ * 外部滤镜协议，所有外部滤镜都需要实现该协议。
  */
 @protocol MovieousExternalFilter
 <
@@ -18,18 +18,22 @@ NSObject
 
 @required
 /**
- * @brief Generate a shared external filter object
- * @return Generated external filter object
+ * 生成一个共享的外部滤镜对象。
+ * 
+ * @return 生成的外部滤镜对象。
  */
 + (instancetype)sharedInstance;
-@optional
 
+@optional
 /**
- * @brief Process video data
- * @param pixelBuffer Pending video data
- * @param sampleTimingInfo Timestamp of pending video data
- * @return Video data after processing, can feedback the pending video data directly, which is, without any processing.
- * @warning Do not modify pixelBuffer content directly, you must return a pixel buffer different from the original one
+ * 处理视频数据。
+ * 
+ * @param pixelBuffer 待处理的视频数据。
+ * @param sampleTimingInfo 待处理视频数据的时间信息。
+ *
+ * @return 处理后的视频数据，也可以直接将未处理的原始数据返回。
+ *
+ * @warning 请不要直接修改 pixelBuffer 的内容，你需要返回一个与原 pixelBuffer 不同的 CVPixelBufferRef。
  */
 - (CVPixelBufferRef)processPixelBuffer:(CVPixelBufferRef)pixelBuffer sampleTimingInfo:(CMSampleTimingInfo)sampleTimingInfo;
 

@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * @brief Repeat effects
+ * Repeat effects
  */
 @interface MSVRepeatEditorEffect : NSObject
 <
@@ -20,23 +20,24 @@ MSVTimeEditorEffect
 >
 
 /**
- * @brief User-defined ID field, business usage is used to distinguish objects
+ * User-defined ID field, business usage is used to distinguish objects.
  */
 @property (nonatomic, strong) NSString *ID;
 
 /**
- * @brief The scope in which you want to place this time effect
+ * The scope in which you want to place this time effect.
  */
 @property (nonatomic, assign) MSVTimeEffectScope scope;
 
 /**
- * @brief The time interval for applying repeat effects in the main track
+ * The time interval for applying repeat effects in the main track.
+ *
  * @warning It should be noted that if multiple time-related effects (MSVRepeatEditorEffect and MSVSpeedEditorEffect) are inserted, the timeRangeAtMainTrack in the inserted time effect should be based on the timeline after all previous special effects are applied.
  */
 @property (nonatomic, assign) MovieousTimeRange timeRangeAtMainTrack;
 
 /**
- * @brief Repeat times
+ * Repeat times.
  */
 @property (nonatomic, assign) NSUInteger count;
 

@@ -15,97 +15,109 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MSVExporter : NSObject
 
 /**
- * @brief Draft object
+ * Draft object.
  */
 @property (nonatomic, strong, nullable) MSVDraft *draft;
 
 /**
- * @brief Whether the export task is running
+ * Whether the export task is running.
  */
 @property (nonatomic, assign) BOOL running;
 
 /**
- * @brief Whether to export the video to the album at the same time, the default is NO
+ * Whether to export the video to the album at the same time.
+ * The default is NO.
  */
 @property (assign, nonatomic) BOOL saveToPhotosAlbum;
 
 /**
- * @brief The file type of the video export, the default is MSVFileTypeMPEG4(.mp4)
+ * The file type of the video export.
+ * The default is MSVFileTypeMPEG4(.mp4).
  */
 @property (assign, nonatomic) MSVFileType outputFileType;
 
 /**
- * @brief The path of the video export only supports the local file address. The default is the automatically generated address.
+ * The path of the video export only supports the local file address.
+ * The default is the automatically generated address.
  */
 @property (strong, nonatomic, nullable) NSURL *outputURL;
 
 /**
- * @brief The bitrate of the video, the default is the bitrate of the original video.
+ * The bitrate of the output video.
+ * The default is the automatically generated bitrate by encoder.
  */
 @property (assign, nonatomic) NSUInteger videoBitrate;
 
 /**
- * @brief The number of channels of the exported video, the default number of channels use the original audio
+ * The number of channels of the exported video.
+ * The default is the number of channels used by original audio.
  */
 @property (nonatomic, assign) UInt32 numberOfChannels;
 
 /**
- * @brief The audio sample rate of the video that exported, using the original audio sample rate by default.
+ * The audio sample rate of the video that exported.
+ * The default is the original audio sample rate.
  */
 @property (nonatomic, assign) Float64 sampleRate;
 
 /**
- * @brief The audio bitrate of the video that exported, using the original video's bitrate by default.
+ * The audio bitrate of the video that exported.
+ * The default is the original video's bitrate.
  */
 @property (nonatomic, assign) Float64 audioBitRate;
 
 /**
- * @brief Whether set up the transmission in the network environment, the default is YES
+ * Whether set up the transmission in the network environment.
+ * The default is YES.
  */
 @property (assign, nonatomic) BOOL shouldOptimizeForNetworkUse;
 
 /**
- * @brief Export progress callback
+ * Export progress callback.
  */
 @property (nonatomic, copy, nullable) void(^progressHandler)(float progress);
 
 /**
- * @brief Export failure callback
+ * Export failure callback.
  */
 @property (nonatomic, copy, nullable) void(^failureHandler)(NSError *error);
 
 /**
- * @brief Export successful callback
+ * Export successful callback.
  */
 @property (nonatomic, copy, nullable) void(^completionHandler)(NSURL *URL);
 
 /**
- * @brief Init and new are both not available, use other initialization method instead.
+ * Init and new are both not available, use other initialization method instead.
  */
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
 
 /**
- * @brief Initialize an exporter objects with initialization draft
- * @param draft Draft object that needs to be exported
- * @return It returns the initialized object if the initial succeeded, otherwise returns nil
+ * Initialize an exporter objects with initialization draft.
+ *
+ * @param draft Draft object that needs to be exported.
+ *
+ * @return It returns the initialized object if the initial succeeded, otherwise returns nil.
  */
 - (instancetype _Nullable)initWithDraft:(MSVDraft *_Nullable)draft;
 
 /**
- * @brief Create an exporter objects with initialization draft
- * @param draft Draft object that needs to be exported
- * @return It returns the initialized object if the initial succeeded, otherwise returns nil
+ * Create an exporter objects with initialization draft.
+ *
+ * @param draft Draft object that needs to be exported.
+ *
+ * @return It returns the initialized object if the initial succeeded, otherwise returns nil.
  */
 + (instancetype _Nullable)exporterWithDraft:(MSVDraft *_Nullable)draft;
 
 /**
- * @brief Start exporting tasks
+ * Start exporting tasks.
  */
 - (void)startExport;
 
 /**
- * @brief Cancel the export task
+ * Cancel the export task.
  */
 - (void)cancelExport;
 

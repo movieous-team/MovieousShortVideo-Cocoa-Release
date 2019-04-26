@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * @brief Color lookup table filter effect class
+ * Color lookup table filter effect class.
  */
 @interface MSVLUTFilterEditorEffect : MovieousLUTFilterCaptureEffect
 <
@@ -20,15 +20,22 @@ MSVBasicEditorEffect
 >
 
 /**
- * @brief User defined ID field, used to store any information you want
+ * User defined ID field, used to store any information you want.
  */
 @property (nonatomic, strong) NSString *ID;
 
 /**
- * @brief Time range on main track in draft to use this LUT effect
+ * Time range on main track in draft to use this LUT effect.
  */
 @property (nonatomic, assign) MovieousTimeRange timeRangeAtMainTrack;
 
+/**
+ * Initiate the MSVExternalFilterEditorEffect with another MSVExternalFilterEditorEffect object.
+ *
+ * @param externalFilterCaptureEffect Another MSVExternalFilterEditorEffect used to initiate the instance.
+ *
+ * @return The initialized MSVExternalFilterEditorEffect instance.
+ */
 - (instancetype)initWithLUTFilterCaptureEffect:(MSVLUTFilterEditorEffect *)LUTFilterCaptureEffect;
 
 @end

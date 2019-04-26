@@ -17,21 +17,29 @@ MovieousCaptureEffect
 >
 
 /**
- * @brief Image which used in image stickers
+ * 用作图片贴纸的图片
  */
 @property (nonatomic, strong) UIImage *image;
 
 /**
- * @brief Target location and size of the sticker
- * @warning The sticker will be deformed when the aspect ratio and the aspect ratio of the sticker itself are inconsistent.
+ * 贴纸的目标位置和大小
+ * 
+ * @warning 当图片的比例和贴纸目标大小的比例不一致时贴纸会被拉伸变形。
  */
 @property (nonatomic, assign) CGRect destRect;
 
 /**
- * @brief Rotation applied to the sticker in radian
+ * 图片贴纸的旋转弧度
  */
 @property (nonatomic, assign) CGFloat rotation;
 
+/**
+ * 用另一个 MovieousImageStickerCaptureEffect 对象初始化此 MovieousImageStickerCaptureEffect
+ *
+ * @param imageStickerCaptureEffect 用于初始化的另一个 MovieousImageStickerCaptureEffect 对象。
+ *
+ * @return 初始化完成的 MovieousImageStickerCaptureEffect 对象。
+ */
 - (instancetype)initWithImageStickerCaptureEffect:(MovieousImageStickerCaptureEffect *)imageStickerCaptureEffect;
 
 @end
