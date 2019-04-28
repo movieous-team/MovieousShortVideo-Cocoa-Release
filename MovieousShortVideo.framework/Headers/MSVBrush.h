@@ -29,8 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Instantiate a brush with line width and line color.
  *
- * @param lineWidth Line color of the brush.
- * @param lineColor Line width of the brush.
+ * @param lineWidth Line width of the brush.
+ * @param lineColor Line color of the brush.
  *
  * @return The instantiated brush instance.
  */
@@ -39,8 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Initiate a brush with line width and line color.
  *
- * @param lineWidth Line color of the brush.
- * @param lineColor Line width of the brush.
+ * @param lineWidth Line width of the brush.
+ * @param lineColor Line color of the brush.
  *
  * @return The initiated brush instance.
  */

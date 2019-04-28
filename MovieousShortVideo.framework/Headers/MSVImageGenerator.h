@@ -12,6 +12,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class MSVImageGeneratorResult;
+
+/**
+ * Image generation completed block.
+ *
+ * @param results The generation result array.
+ * @param result The generation result status.
+ * @param error The error object if any error occurs.
+ */
 typedef void (^MSVImageGeneratorCompletionHandler)(NSArray<MSVImageGeneratorResult *> *_Nullable results, AVAssetImageGeneratorResult result, NSError *_Nullable error);
 
 /**
@@ -25,7 +33,7 @@ typedef void (^MSVImageGeneratorCompletionHandler)(NSArray<MSVImageGeneratorResu
 @property (nonatomic, assign) NSTimeInterval requestedTime;
 
 /**
- * A result code indicating whether the image generation process succeeded, failed, or was cancelled.
+ * The actual time of the snapshot.
  */
 @property (nonatomic, assign) NSTimeInterval actualTime;
 
@@ -67,7 +75,7 @@ typedef void (^MSVImageGeneratorCompletionHandler)(NSArray<MSVImageGeneratorResu
 @property (nonatomic, strong, readonly) AVAssetImageGenerator *innerImageGenerator;
 
 /**
- * Verify that the mix track clip is valid or not.
+ * Generate images use parameters of the generator.
  *
  * @param handler A block called when an image generate request is completed.
  */

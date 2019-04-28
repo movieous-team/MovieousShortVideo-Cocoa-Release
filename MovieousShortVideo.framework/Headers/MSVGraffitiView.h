@@ -11,6 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class MSVGraffitiView;
+/**
+ * Delegate used to receive callback。
+ */
 @protocol MSVGraffitiViewDelegate <NSObject>
 
 @optional
@@ -34,7 +37,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) id<MSVGraffitiViewDelegate> delegate;
 
 /**
- * The maximum steps undo stack can save, if current undo stack has exceeded the limit, the oldest operation saved will be dropped, a limit of 0 indicates no limit. The default is 20.
+ * The maximum steps undo stack can save, if current undo stack has exceeded the limit, the oldest operation saved will be dropped, a limit of 0 indicates no limit.
+ * The default is 20.
  */
 @property (nonatomic, assign) NSUInteger maxUndoSteps;
 

@@ -12,6 +12,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * Transcoder class used to transcode
+ */
 @interface MSVTranscoder : NSObject
 
 /**

@@ -46,6 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @param URL Audio source file URL, only local file is supported.
  * @param outError Return error if any.
+ *
  * @return Created instance if success or else nil.
  */
 + (instancetype _Nullable)backgroundAudioConfigurationWithURL:(NSURL *)URL error:(NSError *_Nullable *_Nullable)outError;

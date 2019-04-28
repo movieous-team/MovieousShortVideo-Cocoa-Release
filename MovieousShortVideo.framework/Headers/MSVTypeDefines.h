@@ -53,28 +53,6 @@ typedef NS_ENUM(NSInteger, MSVAudioSource) {
     MSVAudioSourceExtern,
 };
 
-/**
- * Orientation of preview.
- */
-typedef NS_ENUM(NSInteger, MSVPreviewOrientation) {
-    /**
-     * Portrait orientation.
-     */
-    MSVPreviewOrientationPortrait = 0,
-    /**
-     * Upside down orientation.
-     */
-    MSVPreviewOrientationPortraitUpsideDown = 1,
-    /**
-     * LandscapeRight orientation.
-     */
-    MSVPreviewOrientationLandscapeRight = 2,
-    /**
-     * LandscapeLeft orientation.
-     */
-    MSVPreviewOrientationLandscapeLeft = 3,
-};
-
 #pragma mark - Video File Type
 
 /**

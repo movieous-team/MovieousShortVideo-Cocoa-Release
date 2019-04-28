@@ -11,6 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * Time editor effect.
+ */
 @protocol MSVTimeEditorEffect
 <
 NSObject,
@@ -30,7 +33,7 @@ NSCopying
 @property (nonatomic, assign) MSVTimeEffectScope scope;
 
 /**
- * The time interval for applying an basic effect on the main track.
+ * The time interval for applying the time effect on the main track.
  */
 @property (nonatomic, assign) MovieousTimeRange timeRangeAtMainTrack;
 

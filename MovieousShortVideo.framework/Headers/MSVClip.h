@@ -12,6 +12,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * The base class used to specify basic clip logic.
+ */
 @interface MSVClip : NSObject
 <
 NSCopying
@@ -50,11 +53,11 @@ NSCopying
 - (instancetype _Nullable)initWithImage:(UIImage *)image duration:(NSTimeInterval)duration error:(NSError *_Nullable *_Nullable)outError;
 
 /**
- * Initialize a clip with a existing clip.
+ * Initialize a clip with another clip.
  *
- * @param clip The existing clip.
+ * @param clip The clip used to intialize the clip.
  *
- * @return If the initialized instance.
+ * @return the initialized instance.
  */
 - (instancetype)initWithClip:(MSVClip *)clip;
 
@@ -75,11 +78,13 @@ NSCopying
 
 /**
  * The frame in the source video spece which will be used to display in destination video.
+ * The default is CGRectInfinite which means all part of the source video is used
  */
 @property (nonatomic, assign) CGRect sourceDisplayFrame;
 
 /**
  * The frame in destination video space you want to place the source display video.
+ * The default is CGRectNull which means the total destination video space is used
  */
 @property (nonatomic, assign) CGRect destDisplayFrame;
 
@@ -94,7 +99,7 @@ NSCopying
 @property (nonatomic, assign) MovieousScalingMode scalingMode;
 
 /**
- * The duration of the clip in the main track, the durationAtMainTrack parameter and speed affect each other, the specific operational relationship is： speed = timeRange.duration / durationAtMainTrack.
+ * The duration of the clip in the main track, when clip type is MSVClipTypeAV, the durationAtMainTrack parameter and speed affect each other, adjust durationAtMainTrack will affect speed, the specific operational relationship is： speed = timeRange.duration / durationAtMainTrack.
  */
 @property (nonatomic, assign) NSTimeInterval durationAtMainTrack;
 
@@ -108,12 +113,15 @@ NSCopying
 
 /**
  * Intercepting the time range that used in the media clip.
- * @warning This time range refers to the time range without the fast and slow processing and reverses processing,Also, if timeRange.startTime + timeRange.duration > total media duration,  the excess part will be ignored.
+ * The default is kMovieousTimeRangeDefault which stands for the full duration of the source clip.
+ *
+ * @warning This time range refers to the time range without the fast and slow processing and reverses processing, Also, if timeRange.startTime + timeRange.duration > total media duration,  the excess part will be ignored.
  */
 @property (nonatomic, assign) MovieousTimeRange timeRange;
 
 /**
- * Clip speed of the clip to be recorded, the default is 1.0.
+ * Clip speed of the clip to be recorded.
+ * the default is 1.0.
  *
  * @discussion
  * Recommend configurations:
@@ -126,7 +134,8 @@ NSCopying
 @property (nonatomic, assign) float speed;
 
 /**
- * The volume of the media audio, defaults to the preferredVolume that comes with the media file.
+ * The volume of the media audio.
+ * The default is the preferredVolume that comes with the media file.
  */
 @property (nonatomic, assign) float volume;
 

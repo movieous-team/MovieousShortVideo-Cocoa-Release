@@ -13,6 +13,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * External filter editor effect.
+ */
 @interface MSVExternalFilterEditorEffect : MovieousExternalFilterCaptureEffect
 <
 MSVBasicEditorEffect

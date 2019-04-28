@@ -22,7 +22,8 @@ MovieousMicrophoneConfiguration
 >
 
 /**
- * Audio input source, the default is MSVAudioSourceMicrophone
+ * Audio input source.
+ * The default is MSVAudioSourceMicrophone.
  */
 @property (nonatomic, assign) MSVAudioSource source;
 
@@ -37,7 +38,8 @@ MovieousMicrophoneConfiguration
 #pragma mark - encoder configurations
 
 /**
- * Audio encoding rate bitRate The default is 128 * 1024
+ * Audio encoding rate bitRate.
+ * The default is 128 * 1024.
  */
 @property (assign, nonatomic) UInt32 bitrate;
 

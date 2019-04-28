@@ -10,6 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * Basic effects class.
+ */
 @protocol MSVBasicEditorEffect
 <
 MovieousCaptureEffect

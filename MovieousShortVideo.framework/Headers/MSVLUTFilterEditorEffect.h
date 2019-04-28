@@ -30,11 +30,11 @@ MSVBasicEditorEffect
 @property (nonatomic, assign) MovieousTimeRange timeRangeAtMainTrack;
 
 /**
- * Initiate the MSVExternalFilterEditorEffect with another MSVExternalFilterEditorEffect object.
+ * Initiate the MSVLUTFilterEditorEffect with another MSVLUTFilterEditorEffect object.
  *
- * @param externalFilterCaptureEffect Another MSVExternalFilterEditorEffect used to initiate the instance.
+ * @param LUTFilterCaptureEffect Another MSVLUTFilterEditorEffect used to initiate the instance.
  *
- * @return The initialized MSVExternalFilterEditorEffect instance.
+ * @return The initialized MSVLUTFilterEditorEffect instance.
  */
 - (instancetype)initWithLUTFilterCaptureEffect:(MSVLUTFilterEditorEffect *)LUTFilterCaptureEffect;
 

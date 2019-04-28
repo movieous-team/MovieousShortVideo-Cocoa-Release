@@ -23,13 +23,15 @@ MovieousCameraConfiguration
 >
 
 /**
- * Video input source, the default is MSVAudioSourceMicrophone
+ * Video input source.
+ * The default is MSVAudioSourceMicrophone.
  */
 @property (nonatomic, assign) MSVVideoSource source;
 
 #pragma mark - camera configurations
 /**
- * Video resolution when encoding. The default is (1280, 720).
+ * Video resolution when encoding.
+ * The default is (1280, 720).
  *
  * @discussion It should be noted that this parameter affects the resolution of the video encoding, rather than the preview size of the data captured by the camera. When the image size passed to the encoder is different from this size, it will be generated in the same way The video ensures that the image does not appear to be compressed (but the cropping phenomenon occurs when the ratio of the encoded video is different from the ratio of the captured video).
  */
@@ -161,7 +163,7 @@ MovieousCameraConfiguration
  * The Maximum Interval of video encoding Keyframe. (GOP).
  * The default is 0 which means that the encoder decide what videoMaxKeyframeInterval to use.
  *
- * @discussion During h.264 encoding, The maximum number of frames between two keyframes typically is twice or three times than the fps. The default is 2*fps
+ * @discussion During h.264 encoding, The maximum number of frames between two keyframes typically is twice or three times than the fps.
  */
 @property (nonatomic, assign) NSUInteger videoMaxKeyframeInterval;
 

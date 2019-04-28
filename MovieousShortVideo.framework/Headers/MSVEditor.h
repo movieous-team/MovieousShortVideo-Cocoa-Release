@@ -23,6 +23,9 @@ extern NSString *kMSVEditorCurrentTimeUpdatedNotification;
 extern NSString *kMSVEditorCurrentTimeKey;
 
 @class MSVEditor;
+/**
+ * Delegate protocol used to receive callback from editor.
+ */
 @protocol MSVEditorDelegate <NSObject>
 
 @optional
@@ -44,6 +47,9 @@ extern NSString *kMSVEditorCurrentTimeKey;
 
 @end
 
+/**
+ * Editor used to preview draft.
+ */
 @interface MSVEditor : NSObject
 
 /**
@@ -82,12 +88,17 @@ extern NSString *kMSVEditorCurrentTimeKey;
 @property (nonatomic, assign) BOOL loop;
 
 /**
- * Editor proxy object.
+ * Volume of the editor's preview player.
+ */
+@property (nonatomic, assign) float volume;
+
+/**
+ * Editor delegate object.
  */
 @property (nonatomic, weak) id<MSVEditorDelegate> delegate;
 
 /**
- * The queue callback made by the proxy method, the default is the main queue.
+ * The queue callback made by the delegate method, the default is the main queue.
  */
 @property (nonatomic, strong) dispatch_queue_t delegateQueue;
 
@@ -138,6 +149,7 @@ extern NSString *kMSVEditorCurrentTimeKey;
  * The player fast forwards to the appropriate position.
  *
  * @param time Target position.
+ * @param accurate Is this a accurate seeking, accurate seeking will take more time.
  */
 - (void)seekToTime:(NSTimeInterval)time accurate:(BOOL)accurate;
 

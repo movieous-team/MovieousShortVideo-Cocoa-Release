@@ -12,6 +12,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * Exporter class.
+ */
 @interface MSVExporter : NSObject
 
 /**

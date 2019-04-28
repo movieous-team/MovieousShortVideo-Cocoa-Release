@@ -11,6 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * clip used to mix video.
+ */
 @interface MSVMixTrackClip : MSVClip
 
 /**
@@ -88,7 +91,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @param mixTrackClip The existing MSVMixTrackClip object.
  *
- * @return If the initialized instance.
+ * @return return the initialized instance.
  */
 - (instancetype)initWithMixTrackClip:(MSVMixTrackClip *)mixTrackClip;
 

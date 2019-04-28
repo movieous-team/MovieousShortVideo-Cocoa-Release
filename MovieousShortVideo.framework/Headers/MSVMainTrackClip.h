@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)mainTrackClipWithType:(MSVClipType)type URL:(NSURL *)URL error:(NSError **)outError;
 
 /**
- * use AVAsset to create the main track clip of audio and video type using AVAsset.
+ * use AVAsset to create the main track clip of MSVClipTypeAV.
  *
  * @param asset AVAsset object used to create the main track clip.
  * @param outError If an error occurs, return the error that occurred.
@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @param mainTrackClip The existing MSVMainTrackClip object.
  *
- * @return If the initialized instance.
+ * @return return the initialized instance.
  */
 - (instancetype)initWithMainTrackClip:(MSVMainTrackClip *)mainTrackClip;
 

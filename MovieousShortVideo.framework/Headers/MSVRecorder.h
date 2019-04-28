@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class MSVRecorder;
 
 /**
- * Recorder proxy interface.
+ * Recorder delegate interface.
  */
 @protocol MSVRecorderDelegate <NSObject>
 
@@ -112,8 +112,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak, nullable) id<MSVRecorderDelegate> delegate;
 
 /**
- *  The queue used by the proxy method callback, if not specified, will be called back in the main thread.
- * The default is main queue.
+ * The queue used by the delegate method callback, if not specified, will be called back in the main thread.
  */
 @property (nonatomic, strong, nullable) dispatch_queue_t delegateQueue;
 
@@ -217,7 +216,7 @@ NS_ASSUME_NONNULL_BEGIN
  * Specify the resolution for capturing, what needs to note is that the preferredSessionPreset is not guaranteed to be applied succesfully, the actual resolution can be accessed by the property sessionPreset.
  * The default is the same as the videoConfiguration initializing the recorder.
  */
-@property (nonatomic, assign) AVCaptureSessionPreset preferredSessionPreset;
+@property (nonatomic, strong) AVCaptureSessionPreset preferredSessionPreset;
 
 /**
  * The current position of the camera.
@@ -334,11 +333,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, readonly) UIDeviceOrientation currentDeviceOrientation;
 
 /**
- * Initialize an empty recorder.
+ * Initialize a MSVRecorder object.
  *
  * @param audioConfiguration Audio configuration that introducing nil will use the default configuration.
  * @param videoConfiguration Video configuration that introducing nil will use the default configuration.
  * @param outError If an error occurs, return the error that occurred.
+ *
  * @return It returns YES when the initialization is successful, otherwise, it returns NO.
  */
 - (instancetype _Nullable)initWithAudioConfiguration:(MSVRecorderAudioConfiguration *_Nullable)audioConfiguration videoConfiguration:(MSVRecorderVideoConfiguration *_Nullable)videoConfiguration error:(NSError *_Nullable *_Nullable)outError;
@@ -350,6 +350,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param audioConfiguration Audio configuration that introducing nil will use the default configuration.
  * @param videoConfiguration Video configuration that introducing nil will use the default configuration.
  * @param outError If an error occurs, return the error that occurred.
+ *
  * @return It returns YES when the initialization is successful, otherwise, it returns NO.
  */
 - (instancetype _Nullable)initWithDraft:(MSVDraft *_Nullable)draft AudioConfiguration:(MSVRecorderAudioConfiguration *_Nullable)audioConfiguration videoConfiguration:(MSVRecorderVideoConfiguration *_Nullable)videoConfiguration error:(NSError *_Nullable *_Nullable)outError;
@@ -371,6 +372,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  *
  * @param outError If an error occurs, return the error that occurred.
+ *
  * @return It returns YES when the setting is successful, otherwise, it returns NO.
  */
 - (BOOL)startRecordingWithError:(NSError *_Nullable *_Nullable)outError;
@@ -380,6 +382,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @param clipConfiguration Record the used configuration, the default configuration will be used after passing nil.
  * @param outError If an error occurs, return the error that occurred.
+ *
  * @return It returns YES when the setting is successful, otherwise, it returns NO.
  */
 - (BOOL)startRecordingWithClipConfiguration:(MSVClipConfiguration *_Nullable)clipConfiguration error:(NSError *_Nullable *_Nullable)outError;
@@ -400,6 +403,7 @@ NS_ASSUME_NONNULL_BEGIN
  * Delete the last recorded clip.
  *
  * @param outError If an error occurs, return the error that occurred.
+ *
  * @return It returns YES when the setting is successful, otherwise, it returns NO.
  */
 - (BOOL)discardLastClipWithError:(NSError *_Nullable *_Nullable )outError;
@@ -409,6 +413,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @param index The index of the segment that needs to be deleted.
  * @param outError If an error occurs, return the error that occurred.
+ *
  * @return It returns YES when the setting is successful, otherwise, it returns NO.
  */
 - (BOOL)discardClipAtIndex:(NSUInteger)index error:(NSError *_Nullable *_Nullable)outError;
@@ -417,6 +422,7 @@ NS_ASSUME_NONNULL_BEGIN
  * Delete all recorded clips.
  *
  * @param outError If an error occurs, return the error that occurred.
+ *
  * @return It returns YES when the setting is successful, otherwise, it returns NO.
  */
 - (BOOL)discardAllClipsWithError:(NSError *_Nullable *_Nullable)outError;
@@ -436,6 +442,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @param configuration The background audio configuration object after nil passed will clear the background audio.
  * @param outError If an error occurs, return the error that occurred.
+ *
  * @return It returns YES when the setting is successful, otherwise, it returns NO.
  */
 - (BOOL)setBackgroundAudioWithConfiguration:(MSVRecorderBackgroundAudioConfiguration *)configuration error:(NSError *_Nullable *_Nullable)outError;
@@ -446,6 +453,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param videoData Video data to be written.
  * @param presentationTime The presentationTime of the video data.
  * @param outError If an error occurs, return the error that occurred.
+ *
  * @return It returns YES when the setting is successful, otherwise, it returns NO.
  */
 - (BOOL)writeVideoData:(CVPixelBufferRef)videoData presentationTime:(CMTime)presentationTime error:(NSError *_Nullable *_Nullable)outError;
@@ -455,6 +463,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @param videoData Video data to be written.
  * @param outError If an error occurs, return the error that occurred.
+ *
  * @return It returns YES when the setting is successful, otherwise, it returns NO.
  */
 - (BOOL)writeVideoData:(CMSampleBufferRef)videoData error:(NSError *_Nullable *_Nullable)outError;
@@ -464,12 +473,15 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @param audioData Audio data to be written.
  * @param outError If an error occurs, return the error that occurred.
+ *
  * @return It returns YES when the setting is successful, otherwise, it returns NO.
  */
 - (BOOL)writeAudioData:(CMSampleBufferRef)audioData error:(NSError *_Nullable *_Nullable)outError;
 
 /**
  * Obtain a screenshot.
+ *
+ * @param completionHandler Called when capture completes.
  */
 - (void)snapshotWithCompletion:(void(^)(UIImage *image))completionHandler;
 

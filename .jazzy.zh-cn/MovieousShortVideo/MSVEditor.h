@@ -89,6 +89,11 @@ extern NSString *kMSVEditorCurrentTimeKey;
 @property (nonatomic, assign) BOOL loop;
 
 /**
+ * 编辑器的预览播放器音量。
+ */
+@property (nonatomic, assign) float volume;
+
+/**
  * 编辑器代理对象。
  */
 @property (nonatomic, weak) id<MSVEditorDelegate> delegate;

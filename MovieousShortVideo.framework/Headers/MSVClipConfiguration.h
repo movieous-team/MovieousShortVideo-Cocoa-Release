@@ -22,12 +22,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSURL *URL;
 
 /**
- * Media file type of the clip to be recorded, the default is MSVFileTypeMPEG4.
+ * Media file type of the clip to be recorded.
+ * The default is MSVFileTypeMPEG4.
  */
 @property (nonatomic, assign) MSVFileType fileType;
 
 /**
- * Clip speed of the clip to be recorded, the default is 1.0.
+ * Clip speed of the clip to be recorded.
+ * The default is 1.0.
  *
  * @discussion
  * Recommend configurations:
