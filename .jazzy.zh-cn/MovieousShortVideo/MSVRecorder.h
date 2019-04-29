@@ -458,10 +458,10 @@ NS_ASSUME_NONNULL_BEGIN
  (BOOL)setBackgroundAudioWithConfiguration:(MSVRecorderBackgroundAudioConfiguration *_Nullable)configuration error:(NSError *_Nullable *_Nullable)outError;
 
 /**
- * The interface of externally write the video data, please ensure the configuration if this interface will be used.  videoConfiguration.source = MSVVideoSourceExtern。
+ * 外部写入视频数据接口，使用该接口导入视频数据请保证配置 videoConfiguration.source = MSVVideoSourceExtern。
  *
- * @param videoData Video data to be written。
- * @param presentationTime The presentationTime of the video data。
+ * @param videoData 待写入的视频数据。
+ * @param presentationTime 视频数据的显示时间戳。
  * @param outError 如果发生错误，返回错误对象。
  * 
  * @return 如果操作成功返回 YES，否则返回 NO。
@@ -469,9 +469,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)writeVideoData:(CVPixelBufferRef)videoData presentationTime:(CMTime)presentationTime error:(NSError *_Nullable *_Nullable)outError;
 
 /**
- * The interface of externally write the video data, please ensure the configuration if this interface will be used.  videoConfiguration.source = MSVVideoSourceExtern。
+ * 外部写入视频数据接口，使用该接口导入视频数据请保证配置 videoConfiguration.source = MSVVideoSourceExtern。
  *
- * @param videoData Video data to be written。
+ * @param videoData 待写入的视频数据。
  * @param outError 如果发生错误，返回错误对象。
  * 
  * @return 如果操作成功返回 YES，否则返回 NO。
@@ -490,6 +490,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * 获取视频快照。
+ * 
+ * @param completionHandler 获取快照完成回调。
  */
 - (void)snapshotWithCompletion:(MovieousSnapshotCompletionHandler)completionHandler;
 
