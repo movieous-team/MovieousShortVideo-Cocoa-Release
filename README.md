@@ -42,6 +42,7 @@
 - [x] discard video segment
 - [x] background music configurable, you can also trim, specify volume and loop it
 - [x] generate snapshot
+- [x] configurable flash mode
 
 ### editing
 - [x] configurable destination video duration, resolution, etc.
@@ -56,6 +57,7 @@
 - [x] speed effect
 - [x] reverse effect
 - [x] batch generate video snapshot
+- [x] preview mute
 
 ### exporting
 - [x] configurable export file format 
