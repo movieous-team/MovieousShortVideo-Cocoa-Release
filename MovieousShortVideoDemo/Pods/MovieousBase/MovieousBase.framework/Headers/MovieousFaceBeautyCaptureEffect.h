@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <MovieousBase/MovieousCaptureEffect.h>
 
+/**
+ * The face beautification filter effect.
+ */
 @interface MovieousFaceBeautyCaptureEffect : NSObject
 <
 MovieousCaptureEffect

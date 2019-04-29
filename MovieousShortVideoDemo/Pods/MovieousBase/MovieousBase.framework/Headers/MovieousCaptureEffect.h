@@ -6,6 +6,9 @@
 //  Copyright © 2019 Movieous Team. All rights reserved.
 //
 
+/**
+ * Effect applied while capturing.
+ */
 @protocol MovieousCaptureEffect
 <
 NSObject,

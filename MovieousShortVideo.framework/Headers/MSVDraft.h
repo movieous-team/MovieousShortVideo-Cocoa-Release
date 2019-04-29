@@ -100,7 +100,7 @@ NSCopying
  *
  * @return Valid operation returns YES, invalid operation returns NO.
  */
-- (BOOL)updateMixTrackClips:(NSArray<MSVMixTrackClip *> *)mixTrackClips error:(NSError **)outError;
+- (BOOL)updateMixTrackClips:(NSArray<MSVMixTrackClip *> *_Nullable)mixTrackClips error:(NSError **)outError;
 
 /**
  * Basic effects array，so far we support MSVExternalFilterEditorEffect, MSVLUTFilterEditorEffect, MSVImageEffect, all of these effects will be used on the final video.

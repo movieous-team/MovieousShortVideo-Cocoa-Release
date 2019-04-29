@@ -181,6 +181,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) AVCaptureTorchMode preferredTorchMode;
 
 /**
+ * The current flashMode being used on the camera.
+ */
+@property (nonatomic, assign, readonly) AVCaptureFlashMode flashMode;
+
+/**
+ * Specify the preferred flash mode to use on camera, what needs to note is that the preferredFlashMode is not guaranteed to be applied succesfully, the actual torch mode can be accessed by the property flashMode.
+ * The default is the same as the videoConfiguration initializing the recorder.
+ */
+@property (nonatomic, assign) AVCaptureFlashMode preferredFlashMode;
+
+/**
  * A property indicating the format's supported frame rate ranges. videoSupportedFrameRateRanges is an array of AVFrameRateRange objects, one for each of the format's supported video frame rate ranges.
  */
 @property(nonatomic, readonly) NSArray<AVFrameRateRange *> *videoSupportedFrameRateRanges;
@@ -445,7 +456,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @return It returns YES when the setting is successful, otherwise, it returns NO.
  */
-- (BOOL)setBackgroundAudioWithConfiguration:(MSVRecorderBackgroundAudioConfiguration *)configuration error:(NSError *_Nullable *_Nullable)outError;
+- (BOOL)setBackgroundAudioWithConfiguration:(MSVRecorderBackgroundAudioConfiguration *_Nullable)configuration error:(NSError *_Nullable *_Nullable)outError;
 
 /**
  * The interface of externally write the video data, please ensure the configuration if this interface will be used.  videoConfiguration.source = MSVVideoSourceExtern.
@@ -483,7 +494,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @param completionHandler Called when capture completes.
  */
-- (void)snapshotWithCompletion:(void(^)(UIImage *image))completionHandler;
+- (void)snapshotWithCompletion:(MovieousSnapshotCompletionHandler)completionHandler;
 
 @end
 

@@ -181,6 +181,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) AVCaptureTorchMode preferredTorchMode;
 
 /**
+ * 当前摄像头的闪光灯模式。
+ */
+@property (nonatomic, assign, readonly) AVCaptureFlashMode flashMode;
+
+/**
+ * 指定期望的摄像头闪光灯模式，需要注意的是 preferredFlashMode 的值不一定能够被成功应用，实际的手电筒模式可以通过 MSVRecorder.flashMode 来获取。
+ * 默认和初始化录制器使用的 videoConfiguration 一致。
+ */
++@property (nonatomic, assign) AVCaptureFlashMode preferredFlashMode;
+
+/**
  * 指示当前摄像头支持的帧率范围。
  * videoSupportedFrameRateRanges 是一个 AVFrameRateRange 的数组，指示支持的帧率范围。
  */
@@ -444,7 +455,7 @@ NS_ASSUME_NONNULL_BEGIN
  * 
  * @return 如果操作成功返回 YES，否则返回 NO。
  */
-- (BOOL)setBackgroundAudioWithConfiguration:(MSVRecorderBackgroundAudioConfiguration *)configuration error:(NSError *_Nullable *_Nullable)outError;
+ (BOOL)setBackgroundAudioWithConfiguration:(MSVRecorderBackgroundAudioConfiguration *_Nullable)configuration error:(NSError *_Nullable *_Nullable)outError;
 
 /**
  * The interface of externally write the video data, please ensure the configuration if this interface will be used.  videoConfiguration.source = MSVVideoSourceExtern。
@@ -480,7 +491,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * 获取视频快照。
  */
-- (void)snapshotWithCompletion:(void(^)(UIImage *image))completionHandler;
+- (void)snapshotWithCompletion:(MovieousSnapshotCompletionHandler)completionHandler;
 
 @end
 

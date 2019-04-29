@@ -1,5 +1,13 @@
 *Read this in other languages: [English](CHANGELOG.md), [简体中文](CHANGELOG.zh-cn.md).*
 
+# v2.2.3(2019-4-29)
+## Features
+- use `AVCaptureStillImageOutput` for recorder snapshot.
+- add `flashMode` to recorder.
+
+## Fixes
+- fix `videoSize` orientation bug for image processing pipeline.
+
 # v2.2.2(2019-4-28)
 ## Features
 - add `volume` property for `MSVEditor`.

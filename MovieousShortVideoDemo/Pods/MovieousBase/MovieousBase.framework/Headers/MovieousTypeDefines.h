@@ -43,3 +43,11 @@ CMTimeRange CMTimeRangeMakeMovieousTimeRange(MovieousTimeRange timeRange, int32_
 
 /// Make a MovieousTimeRange with CMTimeRange
 MovieousTimeRange MovieousTimeRangeMakeWithCMTimeRange(CMTimeRange timeRange);
+
+/**
+ * Snapshot completion callback handler.
+ *
+ * @param image The captured image.
+ * @param error The specific error if any.
+ */
+typedef void(^MovieousSnapshotCompletionHandler)(UIImage *_Nullable image, NSError *_Nullable error);

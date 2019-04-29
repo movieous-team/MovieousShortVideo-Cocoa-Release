@@ -13,6 +13,9 @@
 #import <MovieousBase/MovieousTypeDefines.h>
 #import <MovieousBase/MovieousCaptureEffect.h>
 
+/**
+ * Configuration object used to specify camera parameters.
+ */
 @protocol MovieousCameraConfiguration
 <
 NSObject
@@ -77,6 +80,12 @@ NSObject
  * The default is AVCaptureTorchModeAuto
  */
 @property (nonatomic, assign) AVCaptureTorchMode preferredTorchMode;
+
+/**
+ * Specify the preferred flash mode to use on camera, what needs to note is that the preferredFlashMode is not guaranteed to be applied succesfully, the actual flash mode can be accessed by the property flashMode.
+ * The default is AVCaptureFlashModeAuto
+ */
+@property (nonatomic, assign) AVCaptureFlashMode preferredFlashMode;
 
 /**
  * Specify the preferred minimum frames per second on camera, what needs to note is that the preferredMinFrameRate is not guaranteed to be applied succesfully, the actual minimum frames per second can be accessed by the property minFrameRate.

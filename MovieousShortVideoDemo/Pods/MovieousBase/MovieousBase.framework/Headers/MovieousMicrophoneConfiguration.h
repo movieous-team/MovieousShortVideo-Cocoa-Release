@@ -8,6 +8,9 @@
 
 #import <AVFoundation/AVFoundation.h>
 
+/**
+ * Configuration object used to specify microphone parameters.
+ */
 @protocol MovieousMicrophoneConfiguration <NSObject>
 
 /**

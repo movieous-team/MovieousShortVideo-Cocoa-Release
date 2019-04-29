@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <MovieousBase/MovieousCaptureEffect.h>
 
+/**
+ * The LUT(look up table) filter effect.
+ */
 @interface MovieousLUTFilterCaptureEffect : NSObject
 <
 MovieousCaptureEffect

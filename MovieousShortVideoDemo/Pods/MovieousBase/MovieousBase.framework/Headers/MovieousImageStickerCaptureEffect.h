@@ -11,6 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * The image sticker filter effect.
+ */
 @interface MovieousImageStickerCaptureEffect : NSObject
 <
 MovieousCaptureEffect

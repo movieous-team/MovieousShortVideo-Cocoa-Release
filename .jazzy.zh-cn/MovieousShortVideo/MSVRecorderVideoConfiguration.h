@@ -90,6 +90,12 @@ MovieousCameraConfiguration
 @property (nonatomic, assign) AVCaptureTorchMode preferredTorchMode;
 
 /**
+ * 指定期望的摄像头闪光灯模式，需要注意的是 preferredFlashMode 的值不一定能够被成功应用，实际的闪光灯模式可以通过 MSVRecorder.flashMode 来获取。
+ * 默认为 AVCaptureFlashModeAuto。
+ */
+@property (nonatomic, assign) AVCaptureFlashMode preferredFlashMode;
+
+/**
  * 指定期望的最小采集帧率，需要注意的是 preferredMinFrameRate 的值不一定能够被成功应用，实际的最小采集帧率可以通过 MSVRecorder.minFrameRate 来获取。
  * 默认为 24。
  */

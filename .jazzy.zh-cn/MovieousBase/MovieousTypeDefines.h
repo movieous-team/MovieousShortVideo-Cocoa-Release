@@ -43,3 +43,11 @@ CMTimeRange CMTimeRangeMakeMovieousTimeRange(MovieousTimeRange timeRange, int32_
 
 /// 使用 CMTimeRange 来创建一个 MovieousTimeRange
 MovieousTimeRange MovieousTimeRangeMakeWithCMTimeRange(CMTimeRange timeRange);
+
+/**
+ * 快照完成的回调句柄.
+ *
+ * @param image 采集到的照片.
+ * @param error 如果发生错误返回相应的错误.
+ */
+typedef void(^MovieousSnapshotCompletionHandler)(UIImage *_Nullable image, NSError *_Nullable error);

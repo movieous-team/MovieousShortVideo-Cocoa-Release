@@ -100,7 +100,7 @@ NSCopying
  *
  * @return 如果操作成功返回 YES，否则返回 NO。
  */
-- (BOOL)updateMixTrackClips:(NSArray<MSVMixTrackClip *> *)mixTrackClips error:(NSError **)outError;
+- (BOOL)updateMixTrackClips:(NSArray<MSVMixTrackClip *> *_Nullable)mixTrackClips error:(NSError **)outError;
 
 /**
  * 基础特效数组，当前支持 MSVExternalFilterEditorEffect, MSVLUTFilterEditorEffect, MSVImageEffect，所有特效均被应用于整个目标视频。

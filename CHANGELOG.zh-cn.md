@@ -1,5 +1,13 @@
 *其他语言版本: [English](CHANGELOG.md), [简体中文](CHANGELOG.zh-cn.md).*
 
+# v2.2.3(2019-4-29)
+## 功能
+- 使用 `AVCaptureStillImageOutput` 来生成录制器的快照.
+- 录制器添加 `flashMode` 属性.
+
+## 修复
+- 修复图片处理管道中 `videoSize` 转向的问题。
+
 # v2.2.2(2019-4-28)
 ## 功能
 - 给 `MSVEditor` 添加 `volume` 属性。
