@@ -20,6 +20,24 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * Callback when start capturing is completed.
+ *
+ * @param audioGranted Whether to obtain audio rights.
+ * @param audioError Error in audio component initialization.
+ * @param videoGranted Whether you have obtained the captured permissions of the video.
+ * @param videoError Error in video component initialization.
+ */
+typedef void(^MSVStartCapturingCompletionHandler)(BOOL audioGranted, NSError *_Nullable audioError, BOOL videoGranted, NSError *_Nullable videoError);
+
+/**
+ * Callback when finishRecording operation has done.
+ *
+ * @param clip The generated MSVMainTrackClip object while recording, if recorder has already stopped, completion, this is the last MSVMainTrackClip object.
+ * @param error Error object if any.
+ */
+typedef void(^MSVFinishRecordingWithCompletionHandler)(MSVMainTrackClip *_Nullable clip, NSError *_Nullable error);
+
 @class MSVRecorder;
 
 /**
@@ -369,9 +387,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Start collecting audio and video, call this method will request the usage permission of audio and video (if the specified audio and video data source is the camera or microphone).
  *
- * @param completionHandler Callback is completed, audioGranted：Whether to obtain audio rights, audioError：Error in audio component initialization, videoGranted：Whether you have obtained the captured permissions of the video,videoError：Error in video component initialization.
+ * @param completionHandler Called when operation completed。
  */
-- (void)startCapturingWithCompletion:(void(^)(BOOL audioGranted, NSError *_Nullable audioError, BOOL videoGranted, NSError *_Nullable videoError))completionHandler;
+- (void)startCapturingWithCompletion:(MSVStartCapturingCompletionHandler)completionHandler;
 
 /**
  * Stop capturing.
@@ -401,9 +419,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Complete the record.
  *
- * @param completionHandler Stop the successful callback, clip: record the generated main track clip object, if recorder has already stopped, completion, this is the last main track clip, error: error occurred.
+ * @param completionHandler Called when recording has completed.
  */
-- (void)finishRecordingWithCompletionHandler:(void(^)(MSVMainTrackClip *_Nullable clip, NSError *_Nullable error))completionHandler;
+- (void)finishRecordingWithCompletionHandler:(MSVFinishRecordingWithCompletionHandler)completionHandler;
 
 /**
  * Cancel the current recording progress.

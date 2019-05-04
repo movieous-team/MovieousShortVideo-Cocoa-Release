@@ -1,10 +1,14 @@
 *其他语言版本: [English](CHANGELOG.md), [简体中文](CHANGELOG.zh-cn.md).*
 
+# v2.2.4(2019-5-4)
+## 修复
+- 修复 `-snapshotWithCompletion:` 接口可能发生 timeout 的错误。
+- 优化编码器。
+
 # v2.2.3(2019-4-29)
 ## 功能
-- 使用 `AVCaptureStillImageOutput` 来生成录制器的快照.
-- 录制器添加 `flashMode` 属性.
-
+- 使用 `AVCaptureStillImageOutput` 来生成录制器的快照。
+- 录制器添加 `flashMode` 属性。
 ## 修复
 - 修复图片处理管道中 `videoSize` 转向的问题。
 

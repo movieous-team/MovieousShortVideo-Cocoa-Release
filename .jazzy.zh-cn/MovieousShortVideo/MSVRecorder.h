@@ -20,6 +20,24 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * 开始采集完成回调。
+ *
+ * @param audioGranted 是否获取到音频采集权限。
+ * @param audioError 音频组件初始化错误返回。
+ * @param videoGranted 是否获取到视频采集权限。
+ * @param videoError 视频组件初始化错误返回。
+ */
+typedef void(^MSVStartCapturingCompletionHandler)(BOOL audioGranted, NSError *_Nullable audioError, BOOL videoGranted, NSError *_Nullable videoError);
+
+/**
+ * 完成录制操作完成回调。
+ *
+ * @param clip 录制过程中生成的 MSVMainTrackClip 对象，如果录制器已经结束了，此参数将返回上一个生成的 MSVMainTrackClip 对象。
+ * @param error 如果发生错误返回错误对象。
+ */
+typedef void(^MSVFinishRecordingWithCompletionHandler)(MSVMainTrackClip *_Nullable clip, NSError *_Nullable error);
+
 @class MSVRecorder;
 
 /**
@@ -370,9 +388,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * 开始采集音视频，调用此方法将请求音视频的使用权限（如果指定音视频数据源为摄像头或麦克风的话）。
  *
- * @param completionHandler 调用完成的回调，audioGranted：是否获得音频权限，audioError：音频组件初始化发生的错误，videoGranted：是否获得了视频的采集权限，videoError：视频组件初始化发生的错误。
+ * @param completionHandler 调用完成的回调。
  */
-- (void)startCapturingWithCompletion:(void(^)(BOOL audioGranted, NSError *_Nullable audioError, BOOL videoGranted, NSError *_Nullable videoError))completionHandler;
+- (void)startCapturingWithCompletion:(MSVStartCapturingCompletionHandler)completionHandler;
 
 /**
  * 停止采集。
@@ -401,9 +419,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * 完成录制。
  *
- * @param completionHandler 停止成功的回调，clip：录制产生的主轨道片段对象，error：发生的错误。
+ * @param completionHandler 停止成功的回调。
  */
-- (void)finishRecordingWithCompletionHandler:(void(^)(MSVMainTrackClip *_Nullable clip, NSError *_Nullable error))completionHandler;
+- (void)finishRecordingWithCompletionHandler:(MSVFinishRecordingWithCompletionHandler)completionHandler;
 
 /**
  * 取消当前录制。

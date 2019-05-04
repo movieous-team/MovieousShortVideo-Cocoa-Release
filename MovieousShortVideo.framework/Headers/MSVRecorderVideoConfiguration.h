@@ -24,7 +24,7 @@ MovieousCameraConfiguration
 
 /**
  * Video input source.
- * The default is MSVAudioSourceMicrophone.
+ * The default is MSVVideoSourceCamera.
  */
 @property (nonatomic, assign) MSVVideoSource source;
 

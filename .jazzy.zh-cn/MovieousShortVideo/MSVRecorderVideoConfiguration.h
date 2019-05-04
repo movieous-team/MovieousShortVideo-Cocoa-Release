@@ -24,7 +24,7 @@ MovieousCameraConfiguration
 
 /**
  * 视频输入源类型。
- * 默认为 MSVAudioSourceMicrophone。
+ * 默认为 MSVVideoSourceCamera。
  */
 @property (nonatomic, assign) MSVVideoSource source;
 

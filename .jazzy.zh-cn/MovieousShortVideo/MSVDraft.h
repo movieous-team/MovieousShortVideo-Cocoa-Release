@@ -85,7 +85,7 @@ NSCopying
  * 
  * @return 如果操作成功返回 YES，否则返回 NO。
  */
-- (BOOL)updateMainTrackClips:(NSArray<MSVMainTrackClip *> *)mainTrackClips error:(NSError **)outError;
+- (BOOL)updateMainTrackClips:(NSArray<MSVMainTrackClip *> *_Nullable)mainTrackClips error:(NSError **)outError;
 
 /**
  * 合成轨片段数组，最终生成的视频的可视部分由 mainTrackClips 和 mixTrackClips 根据各自的位置和大小合成得到
@@ -115,7 +115,7 @@ NSCopying
  *
  * @return 如果操作成功返回 YES，否则返回 NO。
  */
-- (BOOL)updateBasicEffects:(NSArray<id<MSVBasicEditorEffect>> *)basicEffects error:(NSError **)outError;
+- (BOOL)updateBasicEffects:(NSArray<id<MSVBasicEditorEffect>> *_Nullable)basicEffects error:(NSError **)outError;
 
 /**
  * 时间特效数组，当前支持 MSVRepeatEditorEffect, MSVSpeedEditorEffect
@@ -130,7 +130,7 @@ NSCopying
  *
  * @return 如果操作成功返回 YES，否则返回 NO。
  */
-- (BOOL)updateTimeEffects:(NSArray<id<MSVTimeEditorEffect>> *)timeEffects error:(NSError **)outError;
+- (BOOL)updateTimeEffects:(NSArray<id<MSVTimeEditorEffect>> *_Nullable)timeEffects error:(NSError **)outError;
 
 /**
  * 草稿原始总时长（不考虑时间特效，不考虑 timeRange）
