@@ -14,7 +14,7 @@
 @protocol MovieousMicrophoneConfiguration <NSObject>
 
 /**
- * Mute sound while recording, if you want to record a movie with no sound, you can specify source property in audioConfiguration to MSVAudioSourceNone.
+ * Mute sound while recording, if you want to record a movie with no sound.
  * The default is NO.
  */
 @property (nonatomic, assign) BOOL mute;

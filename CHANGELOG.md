@@ -1,5 +1,9 @@
 *Read this in other languages: [English](CHANGELOG.md), [简体中文](CHANGELOG.zh-cn.md).*
 
+# v2.2.5(2019-5-5)
+## Fixes
+- fix `preferredVideoOrientation` becomes invalid after switching camera.
+
 # v2.2.4(2019-5-4)
 ## Fixes
 - fix timeout error happend when `-snapshotWithCompletion:` is called.

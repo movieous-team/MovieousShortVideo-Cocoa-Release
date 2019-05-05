@@ -1,5 +1,9 @@
 *其他语言版本: [English](CHANGELOG.md), [简体中文](CHANGELOG.zh-cn.md).*
 
+# v2.2.5(2019-5-5)
+## 修复
+- 修复 `preferredVideoOrientation` 在切换摄像头之后不生效的问题。
+
 # v2.2.4(2019-5-4)
 ## 修复
 - 修复 `-snapshotWithCompletion:` 接口可能发生 timeout 的错误。
