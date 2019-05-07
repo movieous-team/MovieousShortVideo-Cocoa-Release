@@ -1,5 +1,9 @@
 *其他语言版本: [English](CHANGELOG.md), [简体中文](CHANGELOG.zh-cn.md).*
 
+# v2.2.6(2019-5-7)
+## 修复
+- 修复 `-startCapturingWithCompletion` 调用时会短暂卡住主线程的问题。
+
 # v2.2.5(2019-5-5)
 ## 修复
 - 修复 `preferredVideoOrientation` 在切换摄像头之后不生效的问题。

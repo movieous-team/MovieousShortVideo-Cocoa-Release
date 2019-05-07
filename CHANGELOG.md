@@ -1,12 +1,16 @@
 *Read this in other languages: [English](CHANGELOG.md), [简体中文](CHANGELOG.zh-cn.md).*
 
+# v2.2.6(2019-5-7)
+## Fixes
+- fix main thread been block after `-startCapturingWithCompletion` being called.
+
 # v2.2.5(2019-5-5)
 ## Fixes
-- fix `preferredVideoOrientation` becomes invalid after switching camera.
+- fix `preferredVideoOrientation` becoming invalid after switching camera.
 
 # v2.2.4(2019-5-4)
 ## Fixes
-- fix timeout error happend when `-snapshotWithCompletion:` is called.
+- fix timeout error happening when `-snapshotWithCompletion:` is called.
 - refine encoder.
 
 # v2.2.3(2019-4-29)
@@ -29,7 +33,7 @@
 - add error return when set `MSVDraft.videoSize`.
 - add more camera and microphone configuration to `MSVRecorderAudioConfiguration` and `MSVRecorderVideoConfiguration`.
 ## Fixes
-- fix crash happens when `-copy` is called by `MSVDraft`.
+- fix crash happening when `-copy` is called by `MSVDraft`.
 ## Others
 - rename `MSVVideoExporter` to `MSVExporter`.
 - rename `MSVRecorderVideoConfiguration.scalingMode` to `MSVRecorderVideoConfiguration.previewScalingMode`.
