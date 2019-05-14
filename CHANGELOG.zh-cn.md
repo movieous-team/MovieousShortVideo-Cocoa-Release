@@ -1,5 +1,11 @@
 *其他语言版本: [English](CHANGELOG.md), [简体中文](CHANGELOG.zh-cn.md).*
 
+# v2.2.6(2019-5-14)
+## 修复
+- 修复释放对象时有可能触发 crash 的问题。
+- 修复偶现的音量同步问题。
+- 修复 `-seekToTime:accurate:` 时间基准未添加 `timeRange` 影响的问题。
+
 # v2.2.6(2019-5-7)
 ## 修复
 - 修复 `-startCapturingWithCompletion` 调用时会短暂卡住主线程的问题。

@@ -1,5 +1,11 @@
 *Read this in other languages: [English](CHANGELOG.md), [简体中文](CHANGELOG.zh-cn.md).*
 
+# v2.2.6(2019-5-14)
+## Fixes
+- fix crash issue may happen when release objects.
+- fix volume synchronization issue happens occasionally.
+- fix issue that `-seekToTime:accurate:` hasn't add `timeRange` as time base.
+
 # v2.2.6(2019-5-7)
 ## Fixes
 - fix main thread been block after `-startCapturingWithCompletion` being called.
