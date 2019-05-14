@@ -1,5 +1,9 @@
 *其他语言版本: [English](CHANGELOG.md), [简体中文](CHANGELOG.zh-cn.md).*
 
+# v2.2.8(2019-5-14)
+## 修复
+- 修复  `-updateDraft:error:` 可能导致 `editor` 无法正常播放视频的问题。
+
 # v2.2.7(2019-5-14)
 ## 修复
 - 修复释放对象时有可能触发 crash 的问题。

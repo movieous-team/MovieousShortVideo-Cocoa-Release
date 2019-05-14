@@ -1,5 +1,9 @@
 *Read this in other languages: [English](CHANGELOG.md), [简体中文](CHANGELOG.zh-cn.md).*
 
+# v2.2.8(2019-5-14)
+## Fixes
+- fix issue that `-updateDraft:error:` may lead to abnormal video play for `editor`.
+
 # v2.2.7(2019-5-14)
 ## Fixes
 - fix crash issue may happen when release objects.
