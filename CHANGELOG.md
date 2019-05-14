@@ -1,6 +1,6 @@
 *Read this in other languages: [English](CHANGELOG.md), [简体中文](CHANGELOG.zh-cn.md).*
 
-# v2.2.6(2019-5-14)
+# v2.2.7(2019-5-14)
 ## Fixes
 - fix crash issue may happen when release objects.
 - fix volume synchronization issue happens occasionally.
