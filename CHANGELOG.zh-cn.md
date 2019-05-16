@@ -1,5 +1,11 @@
 *其他语言版本: [English](CHANGELOG.md), [简体中文](CHANGELOG.zh-cn.md).*
 
+# v2.2.9(2019-5-16)
+## 修复
+- 修复 `-updateDraft:error:` 使用新的资源可能导致视频无法刷新的问题。
+- 修复 `MSVRecorder` 在 `-dealloc` 时可能发生 crash 的问题。
+- 修复 `MSVRecorder` 在发生错误后未正确恢复状态的问题。
+
 # v2.2.8(2019-5-14)
 ## 修复
 - 修复  `-updateDraft:error:` 可能导致 `editor` 无法正常播放视频的问题。

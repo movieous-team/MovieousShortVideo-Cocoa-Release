@@ -1,5 +1,11 @@
 *Read this in other languages: [English](CHANGELOG.md), [简体中文](CHANGELOG.zh-cn.md).*
 
+# v2.2.9(2019-5-16)
+## Fixes
+- fix issue that `-updateDraft:error:` called with new resources can lead to unable to refresh video.
+- fix crash issue that may happen during `-dealloc` of `MSVRecorder`.
+- fix incorrect state after error happend for `MSVRecorder`.
+
 # v2.2.8(2019-5-14)
 ## Fixes
 - fix issue that `-updateDraft:error:` may lead to abnormal video play for `editor`.
