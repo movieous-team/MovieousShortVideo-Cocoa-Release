@@ -1,5 +1,11 @@
 *其他语言版本: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.10(2019-6-30)
+## 修复
+- 修复 `MSVRecorder` 使用过程中 `MSVCamera` 内存泄露的问题。
+- 修复 `-switchCamera` 时可能出现旋转方向不正确的图像的问题
+- 修复 `MSVRecorder` 在录制过程中经常报错的问题。
+
 # v2.2.9(2019-5-16)
 ## 修复
 - 修复 `-updateDraft:error:` 使用新的资源可能导致视频无法刷新的问题。

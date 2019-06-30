@@ -102,7 +102,7 @@ extern NSString *kMSVEditorCurrentTimeKey;
  * 代理方法回调的队列。
  * 默认为主队列。
  */
-@property (nonatomic, strong) dispatch_queue_t delegateQueue;
+@property (nonatomic, strong, null_resettable) dispatch_queue_t delegateQueue;
 
 - (instancetype)init UNAVAILABLE_ATTRIBUTE;
 + (instancetype)new UNAVAILABLE_ATTRIBUTE;

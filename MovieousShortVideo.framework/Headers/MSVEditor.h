@@ -100,7 +100,7 @@ extern NSString *kMSVEditorCurrentTimeKey;
 /**
  * The queue callback made by the delegate method, the default is the main queue.
  */
-@property (nonatomic, strong) dispatch_queue_t delegateQueue;
+@property (nonatomic, strong, null_resettable) dispatch_queue_t delegateQueue;
 
 - (instancetype)init UNAVAILABLE_ATTRIBUTE;
 + (instancetype)new UNAVAILABLE_ATTRIBUTE;

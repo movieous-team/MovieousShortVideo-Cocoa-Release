@@ -1,5 +1,11 @@
 *Read this in other languages: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.10(2019-6-30)
+## Fixes
+- fix memory leak of `MSVCamera` while using `MSVRecorder`.
+- fix wrong orientation issue while using `-switchCamera`.
+- fix error constantly occur while using `MSVRecorder`.
+
 # v2.2.9(2019-5-16)
 ## Fixes
 - fix issue that `-updateDraft:error:` called with new resources can lead to unable to refresh video.

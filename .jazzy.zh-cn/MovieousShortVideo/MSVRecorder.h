@@ -132,7 +132,7 @@ typedef void(^MSVFinishRecordingWithCompletionHandler)(MSVMainTrackClip *_Nullab
 /**
  * 代理方法回调使用的队列，如果未指定将在主线程回调。
  */
-@property (nonatomic, strong, nullable) dispatch_queue_t delegateQueue;
+@property (nonatomic, strong, null_resettable) dispatch_queue_t delegateQueue;
 
 /**
  * 采集时应用的特效组。
@@ -145,6 +145,11 @@ typedef void(^MSVFinishRecordingWithCompletionHandler)(MSVMainTrackClip *_Nullab
  * 默认和初始化录制器使用的 videoConfiguration 一致。
  */
 @property (nonatomic, assign) MovieousScalingMode previewScalingMode;
+
+/**
+ * 当前是否正在采集。
+ */
+@property (nonatomic, assign, readonly) BOOL capturing;
 
 /**
  * 当前是否处于正在录制的状态。
@@ -421,7 +426,7 @@ typedef void(^MSVFinishRecordingWithCompletionHandler)(MSVMainTrackClip *_Nullab
  *
  * @param completionHandler 停止成功的回调。
  */
-- (void)finishRecordingWithCompletionHandler:(MSVFinishRecordingWithCompletionHandler)completionHandler;
+- (void)finishRecordingWithCompletionHandler:(MSVFinishRecordingWithCompletionHandler _Nullable)completionHandler;
 
 /**
  * 取消当前录制。

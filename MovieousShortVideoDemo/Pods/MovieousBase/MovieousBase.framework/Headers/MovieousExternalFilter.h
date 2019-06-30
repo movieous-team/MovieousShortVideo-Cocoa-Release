@@ -8,6 +8,8 @@
 
 #import <AVFoundation/AVFoundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * The external filter effect protocol, which should be followed by all of the external filters.
  */
@@ -22,7 +24,7 @@ NSObject
  *
  * @return Generated external filter object.
  */
-+ (instancetype)sharedInstance;
++ (id<MovieousExternalFilter>)sharedInstance;
 
 @optional
 /**
@@ -38,3 +40,5 @@ NSObject
 - (CVPixelBufferRef)processPixelBuffer:(CVPixelBufferRef)pixelBuffer sampleTimingInfo:(CMSampleTimingInfo)sampleTimingInfo;
 
 @end
+
+NS_ASSUME_NONNULL_END

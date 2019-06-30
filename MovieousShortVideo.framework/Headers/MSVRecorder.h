@@ -132,7 +132,7 @@ typedef void(^MSVFinishRecordingWithCompletionHandler)(MSVMainTrackClip *_Nullab
 /**
  * The queue used by the delegate method callback, if not specified, will be called back in the main thread.
  */
-@property (nonatomic, strong, nullable) dispatch_queue_t delegateQueue;
+@property (nonatomic, strong, null_resettable) dispatch_queue_t delegateQueue;
 
 /**
  * Effects applied to recorder.
@@ -145,6 +145,11 @@ typedef void(^MSVFinishRecordingWithCompletionHandler)(MSVMainTrackClip *_Nullab
  * The default is the same as the videoConfiguration initializing the recorder.
  */
 @property (nonatomic, assign) MovieousScalingMode previewScalingMode;
+
+/**
+ * Whether it is in the status of capturing or not.
+ */
+@property (nonatomic, assign, readonly) BOOL capturing;
 
 /**
  * Whether it is in the status of recording or not.
@@ -421,7 +426,7 @@ typedef void(^MSVFinishRecordingWithCompletionHandler)(MSVMainTrackClip *_Nullab
  *
  * @param completionHandler Called when recording has completed.
  */
-- (void)finishRecordingWithCompletionHandler:(MSVFinishRecordingWithCompletionHandler)completionHandler;
+- (void)finishRecordingWithCompletionHandler:(MSVFinishRecordingWithCompletionHandler _Nullable)completionHandler;
 
 /**
  * Cancel the current recording progress.
