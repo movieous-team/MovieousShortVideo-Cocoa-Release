@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
  * 片段文件地址。
  * 默认为自动生成的地址。
  */
-@property (nonatomic, strong) NSURL *URL;
+@property (nonatomic, strong, null_resettable) NSURL *URL;
 
 /**
  * 媒体文件类型。

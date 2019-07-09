@@ -1,5 +1,13 @@
 *Read this in other languages: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.11(2019-7-9)
+## Features
+- support `m4a` for `MSVRecorder`.
+## Fixes
+- fix clip duration problem in `MSVRecorder` callback.
+- reduce error occured when use `MSVRecorder` to record
+- fix stuck when calling other method after `stopCapturing` of `MSVRecorder`
+
 # v2.2.10(2019-6-30)
 ## Fixes
 - fix memory leak of `MSVCamera` while using `MSVRecorder`.

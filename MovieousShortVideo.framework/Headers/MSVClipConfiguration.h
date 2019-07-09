@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Clip file URL, the default is auto generated URL.
  */
-@property (nonatomic, strong) NSURL *URL;
+@property (nonatomic, strong, null_resettable) NSURL *URL;
 
 /**
  * Media file type of the clip to be recorded.

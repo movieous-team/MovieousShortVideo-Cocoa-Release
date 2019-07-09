@@ -66,11 +66,15 @@ typedef NS_ENUM(NSUInteger, MSVFileType) {
     /**
      * QuickTime Movie file type，suffixed .mov.
      */
-    MSVFileTypeQuickTimeMovie, // .mov
+    MSVFileTypeQuickTimeMovie,
     /**
-     * m4a file type，suffixed .m4a.
+     * m4v file type，suffixed .m4v.
      */
-    MSVFileTypeM4V, // .m4v
+    MSVFileTypeAppleM4V,
+    /**
+     * m4a file type，suffixed .m4a, audio only.
+     */
+    MSVFileTypeAppleM4A
 };
 
 /**

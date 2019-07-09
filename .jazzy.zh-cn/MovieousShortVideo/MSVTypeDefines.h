@@ -66,11 +66,15 @@ typedef NS_ENUM(NSUInteger, MSVFileType) {
     /**
      * QuickTime Movie 文件类型，以 .mov 为后缀。
      */
-    MSVFileTypeQuickTimeMovie, // .mov
+    MSVFileTypeQuickTimeMovie,
     /**
-     * m4a 文件类型，以 .m4a 为后缀。
+     * M4V 文件类型，以 .m4v 为后缀。
      */
-    MSVFileTypeM4V, // .m4v
+    MSVFileTypeAppleM4V,
+    /**
+     * M4A 文件类型，以 .m4a 为后缀，仅支持音频。
+     */
+    MSVFileTypeAppleM4A
 };
 
 /**

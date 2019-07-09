@@ -1,9 +1,18 @@
 *其他语言版本: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.11(2019-7-9)
+## 功能
+- `MSVRecorder` 支持 `m4a` 类型录制
+## 修复
+- 修复 `MSVRecorder` 回调的当前片段时长不正确的问题。
+- 减少 `MSVRecorder` 录制过程中频繁报错的情况。
+- 修复 `MSVRecorder` 在调用 `stopCapturing` 方法后调用其他方法可能被卡住的问题。 
+
+
 # v2.2.10(2019-6-30)
 ## 修复
 - 修复 `MSVRecorder` 使用过程中 `MSVCamera` 内存泄露的问题。
-- 修复 `-switchCamera` 时可能出现旋转方向不正确的图像的问题
+- 修复 `-switchCamera` 时可能出现旋转方向不正确的图像的问题。
 - 修复 `MSVRecorder` 在录制过程中经常报错的问题。
 
 # v2.2.9(2019-5-16)
