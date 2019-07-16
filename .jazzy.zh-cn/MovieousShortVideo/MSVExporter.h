@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * 导出任务是否正在运行.
  */
-@property (nonatomic, assign) BOOL running;
+@property (nonatomic, assign, readonly) BOOL running;
 
 /**
  * 是否同时将视频导出到相册。

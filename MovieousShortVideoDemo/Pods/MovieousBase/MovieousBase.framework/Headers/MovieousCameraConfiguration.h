@@ -64,6 +64,12 @@ NSObject
 @property (nonatomic, assign) BOOL mirrorBackEncoded;
 
 /**
+ * Whether to blur picture while switching camera position.
+ * The default is NO.
+ */
+@property (nonatomic, assign) BOOL blurSwitch;
+
+/**
  * Whether to enable touch to focus and exposure the specified point in the preview.
  * The default is YES.
  */

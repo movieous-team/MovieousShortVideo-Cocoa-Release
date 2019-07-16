@@ -25,13 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Whether the export task is running.
  */
-@property (nonatomic, assign) BOOL running;
-
-/**
- * Whether to export the video to the album at the same time.
- * The default is NO.
- */
-@property (assign, nonatomic) BOOL saveToPhotosAlbum;
+@property (nonatomic, assign, readonly) BOOL running;
 
 /**
  * The file type of the video export.
@@ -46,8 +40,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic, nullable) NSURL *outputURL;
 
 /**
+ * Whether to export the video to the album at the same time.
+ * The default is NO.
+ */
+@property (assign, nonatomic) BOOL saveToPhotosAlbum;
+
+/**
  * The bitrate of the output video.
  * The default is the automatically generated bitrate by encoder.
+ * not valid for MSVFileTypeAppleM4A
  */
 @property (assign, nonatomic) NSUInteger videoBitrate;
 

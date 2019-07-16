@@ -29,3 +29,4 @@ FOUNDATION_EXPORT const unsigned char MovieousShortVideoVersionString[];
 #import <MovieousShortVideo/MSVExternalFilterEditorEffect.h>
 #import <MovieousShortVideo/MSVLUTFilterEditorEffect.h>
 #import <MovieousShortVideo/MSVAuthentication.h>
+#import <MovieousShortVideo/MSVGifGenerator.h>

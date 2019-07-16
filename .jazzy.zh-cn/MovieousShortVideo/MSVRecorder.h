@@ -181,6 +181,12 @@ typedef void(^MSVFinishRecordingWithCompletionHandler)(MSVMainTrackClip *_Nullab
 @property (nonatomic, assign) BOOL mirrorBackEncoded;
 
 /**
+ * 切换摄像头时是否进行模糊化过渡
+ * 默认和初始化录制器使用的 videoConfiguration 一致。
+ */
+@property (nonatomic, assign) BOOL blurSwitch;
+
+/**
  * 是否开启点击屏幕来设置对焦和曝光参考点。
  * 默认和初始化录制器使用的 videoConfiguration 一致。
  */
