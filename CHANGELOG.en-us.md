@@ -1,5 +1,13 @@
 *Read this in other languages: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.12(2019-7-16)
+## Features
+- update `MovieousBase` to v1.1.1.
+- support blur while switching camera position.
+- support generating gif files.
+## Improvements
+- refine default storage path for recorder and exporter files.
+
 # v2.2.11(2019-7-9)
 ## Features
 - support `m4a` for `MSVRecorder`.
