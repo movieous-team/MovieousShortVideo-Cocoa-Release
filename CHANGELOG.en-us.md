@@ -1,5 +1,9 @@
 *Read this in other languages: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.13(2019-7-23)
+## Fixes
+- Fix auto generated gif file path extension error.
+
 # v2.2.12(2019-7-16)
 ## Features
 - update `MovieousBase` to v1.1.1.
