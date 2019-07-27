@@ -1,5 +1,9 @@
 *Read this in other languages: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.14(2019-7-27)
+## Fixes
+- Fix crash problem encountered when `MSVImageGenerator` dealloc.
+
 # v2.2.13(2019-7-23)
 ## Fixes
 - Fix auto generated gif file path extension error.

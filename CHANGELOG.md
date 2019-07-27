@@ -1,5 +1,9 @@
 *其他语言版本: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.14(2019-7-27)
+## 修复
+- 修复 `MSVImageGenerator` 释放时可能出现 crash 的问题。
+
 # v2.2.13(2019-7-23)
 ## 修复
 - 修复自动生成的 gif 路径扩展名错误的问题。
