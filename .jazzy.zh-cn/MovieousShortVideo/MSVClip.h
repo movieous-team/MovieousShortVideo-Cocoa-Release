@@ -90,16 +90,19 @@ NSCopying
 
 /**
  * 源视频在目标视频中的旋转弧度，旋转操作会在源视频在目标区域填充完成之后进行，锚点在目标区域的中心位置。
+ * 默认为 0。
  */
 @property (nonatomic, assign) float rotateAngle;
 
 /**
  * 当源视频有效区域的比例和目标填充区域比例不一致时使用的填充模式。
+ * 默认为 MovieousScalingModeAspectFit
  */
 @property (nonatomic, assign) MovieousScalingMode scalingMode;
 
 /**
  * 片段在主轨中的时间长度，当片段类型是音视频时，durationAtMainTrack 参数和 speed 参数互相影响，调整 durationAtMainTrack 将会影响 speed，具体为：speed = timeRange.duration / durationAtMainTrack.
+ * 默认为根据 timeRange 和 speed 自动计算出来的数据。
  */
 @property (nonatomic, assign) NSTimeInterval durationAtMainTrack;
 

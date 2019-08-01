@@ -31,6 +31,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign, nonatomic) float interval;
 
 /**
+ * The loop count of the generated gif, 0 means loop forever.
+ * The default is 0.
+ */
+@property (assign, nonatomic) NSUInteger loopCount;
+
+/**
  * Generating progress callback.
  */
 @property (nonatomic, copy, nullable) void(^progressHandler)(float progress);

@@ -1,5 +1,11 @@
 *其他语言版本: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.15(2019-8-1)
+## 功能
+- 给 `MSVGifGenerator` 增加 `loopCount` 参数调整播放次数。
+## 修复
+- 修复 `MSVImageGeneratorResult` 的 `timeRange` 参数应用不成功的问题。
+
 # v2.2.14(2019-7-27)
 ## 修复
 - 修复 `MSVImageGenerator` 释放时可能出现 crash 的问题。

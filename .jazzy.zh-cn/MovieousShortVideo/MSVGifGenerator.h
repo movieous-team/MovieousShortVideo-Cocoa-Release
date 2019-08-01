@@ -31,6 +31,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign, nonatomic) float interval;
 
 /**
+ * gif 轮播次数，0 表示无限轮播。
+ * 默认为 0。
+ */
+@property (assign, nonatomic) NSUInteger loopCount;
+
+/**
  * 生成任务进度回调。
  */
 @property (nonatomic, copy, nullable) void(^progressHandler)(float progress);

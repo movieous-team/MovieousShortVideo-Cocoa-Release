@@ -1,5 +1,11 @@
 *Read this in other languages: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.15(2019-8-1)
+## Features
+- Add `loopCount` property to `MSVGifGenerator` to adjust play count.
+## Fixes
+- Fix failing to apply `timeRange` property.
+
 # v2.2.14(2019-7-27)
 ## Fixes
 - Fix crash problem encountered when `MSVImageGenerator` dealloc.

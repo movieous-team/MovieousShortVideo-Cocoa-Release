@@ -90,16 +90,19 @@ NSCopying
 
 /**
  * The angle you want to rotate the display area, rotation will be applied after the source video has been placed correctly in the destDisplayFrame, and the anchor point is at the center of the destDisplayFrame in the destination video space.
+ * The default is 0
  */
 @property (nonatomic, assign) float rotateAngle;
 
 /**
  * The scaling mode you want to use if the aspect ratio of sourceDisplayFrame and destDisplayFrame are not equal.
+ * The default is MovieousScalingModeAspectFit
  */
 @property (nonatomic, assign) MovieousScalingMode scalingMode;
 
 /**
  * The duration of the clip in the main track, when clip type is MSVClipTypeAV, the durationAtMainTrack parameter and speed affect each other, adjust durationAtMainTrack will affect speed, the specific operational relationship is： speed = timeRange.duration / durationAtMainTrack.
+ * The default is auto generated according to timeRange and speed
  */
 @property (nonatomic, assign) NSTimeInterval durationAtMainTrack;
 
@@ -121,7 +124,7 @@ NSCopying
 
 /**
  * Clip speed of the clip to be recorded.
- * the default is 1.0.
+ * The default is 1.0.
  *
  * @discussion
  * Recommend configurations:
