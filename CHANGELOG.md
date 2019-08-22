@@ -1,5 +1,9 @@
 *其他语言版本: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.16(2019-8-22)
+## 功能
+- 允许 `MSVClip` 及其子类的 `volume` 属性大于1。
+
 # v2.2.15(2019-8-1)
 ## 功能
 - 给 `MSVGifGenerator` 增加 `loopCount` 参数调整播放次数。

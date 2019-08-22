@@ -1,5 +1,10 @@
 *Read this in other languages: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.16(2019-8-22)
+## Features
+- support greater than 1 value for `volume` property of `MSVClip` and it's subclasses.
+- 允许 `MSVClip` 及其子类的 `volume` 属性大于1。
+
 # v2.2.15(2019-8-1)
 ## Features
 - Add `loopCount` property to `MSVGifGenerator` to adjust play count.
