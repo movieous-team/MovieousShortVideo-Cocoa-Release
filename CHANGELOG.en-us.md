@@ -1,5 +1,12 @@
 *Read this in other languages: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.17(2019-8-26)
+## Features
+- update `MovieousBase` to v1.1.5.
+    - fix color error when export video.
+- improve sensitivity of volume param.
+- fix error when retrieve `MSVDraft.videoSize` of rotated video.
+
 # v2.2.16(2019-8-22)
 ## Features
 - support greater than 1 value for `volume` property of `MSVClip` and it's subclasses.

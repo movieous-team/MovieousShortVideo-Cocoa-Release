@@ -1,5 +1,12 @@
 *其他语言版本: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.17(2019-8-26)
+## 功能
+- 将 `MovieousBase` 升级到 v1.1.5。
+    - 修复导出视频颜色异常的问题。
+- 提升音量调节灵敏度。
+- 修复在自带旋转的视频中 `MSVDraft.videoSize` 获取异常的问题。
+
 # v2.2.16(2019-8-22)
 ## 功能
 - 允许 `MSVClip` 及其子类的 `volume` 属性大于1。
