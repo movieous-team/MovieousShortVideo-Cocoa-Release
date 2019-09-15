@@ -95,56 +95,314 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		024EAD06D245656ABFA63F02C21E986C /* MSVVideoTransitionType.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVVideoTransitionType.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Enums/MSVVideoTransitionType.html; sourceTree = "<group>"; };
 		033BB4201BFE8DCAEF39C334C9FADF9E /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
+		03492B1DBDA0262FE7837974564523B8 /* MSVTimeEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVTimeEditorEffect.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Protocols/MSVTimeEditorEffect.html"; sourceTree = "<group>"; };
 		04231AA58B12DC0A111CDA4F418A7356 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASShorthandAdditions.h"; path = "Masonry/NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		04CCCE6863D4122586C3991C318C4969 /* MSVTranscoder.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVTranscoder.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVTranscoder.html"; sourceTree = "<group>"; };
+		05070581E286AC27DB0FE8822744C892 /* MSVImageGenerator.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVImageGenerator.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVImageGenerator.html; sourceTree = "<group>"; };
+		070A2D958E8A489692330C9BA7F9272A /* MSVBrush.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVBrush.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVBrush.html; sourceTree = "<group>"; };
+		071ED3B1109E897BDE8F192E97A4D3F5 /* MovieousExternalFilterCaptureEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousExternalFilterCaptureEffect.html; path = docs/Classes/MovieousExternalFilterCaptureEffect.html; sourceTree = "<group>"; };
+		080679C185F5428780A6407BD2BEFFBB /* MSVAudioSource.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVAudioSource.html; path = "docs.zh-cn/Enums/MSVAudioSource.html"; sourceTree = "<group>"; };
 		089F56F5674D1FAEC15C146273D4C766 /* Pods-MovieousShortVideoDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MovieousShortVideoDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		0BF94107501FB61DBE57FB4586DD51AD /* MSVGraffitiView.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVGraffitiView.html; path = "docs.zh-cn/Classes/MSVGraffitiView.html"; sourceTree = "<group>"; };
 		0C436C5239C61DCD59A13A49F88298D6 /* Pods-MovieousShortVideoDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MovieousShortVideoDemo-umbrella.h"; sourceTree = "<group>"; };
-		16561645273125EA62EED786B6707CD8 /* MovieousShortVideo.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = MovieousShortVideo.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		0C81868FBF3A4B67C51B0C2D036EA7CE /* MovieousImageStickerCaptureEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousImageStickerCaptureEffect.html; path = "docs.zh-cn/Classes/MovieousImageStickerCaptureEffect.html"; sourceTree = "<group>"; };
+		0CF319BF4715A91B5DBC43D106C877AA /* MSVClipType.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVClipType.html; path = docs/Enums/MSVClipType.html; sourceTree = "<group>"; };
+		0CF467C11B07D0C5FA38907229326FFA /* MovieousScalingMode.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousScalingMode.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Enums/MovieousScalingMode.html; sourceTree = "<group>"; };
+		0D6B03F0D5EEC5FCCCCA968EC6727CD9 /* MSVTranscoder.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVTranscoder.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVTranscoder.html; sourceTree = "<group>"; };
+		0E0CB39307A68401C4BC7630533A9E32 /* MovieousScalingMode.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousScalingMode.html; path = docs/Enums/MovieousScalingMode.html; sourceTree = "<group>"; };
+		0E8AB97A694E944EF740084079000855 /* Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Classes.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes.html"; sourceTree = "<group>"; };
+		0EA6DD026F11DBC49384577D7645C368 /* MovieousScalingMode.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousScalingMode.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Enums/MovieousScalingMode.html"; sourceTree = "<group>"; };
+		0EEE46148639E56B03934FDF7A29338B /* MSVFileType.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVFileType.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Enums/MSVFileType.html"; sourceTree = "<group>"; };
+		0FA3894FFDB347B2108F5F93A32CB9A5 /* MSVMainTrackClip.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVMainTrackClip.html; path = docs/Classes/MSVMainTrackClip.html; sourceTree = "<group>"; };
+		0FF3F11A6937E243840DBFBEB8EFD804 /* MSVGifGenerator.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVGifGenerator.html; path = docs/Classes/MSVGifGenerator.html; sourceTree = "<group>"; };
+		10E8F0E89AB871F102801E9B693CBDAB /* MSVVideoSource.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVVideoSource.html; path = "docs.zh-cn/Enums/MSVVideoSource.html"; sourceTree = "<group>"; };
+		14B272EAC9C2E86C9B84BE6555AE3725 /* search.json */ = {isa = PBXFileReference; includeInIndex = 1; name = search.json; path = "docs.zh-cn/search.json"; sourceTree = "<group>"; };
+		157CB34A8E8DE80B5BBFA0E2A19E7F74 /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; name = index.html; path = docs/index.html; sourceTree = "<group>"; };
+		16179ED0B941ADDCFD76EBFEB61B6343 /* Constants.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Constants.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Constants.html; sourceTree = "<group>"; };
+		18AD9F1F88089D9E587769494062994A /* MSVImageStickerEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVImageStickerEditorEffect.html; path = docs/Classes/MSVImageStickerEditorEffect.html; sourceTree = "<group>"; };
+		1A6F00428F259C8918378302F4C6E753 /* MSVTimeEffectScope.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVTimeEffectScope.html; path = docs/Enums/MSVTimeEffectScope.html; sourceTree = "<group>"; };
+		1B4D3C41D8ED03F4ADB7062C52557B78 /* MSVClipConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVClipConfiguration.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVClipConfiguration.html"; sourceTree = "<group>"; };
+		1BF881185E273592F31D16EAB891CCDF /* MSVExporter.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVExporter.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVExporter.html; sourceTree = "<group>"; };
+		1CCAFB2161F1C89FDBE6F817BA6F8168 /* MovieousMicrophoneConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousMicrophoneConfiguration.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Protocols/MovieousMicrophoneConfiguration.html; sourceTree = "<group>"; };
+		1CEA8CA893AF82BE177739E572595CAD /* MSVGifGenerator.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVGifGenerator.html; path = "docs.zh-cn/Classes/MSVGifGenerator.html"; sourceTree = "<group>"; };
+		1E21604AEC066B61E778E0DC1B518F40 /* MSVBasicEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVBasicEditorEffect.html; path = "docs.zh-cn/Protocols/MSVBasicEditorEffect.html"; sourceTree = "<group>"; };
+		1E55FA1DD8ED2C760242DEF3E33974FF /* MovieousExternalFilter.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousExternalFilter.html; path = docs/Protocols/MovieousExternalFilter.html; sourceTree = "<group>"; };
+		1F3DDE67BE8AD0275ABDCF0ED40F3AB8 /* MovieousCameraConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousCameraConfiguration.html; path = "docs.zh-cn/Protocols/MovieousCameraConfiguration.html"; sourceTree = "<group>"; };
 		1FFED36A657123030ABB700256D73F15 /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Masonry.framework; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		200702174D411586207B6034D383A04F /* Functions.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Functions.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Functions.html"; sourceTree = "<group>"; };
+		2087AB426FBC975229656E9D55388336 /* Constants.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Constants.html; path = docs/Constants.html; sourceTree = "<group>"; };
+		2158326B4402DAF340CFEB1845AD5391 /* MSVRecorderVideoConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVRecorderVideoConfiguration.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVRecorderVideoConfiguration.html"; sourceTree = "<group>"; };
+		21F8C35F9F6BD32B5BED08D57FC3DD6E /* MovieousImageStickerCaptureEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousImageStickerCaptureEffect.html; path = docs/Classes/MovieousImageStickerCaptureEffect.html; sourceTree = "<group>"; };
+		22F1DE85FED72D3D24A1639A6BDBBF53 /* MSVExternalFilterEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVExternalFilterEditorEffect.html; path = docs/Classes/MSVExternalFilterEditorEffect.html; sourceTree = "<group>"; };
+		238BB35AE03004EED372E8392FB37D3B /* carat.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = carat.png; path = "docs.zh-cn/img/carat.png"; sourceTree = "<group>"; };
 		23B0ACF9A726D67EE8D9DC9D38B1730A /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
-		2450BCD8A0A64C674454B56455460B62 /* MovieousShortVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MovieousShortVideo.framework; sourceTree = "<group>"; };
+		23FD1A79DD1A3E44E7D64CC8A01B07FE /* typeahead.jquery.js */ = {isa = PBXFileReference; includeInIndex = 1; name = typeahead.jquery.js; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/js/typeahead.jquery.js; sourceTree = "<group>"; };
+		240DD8CCE92EEAD23C67BAB8F61BA342 /* README.en-us.md */ = {isa = PBXFileReference; includeInIndex = 1; path = "README.en-us.md"; sourceTree = "<group>"; };
+		2462E16CBADA0FCB9A631B196CFC7D9D /* MovieousShortVideo.tgz */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousShortVideo.tgz; path = "docs.zh-cn/docsets/MovieousShortVideo.tgz"; sourceTree = "<group>"; };
+		24A5E58A25C9E435BC9AEC9057EB5887 /* MSVDraft.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVDraft.html; path = docs/Classes/MSVDraft.html; sourceTree = "<group>"; };
 		24CD83BB82CE964C26FBB066E5E534F2 /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
+		24DBEB0F3907B1A32B3CD78106641295 /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; name = index.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/index.html"; sourceTree = "<group>"; };
+		2512B8F8C026FDA1CAB6FA7376473379 /* typeahead.jquery.js */ = {isa = PBXFileReference; includeInIndex = 1; name = typeahead.jquery.js; path = "docs.zh-cn/js/typeahead.jquery.js"; sourceTree = "<group>"; };
+		26743CE0B3BC8DA9732CB3A7ADCE334B /* MSVImageStickerEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVImageStickerEditorEffect.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVImageStickerEditorEffect.html; sourceTree = "<group>"; };
+		277D799453FE7ED18449A55C6B1A41AD /* MSVAuthentication.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVAuthentication.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVAuthentication.html; sourceTree = "<group>"; };
+		278902F4E0DE7334B77C06CEF4906FB3 /* MSVClipConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVClipConfiguration.html; path = docs/Classes/MSVClipConfiguration.html; sourceTree = "<group>"; };
+		28419B81714884279354A1F48615AB10 /* MovieousExternalFilterCaptureEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousExternalFilterCaptureEffect.html; path = "docs.zh-cn/Classes/MovieousExternalFilterCaptureEffect.html"; sourceTree = "<group>"; };
+		288305ECB4770DAA821A6C0648B818C6 /* MSVRecorderAudioConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVRecorderAudioConfiguration.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVRecorderAudioConfiguration.html; sourceTree = "<group>"; };
+		2AC01CED11F9B98EA0CFCF822F6F9938 /* docSet.dsidx */ = {isa = PBXFileReference; includeInIndex = 1; name = docSet.dsidx; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/docSet.dsidx; sourceTree = "<group>"; };
+		2B86F81680449398020ACCE93F30F2FA /* MSVClip.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVClip.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVClip.html; sourceTree = "<group>"; };
+		2DCCB6C6B8CD32588B0C6C67E3D51E9B /* MSVGraffitiView.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVGraffitiView.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVGraffitiView.html"; sourceTree = "<group>"; };
+		2DF72C102EB7122C6549E9DDBC6B5954 /* MovieousFaceBeautyCaptureEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousFaceBeautyCaptureEffect.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MovieousFaceBeautyCaptureEffect.html; sourceTree = "<group>"; };
+		2E1E69187EC5BDA42E0CC7D1968721EA /* MSVTimeEffectScope.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVTimeEffectScope.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Enums/MSVTimeEffectScope.html"; sourceTree = "<group>"; };
+		2F46C56EB124AEF2ED2875A78367328D /* Enums.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Enums.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Enums.html; sourceTree = "<group>"; };
+		2F8B2D008852D45C03C1A467FE329B50 /* MovieousFaceBeautyCaptureEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousFaceBeautyCaptureEffect.html; path = "docs.zh-cn/Classes/MovieousFaceBeautyCaptureEffect.html"; sourceTree = "<group>"; };
+		30DCF2D2A9EF0DF8C40BDF8C64F53859 /* MSVGifGenerator.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVGifGenerator.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVGifGenerator.html"; sourceTree = "<group>"; };
 		312B988EF117AE4DE76A268D970131FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		3138067D1EA2BEE4933720186F65EA81 /* Protocols.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Protocols.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Protocols.html; sourceTree = "<group>"; };
+		32789E0531C71260DBBEB15EAB29F629 /* MSVSpeedEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVSpeedEditorEffect.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVSpeedEditorEffect.html; sourceTree = "<group>"; };
+		327F4CE7D71A4B2AC9F95D79BE8CEDE8 /* MovieousShortVideo.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = MovieousShortVideo.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		32853C920A65B0B69184309A3CCB6960 /* MSVImageGenerator.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVImageGenerator.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVImageGenerator.html"; sourceTree = "<group>"; };
 		32BFA77A0B936B15B3D86030E44EFCED /* MASConstraint+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MASConstraint+Private.h"; path = "Masonry/MASConstraint+Private.h"; sourceTree = "<group>"; };
+		3385F288E1956684F9270B0E0A79F813 /* MSVEditor.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVEditor.html; path = docs/Classes/MSVEditor.html; sourceTree = "<group>"; };
 		349ED9FC5699189D4C083ED8081B1F78 /* Masonry-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Masonry-Info.plist"; sourceTree = "<group>"; };
+		358EE23969587E67AB4B928FC2FC274F /* jquery.min.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jquery.min.js; path = "docs.zh-cn/js/jquery.min.js"; sourceTree = "<group>"; };
 		37BC7623F1FD4B42D9CE27F8AD77FAA6 /* MASConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraint.m; path = Masonry/MASConstraint.m; sourceTree = "<group>"; };
+		37E6ECD9EBD4345E030384842446F270 /* MSVImageGeneratorResult.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVImageGeneratorResult.html; path = "docs.zh-cn/Classes/MSVImageGeneratorResult.html"; sourceTree = "<group>"; };
+		392463FE391BCCA50D82C9085042E585 /* jazzy.search.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.search.js; path = docs/js/jazzy.search.js; sourceTree = "<group>"; };
+		3CD5EB41600F6BEF932B63DE2FE9F32E /* MSVClipType.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVClipType.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Enums/MSVClipType.html; sourceTree = "<group>"; };
+		3D1AA3D5BC2D9557A33A506F82C3F9F0 /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; name = index.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/index.html; sourceTree = "<group>"; };
+		3FD6AEF6A40A3D0CB23CED824E930361 /* MSVVideoSource.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVVideoSource.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Enums/MSVVideoSource.html; sourceTree = "<group>"; };
+		40C3B913C2A767E00681731E689272AA /* Type Definitions.html */ = {isa = PBXFileReference; includeInIndex = 1; name = "Type Definitions.html"; path = "docs.zh-cn/Type Definitions.html"; sourceTree = "<group>"; };
+		436A5E1E81D4218372F5B62CF4D32758 /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; name = index.html; path = "docs.zh-cn/index.html"; sourceTree = "<group>"; };
 		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		43B5F788BDF492D81D9940E6D149A036 /* MSVExporter.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVExporter.html; path = "docs.zh-cn/Classes/MSVExporter.html"; sourceTree = "<group>"; };
+		43E8F19B6FA619CAFDC05440971F8C65 /* MSVAuthentication.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVAuthentication.html; path = docs/Classes/MSVAuthentication.html; sourceTree = "<group>"; };
+		440EEF13401257A2AC06531F767C4A1A /* MSVBrush.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVBrush.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVBrush.html"; sourceTree = "<group>"; };
+		44829B42CC9834686D67724F09134289 /* MSVEditor.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVEditor.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVEditor.html; sourceTree = "<group>"; };
 		47545BCEC34E2FCED303BEDC7BBE6A38 /* Pods-MovieousShortVideoDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MovieousShortVideoDemo.release.xcconfig"; sourceTree = "<group>"; };
+		47C8E9A58D66668C75E251F67FCBE2C5 /* MovieousTimeRange.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousTimeRange.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Type Definitions/MovieousTimeRange.html"; sourceTree = "<group>"; };
+		48BE8C0436418B40099A9E81C00DDDE9 /* MSVFileType.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVFileType.html; path = "docs.zh-cn/Enums/MSVFileType.html"; sourceTree = "<group>"; };
+		49896346893C24769C5DF2F5F1232F44 /* dash.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = dash.png; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/img/dash.png; sourceTree = "<group>"; };
+		49DB55A32CC9D7AA38659AB6D1373817 /* MSVLUTFilterEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVLUTFilterEditorEffect.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVLUTFilterEditorEffect.html; sourceTree = "<group>"; };
+		4A6FFA46C546C64D226F02BA35A06E72 /* jazzy.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.js; path = "docs.zh-cn/js/jazzy.js"; sourceTree = "<group>"; };
+		4CFF66DA19CB3819BD4EBAB4B4FC208F /* MSVRecorderDelegate.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVRecorderDelegate.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Protocols/MSVRecorderDelegate.html; sourceTree = "<group>"; };
+		4D655AB212B93019E966BB0F52445F6B /* MSVClipType.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVClipType.html; path = "docs.zh-cn/Enums/MSVClipType.html"; sourceTree = "<group>"; };
+		4D8C5A47B16F21F5D943BE81021893A8 /* MSVMixTrackClip.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVMixTrackClip.html; path = docs/Classes/MSVMixTrackClip.html; sourceTree = "<group>"; };
+		4E675352F7A6270E957D71565DA4E313 /* MovieousLUTFilterCaptureEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousLUTFilterCaptureEffect.html; path = docs/Classes/MovieousLUTFilterCaptureEffect.html; sourceTree = "<group>"; };
 		4EA7A1336B6189FB9B10CA22DC9512DA /* Pods-MovieousShortVideoDemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MovieousShortVideoDemo-Info.plist"; sourceTree = "<group>"; };
+		5071BF320A440895C0FD5F95A0DFAC08 /* MSVGraffitiViewDelegate.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVGraffitiViewDelegate.html; path = "docs.zh-cn/Protocols/MSVGraffitiViewDelegate.html"; sourceTree = "<group>"; };
+		50BCD1A2AAA5FD6F6787A283A85B27A5 /* Functions.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Functions.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Functions.html; sourceTree = "<group>"; };
+		50DDBD65730DF96D8000CA2321066B07 /* jazzy.search.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.search.js; path = "docs.zh-cn/js/jazzy.search.js"; sourceTree = "<group>"; };
+		5121E644B87D534322B0C418C08BBF3D /* MSVRecorderVideoConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVRecorderVideoConfiguration.html; path = docs/Classes/MSVRecorderVideoConfiguration.html; sourceTree = "<group>"; };
+		515DF947039EFA833C6129D9CDE09D29 /* MSVExternalFilterEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVExternalFilterEditorEffect.html; path = "docs.zh-cn/Classes/MSVExternalFilterEditorEffect.html"; sourceTree = "<group>"; };
+		522E88812754DEFADE4792AF464F9C14 /* dash.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = dash.png; path = docs/img/dash.png; sourceTree = "<group>"; };
+		5271AEBABE85E92CF17838C548C8D854 /* jazzy.css */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.css; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/css/jazzy.css"; sourceTree = "<group>"; };
+		565EBBA65461D2ED272DED6F8CB1052C /* jazzy.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.js; path = docs/js/jazzy.js; sourceTree = "<group>"; };
+		57BCD32B05BA03F13FA4EBDEE3AD088E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Info.plist"; sourceTree = "<group>"; };
+		587E8D5F05DFA786E2EE5F9A90C2789C /* MovieousExternalFilter.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousExternalFilter.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Protocols/MovieousExternalFilter.html; sourceTree = "<group>"; };
 		59D4A4FCEAD17F477DA5713B620AE1C0 /* MovieousBase.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MovieousBase.xcconfig; sourceTree = "<group>"; };
+		5BF3DEE176FDED32E247D779E84517BF /* Constants.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Constants.html; path = "docs.zh-cn/Constants.html"; sourceTree = "<group>"; };
+		5C6DEBF3F41D4C72C77EC03EF73214DE /* MSVRecorderAudioConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVRecorderAudioConfiguration.html; path = docs/Classes/MSVRecorderAudioConfiguration.html; sourceTree = "<group>"; };
+		5C798948485B78D0C087D01DFBBC6936 /* MovieousMicrophoneConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousMicrophoneConfiguration.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Protocols/MovieousMicrophoneConfiguration.html"; sourceTree = "<group>"; };
+		5E46712380DB73726E3557489E2C6A51 /* MSVAudioSource.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVAudioSource.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Enums/MSVAudioSource.html; sourceTree = "<group>"; };
 		5EBC068AEB9BF24A911CAAEAE0751593 /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
+		5EE415A463E1DF48FA351347799F301F /* MSVLUTFilterEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVLUTFilterEditorEffect.html; path = "docs.zh-cn/Classes/MSVLUTFilterEditorEffect.html"; sourceTree = "<group>"; };
+		60E5B4D0ECEB508479AEEF06FCCC8BDD /* MovieousShortVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MovieousShortVideo.framework; sourceTree = "<group>"; };
+		61B4A7DE0887BD6E0324629274756937 /* MSVGraffitiViewDelegate.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVGraffitiViewDelegate.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Protocols/MSVGraffitiViewDelegate.html"; sourceTree = "<group>"; };
 		6220B0F52512927C6DE59C9B8B63A076 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASCompositeConstraint.m; path = Masonry/MASCompositeConstraint.m; sourceTree = "<group>"; };
+		632FE356388F19082D22AF8494A64D11 /* jazzy.search.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.search.js; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/js/jazzy.search.js"; sourceTree = "<group>"; };
+		649113123A9801225D2A4ADFAAEAAE8E /* MSVVideoTransitionType.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVVideoTransitionType.html; path = docs/Enums/MSVVideoTransitionType.html; sourceTree = "<group>"; };
+		65921657E33E58F9950A17959AF1A20A /* MSVBasicEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVBasicEditorEffect.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Protocols/MSVBasicEditorEffect.html"; sourceTree = "<group>"; };
+		6722DBD96D0F2D9A2B6E5845A20609DE /* jazzy.search.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.search.js; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/js/jazzy.search.js; sourceTree = "<group>"; };
+		677661BF71CCA476EBFC044AA0EF87FC /* lunr.min.js */ = {isa = PBXFileReference; includeInIndex = 1; name = lunr.min.js; path = docs/js/lunr.min.js; sourceTree = "<group>"; };
+		69A17CE3DCDDC01C3C2BBFCFAA97BFE4 /* jazzy.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.js; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/js/jazzy.js; sourceTree = "<group>"; };
+		69B2F64EAF37B472E299AC22B3E3DC4B /* Protocols.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Protocols.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Protocols.html"; sourceTree = "<group>"; };
 		69B5120EF78DA31CE8667AE23593EF7C /* MASUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASUtilities.h; path = Masonry/MASUtilities.h; sourceTree = "<group>"; };
+		69D0B5A2FBF88E23FEE53C2905B5DADC /* MSVRepeatEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVRepeatEditorEffect.html; path = "docs.zh-cn/Classes/MSVRepeatEditorEffect.html"; sourceTree = "<group>"; };
+		6A67653C822FEE4939449D6F83748387 /* Functions.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Functions.html; path = "docs.zh-cn/Functions.html"; sourceTree = "<group>"; };
+		6A91B995F46CAEF94E3184CCAE8B4FEF /* MSVEditorDelegate.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVEditorDelegate.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Protocols/MSVEditorDelegate.html"; sourceTree = "<group>"; };
+		6BEEF65A1E9CB95C72F9EEB6D0CB7844 /* jquery.min.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jquery.min.js; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/js/jquery.min.js"; sourceTree = "<group>"; };
+		6CF0DBED23E39BED183FD7B63EAA7E4B /* MSVRecorder.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVRecorder.html; path = "docs.zh-cn/Classes/MSVRecorder.html"; sourceTree = "<group>"; };
+		6D1B9895472C8D79C7FBE69F66E0146E /* MSVAuthentication.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVAuthentication.html; path = "docs.zh-cn/Classes/MSVAuthentication.html"; sourceTree = "<group>"; };
+		6D39FD662E248EC956515D192364CD59 /* MSVImageStickerEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVImageStickerEditorEffect.html; path = "docs.zh-cn/Classes/MSVImageStickerEditorEffect.html"; sourceTree = "<group>"; };
 		6D6D6572E8D1C1CE3B32987BF1FA2FBC /* Pods-MovieousShortVideoDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MovieousShortVideoDemo.modulemap"; sourceTree = "<group>"; };
+		6E1835BF0B29AB08421B633D775F6BEC /* Type Definitions.html */ = {isa = PBXFileReference; includeInIndex = 1; name = "Type Definitions.html"; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Type Definitions.html"; sourceTree = "<group>"; };
+		6FE2C9BD73000755DA1730B23AD421C9 /* badge.svg */ = {isa = PBXFileReference; includeInIndex = 1; name = badge.svg; path = "docs.zh-cn/badge.svg"; sourceTree = "<group>"; };
 		71EE5887CD29B33C9B488698E738DBB0 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
+		72CA99B9E33842F4A638571EA3F95DA0 /* Enums.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Enums.html; path = "docs.zh-cn/Enums.html"; sourceTree = "<group>"; };
+		7306084F75102D1A70772E8FF9300C26 /* MSVGraffitiViewDelegate.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVGraffitiViewDelegate.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Protocols/MSVGraffitiViewDelegate.html; sourceTree = "<group>"; };
+		73FAC1EB08DB2FFA56E804E54CC650A1 /* gh.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = gh.png; path = docs/img/gh.png; sourceTree = "<group>"; };
+		745CFE0E413F8A5164D04950A901522F /* lunr.min.js */ = {isa = PBXFileReference; includeInIndex = 1; name = lunr.min.js; path = "docs.zh-cn/js/lunr.min.js"; sourceTree = "<group>"; };
+		74BFEACEC766EFF871B0B2F47B76197D /* MovieousMicrophoneConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousMicrophoneConfiguration.html; path = "docs.zh-cn/Protocols/MovieousMicrophoneConfiguration.html"; sourceTree = "<group>"; };
+		7653A1BF47E8E8A18217C2870590932B /* MSVRecorderDelegate.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVRecorderDelegate.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Protocols/MSVRecorderDelegate.html"; sourceTree = "<group>"; };
+		773ED3F172D582ECF95EC0787B1C7182 /* MovieousShortVideo.tgz */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousShortVideo.tgz; path = docs/docsets/MovieousShortVideo.tgz; sourceTree = "<group>"; };
+		7742C814DEA187FDA0DE9F4EF0B02D14 /* MSVMainTrackClip.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVMainTrackClip.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVMainTrackClip.html; sourceTree = "<group>"; };
+		78B32CBC19BD8AEB961ED86871BD5232 /* MSVTranscoder.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVTranscoder.html; path = docs/Classes/MSVTranscoder.html; sourceTree = "<group>"; };
 		791568C3640163E4AD220CAF8B0380DB /* Masonry.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.xcconfig; sourceTree = "<group>"; };
+		79EB060C32E0323661AAEAFEFDB26E42 /* MSVVideoTransitionType.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVVideoTransitionType.html; path = "docs.zh-cn/Enums/MSVVideoTransitionType.html"; sourceTree = "<group>"; };
+		7C38D5A23146528823698ED11A0C99BF /* MSVSpeedEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVSpeedEditorEffect.html; path = "docs.zh-cn/Classes/MSVSpeedEditorEffect.html"; sourceTree = "<group>"; };
+		7CA7D06A655A4573944A55D95D5CDDBB /* carat.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = carat.png; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/img/carat.png; sourceTree = "<group>"; };
+		7CFE223EDCAF11960C643B18B86E2447 /* MSVLUTFilterEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVLUTFilterEditorEffect.html; path = docs/Classes/MSVLUTFilterEditorEffect.html; sourceTree = "<group>"; };
+		7D2FE76E49F0BA3653615FEA6FD9CC2D /* MSVRecorderAudioConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVRecorderAudioConfiguration.html; path = "docs.zh-cn/Classes/MSVRecorderAudioConfiguration.html"; sourceTree = "<group>"; };
+		7D53A3BCA74675750EEC37D4BA096172 /* Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Classes.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes.html; sourceTree = "<group>"; };
 		7E40183CD5BB049081AD4BFA34827D0D /* MASConstraintMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraintMaker.m; path = Masonry/MASConstraintMaker.m; sourceTree = "<group>"; };
+		7F8BEEB13CA956B5732E677DA39C1C2B /* Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Classes.html; path = "docs.zh-cn/Classes.html"; sourceTree = "<group>"; };
 		7F8C76C676F576BF1EA7F68ECD5E7E1F /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASAdditions.h"; path = "Masonry/NSArray+MASAdditions.h"; sourceTree = "<group>"; };
+		800878EE038B1EEA9FE92CD807CB93C9 /* MSVBasicEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVBasicEditorEffect.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Protocols/MSVBasicEditorEffect.html; sourceTree = "<group>"; };
+		821E5A47D865673512F675C1E3A2FD56 /* MSVVideoSource.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVVideoSource.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Enums/MSVVideoSource.html"; sourceTree = "<group>"; };
+		8484FADCC8391F9EE052CB3BDBA6763C /* gh.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = gh.png; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/img/gh.png; sourceTree = "<group>"; };
 		86FD4155060BFFF615A9232C8DA44A68 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+MASDebugAdditions.m"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
+		873971FD079390B8F278982DDABE4EAB /* MSVClip.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVClip.html; path = docs/Classes/MSVClip.html; sourceTree = "<group>"; };
 		8764C896E20B07F4941BAB7F92B220A1 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ViewController+MASAdditions.m"; path = "Masonry/ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		88751EF45DECC496E04DBBE3F715B3EA /* highlight.css */ = {isa = PBXFileReference; includeInIndex = 1; name = highlight.css; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/css/highlight.css"; sourceTree = "<group>"; };
+		8875662490D0DAA0200948EE18A361ED /* MSVMixTrackClip.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVMixTrackClip.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVMixTrackClip.html; sourceTree = "<group>"; };
+		887B7FE6B244C0226CAB989C972BE6AB /* gh.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = gh.png; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/img/gh.png"; sourceTree = "<group>"; };
 		88BDB269BB31D5951086ECB9006C975A /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
-		8A6C4B849B3B421D1F9455A444A171D0 /* README.en-us.md */ = {isa = PBXFileReference; includeInIndex = 1; path = "README.en-us.md"; sourceTree = "<group>"; };
+		899E2D316383A791E066229C7EFDC7BF /* MSVLUTFilterEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVLUTFilterEditorEffect.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVLUTFilterEditorEffect.html"; sourceTree = "<group>"; };
+		8A46571774F0BB7C0E1164F70A0FF224 /* MSVImageGeneratorResult.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVImageGeneratorResult.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVImageGeneratorResult.html; sourceTree = "<group>"; };
+		8A9BF889961444A54D4309E39F0F6B0F /* typeahead.jquery.js */ = {isa = PBXFileReference; includeInIndex = 1; name = typeahead.jquery.js; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/js/typeahead.jquery.js"; sourceTree = "<group>"; };
+		8ADD02DD94073D252C9F5E53EFE7EB1C /* MovieousLUTFilterCaptureEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousLUTFilterCaptureEffect.html; path = "docs.zh-cn/Classes/MovieousLUTFilterCaptureEffect.html"; sourceTree = "<group>"; };
 		8B57B56B474E5B03A517EF16FA3DD68D /* Masonry.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Masonry.modulemap; sourceTree = "<group>"; };
 		8B9F14A000E3BF6D6E01E3263AA10AB5 /* View+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASAdditions.h"; path = "Masonry/View+MASAdditions.h"; sourceTree = "<group>"; };
+		8C287F038DD2AC85E7F737943CF59E02 /* MSVSpeedEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVSpeedEditorEffect.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVSpeedEditorEffect.html"; sourceTree = "<group>"; };
+		8C322FF1E63CFFB7D19DD7B00919D5EF /* MSVEditorDelegate.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVEditorDelegate.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Protocols/MSVEditorDelegate.html; sourceTree = "<group>"; };
+		8C66B8B02C281E8632C298D05AA2734B /* MSVEditor.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVEditor.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVEditor.html"; sourceTree = "<group>"; };
+		8D1FF501403ED916BD9629C61B7D188E /* MovieousShortVideo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MovieousShortVideo.xcconfig; sourceTree = "<group>"; };
+		8DE5CAA33C826083A5CF8CA5680871EC /* MSVRecorderDelegate.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVRecorderDelegate.html; path = "docs.zh-cn/Protocols/MSVRecorderDelegate.html"; sourceTree = "<group>"; };
+		8E5DC9B710F0254AC78B06A5074A1474 /* MSVSpeedEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVSpeedEditorEffect.html; path = docs/Classes/MSVSpeedEditorEffect.html; sourceTree = "<group>"; };
+		8EB45759672B647DA1C9C56DA0BCE7FB /* Enums.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Enums.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Enums.html"; sourceTree = "<group>"; };
+		8F03029B0F7DA128A4BC60EDF60BB15C /* MSVGraffitiView.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVGraffitiView.html; path = docs/Classes/MSVGraffitiView.html; sourceTree = "<group>"; };
+		8FCD0FDA86C50D810109F737F8FFFFC8 /* MSVImageGenerator.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVImageGenerator.html; path = docs/Classes/MSVImageGenerator.html; sourceTree = "<group>"; };
 		9003167DFD60A0BD6403C33184ABF0FA /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
+		9012AD71E3FE0339C6EE4EE327633AF3 /* MSVBrush.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVBrush.html; path = "docs.zh-cn/Classes/MSVBrush.html"; sourceTree = "<group>"; };
 		903814EF578A11AD5C02ED5E53B7E809 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASShorthandAdditions.h"; path = "Masonry/View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		91146EA8701FC89EBEC5AFD86A4CDFF5 /* MSVBasicEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVBasicEditorEffect.html; path = docs/Protocols/MSVBasicEditorEffect.html; sourceTree = "<group>"; };
+		9437A09ADEBEA3B65BF20CEF99D67019 /* spinner.gif */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.gif; name = spinner.gif; path = docs/img/spinner.gif; sourceTree = "<group>"; };
+		971DE28DDBB4BA5CC040060D0A32C5CC /* MSVClipConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVClipConfiguration.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVClipConfiguration.html; sourceTree = "<group>"; };
+		97442B8A92ABF7B1E427AF9645FDDBBD /* MovieousTimeRange.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousTimeRange.html; path = "docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Type Definitions/MovieousTimeRange.html"; sourceTree = "<group>"; };
+		97F4B0F36E26A00E7DFB6CEBA39863D9 /* MSVTimeEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVTimeEditorEffect.html; path = "docs.zh-cn/Protocols/MSVTimeEditorEffect.html"; sourceTree = "<group>"; };
+		98D8326D8D331FC0B50DE813FAB0032E /* MSVRecorderDelegate.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVRecorderDelegate.html; path = docs/Protocols/MSVRecorderDelegate.html; sourceTree = "<group>"; };
+		990A26040311D56B602A8772A00B0E56 /* MSVAudioSource.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVAudioSource.html; path = docs/Enums/MSVAudioSource.html; sourceTree = "<group>"; };
+		9A092760FD0146BE49046FEF210C4707 /* MovieousTimeRange.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousTimeRange.html; path = "docs/Type Definitions/MovieousTimeRange.html"; sourceTree = "<group>"; };
+		9A0F9CAF48828979F7FD64B1DF56A159 /* MovieousFaceBeautyCaptureEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousFaceBeautyCaptureEffect.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MovieousFaceBeautyCaptureEffect.html"; sourceTree = "<group>"; };
+		9AD9C6115CE1DFD68240F694AC33C869 /* docSet.dsidx */ = {isa = PBXFileReference; includeInIndex = 1; name = docSet.dsidx; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/docSet.dsidx"; sourceTree = "<group>"; };
+		9BE6AF97733DBFAAC79B724B056CBB7D /* MSVRecorder.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVRecorder.html; path = docs/Classes/MSVRecorder.html; sourceTree = "<group>"; };
+		9D435D8677246CF18EF1F3DD84CF5954 /* spinner.gif */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.gif; name = spinner.gif; path = "docs.zh-cn/img/spinner.gif"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9F13CDFA608F7EDF5CE549F8E0CAF84E /* dash.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = dash.png; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/img/dash.png"; sourceTree = "<group>"; };
+		A05CA9856EC6577ADFA3B8A3F8B59F24 /* highlight.css */ = {isa = PBXFileReference; includeInIndex = 1; name = highlight.css; path = docs/css/highlight.css; sourceTree = "<group>"; };
+		A106326885DFA962D8FE98468604F21A /* jazzy.css */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.css; path = "docs.zh-cn/css/jazzy.css"; sourceTree = "<group>"; };
+		A17A5D6DCD43FF923F510EF890082B50 /* MovieousCameraConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousCameraConfiguration.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Protocols/MovieousCameraConfiguration.html; sourceTree = "<group>"; };
+		A29CBF665784CAA578096FB565C05830 /* MSVRecorderBackgroundAudioConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVRecorderBackgroundAudioConfiguration.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVRecorderBackgroundAudioConfiguration.html"; sourceTree = "<group>"; };
+		A2D975C18EC197478210872F9E41A7E4 /* MSVFileType.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVFileType.html; path = docs/Enums/MSVFileType.html; sourceTree = "<group>"; };
+		A387F55FA7B23B57A2D2149B46FA9BB8 /* MSVExporter.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVExporter.html; path = docs/Classes/MSVExporter.html; sourceTree = "<group>"; };
+		A63D1941A33084799EDB3A9C50F7F496 /* MSVVideoTransitionType.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVVideoTransitionType.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Enums/MSVVideoTransitionType.html"; sourceTree = "<group>"; };
+		A673F46CE6DC9E493BFC1C7E9784D58E /* dash.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = dash.png; path = "docs.zh-cn/img/dash.png"; sourceTree = "<group>"; };
+		A89573245D1C24F21F1BE378D04840BE /* MSVExternalFilterEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVExternalFilterEditorEffect.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVExternalFilterEditorEffect.html"; sourceTree = "<group>"; };
+		A93F021FA651AF55220B11B62F0FF660 /* MSVDraft.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVDraft.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVDraft.html; sourceTree = "<group>"; };
+		ABD11916674B2C910C8426F135BD870A /* MovieousExternalFilter.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousExternalFilter.html; path = "docs.zh-cn/Protocols/MovieousExternalFilter.html"; sourceTree = "<group>"; };
 		ACF51102B0977E479BC514A5DC850FF9 /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
+		AD0087D4497568144624EEC019456EEC /* search.json */ = {isa = PBXFileReference; includeInIndex = 1; name = search.json; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/search.json; sourceTree = "<group>"; };
+		AD7EAAFDBA935F983D8C757E00E84548 /* MSVImageStickerEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVImageStickerEditorEffect.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVImageStickerEditorEffect.html"; sourceTree = "<group>"; };
+		AE654068C942C761BE0F7A5C215B1887 /* typeahead.jquery.js */ = {isa = PBXFileReference; includeInIndex = 1; name = typeahead.jquery.js; path = docs/js/typeahead.jquery.js; sourceTree = "<group>"; };
+		AE66D3D8CDF630A113A80C57F56DFEA5 /* MSVMixTrackClip.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVMixTrackClip.html; path = "docs.zh-cn/Classes/MSVMixTrackClip.html"; sourceTree = "<group>"; };
+		AEBF90F43CCF10329867FDD852E94C96 /* MSVRecorderBackgroundAudioConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVRecorderBackgroundAudioConfiguration.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVRecorderBackgroundAudioConfiguration.html; sourceTree = "<group>"; };
+		B09BE372CE4829305DCDB4164BFD04DC /* MSVVideoSource.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVVideoSource.html; path = docs/Enums/MSVVideoSource.html; sourceTree = "<group>"; };
+		B0CB2433D6DD6B8E3F63F0C9DE6E42DC /* MSVRecorder.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVRecorder.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVRecorder.html"; sourceTree = "<group>"; };
+		B13201F4179E49681A3B06F825B193AA /* MSVImageGenerator.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVImageGenerator.html; path = "docs.zh-cn/Classes/MSVImageGenerator.html"; sourceTree = "<group>"; };
+		B1840A2EBAECAAE801CE1A36F0486218 /* undocumented.json */ = {isa = PBXFileReference; includeInIndex = 1; name = undocumented.json; path = "docs.zh-cn/undocumented.json"; sourceTree = "<group>"; };
+		B1ADDB6B74EE9131B9FCAC501CE640E5 /* MSVGraffitiView.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVGraffitiView.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVGraffitiView.html; sourceTree = "<group>"; };
+		B2526220248C6D82DFAB88DB8858A0FC /* MSVAuthentication.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVAuthentication.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVAuthentication.html"; sourceTree = "<group>"; };
+		B3B6B6671648ADC3D17FAF9F497BB404 /* jazzy.css */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.css; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/css/jazzy.css; sourceTree = "<group>"; };
+		B44D3F2939C35431D555E0D2B692794F /* jquery.min.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jquery.min.js; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/js/jquery.min.js; sourceTree = "<group>"; };
+		B68235166510D2CCE1C3051332275816 /* Type Definitions.html */ = {isa = PBXFileReference; includeInIndex = 1; name = "Type Definitions.html"; path = "docs/Type Definitions.html"; sourceTree = "<group>"; };
+		B68B6ACE91E52B0908061BFDC2F38AEE /* MSVFileType.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVFileType.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Enums/MSVFileType.html; sourceTree = "<group>"; };
+		B70320BCE9FEB5CB35BCB15B4146614C /* MSVMainTrackClip.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVMainTrackClip.html; path = "docs.zh-cn/Classes/MSVMainTrackClip.html"; sourceTree = "<group>"; };
+		B73C11712675788E39696EC732F72284 /* MSVGraffitiViewDelegate.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVGraffitiViewDelegate.html; path = docs/Protocols/MSVGraffitiViewDelegate.html; sourceTree = "<group>"; };
+		B73FE64459450A3E5EB7B1AD61576CD4 /* MSVDraft.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVDraft.html; path = "docs.zh-cn/Classes/MSVDraft.html"; sourceTree = "<group>"; };
 		B954B463659F9064F32C4826CA3CDA72 /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
+		B9B5323A33A9A0E2C07A778EB8925C48 /* MSVTimeEffectScope.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVTimeEffectScope.html; path = "docs.zh-cn/Enums/MSVTimeEffectScope.html"; sourceTree = "<group>"; };
+		BBA6563E5540F31BE730C52DDFDE85B5 /* MSVRepeatEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVRepeatEditorEffect.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVRepeatEditorEffect.html; sourceTree = "<group>"; };
+		BC24CA099B504ABB18F198C4DBA8D01F /* MSVEditorDelegate.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVEditorDelegate.html; path = docs/Protocols/MSVEditorDelegate.html; sourceTree = "<group>"; };
+		BCA300116C1BB7C00910B22FC0631F06 /* MSVClipType.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVClipType.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Enums/MSVClipType.html"; sourceTree = "<group>"; };
+		BDB2F7E679B56E87F192D50FEFA4F647 /* jazzy.css */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.css; path = docs/css/jazzy.css; sourceTree = "<group>"; };
 		BE0B29F35806502DD8D1B4EB6A90D09B /* View+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
+		BE14648438A75D1A7C36250E80860439 /* Type Definitions.html */ = {isa = PBXFileReference; includeInIndex = 1; name = "Type Definitions.html"; path = "docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Type Definitions.html"; sourceTree = "<group>"; };
+		BF17D51DD44EDA498C53E33D2CEC512B /* MovieousTimeRange.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousTimeRange.html; path = "docs.zh-cn/Type Definitions/MovieousTimeRange.html"; sourceTree = "<group>"; };
+		BFE206BFDD0F10A0F8C3CC8304A60268 /* MSVImageGeneratorResult.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVImageGeneratorResult.html; path = docs/Classes/MSVImageGeneratorResult.html; sourceTree = "<group>"; };
+		C0725CA9B63020758C65ADF6D341CF28 /* Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Classes.html; path = docs/Classes.html; sourceTree = "<group>"; };
+		C184B4AFF41004B36ECADC70AC12EFEA /* lunr.min.js */ = {isa = PBXFileReference; includeInIndex = 1; name = lunr.min.js; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/js/lunr.min.js; sourceTree = "<group>"; };
+		C20F0C0A22E1308EE2142D2233B4A626 /* MovieousExternalFilter.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousExternalFilter.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Protocols/MovieousExternalFilter.html"; sourceTree = "<group>"; };
+		C2FFFC23C71FF0FA5767F2E430EE7052 /* MSVImageGeneratorResult.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVImageGeneratorResult.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVImageGeneratorResult.html"; sourceTree = "<group>"; };
 		C33C269E724F6F9E8472222547015992 /* Pods-MovieousShortVideoDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MovieousShortVideoDemo-frameworks.sh"; sourceTree = "<group>"; };
-		C3AEB555C4B972CB5C83F0A5284F6397 /* MovieousShortVideo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MovieousShortVideo.xcconfig; sourceTree = "<group>"; };
+		C35C187B4B831F34207B69395A5C7732 /* MSVMainTrackClip.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVMainTrackClip.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVMainTrackClip.html"; sourceTree = "<group>"; };
+		C364D4672EC2D203ADDC16480D4BC6ED /* carat.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = carat.png; path = docs/img/carat.png; sourceTree = "<group>"; };
+		C3C434B6F9871D88BA1EFC114D319CFD /* MovieousScalingMode.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousScalingMode.html; path = "docs.zh-cn/Enums/MovieousScalingMode.html"; sourceTree = "<group>"; };
+		C6ABB542263CDFA13DFD6993E4B2BDCF /* search.json */ = {isa = PBXFileReference; includeInIndex = 1; name = search.json; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/search.json"; sourceTree = "<group>"; };
+		C6F65E7E6B4024A09DB54027210E00E5 /* MovieousExternalFilterCaptureEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousExternalFilterCaptureEffect.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MovieousExternalFilterCaptureEffect.html"; sourceTree = "<group>"; };
+		C742F81D68713783007BC11E96E6F85C /* MSVTimeEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVTimeEditorEffect.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Protocols/MSVTimeEditorEffect.html; sourceTree = "<group>"; };
+		C7A345CC16E1E6D94620F11C94C79FDA /* Protocols.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Protocols.html; path = "docs.zh-cn/Protocols.html"; sourceTree = "<group>"; };
+		C87C179B8EF5905AA9775C7FC4A6F226 /* Enums.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Enums.html; path = docs/Enums.html; sourceTree = "<group>"; };
+		C90022A8273B51396A1EFD2B17F0A9C6 /* undocumented.json */ = {isa = PBXFileReference; includeInIndex = 1; name = undocumented.json; path = docs/undocumented.json; sourceTree = "<group>"; };
+		C96BBF8C8BC5F8D6F7C7C289D323C881 /* MSVExternalFilterEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVExternalFilterEditorEffect.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVExternalFilterEditorEffect.html; sourceTree = "<group>"; };
+		CC42A21E2921EC12DCCF8EF028F38CC1 /* MSVClip.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVClip.html; path = "docs.zh-cn/Classes/MSVClip.html"; sourceTree = "<group>"; };
+		CD1A397862BDCD261483B49653417DB0 /* MSVGifGenerator.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVGifGenerator.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVGifGenerator.html; sourceTree = "<group>"; };
+		CD7271E4DE5A23D8837EE0D8A14C4992 /* MSVRepeatEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVRepeatEditorEffect.html; path = docs/Classes/MSVRepeatEditorEffect.html; sourceTree = "<group>"; };
+		CDC7717ECB5E64CE27789B710274F619 /* MSVMixTrackClip.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVMixTrackClip.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVMixTrackClip.html"; sourceTree = "<group>"; };
+		CDF1340FBA3C59C229A83ED281C62D2E /* highlight.css */ = {isa = PBXFileReference; includeInIndex = 1; name = highlight.css; path = "docs.zh-cn/css/highlight.css"; sourceTree = "<group>"; };
+		CEE547DEB4FB0887A091D9605FF2CA7A /* MSVRepeatEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVRepeatEditorEffect.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVRepeatEditorEffect.html"; sourceTree = "<group>"; };
 		CF5F76272BE44D14AD47EE7D712B2B2A /* MASLayoutConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASLayoutConstraint.h; path = Masonry/MASLayoutConstraint.h; sourceTree = "<group>"; };
+		D05F10D3DA11053A5F6B5964F9B5B17A /* lunr.min.js */ = {isa = PBXFileReference; includeInIndex = 1; name = lunr.min.js; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/js/lunr.min.js"; sourceTree = "<group>"; };
 		D411BAADC4903177AFCA7C296B1CCD89 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
+		D41CEA00D2ED77C8563AE2360E73F4B1 /* Protocols.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Protocols.html; path = docs/Protocols.html; sourceTree = "<group>"; };
 		D452B5B003B582707CAF87D1588FF7DE /* Masonry-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-umbrella.h"; sourceTree = "<group>"; };
+		D56F1D7B32C3636191A7D5F8BF9FD1A5 /* MSVEditorDelegate.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVEditorDelegate.html; path = "docs.zh-cn/Protocols/MSVEditorDelegate.html"; sourceTree = "<group>"; };
+		D58C6737D7A0DDC39D5DC7F597AFD089 /* MovieousCameraConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousCameraConfiguration.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Protocols/MovieousCameraConfiguration.html"; sourceTree = "<group>"; };
+		D5C5A8325BB1B69560AA868E2B60C182 /* MSVAudioSource.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVAudioSource.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Enums/MSVAudioSource.html"; sourceTree = "<group>"; };
+		D7D1939B54887420389617320F5C5F30 /* MovieousImageStickerCaptureEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousImageStickerCaptureEffect.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MovieousImageStickerCaptureEffect.html"; sourceTree = "<group>"; };
+		D828E6C67E2965CF3E7E9158E9D72C73 /* MSVRecorderVideoConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVRecorderVideoConfiguration.html; path = "docs.zh-cn/Classes/MSVRecorderVideoConfiguration.html"; sourceTree = "<group>"; };
+		D8F0DFE10A3ADD5C2E8B9A96FB3500E9 /* MSVClip.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVClip.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVClip.html"; sourceTree = "<group>"; };
+		D9078F9F4DD95732009879DD90607DA3 /* MovieousExternalFilterCaptureEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousExternalFilterCaptureEffect.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MovieousExternalFilterCaptureEffect.html; sourceTree = "<group>"; };
+		D9C60A32EDE430CCBCFDE7AD13F790CC /* Constants.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Constants.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Constants.html"; sourceTree = "<group>"; };
 		DA61E91209BE3432572A278B9A8660A9 /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
+		DB63E2A24BFF37132619691DB132928D /* spinner.gif */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.gif; name = spinner.gif; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/img/spinner.gif; sourceTree = "<group>"; };
+		DDBD6B91243FD11708668C3E80496B64 /* search.json */ = {isa = PBXFileReference; includeInIndex = 1; name = search.json; path = docs/search.json; sourceTree = "<group>"; };
 		E0D5DEB1476594785478219A1EFD492B /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
+		E11BF6958B75966F0EC6F5EF7D2FE261 /* badge.svg */ = {isa = PBXFileReference; includeInIndex = 1; name = badge.svg; path = docs/badge.svg; sourceTree = "<group>"; };
+		E1E9ABC0B450005A4DD2424A5F62859E /* gh.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = gh.png; path = "docs.zh-cn/img/gh.png"; sourceTree = "<group>"; };
+		E2B7079F02698D6CA26BB6C8DD4389FF /* MSVTimeEditorEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVTimeEditorEffect.html; path = docs/Protocols/MSVTimeEditorEffect.html; sourceTree = "<group>"; };
+		E48FF9947A5D43B6EF7506F900DC52EF /* MovieousCameraConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousCameraConfiguration.html; path = docs/Protocols/MovieousCameraConfiguration.html; sourceTree = "<group>"; };
+		E4BEB42ED4C715AD8474290AC1175B33 /* jquery.min.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jquery.min.js; path = docs/js/jquery.min.js; sourceTree = "<group>"; };
+		E4D8CD3736BB90192AD88955B136861A /* MSVRecorder.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVRecorder.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVRecorder.html; sourceTree = "<group>"; };
+		E5151B179421AECD8D0F9AE1727AA3F5 /* MovieousLUTFilterCaptureEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousLUTFilterCaptureEffect.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MovieousLUTFilterCaptureEffect.html; sourceTree = "<group>"; };
 		E594214CAD6E4D7685F4F729DFA5CD96 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASLayoutConstraint.m; path = Masonry/MASLayoutConstraint.m; sourceTree = "<group>"; };
+		E69AB80D9FC841D0631CA1F478450A3E /* highlight.css */ = {isa = PBXFileReference; includeInIndex = 1; name = highlight.css; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/css/highlight.css; sourceTree = "<group>"; };
+		E87DEDEB0247458491CA25DE852B6F4E /* MSVRecorderAudioConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVRecorderAudioConfiguration.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVRecorderAudioConfiguration.html"; sourceTree = "<group>"; };
+		E9472710A807CA84DEAC1227E5333F63 /* MSVExporter.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVExporter.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVExporter.html"; sourceTree = "<group>"; };
 		E9C9CCA3E5AA61F765C320C512F9A5EE /* Pods-MovieousShortVideoDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MovieousShortVideoDemo-acknowledgements.plist"; sourceTree = "<group>"; };
 		EAB6E40E8D893368E60881CBA701C42E /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+MASDebugAdditions.h"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+		EB1857DFC10CCCC58E84B828DBF6C1C2 /* spinner.gif */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.gif; name = spinner.gif; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/img/spinner.gif"; sourceTree = "<group>"; };
+		EB8DF77E1B890CFDB1B924EE6607A8AD /* MSVRecorderVideoConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVRecorderVideoConfiguration.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVRecorderVideoConfiguration.html; sourceTree = "<group>"; };
+		EC8AF4F01A4D4C316724654A937EF6EA /* MovieousMicrophoneConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousMicrophoneConfiguration.html; path = docs/Protocols/MovieousMicrophoneConfiguration.html; sourceTree = "<group>"; };
 		ECDF9F6181AB02FC356D2D98A179846B /* Pods-MovieousShortVideoDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MovieousShortVideoDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
 		EE5FABBF191272920272303C8539D5FB /* Pods_MovieousShortVideoDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MovieousShortVideoDemo.framework; path = "Pods-MovieousShortVideoDemo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEDDA615939ACFE4B5A9E1FC821FC8FC /* MSVTranscoder.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVTranscoder.html; path = "docs.zh-cn/Classes/MSVTranscoder.html"; sourceTree = "<group>"; };
+		EF0814CD700A5752561AB98FFE01EE59 /* MSVClipConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVClipConfiguration.html; path = "docs.zh-cn/Classes/MSVClipConfiguration.html"; sourceTree = "<group>"; };
 		EF76773CFB4A7FB84524DDF1DC30DC1F /* MovieousBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MovieousBase.framework; sourceTree = "<group>"; };
+		EFD0BF7CA935F72D23EF611C5D77F053 /* Functions.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Functions.html; path = docs/Functions.html; sourceTree = "<group>"; };
+		F06924DC65DC7D060C763B46A04E2B20 /* MSVDraft.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVDraft.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MSVDraft.html"; sourceTree = "<group>"; };
+		F0978BEB29845608F4C7B8E66E08FBC6 /* jazzy.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.js; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/js/jazzy.js"; sourceTree = "<group>"; };
+		F47AC3F8B107961B6976FC6ECBCAA0DC /* MovieousImageStickerCaptureEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousImageStickerCaptureEffect.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MovieousImageStickerCaptureEffect.html; sourceTree = "<group>"; };
+		F4C188FE65302A202E195E5DE9A449FF /* MSVEditor.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVEditor.html; path = "docs.zh-cn/Classes/MSVEditor.html"; sourceTree = "<group>"; };
+		F4FEDA28D472314F2ED585B5331F588E /* MSVRecorderBackgroundAudioConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVRecorderBackgroundAudioConfiguration.html; path = docs/Classes/MSVRecorderBackgroundAudioConfiguration.html; sourceTree = "<group>"; };
+		F7EB8F8D7A089CFDF62F15E7B0A9B494 /* MovieousLUTFilterCaptureEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousLUTFilterCaptureEffect.html; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Classes/MovieousLUTFilterCaptureEffect.html"; sourceTree = "<group>"; };
+		F8B43C2BF47678E84DB417C233EFCF40 /* MSVBrush.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVBrush.html; path = docs/Classes/MSVBrush.html; sourceTree = "<group>"; };
+		FA508EDB7BF57823B0E292328939F767 /* MSVTimeEffectScope.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVTimeEffectScope.html; path = docs/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/Enums/MSVTimeEffectScope.html; sourceTree = "<group>"; };
+		FAC8FE0A5DAA345F6D27817933643DBE /* MovieousFaceBeautyCaptureEffect.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MovieousFaceBeautyCaptureEffect.html; path = docs/Classes/MovieousFaceBeautyCaptureEffect.html; sourceTree = "<group>"; };
+		FD4D1F8AF7D63D52154C2E91B2746185 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = docs/docsets/MovieousShortVideo.docset/Contents/Info.plist; sourceTree = "<group>"; };
+		FE5AC474BF4CB8356F7CB4443C994D24 /* MSVRecorderBackgroundAudioConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = MSVRecorderBackgroundAudioConfiguration.html; path = "docs.zh-cn/Classes/MSVRecorderBackgroundAudioConfiguration.html"; sourceTree = "<group>"; };
+		FE7808257BC943414AA5FB849B040CE6 /* carat.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = carat.png; path = "docs.zh-cn/docsets/MovieousShortVideo.docset/Contents/Resources/Documents/img/carat.png"; sourceTree = "<group>"; };
 		FEDB5752264E640D41785A3D9F14A933 /* Pods-MovieousShortVideoDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MovieousShortVideoDemo-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -216,29 +474,279 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3776B8224487689CE554C8B75C153EF7 /* Frameworks */ = {
+		33B89895C38FF35B021C4B47113A5BF2 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				2450BCD8A0A64C674454B56455460B62 /* MovieousShortVideo.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		61BBDD72B2F33BA5DB8984B7E0B826FE /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				16561645273125EA62EED786B6707CD8 /* MovieousShortVideo.podspec */,
-				8A6C4B849B3B421D1F9455A444A171D0 /* README.en-us.md */,
+				E11BF6958B75966F0EC6F5EF7D2FE261 /* badge.svg */,
+				6FE2C9BD73000755DA1730B23AD421C9 /* badge.svg */,
+				238BB35AE03004EED372E8392FB37D3B /* carat.png */,
+				FE7808257BC943414AA5FB849B040CE6 /* carat.png */,
+				C364D4672EC2D203ADDC16480D4BC6ED /* carat.png */,
+				7CA7D06A655A4573944A55D95D5CDDBB /* carat.png */,
+				0E8AB97A694E944EF740084079000855 /* Classes.html */,
+				7D53A3BCA74675750EEC37D4BA096172 /* Classes.html */,
+				7F8BEEB13CA956B5732E677DA39C1C2B /* Classes.html */,
+				C0725CA9B63020758C65ADF6D341CF28 /* Classes.html */,
+				2087AB426FBC975229656E9D55388336 /* Constants.html */,
+				D9C60A32EDE430CCBCFDE7AD13F790CC /* Constants.html */,
+				16179ED0B941ADDCFD76EBFEB61B6343 /* Constants.html */,
+				5BF3DEE176FDED32E247D779E84517BF /* Constants.html */,
+				49896346893C24769C5DF2F5F1232F44 /* dash.png */,
+				A673F46CE6DC9E493BFC1C7E9784D58E /* dash.png */,
+				9F13CDFA608F7EDF5CE549F8E0CAF84E /* dash.png */,
+				522E88812754DEFADE4792AF464F9C14 /* dash.png */,
+				9AD9C6115CE1DFD68240F694AC33C869 /* docSet.dsidx */,
+				2AC01CED11F9B98EA0CFCF822F6F9938 /* docSet.dsidx */,
+				8EB45759672B647DA1C9C56DA0BCE7FB /* Enums.html */,
+				2F46C56EB124AEF2ED2875A78367328D /* Enums.html */,
+				C87C179B8EF5905AA9775C7FC4A6F226 /* Enums.html */,
+				72CA99B9E33842F4A638571EA3F95DA0 /* Enums.html */,
+				6A67653C822FEE4939449D6F83748387 /* Functions.html */,
+				200702174D411586207B6034D383A04F /* Functions.html */,
+				50BCD1A2AAA5FD6F6787A283A85B27A5 /* Functions.html */,
+				EFD0BF7CA935F72D23EF611C5D77F053 /* Functions.html */,
+				73FAC1EB08DB2FFA56E804E54CC650A1 /* gh.png */,
+				887B7FE6B244C0226CAB989C972BE6AB /* gh.png */,
+				8484FADCC8391F9EE052CB3BDBA6763C /* gh.png */,
+				E1E9ABC0B450005A4DD2424A5F62859E /* gh.png */,
+				CDF1340FBA3C59C229A83ED281C62D2E /* highlight.css */,
+				88751EF45DECC496E04DBBE3F715B3EA /* highlight.css */,
+				E69AB80D9FC841D0631CA1F478450A3E /* highlight.css */,
+				A05CA9856EC6577ADFA3B8A3F8B59F24 /* highlight.css */,
+				436A5E1E81D4218372F5B62CF4D32758 /* index.html */,
+				3D1AA3D5BC2D9557A33A506F82C3F9F0 /* index.html */,
+				157CB34A8E8DE80B5BBFA0E2A19E7F74 /* index.html */,
+				24DBEB0F3907B1A32B3CD78106641295 /* index.html */,
+				57BCD32B05BA03F13FA4EBDEE3AD088E /* Info.plist */,
+				FD4D1F8AF7D63D52154C2E91B2746185 /* Info.plist */,
+				A106326885DFA962D8FE98468604F21A /* jazzy.css */,
+				B3B6B6671648ADC3D17FAF9F497BB404 /* jazzy.css */,
+				BDB2F7E679B56E87F192D50FEFA4F647 /* jazzy.css */,
+				5271AEBABE85E92CF17838C548C8D854 /* jazzy.css */,
+				565EBBA65461D2ED272DED6F8CB1052C /* jazzy.js */,
+				4A6FFA46C546C64D226F02BA35A06E72 /* jazzy.js */,
+				F0978BEB29845608F4C7B8E66E08FBC6 /* jazzy.js */,
+				69A17CE3DCDDC01C3C2BBFCFAA97BFE4 /* jazzy.js */,
+				632FE356388F19082D22AF8494A64D11 /* jazzy.search.js */,
+				6722DBD96D0F2D9A2B6E5845A20609DE /* jazzy.search.js */,
+				392463FE391BCCA50D82C9085042E585 /* jazzy.search.js */,
+				50DDBD65730DF96D8000CA2321066B07 /* jazzy.search.js */,
+				358EE23969587E67AB4B928FC2FC274F /* jquery.min.js */,
+				6BEEF65A1E9CB95C72F9EEB6D0CB7844 /* jquery.min.js */,
+				E4BEB42ED4C715AD8474290AC1175B33 /* jquery.min.js */,
+				B44D3F2939C35431D555E0D2B692794F /* jquery.min.js */,
+				677661BF71CCA476EBFC044AA0EF87FC /* lunr.min.js */,
+				745CFE0E413F8A5164D04950A901522F /* lunr.min.js */,
+				D05F10D3DA11053A5F6B5964F9B5B17A /* lunr.min.js */,
+				C184B4AFF41004B36ECADC70AC12EFEA /* lunr.min.js */,
+				D58C6737D7A0DDC39D5DC7F597AFD089 /* MovieousCameraConfiguration.html */,
+				E48FF9947A5D43B6EF7506F900DC52EF /* MovieousCameraConfiguration.html */,
+				1F3DDE67BE8AD0275ABDCF0ED40F3AB8 /* MovieousCameraConfiguration.html */,
+				A17A5D6DCD43FF923F510EF890082B50 /* MovieousCameraConfiguration.html */,
+				C20F0C0A22E1308EE2142D2233B4A626 /* MovieousExternalFilter.html */,
+				1E55FA1DD8ED2C760242DEF3E33974FF /* MovieousExternalFilter.html */,
+				587E8D5F05DFA786E2EE5F9A90C2789C /* MovieousExternalFilter.html */,
+				ABD11916674B2C910C8426F135BD870A /* MovieousExternalFilter.html */,
+				28419B81714884279354A1F48615AB10 /* MovieousExternalFilterCaptureEffect.html */,
+				071ED3B1109E897BDE8F192E97A4D3F5 /* MovieousExternalFilterCaptureEffect.html */,
+				D9078F9F4DD95732009879DD90607DA3 /* MovieousExternalFilterCaptureEffect.html */,
+				C6F65E7E6B4024A09DB54027210E00E5 /* MovieousExternalFilterCaptureEffect.html */,
+				9A0F9CAF48828979F7FD64B1DF56A159 /* MovieousFaceBeautyCaptureEffect.html */,
+				2F8B2D008852D45C03C1A467FE329B50 /* MovieousFaceBeautyCaptureEffect.html */,
+				FAC8FE0A5DAA345F6D27817933643DBE /* MovieousFaceBeautyCaptureEffect.html */,
+				2DF72C102EB7122C6549E9DDBC6B5954 /* MovieousFaceBeautyCaptureEffect.html */,
+				21F8C35F9F6BD32B5BED08D57FC3DD6E /* MovieousImageStickerCaptureEffect.html */,
+				0C81868FBF3A4B67C51B0C2D036EA7CE /* MovieousImageStickerCaptureEffect.html */,
+				D7D1939B54887420389617320F5C5F30 /* MovieousImageStickerCaptureEffect.html */,
+				F47AC3F8B107961B6976FC6ECBCAA0DC /* MovieousImageStickerCaptureEffect.html */,
+				4E675352F7A6270E957D71565DA4E313 /* MovieousLUTFilterCaptureEffect.html */,
+				F7EB8F8D7A089CFDF62F15E7B0A9B494 /* MovieousLUTFilterCaptureEffect.html */,
+				8ADD02DD94073D252C9F5E53EFE7EB1C /* MovieousLUTFilterCaptureEffect.html */,
+				E5151B179421AECD8D0F9AE1727AA3F5 /* MovieousLUTFilterCaptureEffect.html */,
+				5C798948485B78D0C087D01DFBBC6936 /* MovieousMicrophoneConfiguration.html */,
+				1CCAFB2161F1C89FDBE6F817BA6F8168 /* MovieousMicrophoneConfiguration.html */,
+				74BFEACEC766EFF871B0B2F47B76197D /* MovieousMicrophoneConfiguration.html */,
+				EC8AF4F01A4D4C316724654A937EF6EA /* MovieousMicrophoneConfiguration.html */,
+				0CF467C11B07D0C5FA38907229326FFA /* MovieousScalingMode.html */,
+				0EA6DD026F11DBC49384577D7645C368 /* MovieousScalingMode.html */,
+				0E0CB39307A68401C4BC7630533A9E32 /* MovieousScalingMode.html */,
+				C3C434B6F9871D88BA1EFC114D319CFD /* MovieousScalingMode.html */,
+				327F4CE7D71A4B2AC9F95D79BE8CEDE8 /* MovieousShortVideo.podspec */,
+				2462E16CBADA0FCB9A631B196CFC7D9D /* MovieousShortVideo.tgz */,
+				773ED3F172D582ECF95EC0787B1C7182 /* MovieousShortVideo.tgz */,
+				47C8E9A58D66668C75E251F67FCBE2C5 /* MovieousTimeRange.html */,
+				9A092760FD0146BE49046FEF210C4707 /* MovieousTimeRange.html */,
+				BF17D51DD44EDA498C53E33D2CEC512B /* MovieousTimeRange.html */,
+				97442B8A92ABF7B1E427AF9645FDDBBD /* MovieousTimeRange.html */,
+				5E46712380DB73726E3557489E2C6A51 /* MSVAudioSource.html */,
+				D5C5A8325BB1B69560AA868E2B60C182 /* MSVAudioSource.html */,
+				080679C185F5428780A6407BD2BEFFBB /* MSVAudioSource.html */,
+				990A26040311D56B602A8772A00B0E56 /* MSVAudioSource.html */,
+				B2526220248C6D82DFAB88DB8858A0FC /* MSVAuthentication.html */,
+				6D1B9895472C8D79C7FBE69F66E0146E /* MSVAuthentication.html */,
+				277D799453FE7ED18449A55C6B1A41AD /* MSVAuthentication.html */,
+				43E8F19B6FA619CAFDC05440971F8C65 /* MSVAuthentication.html */,
+				1E21604AEC066B61E778E0DC1B518F40 /* MSVBasicEditorEffect.html */,
+				800878EE038B1EEA9FE92CD807CB93C9 /* MSVBasicEditorEffect.html */,
+				91146EA8701FC89EBEC5AFD86A4CDFF5 /* MSVBasicEditorEffect.html */,
+				65921657E33E58F9950A17959AF1A20A /* MSVBasicEditorEffect.html */,
+				9012AD71E3FE0339C6EE4EE327633AF3 /* MSVBrush.html */,
+				070A2D958E8A489692330C9BA7F9272A /* MSVBrush.html */,
+				440EEF13401257A2AC06531F767C4A1A /* MSVBrush.html */,
+				F8B43C2BF47678E84DB417C233EFCF40 /* MSVBrush.html */,
+				D8F0DFE10A3ADD5C2E8B9A96FB3500E9 /* MSVClip.html */,
+				CC42A21E2921EC12DCCF8EF028F38CC1 /* MSVClip.html */,
+				2B86F81680449398020ACCE93F30F2FA /* MSVClip.html */,
+				873971FD079390B8F278982DDABE4EAB /* MSVClip.html */,
+				278902F4E0DE7334B77C06CEF4906FB3 /* MSVClipConfiguration.html */,
+				971DE28DDBB4BA5CC040060D0A32C5CC /* MSVClipConfiguration.html */,
+				1B4D3C41D8ED03F4ADB7062C52557B78 /* MSVClipConfiguration.html */,
+				EF0814CD700A5752561AB98FFE01EE59 /* MSVClipConfiguration.html */,
+				3CD5EB41600F6BEF932B63DE2FE9F32E /* MSVClipType.html */,
+				0CF319BF4715A91B5DBC43D106C877AA /* MSVClipType.html */,
+				BCA300116C1BB7C00910B22FC0631F06 /* MSVClipType.html */,
+				4D655AB212B93019E966BB0F52445F6B /* MSVClipType.html */,
+				24A5E58A25C9E435BC9AEC9057EB5887 /* MSVDraft.html */,
+				F06924DC65DC7D060C763B46A04E2B20 /* MSVDraft.html */,
+				A93F021FA651AF55220B11B62F0FF660 /* MSVDraft.html */,
+				B73FE64459450A3E5EB7B1AD61576CD4 /* MSVDraft.html */,
+				44829B42CC9834686D67724F09134289 /* MSVEditor.html */,
+				3385F288E1956684F9270B0E0A79F813 /* MSVEditor.html */,
+				8C66B8B02C281E8632C298D05AA2734B /* MSVEditor.html */,
+				F4C188FE65302A202E195E5DE9A449FF /* MSVEditor.html */,
+				D56F1D7B32C3636191A7D5F8BF9FD1A5 /* MSVEditorDelegate.html */,
+				BC24CA099B504ABB18F198C4DBA8D01F /* MSVEditorDelegate.html */,
+				6A91B995F46CAEF94E3184CCAE8B4FEF /* MSVEditorDelegate.html */,
+				8C322FF1E63CFFB7D19DD7B00919D5EF /* MSVEditorDelegate.html */,
+				A387F55FA7B23B57A2D2149B46FA9BB8 /* MSVExporter.html */,
+				43B5F788BDF492D81D9940E6D149A036 /* MSVExporter.html */,
+				1BF881185E273592F31D16EAB891CCDF /* MSVExporter.html */,
+				E9472710A807CA84DEAC1227E5333F63 /* MSVExporter.html */,
+				A89573245D1C24F21F1BE378D04840BE /* MSVExternalFilterEditorEffect.html */,
+				515DF947039EFA833C6129D9CDE09D29 /* MSVExternalFilterEditorEffect.html */,
+				22F1DE85FED72D3D24A1639A6BDBBF53 /* MSVExternalFilterEditorEffect.html */,
+				C96BBF8C8BC5F8D6F7C7C289D323C881 /* MSVExternalFilterEditorEffect.html */,
+				48BE8C0436418B40099A9E81C00DDDE9 /* MSVFileType.html */,
+				A2D975C18EC197478210872F9E41A7E4 /* MSVFileType.html */,
+				B68B6ACE91E52B0908061BFDC2F38AEE /* MSVFileType.html */,
+				0EEE46148639E56B03934FDF7A29338B /* MSVFileType.html */,
+				1CEA8CA893AF82BE177739E572595CAD /* MSVGifGenerator.html */,
+				30DCF2D2A9EF0DF8C40BDF8C64F53859 /* MSVGifGenerator.html */,
+				CD1A397862BDCD261483B49653417DB0 /* MSVGifGenerator.html */,
+				0FF3F11A6937E243840DBFBEB8EFD804 /* MSVGifGenerator.html */,
+				2DCCB6C6B8CD32588B0C6C67E3D51E9B /* MSVGraffitiView.html */,
+				0BF94107501FB61DBE57FB4586DD51AD /* MSVGraffitiView.html */,
+				8F03029B0F7DA128A4BC60EDF60BB15C /* MSVGraffitiView.html */,
+				B1ADDB6B74EE9131B9FCAC501CE640E5 /* MSVGraffitiView.html */,
+				5071BF320A440895C0FD5F95A0DFAC08 /* MSVGraffitiViewDelegate.html */,
+				B73C11712675788E39696EC732F72284 /* MSVGraffitiViewDelegate.html */,
+				61B4A7DE0887BD6E0324629274756937 /* MSVGraffitiViewDelegate.html */,
+				7306084F75102D1A70772E8FF9300C26 /* MSVGraffitiViewDelegate.html */,
+				8FCD0FDA86C50D810109F737F8FFFFC8 /* MSVImageGenerator.html */,
+				32853C920A65B0B69184309A3CCB6960 /* MSVImageGenerator.html */,
+				B13201F4179E49681A3B06F825B193AA /* MSVImageGenerator.html */,
+				05070581E286AC27DB0FE8822744C892 /* MSVImageGenerator.html */,
+				8A46571774F0BB7C0E1164F70A0FF224 /* MSVImageGeneratorResult.html */,
+				37E6ECD9EBD4345E030384842446F270 /* MSVImageGeneratorResult.html */,
+				C2FFFC23C71FF0FA5767F2E430EE7052 /* MSVImageGeneratorResult.html */,
+				BFE206BFDD0F10A0F8C3CC8304A60268 /* MSVImageGeneratorResult.html */,
+				18AD9F1F88089D9E587769494062994A /* MSVImageStickerEditorEffect.html */,
+				26743CE0B3BC8DA9732CB3A7ADCE334B /* MSVImageStickerEditorEffect.html */,
+				AD7EAAFDBA935F983D8C757E00E84548 /* MSVImageStickerEditorEffect.html */,
+				6D39FD662E248EC956515D192364CD59 /* MSVImageStickerEditorEffect.html */,
+				7CFE223EDCAF11960C643B18B86E2447 /* MSVLUTFilterEditorEffect.html */,
+				5EE415A463E1DF48FA351347799F301F /* MSVLUTFilterEditorEffect.html */,
+				49DB55A32CC9D7AA38659AB6D1373817 /* MSVLUTFilterEditorEffect.html */,
+				899E2D316383A791E066229C7EFDC7BF /* MSVLUTFilterEditorEffect.html */,
+				C35C187B4B831F34207B69395A5C7732 /* MSVMainTrackClip.html */,
+				0FA3894FFDB347B2108F5F93A32CB9A5 /* MSVMainTrackClip.html */,
+				B70320BCE9FEB5CB35BCB15B4146614C /* MSVMainTrackClip.html */,
+				7742C814DEA187FDA0DE9F4EF0B02D14 /* MSVMainTrackClip.html */,
+				AE66D3D8CDF630A113A80C57F56DFEA5 /* MSVMixTrackClip.html */,
+				CDC7717ECB5E64CE27789B710274F619 /* MSVMixTrackClip.html */,
+				8875662490D0DAA0200948EE18A361ED /* MSVMixTrackClip.html */,
+				4D8C5A47B16F21F5D943BE81021893A8 /* MSVMixTrackClip.html */,
+				9BE6AF97733DBFAAC79B724B056CBB7D /* MSVRecorder.html */,
+				6CF0DBED23E39BED183FD7B63EAA7E4B /* MSVRecorder.html */,
+				B0CB2433D6DD6B8E3F63F0C9DE6E42DC /* MSVRecorder.html */,
+				E4D8CD3736BB90192AD88955B136861A /* MSVRecorder.html */,
+				E87DEDEB0247458491CA25DE852B6F4E /* MSVRecorderAudioConfiguration.html */,
+				5C6DEBF3F41D4C72C77EC03EF73214DE /* MSVRecorderAudioConfiguration.html */,
+				7D2FE76E49F0BA3653615FEA6FD9CC2D /* MSVRecorderAudioConfiguration.html */,
+				288305ECB4770DAA821A6C0648B818C6 /* MSVRecorderAudioConfiguration.html */,
+				AEBF90F43CCF10329867FDD852E94C96 /* MSVRecorderBackgroundAudioConfiguration.html */,
+				A29CBF665784CAA578096FB565C05830 /* MSVRecorderBackgroundAudioConfiguration.html */,
+				FE5AC474BF4CB8356F7CB4443C994D24 /* MSVRecorderBackgroundAudioConfiguration.html */,
+				F4FEDA28D472314F2ED585B5331F588E /* MSVRecorderBackgroundAudioConfiguration.html */,
+				7653A1BF47E8E8A18217C2870590932B /* MSVRecorderDelegate.html */,
+				4CFF66DA19CB3819BD4EBAB4B4FC208F /* MSVRecorderDelegate.html */,
+				8DE5CAA33C826083A5CF8CA5680871EC /* MSVRecorderDelegate.html */,
+				98D8326D8D331FC0B50DE813FAB0032E /* MSVRecorderDelegate.html */,
+				2158326B4402DAF340CFEB1845AD5391 /* MSVRecorderVideoConfiguration.html */,
+				5121E644B87D534322B0C418C08BBF3D /* MSVRecorderVideoConfiguration.html */,
+				EB8DF77E1B890CFDB1B924EE6607A8AD /* MSVRecorderVideoConfiguration.html */,
+				D828E6C67E2965CF3E7E9158E9D72C73 /* MSVRecorderVideoConfiguration.html */,
+				CD7271E4DE5A23D8837EE0D8A14C4992 /* MSVRepeatEditorEffect.html */,
+				BBA6563E5540F31BE730C52DDFDE85B5 /* MSVRepeatEditorEffect.html */,
+				69D0B5A2FBF88E23FEE53C2905B5DADC /* MSVRepeatEditorEffect.html */,
+				CEE547DEB4FB0887A091D9605FF2CA7A /* MSVRepeatEditorEffect.html */,
+				8C287F038DD2AC85E7F737943CF59E02 /* MSVSpeedEditorEffect.html */,
+				7C38D5A23146528823698ED11A0C99BF /* MSVSpeedEditorEffect.html */,
+				32789E0531C71260DBBEB15EAB29F629 /* MSVSpeedEditorEffect.html */,
+				8E5DC9B710F0254AC78B06A5074A1474 /* MSVSpeedEditorEffect.html */,
+				03492B1DBDA0262FE7837974564523B8 /* MSVTimeEditorEffect.html */,
+				E2B7079F02698D6CA26BB6C8DD4389FF /* MSVTimeEditorEffect.html */,
+				97F4B0F36E26A00E7DFB6CEBA39863D9 /* MSVTimeEditorEffect.html */,
+				C742F81D68713783007BC11E96E6F85C /* MSVTimeEditorEffect.html */,
+				2E1E69187EC5BDA42E0CC7D1968721EA /* MSVTimeEffectScope.html */,
+				B9B5323A33A9A0E2C07A778EB8925C48 /* MSVTimeEffectScope.html */,
+				FA508EDB7BF57823B0E292328939F767 /* MSVTimeEffectScope.html */,
+				1A6F00428F259C8918378302F4C6E753 /* MSVTimeEffectScope.html */,
+				0D6B03F0D5EEC5FCCCCA968EC6727CD9 /* MSVTranscoder.html */,
+				04CCCE6863D4122586C3991C318C4969 /* MSVTranscoder.html */,
+				78B32CBC19BD8AEB961ED86871BD5232 /* MSVTranscoder.html */,
+				EEDDA615939ACFE4B5A9E1FC821FC8FC /* MSVTranscoder.html */,
+				821E5A47D865673512F675C1E3A2FD56 /* MSVVideoSource.html */,
+				3FD6AEF6A40A3D0CB23CED824E930361 /* MSVVideoSource.html */,
+				B09BE372CE4829305DCDB4164BFD04DC /* MSVVideoSource.html */,
+				10E8F0E89AB871F102801E9B693CBDAB /* MSVVideoSource.html */,
+				024EAD06D245656ABFA63F02C21E986C /* MSVVideoTransitionType.html */,
+				79EB060C32E0323661AAEAFEFDB26E42 /* MSVVideoTransitionType.html */,
+				A63D1941A33084799EDB3A9C50F7F496 /* MSVVideoTransitionType.html */,
+				649113123A9801225D2A4ADFAAEAAE8E /* MSVVideoTransitionType.html */,
+				3138067D1EA2BEE4933720186F65EA81 /* Protocols.html */,
+				C7A345CC16E1E6D94620F11C94C79FDA /* Protocols.html */,
+				69B2F64EAF37B472E299AC22B3E3DC4B /* Protocols.html */,
+				D41CEA00D2ED77C8563AE2360E73F4B1 /* Protocols.html */,
+				240DD8CCE92EEAD23C67BAB8F61BA342 /* README.en-us.md */,
+				DDBD6B91243FD11708668C3E80496B64 /* search.json */,
+				AD0087D4497568144624EEC019456EEC /* search.json */,
+				C6ABB542263CDFA13DFD6993E4B2BDCF /* search.json */,
+				14B272EAC9C2E86C9B84BE6555AE3725 /* search.json */,
+				9D435D8677246CF18EF1F3DD84CF5954 /* spinner.gif */,
+				9437A09ADEBEA3B65BF20CEF99D67019 /* spinner.gif */,
+				DB63E2A24BFF37132619691DB132928D /* spinner.gif */,
+				EB1857DFC10CCCC58E84B828DBF6C1C2 /* spinner.gif */,
+				40C3B913C2A767E00681731E689272AA /* Type Definitions.html */,
+				BE14648438A75D1A7C36250E80860439 /* Type Definitions.html */,
+				6E1835BF0B29AB08421B633D775F6BEC /* Type Definitions.html */,
+				B68235166510D2CCE1C3051332275816 /* Type Definitions.html */,
+				2512B8F8C026FDA1CAB6FA7376473379 /* typeahead.jquery.js */,
+				8A9BF889961444A54D4309E39F0F6B0F /* typeahead.jquery.js */,
+				23FD1A79DD1A3E44E7D64CC8A01B07FE /* typeahead.jquery.js */,
+				AE654068C942C761BE0F7A5C215B1887 /* typeahead.jquery.js */,
+				C90022A8273B51396A1EFD2B17F0A9C6 /* undocumented.json */,
+				B1840A2EBAECAAE801CE1A36F0486218 /* undocumented.json */,
 			);
 			name = Pod;
 			sourceTree = "<group>";
 		};
-		6292806BDAE1EF175F45684026C0DE62 /* MovieousShortVideo */ = {
+		67FDE3AA0B79DBF209BDCE0D82382D96 /* MovieousShortVideo */ = {
 			isa = PBXGroup;
 			children = (
-				3776B8224487689CE554C8B75C153EF7 /* Frameworks */,
-				61BBDD72B2F33BA5DB8984B7E0B826FE /* Pod */,
-				CA4F09F2D6CD85873F52A6A9B34B8A44 /* Support Files */,
+				A76F3D6AD89FF5A430D65F084BB9F773 /* Frameworks */,
+				33B89895C38FF35B021C4B47113A5BF2 /* Pod */,
+				BFC95BF3E3E20C05AD246D8A7BA10760 /* Support Files */,
 			);
 			name = MovieousShortVideo;
 			path = ../..;
@@ -317,15 +825,23 @@
 		9D304BB78A0CDB71A6B38C2E19F2D807 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6292806BDAE1EF175F45684026C0DE62 /* MovieousShortVideo */,
+				67FDE3AA0B79DBF209BDCE0D82382D96 /* MovieousShortVideo */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		CA4F09F2D6CD85873F52A6A9B34B8A44 /* Support Files */ = {
+		A76F3D6AD89FF5A430D65F084BB9F773 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C3AEB555C4B972CB5C83F0A5284F6397 /* MovieousShortVideo.xcconfig */,
+				60E5B4D0ECEB508479AEEF06FCCC8BDD /* MovieousShortVideo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BFC95BF3E3E20C05AD246D8A7BA10760 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8D1FF501403ED916BD9629C61B7D188E /* MovieousShortVideo.xcconfig */,
 			);
 			name = "Support Files";
 			path = "MovieousShortVideoDemo/Pods/Target Support Files/MovieousShortVideo";
@@ -827,7 +1343,7 @@
 		};
 		D1229F5E21B7CD500AC38B6E463FFBA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C3AEB555C4B972CB5C83F0A5284F6397 /* MovieousShortVideo.xcconfig */;
+			baseConfigurationReference = 8D1FF501403ED916BD9629C61B7D188E /* MovieousShortVideo.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -859,7 +1375,7 @@
 		};
 		F1C35AE1073876FF184174F5FEF11DD6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C3AEB555C4B972CB5C83F0A5284F6397 /* MovieousShortVideo.xcconfig */;
+			baseConfigurationReference = 8D1FF501403ED916BD9629C61B7D188E /* MovieousShortVideo.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

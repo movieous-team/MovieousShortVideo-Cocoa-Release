@@ -105,17 +105,22 @@ typedef void(^MSVFinishRecordingWithCompletionHandler)(MSVMainTrackClip *_Nullab
 @property (nonatomic, strong, readonly) MSVRecorderAudioConfiguration *audioConfiguration;
 
 /**
- * The duration has been recorded of the current clip.
+ * The original duration has been recorded of the current clip(without taking speed into account).
  */
-@property (nonatomic, assign, readonly) NSTimeInterval currentClipDuration;
+@property (nonatomic, assign, readonly) NSTimeInterval currentClipOriginalDuration;
 
 /**
- * The original duration of all the saved clips(without taking speed into account).
+ * The real duration has been recorded of the current clip(take speed into account).
+ */
+@property (nonatomic, assign, readonly) NSTimeInterval currentClipRealDuration;
+
+/**
+ * The original duration of all the saved clips, not including current clip(without taking speed into account).
  */
 @property (nonatomic, assign, readonly) NSTimeInterval recordedClipsOriginalDuration;
 
 /**
- * The real duration of all the saved clips(take speed into account).
+ * The real duration of all the saved clips, not including current clip(take speed into account).
  */
 @property (nonatomic, assign, readonly) NSTimeInterval recordedClipsRealDuration;
 
@@ -373,6 +378,11 @@ typedef void(^MSVFinishRecordingWithCompletionHandler)(MSVMainTrackClip *_Nullab
 @property (nonatomic, assign, readonly) UIDeviceOrientation currentDeviceOrientation;
 
 /**
+ * The average power level for the current audio capture device in dB.
+ */
+@property (nonatomic, readonly) float averagePowerLevel;
+
+/**
  * Initialize a MSVRecorder object.
  *
  * @param audioConfiguration Audio configuration that introducing nil will use the default configuration.
@@ -478,7 +488,7 @@ typedef void(^MSVFinishRecordingWithCompletionHandler)(MSVMainTrackClip *_Nullab
 @property(nonatomic, strong, readonly, nullable) MSVRecorderBackgroundAudioConfiguration *backgroundAudioConfiguration;
 
 /**
- * The background music can be set or canceled only after the recording has not started or all the recorded clips have been deleted, the background music information after set will be reflected in the draft.audioClips and will not be encoded into the generated recording file directly,  so that the background music can be replaced at any time during the editing phase.
+ * The background music can be set or canceled only after the recording has not started or all the recorded clips have been deleted, the background music information after set will be reflected in the draft.mixTrackClips and will not be encoded into the generated recording file directly,  so that the background music can be replaced at any time during the editing phase.
  *
  * @param configuration The background audio configuration object after nil passed will clear the background audio.
  * @param outError If an error occurs, return the error that occurred.

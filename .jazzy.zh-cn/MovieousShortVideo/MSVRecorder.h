@@ -105,17 +105,22 @@ typedef void(^MSVFinishRecordingWithCompletionHandler)(MSVMainTrackClip *_Nullab
 @property (nonatomic, strong, readonly) MSVRecorderAudioConfiguration *audioConfiguration;
 
 /**
- * 当前片段已经录制的时间长度。
+ * 当前正在录制的片段的原始时长（不考虑 speed 参数)。
  */
-@property (nonatomic, assign, readonly) NSTimeInterval currentClipDuration;
+@property (nonatomic, assign, readonly) NSTimeInterval currentClipOriginalDuration;
 
 /**
- * 所有已经保存的片段的时间长度(不考虑 speed 参数)。
+ * 当前正在录制的片段的实际时长（考虑 speed 参数)。
+ */
+@property (nonatomic, assign, readonly) NSTimeInterval currentClipRealDuration;
+
+/**
+ * 所有已经保存的片段的初始时间长度，不包含当前正在录制的片段(不考虑 speed 参数)。
  */
 @property (nonatomic, assign, readonly) NSTimeInterval recordedClipsOriginalDuration;
 
 /**
- * 所有已经保存的片段的时间长度(考虑 speed 参数)。
+ * 所有已经保存的片段的实际时间长度，不包含当前正在录制的片段(考虑 speed 参数)。
  */
 @property (nonatomic, assign, readonly) NSTimeInterval recordedClipsRealDuration;
 
@@ -374,6 +379,11 @@ typedef void(^MSVFinishRecordingWithCompletionHandler)(MSVMainTrackClip *_Nullab
 @property (nonatomic, assign, readonly) UIDeviceOrientation currentDeviceOrientation;
 
 /**
+ * 以分贝为单位的当前音频采集设备采集到的音频平均能量级别。
+ */
+@property (nonatomic, readonly) float averagePowerLevel;
+
+/**
  * 初始化一个 MSVRecorder 对象
  *
  * @param audioConfiguration 音频配置对象，传入 nil 使用默认配置。
@@ -477,7 +487,7 @@ typedef void(^MSVFinishRecordingWithCompletionHandler)(MSVMainTrackClip *_Nullab
 @property(nonatomic, strong, readonly, nullable) MSVRecorderBackgroundAudioConfiguration *backgroundAudioConfiguration;
 
 /**
- * 只有在未开始录制或者已经删除所有已录制的片段之后才能设置或取消背景音乐，设置的背景音乐信息会体现在 draft.audioClips 中而不会直接编码到生成的录制文件当中，以便在编辑阶段可以随时替换背景音乐。
+ * 只有在未开始录制或者已经删除所有已录制的片段之后才能设置或取消背景音乐，设置的背景音乐信息会体现在 draft.mixTrackClips 中而不会直接编码到生成的录制文件当中，以便在编辑阶段可以随时替换背景音乐。
  *
  * @param configuration 背景音效配置对象，传入 nil 清空背景音效。
  * @param outError 如果发生错误，返回错误对象。

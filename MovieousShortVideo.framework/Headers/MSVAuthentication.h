@@ -16,21 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MSVAuthentication : NSObject
 
 /**
- * Is `-registerWithLicense` been called before.
- */
-@property (nonatomic, assign, readonly, class) BOOL registered;
-
-/**
  * Register the SDK with license string.
  *
  * @param license The license string from Movieous team.
  */
 + (void)registerWithLicense:(NSString *)license;
-
-/**
- * Return the auth state for the SDK.
- */
-+ (BOOL)checkAuthState;
 
 @end
 

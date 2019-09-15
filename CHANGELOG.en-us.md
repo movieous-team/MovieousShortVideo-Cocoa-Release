@@ -1,10 +1,23 @@
 *Read this in other languages: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.18(2019-9-15)
+## Features
+- update `MovieousBase` to v1.1.6.
+    - add `averagePowerLevel` property.
+## Fixes
+- fix encoding error incidentally happen while recording.
+- update authentication mechanism, won't throw exception if failed.
+- split `MSVRecorder.currentClipDuration` to `MSVRecorder.currentClipOriginalDuration` and `MSVRecorder.currentClipRealDuration`.
+- fix music duration error when configure background music in `MSVRecorder`.
+- fix failing to update progress of background music after operations like `cancelRecording`.
+
 # v2.2.17(2019-8-26)
 ## Features
 - update `MovieousBase` to v1.1.5.
     - fix color error when export video.
+## Improvements
 - improve sensitivity of volume param.
+## Fixes
 - fix error when retrieve `MSVDraft.videoSize` of rotated video.
 
 # v2.2.16(2019-8-22)
