@@ -6,7 +6,6 @@
     - 增加 `averagePowerLevel` 属性。
 ## 修复
 - 修复录制器偶现的编码失败问题。
-- 修复在自带旋转的视频中 `MSVDraft.videoSize` 获取异常的问题。
 - 更新鉴权机制，鉴权失败不再抛 exception。
 - 将 `MSVRecorder.currentClipDuration` 细化为 `MSVRecorder.currentClipOriginalDuration` 和 `MSVRecorder.currentClipRealDuration`。
 - 修复 `MSVRecorder` 配置背景音乐时可能出现音乐长度异常的问题。

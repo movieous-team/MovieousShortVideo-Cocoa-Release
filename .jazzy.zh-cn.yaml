@@ -1,6 +1,7 @@
 clean: true
 objc: true
 theme: fullwidth
+readme: README.md
 output: docs.zh-cn
 sdk: iphonesimulator
 readme: README.zh-cn.md
