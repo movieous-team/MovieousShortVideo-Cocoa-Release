@@ -1,5 +1,10 @@
 *Read this in other languages: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.19(2019-8-27)
+## Fixes
+- fix issue that some components would retrieve UI parameters.
+- fix error when export pure audio assets.
+
 # v2.2.18(2019-9-15)
 ## Features
 - update `MovieousBase` to v1.1.6.

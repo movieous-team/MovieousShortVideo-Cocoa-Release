@@ -1,8 +1,8 @@
 PODS:
   - Masonry (1.1.0)
-  - MovieousBase (1.1.6)
-  - MovieousShortVideo (2.2.18):
-    - MovieousBase (~> 1.1.6)
+  - MovieousBase (1.1.7)
+  - MovieousShortVideo (2.2.19):
+    - MovieousBase (~> 1.1.7)
 
 DEPENDENCIES:
   - Masonry
@@ -19,8 +19,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  MovieousBase: ae32f133ff952a3381dd0e28883c86c2d210cccf
-  MovieousShortVideo: 3ecd8b93fdf8c0dbd977ffe875af6388901752ea
+  MovieousBase: c2c1cef5d69de58560a6f4ff84a40930747dabcc
+  MovieousShortVideo: 64c5c68fad9c3c470349317d72e44005f25f11a0
 
 PODFILE CHECKSUM: 6ae5cc534eb98289bb7d640ea04835e189e4a80f
 

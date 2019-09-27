@@ -60,13 +60,13 @@ typedef NS_ENUM(NSInteger, MSVAudioSource) {
  */
 typedef NS_ENUM(NSUInteger, MSVFileType) {
     /**
-     * mp4 file type，suffixed .mp4.
-     */
-    MSVFileTypeMPEG4,
-    /**
      * QuickTime Movie file type，suffixed .mov.
      */
     MSVFileTypeQuickTimeMovie,
+    /**
+     * mp4 file type，suffixed .mp4.
+     */
+    MSVFileTypeMPEG4,
     /**
      * m4v file type，suffixed .m4v.
      */
