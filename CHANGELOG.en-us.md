@@ -1,5 +1,9 @@
 *Read this in other languages: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.20(2019-8-27)
+## Fixes
+- fix issue that framework can not be compiled on XCode 10 and older.
+
 # v2.2.19(2019-8-27)
 ## Fixes
 - fix issue that some components would retrieve UI parameters.
