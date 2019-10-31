@@ -161,6 +161,8 @@ typedef void(^MSVFinishRecordingWithCompletionHandler)(MSVMainTrackClip *_Nullab
  */
 @property (nonatomic, assign, readonly) BOOL recording;
 
+@property (nonatomic, assign, readonly) BOOL finishing;
+
 /**
  * Whether to mirror the front camera preview.
  * The default is the same as the videoConfiguration initializing the recorder.

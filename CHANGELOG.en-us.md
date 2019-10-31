@@ -1,5 +1,13 @@
 *Read this in other languages: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.21(2019-10-31)
+## Features
+- add `MSVExporter.maxKeyFrameInterval` property to specify max key frame interval.
+- add `MSVRecorder.finishing` so that you can check if the recorder is finishing.
+## Fixes
+- fix issue that call `-startRecordingWithError:`, `-startRecordingWithClipConfiguration:error:` or `-finishRecordingWithCompletionHandler:` before callback of `-finishRecordingWithCompletionHandler:` can lead to unknown error without returning error.
+- fix issue that `-snapshotWithCompletion:` may failed to callback.
+
 # v2.2.20(2019-8-27)
 ## Fixes
 - fix issue that framework can not be compiled on XCode 10 and older.

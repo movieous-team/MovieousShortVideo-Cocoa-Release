@@ -53,6 +53,24 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign, nonatomic) NSUInteger videoBitrate;
 
 /**
+@abstract
+    The maximum interval between key frames, also known as the key frame rate.
+@discussion
+    Key frames, also known as sync frames, reset inter-frame
+    dependencies; decoding a key frame is sufficient to prepare a
+    decoder for correctly decoding the difference frames that
+    follow.
+    Video encoders are allowed to generate key frames more frequently if
+    this would result in more efficient compression.
+    The default key frame interval is 0, which indicates that the
+    video encoder should choose where to place all key frames. A key
+    frame interval of 1 indicates that every frame must be a key
+    frame, 2 indicates that at least every other frame must be a key
+    frame, etc.
+ */
+@property (nonatomic, assign) NSUInteger maxKeyFrameInterval;
+
+/**
  * The number of channels of the exported video.
  * The default is the number of channels used by original audio.
  */

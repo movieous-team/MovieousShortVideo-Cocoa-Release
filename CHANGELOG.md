@@ -1,5 +1,13 @@
 *其他语言版本: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.21(2019-10-31)
+## 功能
+- 添加 `MSVExporter.maxKeyFrameInterval` 属性用于指定最大关键帧间隔。
+- 添加 `MSVRecorder.finishiing` 以便检查当前是否处于正在停止拍摄的状态。
+## 修复
+- 修复在 `-finishRecordingWithCompletionHandler:` 还未完成时再次调用 `-startRecordingWithError:`、`-startRecordingWithClipConfiguration:error:` 或 `-finishRecordingWithCompletionHandler:` 可能发生未知错误却不返回错误的问题。
+- 修复 `-snapshotWithCompletion:` 方法可能不回调的问题。
+
 # v2.2.20(2019-8-27)
 ## 修复
 - 修复 XCode 10 及以下无法编译通过 framework 的问题。
