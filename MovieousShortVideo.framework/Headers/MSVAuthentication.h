@@ -11,14 +11,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * This class contains authentication configurations.
+ * 这个类包含鉴权相关配置。
  */
 @interface MSVAuthentication : NSObject
 
 /**
- * Register the SDK with license string.
+ * 使用证书字符串来注册 SDK。
  *
- * @param license The license string from Movieous team.
+ * @param license 从 Movieous 团队获取到的证书字符串。
  */
 + (void)registerWithLicense:(NSString *)license;
 

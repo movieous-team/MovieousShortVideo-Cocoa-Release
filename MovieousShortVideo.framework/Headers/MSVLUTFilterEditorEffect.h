@@ -7,34 +7,29 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MSVBasicEditorEffect.h"
+#import "MSVEditorEffect.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * Color lookup table filter effect class.
+ * LUT(颜色查找表)滤镜特效类
  */
 @interface MSVLUTFilterEditorEffect : MovieousLUTFilterCaptureEffect
 <
-MSVBasicEditorEffect
+MSVEditorEffect
 >
 
 /**
- * User defined ID field, used to store any information you want.
- */
-@property (nonatomic, strong) NSString *ID;
-
-/**
- * Time range on main track in draft to use this LUT effect.
+ * 此特效在主轨中的有效时间区间.
  */
 @property (nonatomic, assign) MovieousTimeRange timeRangeAtMainTrack;
 
 /**
- * Initiate the MSVLUTFilterEditorEffect with another MSVLUTFilterEditorEffect object.
+ * 用另一个 MSVLUTFilterEditorEffect 对象初始化此 MSVLUTFilterEditorEffect
  *
- * @param LUTFilterCaptureEffect Another MSVLUTFilterEditorEffect used to initiate the instance.
+ * @param LUTFilterCaptureEffect 用于初始化的另一个 MSVLUTFilterEditorEffect 对象。
  *
- * @return The initialized MSVLUTFilterEditorEffect instance.
+ * @return 初始化完成的 MSVLUTFilterEditorEffect 对象。
  */
 - (instancetype)initWithLUTFilterCaptureEffect:(MSVLUTFilterEditorEffect *)LUTFilterCaptureEffect;
 

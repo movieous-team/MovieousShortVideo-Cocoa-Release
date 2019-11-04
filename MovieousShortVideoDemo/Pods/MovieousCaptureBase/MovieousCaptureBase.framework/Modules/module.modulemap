@@ -1,0 +1,6 @@
+framework module MovieousCaptureBase {
+  umbrella header "MovieousCaptureBase.h"
+
+  export *
+  module * { export * }
+}

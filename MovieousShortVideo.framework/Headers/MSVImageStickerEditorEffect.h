@@ -7,34 +7,29 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MSVBasicEditorEffect.h"
+#import "MSVEditorEffect.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * Image sticker effects.
+ * 图片贴纸编辑器特效。
  */
 @interface MSVImageStickerEditorEffect : MovieousImageStickerCaptureEffect
 <
-MSVBasicEditorEffect
+MSVEditorEffect
 >
 
 /**
- * User-defined ID field, business usage is used to distinguish objects.
- */
-@property (nonatomic, strong) NSString *ID;
-
-/**
- * The time interval for applying an external filter in the main track.
+ * 此特效在主轨中的有效时间区间.
  */
 @property (nonatomic, assign) MovieousTimeRange timeRangeAtMainTrack;
 
 /**
- * Initiate the MSVImageStickerEditorEffect with another MSVImageStickerEditorEffect object.
+ * 用另一个 MSVImageStickerEditorEffect 对象初始化此 MSVImageStickerEditorEffect
  *
- * @param imageStickerCaptureEffect Another MSVImageStickerEditorEffect used to initiate the instance.
+ * @param imageStickerCaptureEffect 用于初始化的另一个 MSVImageStickerEditorEffect 对象。
  *
- * @return The initialized MSVImageStickerEditorEffect instance.
+ * @return 初始化完成的 MSVImageStickerEditorEffect 对象。
  */
 - (instancetype)initWithImageStickerCaptureEffect:(MSVImageStickerEditorEffect *)imageStickerCaptureEffect;
 

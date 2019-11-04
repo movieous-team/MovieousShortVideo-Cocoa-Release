@@ -9,34 +9,29 @@
 #import <Foundation/Foundation.h>
 #import <MovieousBase/MovieousBase.h>
 
-#import "MSVBasicEditorEffect.h"
+#import "MSVEditorEffect.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * External filter editor effect.
+ * 外部滤镜编辑器特效。
  */
 @interface MSVExternalFilterEditorEffect : MovieousExternalFilterCaptureEffect
 <
-MSVBasicEditorEffect
+MSVEditorEffect
 >
 
 /**
- * User-defined ID field, business usage is used to distinguish objects.
- */
-@property (nonatomic, strong) NSString *ID;
-
-/**
- * The time interval for applying an external filter in the main track.
+ * 此特效在主轨中的有效时间区间.
  */
 @property (nonatomic, assign) MovieousTimeRange timeRangeAtMainTrack;
 
 /**
- * Initiate the MSVExternalFilterEditorEffect with another MSVExternalFilterEditorEffect object.
+ * 用另一个 MSVExternalFilterEditorEffect 对象初始化此 MSVExternalFilterEditorEffect
  *
- * @param externalFilterCaptureEffect Another MSVExternalFilterEditorEffect used to initiate the instance.
+ * @param externalFilterCaptureEffect 用于初始化的另一个 MSVExternalFilterEditorEffect 对象。
  *
- * @return The initialized MSVExternalFilterEditorEffect instance.
+ * @return 初始化完成的 MSVExternalFilterEditorEffect 对象。
  */
 - (instancetype)initWithExternalFilterCaptureEffect:(MSVExternalFilterEditorEffect *)externalFilterCaptureEffect;
 

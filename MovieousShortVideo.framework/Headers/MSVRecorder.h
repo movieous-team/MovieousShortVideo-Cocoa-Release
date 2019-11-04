@@ -21,519 +21,513 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * Callback when start capturing is completed.
+ * 开始采集完成回调。
  *
- * @param audioGranted Whether to obtain audio rights.
- * @param audioError Error in audio component initialization.
- * @param videoGranted Whether you have obtained the captured permissions of the video.
- * @param videoError Error in video component initialization.
+ * @param audioGranted 是否获取到音频采集权限。
+ * @param audioError 音频组件初始化错误返回。
+ * @param videoGranted 是否获取到视频采集权限。
+ * @param videoError 视频组件初始化错误返回。
  */
 typedef void(^MSVStartCapturingCompletionHandler)(BOOL audioGranted, NSError *_Nullable audioError, BOOL videoGranted, NSError *_Nullable videoError);
 
 /**
- * Callback when finishRecording operation has done.
+ * 完成录制操作完成回调。
  *
- * @param clip The generated MSVMainTrackClip object while recording, if recorder has already stopped, completion, this is the last MSVMainTrackClip object.
- * @param error Error object if any.
+ * @param clip 录制过程中生成的 MSVMainTrackClip 对象，如果录制器已经结束了，此参数将返回上一个生成的 MSVMainTrackClip 对象。
+ * @param error 如果发生错误返回错误对象。
  */
 typedef void(^MSVFinishRecordingWithCompletionHandler)(MSVMainTrackClip *_Nullable clip, NSError *_Nullable error);
 
 @class MSVRecorder;
 
 /**
- * Recorder delegate interface.
+ * 录制器代理接口。
  */
 @protocol MSVRecorderDelegate <NSObject>
 
 @optional
 /**
- * Callback when error occurred while recording.
- *
- * @param recorder Recorder object that generated the event.
- * @param error The specific error occurred.
+ * 当录制器发生错误时调用。
+ * 
+ * @param recorder 产生事件的录制器对象。
+ * @param error 产生的具体错误。
  */
 - (void)recorder:(MSVRecorder *)recorder didErrorOccurred:(NSError *)error;
 
 /**
- * Callback when the user clicks on the preview interface to focus.
+ * 当用户点击屏幕对焦成功时调用。
  *
- * @param recorder Recorder object that generated the event.
- * @param point User clicked location.
+ * @param recorder 产生事件的录制器对象。
+ * @param point 用户点击的位置。
+ * @param action 采取的动作类型。
  */
-- (void)recorder:(MSVRecorder *)recorder didFocusAtPoint:(CGPoint)point;
+- (void)recorder:(MSVRecorder *)recorder  didTakeTapActionAtPoint:(CGPoint)point action:(MovieousRecorderTapPreviewAction)action;
 
 /**
- * An error occurred while the recorder was playing background music.
- *
- * @param recorder Recorder object that generated the event.
- * @param error Specific error.
+ * 录制器播放背景音乐时发生错误。
+ * 
+ * @param recorder 产生事件的录制器对象。
+ * @param error 产生的具体错误。
  */
 - (void)recorder:(MSVRecorder *)recorder didPlayBackgroundAudioError:(NSError *)error;
 
 /**
- * The callback of the duration of the current recorded clip has updated, the caller can update the UI feedback recording progress in this callback.
- *
- * @param recorder Recorder object that generated the event.
- * @param currentClipDuration The duration of current clip.
+ * 当前录制片段的时长发生更新的回调，调用者可以在此回调当中更新 UI 反馈录制进度。
+ * 
+ * @param recorder 产生事件的录制器对象。
+ * @param currentClipDuration 当前片段的时长。
  */
 - (void)recorder:(MSVRecorder *)recorder currentClipDurationDidUpdated:(NSTimeInterval)currentClipDuration;
 
 @end
 
 /**
- * Recorder class used to record video.
+ * 录制器。
  */
 @interface MSVRecorder : NSObject
 
 /**
- * Recorder Automatically generated draft object that can be used to obtain draft objects for editing or exporting.
+ * 自动生成的草稿对象，可以通过此属性获取草稿对象用于编辑或导出。
  */
 @property (nonatomic, strong, readonly) MSVDraft *draft;
 
 /**
- * Video parameter configuration object.
+ * 视频参数配置对象。
  *
- * @warning Please do not modify the obtained videoConfiguration object, otherwise, an undefined error will occur. If the parameters were modified, please use related running properties updating interface or destroy the current Recorder and re-generate.
+ * @warning 请不要修改获取到的 videoConfiguration 对象，否则会出现未定义的错误，更新参数请使用相关运行时属性更新接口或销毁当前 Recorder 重新生成。
  */
 @property (nonatomic, strong, readonly) MSVRecorderVideoConfiguration *videoConfiguration;
 
 /**
- * Audio parameter configuration object.
+ * 音频参数配置对象。
  *
- * @warning Please do not modify the obtained videoConfiguration object, otherwise, an undefined error will occur. If the parameters were modified, please use related running properties updating interface or destroy the current Recorder and re-generate.
+ * @warning 请不要修改获取到的 videoConfiguration 对象，否则会出现未定义的错误，更新参数请使用相关运行时属性更新接口或销毁当前 Recorder 重新生成。
  */
 @property (nonatomic, strong, readonly) MSVRecorderAudioConfiguration *audioConfiguration;
 
 /**
- * The original duration has been recorded of the current clip(without taking speed into account).
+ * 当前正在录制的片段的原始时长（不考虑 speed 参数)。
  */
 @property (nonatomic, assign, readonly) NSTimeInterval currentClipOriginalDuration;
 
 /**
- * The real duration has been recorded of the current clip(take speed into account).
+ * 当前正在录制的片段的实际时长（考虑 speed 参数)。
  */
 @property (nonatomic, assign, readonly) NSTimeInterval currentClipRealDuration;
 
 /**
- * The original duration of all the saved clips, not including current clip(without taking speed into account).
+ * 所有已经保存的片段的初始时间长度，不包含当前正在录制的片段(不考虑 speed 参数)。
  */
 @property (nonatomic, assign, readonly) NSTimeInterval recordedClipsOriginalDuration;
 
 /**
- * The real duration of all the saved clips, not including current clip(take speed into account).
+ * 所有已经保存的片段的实际时间长度，不包含当前正在录制的片段(考虑 speed 参数)。
  */
 @property (nonatomic, assign, readonly) NSTimeInterval recordedClipsRealDuration;
 
 /**
- * Preview view.
+ * 预览视图。
  */
 @property (nonatomic, strong, readonly) UIView *previewView;
 
 /**
- * Delegate object for receiving event callbacks.
+ * 代理对象，用于接收事件回调。
  */
 @property (nonatomic, weak, nullable) id<MSVRecorderDelegate> delegate;
 
 /**
- * The queue used by the delegate method callback, if not specified, will be called back in the main thread.
+ * 代理方法回调使用的队列，如果未指定将在主线程回调。
  */
 @property (nonatomic, strong, null_resettable) dispatch_queue_t delegateQueue;
 
 /**
- * Effects applied to recorder.
- * The default is the same as the videoConfiguration initializing the recorder.
+ * 采集时应用的特效组。
+ * 默认和初始化录制器使用的 videoConfiguration 一致。
  */
 @property (nonatomic, copy) NSArray<id<MovieousCaptureEffect>> *captureEffects;
 
 /**
- * The fill mode used when the preview window does not match the configured videoSize ratiothe.
- * The default is the same as the videoConfiguration initializing the recorder.
+ * 当 size（编码时的视频分辨率） 和 preview 的尺寸比例不一致时使用的填充模式。
+ * 默认和初始化录制器使用的 videoConfiguration 一致。
  */
 @property (nonatomic, assign) MovieousScalingMode previewScalingMode;
 
 /**
- * Whether it is in the status of capturing or not.
+ * 当前是否正在采集。
  */
 @property (nonatomic, assign, readonly) BOOL capturing;
 
 /**
- * Whether it is in the status of recording or not.
+ * 当前是否处于正在录制的状态。
  */
 @property (nonatomic, assign, readonly) BOOL recording;
 
 @property (nonatomic, assign, readonly) BOOL finishing;
 
 /**
- * Whether to mirror the front camera preview.
- * The default is the same as the videoConfiguration initializing the recorder.
+ * 是否对前置摄像头预览进行镜像处理。
+ * 默认和初始化录制器使用的 videoConfiguration 一致。
  */
 @property (nonatomic, assign) BOOL mirrorFrontPreview;
 
 /**
- * Whether to mirror the rear camera preview.
- * The default is the same as the videoConfiguration initializing the recorder.
+ * 是否对后置摄像头预览进行镜像处理。
+ * 默认和初始化录制器使用的 videoConfiguration 一致。
  */
 @property (nonatomic, assign) BOOL mirrorBackPreview;
 
 /**
- * Whether to mirror the video encoded by the front camera.
- * The default is the same as the videoConfiguration initializing the recorder.
+ * 是否对前置摄像头编码的视频进行镜像处理。
+ * 默认和初始化录制器使用的 videoConfiguration 一致。
  */
 @property (nonatomic, assign) BOOL mirrorFrontEncoded;
 
 /**
- * Whether to mirror the video encoded by the rear camera.
- * The default is the same as the videoConfiguration initializing the recorder.
+ * 是否对后置摄像头编码的视频进行镜像处理。
+ * 默认和初始化录制器使用的 videoConfiguration 一致。
  */
 @property (nonatomic, assign) BOOL mirrorBackEncoded;
 
 /**
- * Whether to blur picture while switching camera position.
- * The default is the same as the videoConfiguration initializing the recorder.
+ * 切换摄像头时是否进行模糊化过渡
+ * 默认和初始化录制器使用的 videoConfiguration 一致。
  */
 @property (nonatomic, assign) BOOL blurSwitch;
 
 /**
- * Whether to enable touch to focus and exposure the specified point in the preview.
- * The default is the same as the videoConfiguration initializing the recorder.
+ * 当点击预览画面上的点时采取什么动作。
+ * 默认和初始化录制器使用的 videoConfiguration 一致。
  */
-@property (nonatomic, assign) BOOL touchToFocusExposureEnabled;
+@property (nonatomic, assign) MovieousRecorderTapPreviewAction tapPreviewAction;
 
 /**
- * Whether to open the internal focus view.
- * The default is the same as the videoConfiguration initializing the recorder.
- */
-@property (nonatomic, assign) BOOL innerFocusViewEnabled;
-
-/**
- * The current torchMode being used on the camera.
+ * 当前摄像头的手电筒模式。
  */
 @property (nonatomic, assign, readonly) AVCaptureTorchMode torchMode;
 
 /**
- * Specify the preferred torch mode to use on camera, what needs to note is that the preferredTorchMode is not guaranteed to be applied succesfully, the actual torch mode can be accessed by the property torchMode.
- * The default is the same as the videoConfiguration initializing the recorder.
+ * 指定期望的摄像头手电筒模式，需要注意的是 preferredTorchMode 的值不一定能够被成功应用，实际的手电筒模式可以通过 MSVRecorder.torchMode 来获取。
+ * 默认和初始化录制器使用的 videoConfiguration 一致。
  */
 @property (nonatomic, assign) AVCaptureTorchMode preferredTorchMode;
 
 /**
- * The current flashMode being used on the camera.
+ * 当前摄像头的闪光灯模式。
  */
 @property (nonatomic, assign, readonly) AVCaptureFlashMode flashMode;
 
 /**
- * Specify the preferred flash mode to use on camera, what needs to note is that the preferredFlashMode is not guaranteed to be applied succesfully, the actual torch mode can be accessed by the property flashMode.
- * The default is the same as the videoConfiguration initializing the recorder.
+ * 指定期望的摄像头闪光灯模式，需要注意的是 preferredFlashMode 的值不一定能够被成功应用，实际的手电筒模式可以通过 MSVRecorder.flashMode 来获取。
+ * 默认和初始化录制器使用的 videoConfiguration 一致。
  */
 @property (nonatomic, assign) AVCaptureFlashMode preferredFlashMode;
 
 /**
- * A property indicating the format's supported frame rate ranges. videoSupportedFrameRateRanges is an array of AVFrameRateRange objects, one for each of the format's supported video frame rate ranges.
+ * 指示当前摄像头支持的帧率范围。
+ * videoSupportedFrameRateRanges 是一个 AVFrameRateRange 的数组，指示支持的帧率范围。
  */
 @property(nonatomic, readonly) NSArray<AVFrameRateRange *> *videoSupportedFrameRateRanges;
 
 /**
- * The current minimum frames per second on camera.
+ * 当前摄像头的每秒最小帧率。
  */
 @property (nonatomic, assign, readonly) Float64 minFrameRate;
 
 /**
- * Specify the preferred minimum frames per second on camera, what needs to note is that the preferredMinFrameRate is not guaranteed to be applied succesfully, the actual minimum frames per second can be accessed by the property minFrameRate.
- * The default is the same as the videoConfiguration initializing the recorder.
+ * 指定期望的最小采集帧率，需要注意的是 preferredMinFrameRate 的值不一定能够被成功应用，实际的最小采集帧率可以通过 MSVRecorder.minFrameRate 来获取。
+ * 默认和初始化录制器使用的 videoConfiguration 一致。
  */
 @property (nonatomic, assign) Float64 preferredMinFrameRate;
 
 /**
- * The current maximum frames per second on camera.
+ * 当前摄像头的每秒最大帧率。
  */
 @property (nonatomic, assign, readonly) Float64 maxFrameRate;
 
 /**
- * Specify the preferred maximum frames per second on camera, what needs to note is that the preferredMaxFrameRate is not guaranteed to be applied succesfully, the actual maximum frames per second can be accessed by the property maxFrameRate.
- * The default is the same as the videoConfiguration initializing the recorder.
+ * 指定期望的最大采集帧率，需要注意的是 preferredMaxFrameRate 的值不一定能够被成功应用，实际的最大采集帧率可以通过 MSVRecorder.maxFrameRate 来获取。
+ * 默认和初始化录制器使用的 videoConfiguration 一致。
  */
 @property (nonatomic, assign) Float64 preferredMaxFrameRate;
 
 /**
- * The current sessionPreset of the camera.
+ * 当前摄像头的预设分辨率。
  */
 @property (nonatomic, strong, readonly) AVCaptureSessionPreset sessionPreset;
 
 /**
- * Specify the resolution for capturing, what needs to note is that the preferredSessionPreset is not guaranteed to be applied succesfully, the actual resolution can be accessed by the property sessionPreset.
- * The default is the same as the videoConfiguration initializing the recorder.
+ * 指定期望的采集预设分辨率，需要注意的是 preferredSessionPreset 的值不一定能够被成功应用，实际的采集预设分辨率可以通过 MSVRecorder.sessionPreset 来获取。
+ * 默认和初始化录制器使用的 videoConfiguration 一致。
  */
 @property (nonatomic, strong) AVCaptureSessionPreset preferredSessionPreset;
 
 /**
- * The current position of the camera.
- * The default is the same as the videoConfiguration initializing the recorder.
+ * 当前摄像头的位置。
+ * 默认和初始化录制器使用的 videoConfiguration 一致。
  */
 @property (nonatomic, assign, readonly) AVCaptureDevicePosition devicePosition;
 
 /**
- * Specify the Camera position for capturing, what needs to note is that the preferredDevicePosition is not guaranteed to be applied succesfully, the actual Camera position can be accessed by the property devicePosition.
- * The default is the same as the videoConfiguration initializing the recorder.
+ * 指定期望的摄像头位置，需要注意的是 preferredDevicePosition 的值不一定能够被成功应用，实际的摄像头位置可以通过 MSVRecorder.devicePosition 来获取。
+ * 默认和初始化录制器使用的 videoConfiguration 一致。
  */
 @property (nonatomic, assign) AVCaptureDevicePosition preferredDevicePosition;
 
 /**
- * The current orientation of the camera.
+ * 当前摄像头的方向。
  */
 @property (nonatomic, assign, readonly) AVCaptureVideoOrientation videoOrientation;
 
 /**
- * Specify the orientation of the camera, what needs to note is that the preferredVideoOrientation is not guaranteed to be applied succesfully, the actual Camera orientation can be accessed by the property videoOrientation.
- * The default is the same as the videoConfiguration initializing the recorder.
+ * 指定期望的摄像头方向，需要注意的是 preferredVideoOrientation 的值不一定能够被成功应用，实际的摄像头方向可以通过 MSVRecorder.videoOrientation 来获取。
+ * 默认和初始化录制器使用的 videoConfiguration 一致。
  */
 @property (nonatomic, assign) AVCaptureVideoOrientation preferredVideoOrientation;
 
 /**
- * The maximum video zoom factor that can be applied.
+ * 最大可应用的缩放比例。
  */
 @property (nonatomic, assign, readonly) CGFloat videoMaxZoomFactor;
 
 /**
- * The current video zoom factor.
+ * 当前的缩放比例。
  */
 @property (nonatomic, assign, readonly) CGFloat videoZoomFactor;
 
 /**
- * Specify the video zoom factor of the camera, what needs to note is that the preferredVideoZoomFactor is not guaranteed to be applied succesfully, the actual video zoom factor can be accessed by the property videoZoomFactor.
- * The default is the same as the videoConfiguration initializing the recorder.
+ * 指定期望的视频缩放比例，需要注意的是 preferredVideoZoomFactor 的值不一定能够被成功应用，实际的视频缩放比例可以通过 MSVRecorder.videoZoomFactor 来获取。
+ * 默认和初始化录制器使用的 videoConfiguration 一致。
  */
 @property (nonatomic, assign) CGFloat preferredVideoZoomFactor;
 
 /**
- * The current continuousAutoFocusEnable status.
- * The default is the same as the videoConfiguration initializing the recorder.
+ * 当前是否开启持续自动对焦的配置。。
+ * 默认和初始化录制器使用的 videoConfiguration 一致。
  *
- * @discussion ContinuousAutoFocus indicates that the device should automatically focus when needed.
+ * @discussion 开启持续自动对焦即设备在需要的时候自动调节对焦参考点。
  */
 @property (nonatomic, assign, readonly) BOOL continuousAutoFocusEnable;
 
 /**
- * Specify the continuousAutoFocusEnable status of the camera, what needs to note is that the preferredContinuousAutoFocusEnable is not guaranteed to be applied succesfully, the actual continuousAutoFocusEnable can be accessed by the property continuousAutoFocusEnable
- * The default is the same as the videoConfiguration initializing the recorder.
+ * 指定期望是否开启持续自动对焦，需要注意的是 preferredContinuousAutoFocusEnable 的值不一定能够被成功应用，实际是否开启持续自动对焦可以通过 MSVRecorder.continuousAutoFocusEnable 来获取。
+ * 默认和初始化录制器使用的 videoConfiguration 一致。
  */
 @property (nonatomic, assign) BOOL preferredContinuousAutoFocusEnable;
 
 /**
- * Indicates current focus point of interest of the receiver, if it has one.
+ * 指示当前的对焦参考点。
  *
- * @discussion The value of this property is a CGPoint that determines the receiver's focus point of interest, if it has one. A value of (0,0) indicates that the camera should focus on the top left corner of the image, while a value of (1,1) indicates that it should focus on the bottom right. The default value is (0.5,0.5).
+ * @discussion 此属性的值是一个决定对焦参考点的 CGPoint，(0,0) 点代表图片的左上角，(1,1)点代表图片的右下角。默认值为 (0.5,0.5)。
  */
 @property (nonatomic, assign, readonly) CGPoint focusPointOfInterest;
 
 /**
- * Specify the preferredFocusPointOfInterest status of the camera, what needs to note is that the preferredFocusPointOfInterest is not guaranteed to be applied succesfully, the actual focusPointOfInterest can be accessed by the property focusPointOfInterest
- * The default is the same as the videoConfiguration initializing the recorder..
+ * 指定期望的对焦参考点，需要注意的是 preferredFocusPointOfInterest 的值不一定能够被成功应用，实际的对焦参考点可以通过 MSVRecorder.focusPointOfInterest 来获取。
+ * 默认和初始化录制器使用的 videoConfiguration 一致。
  */
 @property (nonatomic, assign) CGPoint preferredFocusPointOfInterest;
 
 /**
- * The current continuousAutoExposureEnable status
+ * 当前的是否开启持续自动曝光状态
  *
- * @discussion Indicates that the device should automatically adjust exposure when needed
+ * @discussion 开启持续自动曝光即设备在需要的时候自动调节曝光参考点。
  */
 @property (nonatomic, assign, readonly) BOOL continuousAutoExposureEnable;
 
 /**
- * Specify the preferredContinuousAutoExposureEnable of the camera, what needs to note is that the preferredContinuousAutoExposureEnable is not guaranteed to be applied succesfully, the actual continuousAutoExposureEnable can be accessed by the property continuousAutoExposureEnable.
- * The default is the same as the videoConfiguration initializing the recorder.
+ * 指定期望是否开启持续自动曝光调节，需要注意的是 preferredContinuousAutoExposureEnable 的值不一定能够被成功应用，实际是否开启持续自动曝光调节可以通过 
+ * 默认和初始化录制器使用的 videoConfiguration 一致。
  */
 @property (nonatomic, assign) BOOL preferredContinuousAutoExposureEnable;
 
 /*!
- * Indicates current exposure point of interest of the receiver, if it has one.
+ * 指示当前的曝光参考点。
  *
- * @discussion The value of this property is a CGPoint that determines the receiver's exposure point of interest, if it has adjustable exposure. A value of (0,0) indicates that the camera should adjust exposure based on the top left corner of the image, while a value of (1,1) indicates that it should adjust exposure based on the bottom right corner. The default value is (0.5,0.5).
+ * @discussion 此属性的值是一个决定曝光参考点的 CGPoint，(0,0) 点代表图片的左上角，(1,1)点代表图片的右下角。默认值为 (0.5,0.5)。
  */
 @property (nonatomic, assign, readonly) CGPoint exposurePointOfInterest;
 
 /**
- * Specify the preferredExposurePointOfInterest of the camera, what needs to note is that the preferredExposurePointOfInterest is not guaranteed to be applied succesfully, the actual exposurePointOfInterest can be accessed by the property exposurePointOfInterest.
- * The default is the same as the videoConfiguration initializing the recorder.
+ * 指定期望的曝光参考点，需要注意的是 preferredExposurePointOfInterest 的值不一定能够被成功应用，实际的曝光参考点可以通过 MSVRecorder.exposurePointOfInterest 来获取。
+ * 默认和初始化录制器使用的 videoConfiguration 一致。
  */
 @property (nonatomic, assign) CGPoint preferredExposurePointOfInterest;
 
 /**
- * Mute sound while recording, if you want to record a movie with no sound, you can specify source property in audioConfiguration to MSVAudioSourceNone.
- * The default is the same as the audioConfiguration initializing the recorder.
+ * 录制过程中是否静音，如果你想录制整段没有音频的视频，你可以在 audioConfiguration 中指定 source 为 MSVAudioSourceNone。
+ * 默认和初始化录制器使用的 audioConfiguration 一致。
  */
 @property (nonatomic, assign) BOOL mute;
 
 /**
- * The preferred Transform used for the recorded file.
+ * 录制目标文件的转向参数。
  */
 @property (nonatomic, assign, readonly) CGAffineTransform encoderPreferredTransform;
 
 /**
- * Turn on device orientation to auto detection.
- * The default is NO.
+ * 是否开启自动检测设备方向以调整视频方向。
+ * 默认为 NO。
  */
 @property (nonatomic, assign) BOOL autoOrientationAdaption;
 
 /**
- * The current device orientation, this property will only valid if autoOrientationAdaption is YES. This property is also key-value Observable, you can observe this value use KVO.
+ * 当前设备的旋转方向，此属性当且仅当 autoOrientationAdaption 为 YES 时才有效。此属性支持 KVO。
  */
 @property (nonatomic, assign, readonly) UIDeviceOrientation currentDeviceOrientation;
 
 /**
- * The average power level for the current audio capture device in dB.
+ * 以分贝为单位的当前音频采集设备采集到的音频平均能量级别。
  */
 @property (nonatomic, readonly) float averagePowerLevel;
 
 /**
- * Initialize a MSVRecorder object.
+ * 初始化一个 MSVRecorder 对象
  *
- * @param audioConfiguration Audio configuration that introducing nil will use the default configuration.
- * @param videoConfiguration Video configuration that introducing nil will use the default configuration.
- * @param outError If an error occurs, return the error that occurred.
- *
- * @return It returns YES when the initialization is successful, otherwise, it returns NO.
+ * @param audioConfiguration 音频配置对象，传入 nil 使用默认配置。
+ * @param videoConfiguration 视频配置对象，传入 nil 使用默认配置。
+ * @param outError 如果发生错误，返回错误对象。
+ * 
+ * @return 初始化成功返回初始化后的对象，否则返回 nil。
  */
 - (instancetype _Nullable)initWithAudioConfiguration:(MSVRecorderAudioConfiguration *_Nullable)audioConfiguration videoConfiguration:(MSVRecorderVideoConfiguration *_Nullable)videoConfiguration error:(NSError *_Nullable *_Nullable)outError;
 
 /**
- * Initialize a recorder with a saved draft, from the time on the recorder created with this method, all recorded clips and background music will be added to the draft object used for initialization.
+ * @brief 使用保存的草稿初始化一个录制器，使用此方法创建的录制器后续所有录制的片段和背景音乐都将添加到初始化使用的草稿对象中。
  *
- * @param draft Initialize the used draft object.
- * @param audioConfiguration Audio configuration that introducing nil will use the default configuration.
- * @param videoConfiguration Video configuration that introducing nil will use the default configuration.
- * @param outError If an error occurs, return the error that occurred.
- *
- * @return It returns YES when the initialization is successful, otherwise, it returns NO.
+ * @param draft 初始化使用的草稿对象。
+ * @param audioConfiguration 音频配置，传入 nil 将使用默认配置。
+ * @param videoConfiguration 视频配置，传入 nil 将使用默认配置。
+ * @param outError 如果发生错误，返回发生的错误。
+ * 
+ * @return 初始化成功返回初始化后的对象，否则返回 nil。
  */
 - (instancetype _Nullable)initWithDraft:(MSVDraft *_Nullable)draft AudioConfiguration:(MSVRecorderAudioConfiguration *_Nullable)audioConfiguration videoConfiguration:(MSVRecorderVideoConfiguration *_Nullable)videoConfiguration error:(NSError *_Nullable *_Nullable)outError;
 
 /**
- * Start collecting audio and video, call this method will request the usage permission of audio and video (if the specified audio and video data source is the camera or microphone).
+ * 开始采集音视频，调用此方法将请求音视频的使用权限（如果指定音视频数据源为摄像头或麦克风的话）。
  *
- * @param completionHandler Called when operation completed。
+ * @param completionHandler 调用完成的回调。
  */
 - (void)startCapturingWithCompletion:(MSVStartCapturingCompletionHandler)completionHandler;
 
 /**
- * Stop capturing.
+ * 停止采集。
  */
 - (void)stopCapturing;
 
 /**
- * Start recording with the default configuration.
- 
+ * 使用默认配置开始录制。
  *
- * @param outError If an error occurs, return the error that occurred.
- *
- * @return It returns YES when the setting is successful, otherwise, it returns NO.
+ * @param outError 如果发生错误，返回错误对象。
+ * 
+ * @return 如果操作成功返回 YES，否则返回 NO。
  */
 - (BOOL)startRecordingWithError:(NSError *_Nullable *_Nullable)outError;
 
 /**
- * Start recording with the specified configuration, if recorder has already started, returns YES.
+ * 使用指定配置开始录制。
  *
- * @param clipConfiguration Record the used configuration, the default configuration will be used after passing nil.
- * @param outError If an error occurs, return the error that occurred.
- *
- * @return It returns YES when the setting is successful, otherwise, it returns NO.
+ * @param clipConfiguration 录制使用的配置，传入 nil 将使用默认配置
+ * @param outError 如果发生错误，返回错误对象。
+ * 
+ * @return 如果操作成功返回 YES，否则返回 NO。
  */
 - (BOOL)startRecordingWithClipConfiguration:(MSVClipConfiguration *_Nullable)clipConfiguration error:(NSError *_Nullable *_Nullable)outError;
 
 /**
- * Complete the record.
+ * 完成录制。
  *
- * @param completionHandler Called when recording has completed.
+ * @param completionHandler 停止成功的回调。
  */
 - (void)finishRecordingWithCompletionHandler:(MSVFinishRecordingWithCompletionHandler _Nullable)completionHandler;
 
 /**
- * Cancel the current recording progress.
+ * 取消当前录制。
  */
 - (void)cancelRecording;
 
 /**
- * Delete the last recorded clip.
+ * 删除上一段录制的片段。
  *
- * @param outError If an error occurs, return the error that occurred.
- *
- * @return It returns YES when the setting is successful, otherwise, it returns NO.
+ * @param outError 如果发生错误，返回错误对象。
+ * @return 如果操作成功返回 YES，否则返回 NO。
  */
 - (BOOL)discardLastClipWithError:(NSError *_Nullable *_Nullable )outError;
 
 /**
- * Delete the segment of the specified index.
+ * 删除指定索引的片段。
  *
- * @param index The index of the segment that needs to be deleted.
- * @param outError If an error occurs, return the error that occurred.
- *
- * @return It returns YES when the setting is successful, otherwise, it returns NO.
+ * @param index 需要删除的片段的索引。
+ * @param outError 如果发生错误，返回错误对象。
+ * 
+ * @return 如果操作成功返回 YES，否则返回 NO。
  */
 - (BOOL)discardClipAtIndex:(NSUInteger)index error:(NSError *_Nullable *_Nullable)outError;
 
 /**
- * Delete all recorded clips.
+ * 删除所有录制的片段。
  *
- * @param outError If an error occurs, return the error that occurred.
- *
- * @return It returns YES when the setting is successful, otherwise, it returns NO.
+ * @param outError 如果发生错误，返回错误对象。
+ * 
+ * @return 如果操作成功返回 YES，否则返回 NO。
  */
 - (BOOL)discardAllClipsWithError:(NSError *_Nullable *_Nullable)outError;
 
 /**
- * Switch camera.
+ * 切换摄像头。
  */
 - (void)switchCamera;
 
 /**
- * Background audio configuration object.
+ * 背景音效配置对象。
  */
 @property(nonatomic, strong, readonly, nullable) MSVRecorderBackgroundAudioConfiguration *backgroundAudioConfiguration;
 
 /**
- * The background music can be set or canceled only after the recording has not started or all the recorded clips have been deleted, the background music information after set will be reflected in the draft.mixTrackClips and will not be encoded into the generated recording file directly,  so that the background music can be replaced at any time during the editing phase.
+ * 只有在未开始录制或者已经删除所有已录制的片段之后才能设置或取消背景音乐，设置的背景音乐信息会体现在 draft.mixTrackClips 中而不会直接编码到生成的录制文件当中，以便在编辑阶段可以随时替换背景音乐。
  *
- * @param configuration The background audio configuration object after nil passed will clear the background audio.
- * @param outError If an error occurs, return the error that occurred.
- *
- * @return It returns YES when the setting is successful, otherwise, it returns NO.
+ * @param configuration 背景音效配置对象，传入 nil 清空背景音效。
+ * @param outError 如果发生错误，返回错误对象。
+ * 
+ * @return 如果操作成功返回 YES，否则返回 NO。
  */
 - (BOOL)setBackgroundAudioWithConfiguration:(MSVRecorderBackgroundAudioConfiguration *_Nullable)configuration error:(NSError *_Nullable *_Nullable)outError;
 
 /**
- * The interface of externally write the video data, please ensure the configuration if this interface will be used.  videoConfiguration.source = MSVVideoSourceExtern.
+ * 外部写入视频数据接口，使用该接口导入视频数据请保证配置 videoConfiguration.source = MSVVideoSourceExtern。
  *
- * @param videoData Video data to be written.
- * @param presentationTime The presentationTime of the video data.
- * @param outError If an error occurs, return the error that occurred.
- *
- * @return It returns YES when the setting is successful, otherwise, it returns NO.
+ * @param videoData 待写入的视频数据。
+ * @param presentationTime 视频数据的显示时间戳。
+ * @param outError 如果发生错误，返回错误对象。
+ * 
+ * @return 如果操作成功返回 YES，否则返回 NO。
  */
 - (BOOL)writeVideoData:(CVPixelBufferRef)videoData presentationTime:(CMTime)presentationTime error:(NSError *_Nullable *_Nullable)outError;
 
 /**
- * The interface of externally write the video data, please ensure the configuration if this interface will be used.  videoConfiguration.source = MSVVideoSourceExtern.
+ * 外部写入视频数据接口，使用该接口导入视频数据请保证配置 videoConfiguration.source = MSVVideoSourceExtern。
  *
- * @param videoData Video data to be written.
- * @param outError If an error occurs, return the error that occurred.
- *
- * @return It returns YES when the setting is successful, otherwise, it returns NO.
+ * @param videoData 待写入的视频数据。
+ * @param outError 如果发生错误，返回错误对象。
+ * 
+ * @return 如果操作成功返回 YES，否则返回 NO。
  */
 - (BOOL)writeVideoData:(CMSampleBufferRef)videoData error:(NSError *_Nullable *_Nullable)outError;
 
 /**
- * The interface of externally write the video data, please ensure the configuration if this interface will be used. audioConfiguration.source = MSVAudioSourceExtern.
+ * 外部写入音频数据接口，使用该接口导入视频数据请保证配置 audioConfiguration.source = MSVAudioSourceExtern。
  *
- * @param audioData Audio data to be written.
- * @param outError If an error occurs, return the error that occurred.
- *
- * @return It returns YES when the setting is successful, otherwise, it returns NO.
+ * @param audioData 待写入的视频数据。
+ * @param outError 如果发生错误，返回错误对象。
+ * 
+ * @return 如果操作成功返回 YES，否则返回 NO。
  */
 - (BOOL)writeAudioData:(CMSampleBufferRef)audioData error:(NSError *_Nullable *_Nullable)outError;
 
 /**
- * Obtain a screenshot.
- *
- * @param completionHandler Called when capture completes.
+ * 获取视频快照。
+ * 
+ * @param completionHandler 获取快照完成回调。
  */
 - (void)snapshotWithCompletion:(MovieousSnapshotCompletionHandler)completionHandler;
 

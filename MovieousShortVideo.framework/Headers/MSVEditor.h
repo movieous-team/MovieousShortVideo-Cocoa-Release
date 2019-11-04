@@ -9,96 +9,106 @@
 #import <UIKit/UIKit.h>
 #import "MSVDraft.h"
 #import "MSVClip.h"
+#import "MSVGraffitiManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * Notify the current play time of the editor has updated.
+ * 通知编辑器的当前播放时间已更新，userInfo 的 kMSVEditorCurrentTimeKey 中将携带当前的时间值。
  */
 extern NSString *kMSVEditorCurrentTimeUpdatedNotification;
 
 /**
- * The current time key of kMSVEditorCurrentTimeUpdatedNotification.
+ * 获取当前时间值的 key
  */
 extern NSString *kMSVEditorCurrentTimeKey;
 
 @class MSVEditor;
 /**
- * Delegate protocol used to receive callback from editor.
+ * 编辑器的代理对象，接受编辑器事件回调。
  */
 @protocol MSVEditorDelegate <NSObject>
 
 @optional
 /**
- * Notify the delegate that current play time has updated.
+ * 当前播放时间已更新的回调。
  *
- * @param editor The editor that send the event.
- * @param currentTime The current play time of the editor.
+ * @param editor 事件发送者。
+ * @param currentTime 编辑器当前播放时间。
  */
 - (void)editor:(MSVEditor *)editor currentTimeDidUpdate:(NSTimeInterval)currentTime;
 
 /**
- * Notify the delegate that current play state has changed.
+ * 当前播放状态已改变的回调。
  *
- * @param editor The editor that send the event.
- * @param playing The current play state of the editor.
+ * @param editor 事件发送者。
+ * @param playing 当前是否正在播放的状态。
  */
 - (void)editor:(MSVEditor *)editor playStateChanged:(BOOL)playing;
 
 @end
 
 /**
- * Editor used to preview draft.
+ * 编辑器对象。
  */
 @interface MSVEditor : NSObject
 
+@property (nonatomic, strong, readonly) MSVGraffitiManager *graffitiManager;
+
 /**
- * Please operate the underlying, draft object and related edits through the draft object.
+ * 底层草稿对象，相关编辑请通过该草稿对象进行操作。
  */
 @property (nonatomic, strong, readonly) MSVDraft *draft;
 
 /**
- * Edit preview view.
+ * 编辑预览视图。
  */
 @property (nonatomic, strong, readonly) UIView *preview;
 
 /**
- * The area where the video content is displayed in the preview.
+ * 视频内容在 preview 中展示的区域。
  */
 @property (nonatomic, assign, readonly) CGRect contentFrame;
 
 /**
- * The fill mode of preview view, the default is MovieousScalingModeAspectFit.
+ * 展示在画面.
+ */
+@property (nonatomic, assign, readonly) CGRect displayingRect;
+
+/**
+ * 预览视图的填充模式。
+ * 默认为 MovieousScalingModeAspectFit。
  */
 @property (nonatomic, assign) MovieousScalingMode previewScalingMode;
 
 /**
- * Current playback progress.
+ * 当前播放进度。
  */
 @property (nonatomic, assign, readonly) NSTimeInterval currentTime;
 
 /**
- * Whether it currently playback.
+ * 当前是否正在播放。
  */
 @property (nonatomic, assign, readonly) BOOL playing;
 
 /**
- * Whether to loop.
+ *是否循环播放。
  */
 @property (nonatomic, assign) BOOL loop;
 
 /**
- * Volume of the editor's preview player.
+ * 编辑器的预览播放器音量。
  */
 @property (nonatomic, assign) float volume;
 
 /**
- * Editor delegate object.
+ * 编辑器代理对象。
  */
 @property (nonatomic, weak) id<MSVEditorDelegate> delegate;
 
 /**
- * The queue callback made by the delegate method, the default is the main queue.
+ * 代理方法回调的队列。
+ * 默认为主队列。
  */
 @property (nonatomic, strong, null_resettable) dispatch_queue_t delegateQueue;
 
@@ -106,50 +116,50 @@ extern NSString *kMSVEditorCurrentTimeKey;
 + (instancetype)new UNAVAILABLE_ATTRIBUTE;
 
 /**
- * Initialize an MSVEditor object with a draft object.
- *
- * @param draft Draft object.
- * @param outError If an error occurs, return the error that occurred.
- *
- * @return It returns the draft object if the initialization is successful, returns nil if it fails.
+ * 使用一个草稿对象创建一个 MSVEditor 对象。
+ * 
+ * @param draft 草稿对象。
+ * @param outError 如果发生错误，返回发生的错误。
+ * 
+ * @return 创建成功则返回草稿对象，失败返回 nil。
  */
 + (instancetype _Nullable)editorWithDraft:(MSVDraft *_Nullable)draft error:(NSError *_Nullable *_Nullable)outError;
 
 /**
- * Initialize an MSVEditor object with a draft object.
- *
- * @param draft Draft object.
- * @param outError If an error occurs, return the error that occurred.
- *
- * @return It returns the draft object if the initialization is successful, returns nil if it fails.
+ * 使用一个草稿对象初始化一个 MSVEditor 对象。
+ * 
+ * @param draft 草稿对象。
+ * @param outError 如果发生错误，返回发生的错误。
+ * 
+ * @return 初始化成功则返回草稿对象，失败返回 nil。
  */
 - (instancetype _Nullable)initWithDraft:(MSVDraft *_Nullable)draft error:(NSError *_Nullable *_Nullable)outError NS_DESIGNATED_INITIALIZER;
 
 /**
- * Update the underlying MSVDraft object.
+ * 更新底层 MSVDraft 对象。
  *
- * @param draft Draft object.
- * @param outError If an error occurs, return the error that occurred.
+ * @param draft 新的 MSVDraft 对象。
+ * @param outError 如果发生错误，返回错误对象。
  *
- * @return It returns YES if the update is successful, returns NO if it fails.
+ * @return 如果操作成功返回 YES，否则返回 NO。
  */
 - (BOOL)updateDraft:(MSVDraft *)draft error:(NSError **)outError;
 
 /**
- * Start previewing.
+ * 开始预览草稿。
  */
 - (void)play;
 
 /**
- * Pause previewing.
+ * 暂停预览草稿。
  */
 - (void)pause;
 
 /**
- * The player fast forwards to the appropriate position.
+ * 快进到对应时间点。
  *
- * @param time Target position.
- * @param accurate Is this a accurate seeking, accurate seeking will take more time.
+ * @param time 目标时间点。
+ * @param accurate 是否是精确的快进，精确的快进将消耗更多的时间。
  */
 - (void)seekToTime:(NSTimeInterval)time accurate:(BOOL)accurate;
 

@@ -13,133 +13,125 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * Exporter class.
+ * 导出器对象。
  */
 @interface MSVExporter : NSObject
 
 /**
- * Draft object.
+ * 草稿对象。
  */
 @property (nonatomic, strong, nullable) MSVDraft *draft;
 
 /**
- * Whether the export task is running.
+ * 是否在导出时将视频部分倒放。
+ */
+@property (nonatomic, assign) BOOL reverseVideo;
+
+/**
+ * 导出任务是否正在运行.
  */
 @property (nonatomic, assign, readonly) BOOL running;
 
 /**
- * The file type of the video export.
- * The default is MSVFileTypeMPEG4(.mp4).
+ * 视频导出的文件类型。
+ * 默认为 MSVFileTypeMPEG4(.mp4)。
  */
 @property (assign, nonatomic) MSVFileType outputFileType;
 
 /**
- * The path of the video export only supports the local file address.
- * The default is the automatically generated address.
+ * 视频导出的路径，只支持本地文件地址。
+ * 默认为自动生成的地址。
  */
-@property (strong, nonatomic, nullable) NSURL *outputURL;
+@property (strong, nonatomic, nullable) NSString *outputPath;
 
 /**
- * Whether to export the video to the album at the same time.
- * The default is NO.
+ * 是否同时将视频导出到相册。
+ * 默认为 NO。
  */
 @property (assign, nonatomic) BOOL saveToPhotosAlbum;
 
 /**
- * The bitrate of the output video.
- * The default is the automatically generated bitrate by encoder.
- * not valid for MSVFileTypeAppleM4A
+ * 视频的码率。
+ * 默认为原视频的码率，对 MSVFileTypeAppleM4A 类型导出对象无效。
  */
-@property (assign, nonatomic) NSUInteger videoBitrate;
+@property (nonatomic, assign) NSUInteger videoBitrate;
 
 /**
-@abstract
-    The maximum interval between key frames, also known as the key frame rate.
-@discussion
-    Key frames, also known as sync frames, reset inter-frame
-    dependencies; decoding a key frame is sufficient to prepare a
-    decoder for correctly decoding the difference frames that
-    follow.
-    Video encoders are allowed to generate key frames more frequently if
-    this would result in more efficient compression.
-    The default key frame interval is 0, which indicates that the
-    video encoder should choose where to place all key frames. A key
-    frame interval of 1 indicates that every frame must be a key
-    frame, 2 indicates that at least every other frame must be a key
-    frame, etc.
+ * 视频的最大关键帧间距，也就是最大的 GOP(Group Of Pictures) 大小，以帧为单位，该值为 0 代表编码器自主选择如何插入关键帧，该值为 1 代表视频所有帧都为关键帧。
+ * 默认为 0。
  */
 @property (nonatomic, assign) NSUInteger maxKeyFrameInterval;
 
 /**
- * The number of channels of the exported video.
- * The default is the number of channels used by original audio.
+ * 导出视频的声道数量。
+ * 默认使用原音频的声道数量。
  */
 @property (nonatomic, assign) UInt32 numberOfChannels;
 
 /**
- * The audio sample rate of the video that exported.
- * The default is the original audio sample rate.
+ * 导出的视频中音频的采样率。
+ * 默认采样率是音频的原始采样率。
  */
 @property (nonatomic, assign) Float64 sampleRate;
 
 /**
- * The audio bitrate of the video that exported.
- * The default is the original video's bitrate.
+ * 导出视频的音频采样率。
+ * 默认使用原音频的采样率。
  */
 @property (nonatomic, assign) Float64 audioBitRate;
 
 /**
- * Whether set up the transmission in the network environment.
- * The default is YES.
+ * 导出视频的音频码率。
+ * 默认使用原视频的码率。
  */
 @property (assign, nonatomic) BOOL shouldOptimizeForNetworkUse;
 
 /**
- * Export progress callback.
+ * Export 导出进度回调。
  */
 @property (nonatomic, copy, nullable) void(^progressHandler)(float progress);
 
 /**
- * Export failure callback.
+ * Export 导出失败回调。
  */
 @property (nonatomic, copy, nullable) void(^failureHandler)(NSError *error);
 
 /**
- * Export successful callback.
+ * Export 导出成功回调。
  */
-@property (nonatomic, copy, nullable) void(^completionHandler)(NSURL *URL);
+@property (nonatomic, copy, nullable) void(^completionHandler)(NSString *path);
 
 /**
- * Init and new are both not available, use other initialization method instead.
+ * `-Init` 和 `-new` 方法都不可用，请使用其他方法来初始化
  */
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
 
 /**
- * Initialize an exporter objects with initialization draft.
+ * 使用 draft 初始化导出对象。
  *
- * @param draft Draft object that needs to be exported.
+ * @param draft 需要导出的草稿对象。
  *
- * @return It returns the initialized object if the initial succeeded, otherwise returns nil.
+ * @return 如果初始化成功返回初始化后的对象，否则返回 nil。
  */
-- (instancetype _Nullable)initWithDraft:(MSVDraft *_Nullable)draft;
+- (instancetype)initWithDraft:(MSVDraft *_Nullable)draft;
 
 /**
- * Create an exporter objects with initialization draft.
+ * 使用 draft 创建导出对象。
+ * 
+ * @param draft 需要导出的草稿对象。
  *
- * @param draft Draft object that needs to be exported.
- *
- * @return It returns the initialized object if the initial succeeded, otherwise returns nil.
+ * @return 如果创建成功返回初始化后的对象，否则返回 nil。
  */
-+ (instancetype _Nullable)exporterWithDraft:(MSVDraft *_Nullable)draft;
++ (instancetype)exporterWithDraft:(MSVDraft *_Nullable)draft;
 
 /**
- * Start exporting tasks.
+ * 开始导出任务。
  */
 - (void)startExport;
 
 /**
- * Cancel the export task.
+ * 取消导出任务。
  */
 - (void)cancelExport;
 

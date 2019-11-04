@@ -10,12 +10,12 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "MSVTypeDefines.h"
-#import <MovieousBase/MovieousBase.h>
+#import <MovieousCaptureBase/MovieousCaptureBase.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * Video configuration class
+ * 录制视频配置对象
  */
 @interface MSVRecorderVideoConfiguration : NSObject
 <
@@ -23,184 +23,176 @@ MovieousCameraConfiguration
 >
 
 /**
- * Video input source.
- * The default is MSVVideoSourceCamera.
+ * 视频输入源类型。
+ * 默认为 MSVVideoSourceCamera。
  */
 @property (nonatomic, assign) MSVVideoSource source;
 
 #pragma mark - camera configurations
 /**
- * Video resolution when encoding.
- * The default is (1280, 720).
+ * Video 编码时的视频分辨率。
+ * 默认 (1280, 720)。
  *
- * @discussion It should be noted that this parameter affects the resolution of the video encoding, rather than the preview size of the data captured by the camera. When the image size passed to the encoder is different from this size, it will be generated in the same way The video ensures that the image does not appear to be compressed (but the cropping phenomenon occurs when the ratio of the encoded video is different from the ratio of the captured video).
+ * @discussion 需要注意的是，这个参数影响的是视频编码时的分辨率，而非摄像头采集到数据的预览大小，传递给编码器的图像尺寸与此尺寸不同时，会按照保持比例并填充的方式生成最终的视频，从而确保图像不会出现压缩的现象（但编码视频的比例与采集视频的比例不同时会出现裁剪的现象）。
  */
 @property (nonatomic, assign) CGSize size;
 
 /**
- * Effects applied to recorder.
+ * 采集时应用的特效组。
  */
 @property (nonatomic, strong) NSArray<id<MovieousCaptureEffect>> *captureEffects;
 
 /**
- * The scaling mode you want to use if the aspect ratio of cameraResolution and size are not equal.
- * The default is MovieousScalingModeAspectFill.
+ * 当 size（编码时的视频分辨率） 和 preview 的尺寸比例不一致时使用的填充模式。
+ * 默认为 MovieousScalingModeAspectFill。
  */
 @property (nonatomic, assign) MovieousScalingMode previewScalingMode;
 
 /*!
- * Turn mirrorFrontPreview means preview for front camera will be mirrored.
- * The default is YES.
+ * 是否对前置摄像头预览进行镜像处理。
+ * 默认为 YES。
  */
 @property (nonatomic, assign) BOOL mirrorFrontPreview;
 
 /*!
- * Turn mirrorBackPreview means preview for back camera will be mirrored.
- * The default is NO.
+ * 是否对后置摄像头预览进行镜像处理。
+ * 默认为 NO。
  */
 @property (nonatomic, assign) BOOL mirrorBackPreview;
 
 /*!
- * Turn mirrorFrontStream means stream broadcasted for front camera will be mirrored.
- * The default is NO.
+ * 是否对前置摄像头编码的视频进行镜像处理。
+ * 默认为 NO。
  */
 @property (nonatomic, assign) BOOL mirrorFrontEncoded;
 
 /*!
- * Turn mirrorBackStream means stream broadcasted for back camera will be mirrored
- * The default is NO.
+ * 是否对后置摄像头编码的视频进行镜像处理。
+ * 默认为 NO。
  */
 @property (nonatomic, assign) BOOL mirrorBackEncoded;
 
 /**
- * Whether to blur picture while switching camera position.
- * The default is NO.
+ * 切换摄像头时是否进行模糊化过渡
+ * 默认为 NO。
  */
 @property (nonatomic, assign) BOOL blurSwitch;
 
 /**
- * Whether to enable touch to focus and exposure the specified point in the preview.
- * The default is YES.
+ * 当点击预览视图上的指定点时采取什么操作。
+ * 默认为 MovieousRecorderTapPreviewActionFocus | MovieousRecorderTapPreviewActionExposure | MovieousRecorderTapPreviewActionShowIndicator.
  */
-@property (nonatomic, assign) BOOL touchToFocusExposureEnabled;
+@property (nonatomic, assign) MovieousRecorderTapPreviewAction tapPreviewAction;
 
 /**
- * Whether to open the internal focus view.
- * The default is NO.
- */
-@property (nonatomic, assign) BOOL innerFocusViewEnabled;
-
-/**
- * Specify the preferred torch mode to use on camera, what needs to note is that the preferredTorchMode is not guaranteed to be applied succesfully, the actual torch mode can be accessed by the property torchMode.
- * The default is AVCaptureTorchModeAuto
+ * 指定期望的摄像头手电筒模式，需要注意的是 preferredTorchMode 的值不一定能够被成功应用，实际的手电筒模式可以通过 MSVRecorder.torchMode 来获取。
+ *
+ * 默认为 AVCaptureTorchModeAuto
  */
 @property (nonatomic, assign) AVCaptureTorchMode preferredTorchMode;
 
 /**
- * Specify the preferred flash mode to use on camera, what needs to note is that the preferredFlashMode is not guaranteed to be applied succesfully, the actual flash mode can be accessed by the property flashMode.
- * The default is AVCaptureFlashModeAuto
+ * 指定期望的摄像头闪光灯模式，需要注意的是 preferredFlashMode 的值不一定能够被成功应用，实际的闪光灯模式可以通过 MSVRecorder.flashMode 来获取。
+ * 默认为 AVCaptureFlashModeAuto。
  */
 @property (nonatomic, assign) AVCaptureFlashMode preferredFlashMode;
 
 /**
- * Specify the preferred minimum frames per second on camera, what needs to note is that the preferredMinFrameRate is not guaranteed to be applied succesfully, the actual minimum frames per second can be accessed by the property minFrameRate.
- * The default is 24.
+ * 指定期望的最小采集帧率，需要注意的是 preferredMinFrameRate 的值不一定能够被成功应用，实际的最小采集帧率可以通过 MSVRecorder.minFrameRate 来获取。
+ * 默认为 24。
  */
 @property (nonatomic, assign) Float64 preferredMinFrameRate;
 
 /**
- * Specify the preferred maximum frames per second on camera, what needs to note is that the preferredMaxFrameRate is not guaranteed to be applied succesfully, the actual maximum frames per second can be accessed by the property maxFrameRate.
- * The default is 30.
+ * 指定期望的最大采集帧率，需要注意的是 preferredMaxFrameRate 的值不一定能够被成功应用，实际的最大采集帧率可以通过 MSVRecorder.maxFrameRate 来获取。
+ * 默认为 30。
  */
 @property (nonatomic, assign) Float64 preferredMaxFrameRate;
 
 /**
- * Specify the resolution for capturing, what needs to note is that the preferredSessionPreset is not guaranteed to be applied succesfully, the actual resolution can be accessed by the property sessionPreset.
- * The default is AVCaptureSessionPresetHigh.
+ * 指定期望的采集预设分辨率，需要注意的是 preferredSessionPreset 的值不一定能够被成功应用，实际的采集预设分辨率可以通过 MSVRecorder.sessionPreset 来获取。
+ * 默认为 AVCaptureSessionPresetHigh。
  */
 @property (nonatomic, strong) AVCaptureSessionPreset preferredSessionPreset;
 
 /**
- * Specify the Camera position for capturing, what needs to note is that the preferredDevicePosition is not guaranteed to be applied succesfully, the actual Camera position can be accessed by the property devicePosition.
- * The default is AVCaptureDevicePositionFront.
+ * 指定期望的摄像头位置，需要注意的是 preferredDevicePosition 的值不一定能够被成功应用，实际的摄像头位置可以通过 MSVRecorder.devicePosition 来获取。
+ * 默认为 AVCaptureDevicePositionFront。
  */
 @property (nonatomic, assign) AVCaptureDevicePosition preferredDevicePosition;
 
 /**
- * Specify the orientation of the camera, what needs to note is that the preferredVideoOrientation is not guaranteed to be applied succesfully, the actual Camera orientation can be accessed by the property videoOrientation.
- * The default is AVCaptureVideoOrientationPortrait.
+ * 指定期望的摄像头方向，需要注意的是 preferredVideoOrientation 的值不一定能够被成功应用，实际的摄像头方向可以通过 MSVRecorder.videoOrientation 来获取。
+ * 默认为 AVCaptureVideoOrientationPortrait。
  */
 @property (nonatomic, assign) AVCaptureVideoOrientation preferredVideoOrientation;
 
 /**
- * Specify the video zoom factor of the camera, what needs to note is that the preferredVideoZoomFactor is not guaranteed to be applied succesfully, the actual video zoom factor can be accessed by the property videoZoomFactor.
- * The default is 1.
+ * 指定期望的视频缩放比例，需要注意的是 preferredVideoZoomFactor 的值不一定能够被成功应用，实际的视频缩放比例可以通过 MSVRecorder.videoZoomFactor 来获取。
+ * 默认为 1。
  */
 @property (nonatomic, assign) CGFloat preferredVideoZoomFactor;
 
 /**
- * Specify the continuousAutoFocusEnable status of the camera, what needs to note is that the preferredContinuousAutoFocusEnable is not guaranteed to be applied succesfully, the actual continuousAutoFocusEnable can be accessed by the property continuousAutoFocusEnable.
- * The default is YES.
+ * 指定期望是否开启持续自动对焦，需要注意的是 preferredContinuousAutoFocusEnable 的值不一定能够被成功应用，实际是否开启持续自动对焦可以通过 MSVRecorder.continuousAutoFocusEnable 来获取。
+ * 默认为 YES。
  */
 @property (nonatomic, assign) BOOL preferredContinuousAutoFocusEnable;
 
 /**
- * Specify the preferredFocusPointOfInterest status of the camera, what needs to note is that the preferredFocusPointOfInterest is not guaranteed to be applied succesfully, the actual focusPointOfInterest can be accessed by the property focusPointOfInterest.
- * The default is CGPointMake(0.5, 0.5).
+ * 指定期望的对焦参考点，需要注意的是 preferredFocusPointOfInterest 的值不一定能够被成功应用，实际的对焦参考点可以通过 MSVRecorder.focusPointOfInterest 来获取。
+ * 默认为 CGPointMake(0。5, 0。5)。
  */
 @property (nonatomic, assign) CGPoint preferredFocusPointOfInterest;
 
 /**
- * Specify the preferredContinuousAutoExposureEnable of the camera, what needs to note is that the preferredContinuousAutoExposureEnable is not guaranteed to be applied succesfully, the actual continuousAutoExposureEnable can be accessed by the property continuousAutoExposureEnable.
- * The default is YES.
+ * 指定期望是否开启持续自动曝光调节，需要注意的是 preferredContinuousAutoExposureEnable 的值不一定能够被成功应用，实际是否开启持续自动曝光调节可以通过 MSVRecorder.continuousAutoExposureEnable 来获取。
+ * 默认为 YES。
  */
 @property (nonatomic, assign) BOOL preferredContinuousAutoExposureEnable;
 
 /**
- * Specify the preferredExposurePointOfInterest of the camera, what needs to note is that the preferredExposurePointOfInterest is not guaranteed to be applied succesfully, the actual exposurePointOfInterest can be accessed by the property exposurePointOfInterest.
- * The default is CGPointMake(0.5, 0.5).
+ * 指定期望的曝光参考点，需要注意的是 preferredExposurePointOfInterest 的值不一定能够被成功应用，实际的曝光参考点可以通过 MSVRecorder.exposurePointOfInterest 来获取。
+ * 默认为 CGPointMake(0.5, 0.5)。
  */
 @property (nonatomic, assign) CGPoint preferredExposurePointOfInterest;
 
 #pragma mark - encoder configurations
 /**
- * Average video encoding rate.
- * The default is 1024 * 1024(1 mbps).
- *
- * @discussion unit is bps(Bits per Second). The parameters of the video encoding are not constant values in the actual process, so the average video encoding rate can be set only.
+ * 平均视频编码码率。默认为 1024*1000
+ * 
+ * @discussion 单位为 bps(Bits per Second)。该参数的视频编码实际过程中，并不是恒定的数值，所以只能设定平均视频编码码率。
  */
 @property (nonatomic, assign) NSUInteger averageVideoBitRate;
 
 /**
- * The Maximum Interval of video encoding Keyframe. (GOP).
- * The default is 0 which means that the encoder decide what videoMaxKeyframeInterval to use.
- *
- * @discussion During h.264 encoding, The maximum number of frames between two keyframes typically is twice or three times than the fps.
+ * 视频编码关键帧最大间隔（GOP）。
+ * 
+ * @discussion h.264 编码时，两个关键帧之间间隔的最多的帧数，一般为 fps 的两倍或者三倍。默认为 2*fps
  */
 @property (nonatomic, assign) NSUInteger videoMaxKeyframeInterval;
 
 /**
- * During H.264 encoding, the Profile Level will be used.
- * The default is AVVideoProfileLevelH264HighAutoLevel.
- *
- * @discussion By default, AVVideoProfileLevelH264HighAutoLevel is used, if you have additional requirements for video encoding, you can change it yourself if understanding that the impacts  from this parameter.
- *
- * @warning When you are not sure about the impact of this parameter change on resolution requirements, code rate, etc., please do not change it.
+ * H.264 编码时使用的 Profile Level。
+ * 
+ * @discussion 默认情况下使用 AVVideoProfileLevelH264HighAutoLevel，如果对于视频编码有额外的需求并且知晓该参数带来的影响可以自行更改。
+ * 
+ * @warning 当你不清楚该参数更改对分辨率要求，码率等影响时，请不要随意更改。
  */
 @property (nonatomic, copy) NSString *videoProfileLevel;
 
 /**
- * Enables or disables frame reordering.
- * The default is NO.
+ * 是否允许帧重排序
+ * 默认为 NO.
  *
- * @discussion In order to achieve the best compression while maintaining image quality, some video encoders can reorder frames.  This means that the order in which the frames will be emitted and stored (the decode order) will be different from the order in which they are presented to the video encoder (the display order). Encoding using frame reordering requires more system resources than encoding without frame reordering, so encoding performance should be taken into account when deciding whether to enable frame reordering.  This is especially important when encoding video data from a real-time source, such as AVCaptureVideoDataOutput.  In this situation, using a value of NO may yield the best results.
+ * @discussion 当允许帧排序时会生成 B 帧，否则不会生成 B 帧。
 */
 @property (nonatomic, assign) BOOL allowFrameReordering;
 
 /**
- * Create a default configuration of the MSVVideoConfiguration instance.
- *
- * @return The created default MSVVideoConfiguration object
+ * 创建一个默认配置的 MSVVideoConfiguration 实例。
+ * 
+ * @return 创建的默认 MSVVideoConfiguration 对象。
  */
 + (instancetype)defaultConfiguration;
 

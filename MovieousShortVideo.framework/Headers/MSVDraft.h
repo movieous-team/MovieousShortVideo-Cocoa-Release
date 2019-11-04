@@ -7,243 +7,167 @@
 //
 
 #import <AVFoundation/AVFoundation.h>
+#import <MovieousBase/MovieousBase.h>
 #import "MSVTypeDefines.h"
 #import "MSVMainTrackClip.h"
 #import "MSVClip.h"
 #import "MSVLUTFilterEditorEffect.h"
-#import "MSVBasicEditorEffect.h"
-#import "MSVTimeEditorEffect.h"
+#import "MSVEditorEffect.h"
 #import "MSVMixTrackClip.h"
-#import "MSVImageGenerator.h"
+#import "MSVSnapshotGenerator.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * Video drafts, callers can generate drafts themselves or edit them arbitrarily with drafts，Then use MSVEditor to generate a preview of the draft in real time, or you can use MSVExporter to export the draft.
+ * 视频草稿，调用者可以自行生成草稿或直接草稿进行任意编辑，然后使用 MSVEditor 实时生成草稿的预览，也可以使用 MSVExporter 对草稿进行导出
  */
-@interface MSVDraft : NSObject
+@interface MSVDraft : MovieousObject
 <
 NSCopying
 >
 
 /**
- * Initialize a draft using the audio and video file address, and the initial draft will contain an address that the MSVMainTrackClip points to.
+ * 使用音视频文件地址来初始化一份草稿，初始化后的草稿将包含一个 MSVMainTrackClip 指向该文件的地址。
  *
- * @param URL Audio and video file address.
- * @param outError If an error occurs, return the error that occurred.
+ * @param path 音视频文件的地址。
+ * @param outError 如果发生错误，返回发生的错误。
  *
- * @return Initialized successful draft object
+ * @return 初始化成功的草稿对象。
  */
-+ (instancetype)draftWithAVURL:(NSURL *)URL error:(NSError **)outError;
++ (instancetype _Nullable)draftWithAVPath:(NSString *)path error:(NSError *_Nullable *_Nullable)outError;
 
 /**
- * Create a draft object in using the image file address, and the initial draft will contain an address that the MSVMainTrackClip points to.
+ * 使用图片文件地址来创建一个草稿对象，初始化后的草稿将包含一个 MSVMainTrackClip 指向该文件的地址。
  *
- * @param URL Image file address.
- * @param outError If an error occurs, return the error that occurred.
+ * @param path 图片文件的地址。
+ * @param outError 如果发生错误，返回发生的错误。
  *
- * @return If the creation is successful, the draft object is returned, otherwise returns nil
+ * @return 创建成功则返回草稿对象，失败返回 nil。
  */
-+ (instancetype)draftWithImageURL:(NSURL *)URL error:(NSError **)outError;
++ (instancetype _Nullable)draftWithImagePath:(NSString *)path error:(NSError *_Nullable *_Nullable)outError;
 
 /**
- * Initialize the draft object.
+ * 初始化草稿对象。
  *
- * @param mainTrackClipType The Main track segment type.
- * @param URL The Main track segment address.
- * @param outError If an error occurs, return the error that occurred.
+ * @param mainTrackClipType 主轨道片段类型。
+ * @param path 主轨道片段的地址。
+ * @param outError 如果发生错误，返回发生的错误。
  *
- * @return If the initialization is successful, the draft object is returned, otherwise returns nil.
+ * @return 初始化成功则返回草稿对象，失败返回 nil。
  */
-- (instancetype)initWithMainTrackClipType:(MSVClipType)mainTrackClipType URL:(NSURL *)URL error:(NSError **)outError;
+- (instancetype _Nullable)initWithMainTrackClipType:(MSVClipType)mainTrackClipType path:(NSString *)path error:(NSError *_Nullable *_Nullable)outError;
 
 /**
- * Indicate the background color for video display, if video has not cover the whole space whose size is assigned by the videoSize property.
+ * 视频容器的背景颜色。
  */
 @property (nonatomic, strong, readonly) UIColor *backgroundColor;
 
 /**
- * Update the background color for video display.
+ * 更新视频容器的背景颜色。
  *
- * @param backgroundColor The new background color.
- * @param outError If an error occurs, return the error that occurred.
+ * @param backgroundColor 新背景颜色。
+ * @param outError 如果发生错误，返回错误对象。
  *
- * @return If operation succeeded, return YES, otherwise, return NO.
+ * @return 如果操作成功返回 YES，否则返回 NO。
  */
-- (BOOL)updateBackgroundColor:(UIColor *)backgroundColor error:(NSError **)outError;
+- (BOOL)updateBackgroundColor:(UIColor *)backgroundColor error:(NSError *_Nullable *_Nullable)outError NS_SWIFT_NAME(update(backgroundColor:));
 
 /**
- * The main track clip array, the main track clip is arranged in the order of the duration specified by its durationAtMainTrack to form the main track of the video, and the length of the draft is determined by the length of the main track.
+ * @brief 主轨道片段数组，主轨道片段按照其 durationAtMainTrack 所指定的时长顺序排列组成视频的主轨道，草稿的长度由主轨道时长决定
  */
 @property (nonatomic, strong, readonly) NSArray<MSVMainTrackClip *> *mainTrackClips;
 
 /**
- * Update the main track clip set. Non-Readonly parameters can be adjusted directly in related objects. Other operations (add, delete, replace, etc.) need to be refreshed using this interface.
+ * 更新主轨片段集，非 readonly 的参数可以直接在相关对象中调整，其他操作（增、删、替换等）需要使用该接口进行刷新。
  *
- * @param mainTrackClips The new main track clip set.
- * @param outError If an error occurs, return the error that occurred.
+ * @param mainTrackClips 新的主轨片段集。
+ * @param outError 如果发生错误，返回发生的错误。
  *
- * @return Valid operation returns YES, invalid operation returns NO.
+ * @return 如果操作成功返回 YES，否则返回 NO。
  */
-- (BOOL)updateMainTrackClips:(NSArray<MSVMainTrackClip *> *_Nullable)mainTrackClips error:(NSError **)outError;
+- (BOOL)updateMainTrackClips:(NSArray<MSVMainTrackClip *> *_Nullable)mainTrackClips error:(NSError *_Nullable *_Nullable)outError NS_SWIFT_NAME(update(mainTrackClips:));
 
 /**
- * The mix track clip array, the visual part of the video is generated by mixing the video in mainTrackClips and mixTrackClips according to the location of these clips.
+ * 合成轨片段数组，最终生成的视频的可视部分由 mainTrackClips 和 mixTrackClips 根据各自的位置和大小合成得到
  */
 @property (nonatomic, strong, readonly) NSArray<MSVMixTrackClip *> *mixTrackClips;
 
 /**
- * Update the mix track clips. Non-Readonly parameters can be adjusted directly in related objects. Other operations (add, delete, replace, etc.) need to be refreshed using this interface.
+ * 更新合成轨片段集，非 readonly 的参数可以直接在相关对象中调整，其他操作（增、删、替换等）需要使用该接口进行刷新。
  *
- * @param mixTrackClips The new mixTrackClips.
- * @param outError If an error occurs, return the error that occurred.
+ * @param mixTrackClips 新的合成轨片段集。
+ * @param outError 如果发生错误，返回发生的错误。
  *
- * @return Valid operation returns YES, invalid operation returns NO.
+ * @return 如果操作成功返回 YES，否则返回 NO。
  */
-- (BOOL)updateMixTrackClips:(NSArray<MSVMixTrackClip *> *_Nullable)mixTrackClips error:(NSError **)outError;
+- (BOOL)updateMixTrackClips:(NSArray<MSVMixTrackClip *> *_Nullable)mixTrackClips error:(NSError *_Nullable *_Nullable)outError NS_SWIFT_NAME(update(mixTrackClips:));
 
 /**
- * Basic effects array，so far we support MSVExternalFilterEditorEffect, MSVLUTFilterEditorEffect, MSVImageEffect, all of these effects will be used on the final video.
+ * 基础特效数组，当前支持 MSVExternalFilterEditorEffect, MSVLUTFilterEditorEffect, MSVImageEffect，所有特效均被应用于整个目标视频。
  */
-@property (nonatomic, strong, readonly) NSArray<id<MSVBasicEditorEffect>> *basicEffects;
+@property (nonatomic, strong, readonly) NSArray<id<MSVEditorEffect>> *basicEffects;
 
 /**
- * Update the basic effect sets.
+ * 更新基础特效数组。
  *
- * @param basicEffects the new effect sets.
- * @param outError If an error occurs, return the error that occurred.
+ * @param basicEffects 新的基础特效数组。
+ * @param outError 如果发生错误，返回发生的错误。
  *
- * @return If operation succeeded, return YES, otherwise, return NO.
+ * @return 如果操作成功返回 YES，否则返回 NO。
  */
-- (BOOL)updateBasicEffects:(NSArray<id<MSVBasicEditorEffect>> *_Nullable)basicEffects error:(NSError **)outError;
+- (BOOL)updateBasicEffects:(NSArray<id<MSVEditorEffect>> *_Nullable)basicEffects error:(NSError *_Nullable *_Nullable)outError NS_SWIFT_NAME(update(basicEffects:));
 
 /**
- * Time effects array，so far we support MSVRepeatEditorEffect, MSVSpeedEditorEffect
- */
-@property (nonatomic, strong, readonly) NSArray<id<MSVTimeEditorEffect>> *timeEffects;
-
-/**
- * Update effect sets.
- *
- * @param timeEffects the new time effect sets.
- * @param outError If an error occurs, return the error that occurred.
- *
- * @return If operation succeeded, return YES, otherwise, return NO.
- */
-- (BOOL)updateTimeEffects:(NSArray<id<MSVTimeEditorEffect>> *_Nullable)timeEffects error:(NSError **)outError;
-
-/**
- * The original total duration of the draft (regardless of time effects, regardless of timeRange).
- */
-@property (nonatomic, assign, readonly) NSTimeInterval originalDuration;
-
-/**
- * Draft duration in total (take time effects into account, regardless of timeRange).
+ * 草稿总时长（不考虑 timeRange）
  */
 @property (nonatomic, assign, readonly) NSTimeInterval duration;
 
 /**
- * Whether to reverse video part of the draft, audio part will never be reversed.
- */
-@property (nonatomic, assign) BOOL reverseVideo;
-
-/**
- * The size of the video.
+ * 视频的大小，预览时如果 preview 的比例与 videoSize 的比例不同，将按照 editor.previewScalingMode 指定的缩放方式进行缩放填充。
  */
 @property (nonatomic, assign, readonly) CGSize videoSize;
 
 /**
- * Set the size of the video, if the size of the window does not match the size of the videoSize when previewing, Scaling depends on method specified by editor.previewScalingMode.
+ * 设置视频的大小，预览时如果窗口的大小与 videoSize 的大小不一致，将按照 editor.previewScalingMode 指定的缩放方式进行缩放。
  *
- * @param videoSize The new size of the video.
- * @param outError If an error occurs, return the error that occurred.
+ * @param videoSize 新的视频大小。
+ * @param outError 如果发生错误，返回发生的错误。
  *
- * @return If operation succeeded, return YES, otherwise, return NO.
+ * @return 如果操作成功返回 YES，否则返回 NO。
  */
-- (BOOL)setVideoSize:(CGSize)videoSize error:(NSError **)outError;
+- (BOOL)updateVideoSize:(CGSize)videoSize error:(NSError *_Nullable *_Nullable)outError NS_SWIFT_NAME(update(videoSize:));
 
 /**
- * Valid time area, other parts will be ignored.
- *
- * @warning The time interval here is the interval after the time effect is applied, if timeRange was setup by callers, after the main track was relevantly operated like added, deleted, or time effects, the timeRange should be adjusted to ensure that the correct time range is applied.
+ * 目标视频的帧率。
+ */
+@property (nonatomic, assign, readonly) float frameRate;
+
+/**
+ * 有效的时间区间，其他部分将在预览和导出时被忽略。
+ * 默认为 (0, draft.duration)，即 draft 的原始长度，传入 kMovieousTimeRangeDefault 可重置到默认时间区间。
  */
 @property (nonatomic, assign) MovieousTimeRange timeRange;
 
 /**
- * Get the image generator object used for generating snapshots.
+ * 获取图片生成器以生成草稿的快照。
  *
- * @return The instantiated MSVImageGenerator object.
+ * @return 生成的图片生成器对象。
  */
-@property (nonatomic, strong) MSVImageGenerator *imageGenerator;
+@property (nonatomic, strong) MSVSnapshotGenerator *imageGenerator;
 
 /**
- * The operation of updating the volume is performed in real time. When you need to modify the volume of many clips in batches, please call this method to improve the efficiency of the operation,then make the relevant volume modification, and finally call the -commitVolumeChange method to submit the changes.If you do not follow this paradigm, an update operation will be triggered each time when you modify volume, which will result in performance problems.
- */
-- (void)beginVolumeChangeTransaction;
-
-/**
- * Submit volume update.
- *
- * @param outError If an error occurs, return the error that occurred.
- *
- * @return If operation succeeded, return YES, otherwise, return NO.
- */
-- (BOOL)commitVolumeChangeWithError:(NSError **)outError;
-
-/**
- * In addition to the volume updating, you can call this method to start a transaction when you need to manipulate the related properties in batches, and then call the -commitChangeWithError: method to commit all changes after all the operations are completed.
+ * 除了更新音量以外的其他操作，当你需要批量对相关属性进行操作时可以调用该方法开始一个 transaction，然后再完成所有操作之后再调用 -commitChangeWithError: 方法提交所有修改。
  */
 - (void)beginChangeTransaction;
 
 /**
- * Cancel current batch update transaction.
+ * 提交一般属性的更新。
+ *
+ * @param outError 如果发生错误，返回发生的错误。
+ *
+ * @return 如果操作成功返回 YES，否则返回 NO。
  */
-- (void)cancelChangeTransaction;
-
-/**
- * Submit an update to the general properties.
- *
- * @param outError If an error occurs, return the error that occurred.
- *
- * @return If operation succeeded, return YES, otherwise, return NO.
- */
-- (BOOL)commitChangeWithError:(NSError **)outError;
-
-/**
- * Tool method, applying time effects to the original time point, mapping to the time point after applying the time effect.
- *
- * @param originalTime Time point when no time effects are applied.
- *
- * @return Time point after applying time effects.
- */
-- (NSTimeInterval)getEffectedTimeFromOriginalTime:(NSTimeInterval)originalTime;
-
-/**
- * Tool method, which maps the time point when the time effect has been applied to the time point when the time effect is removed.
- *
- * @param effectedTime Time point when the time effect has been applied.
- *
- * @return Time point after removing the time effect.
- */
-- (NSTimeInterval)getOriginalTimeFromEffectedTime:(NSTimeInterval)effectedTime;
-
-/**
- * Tool method, applying time effects to the original time interval, mapping to the time interval after applying the time effect.
- *
- * @param originalTimeRange Time interval when no time effects are applied.
- *
- * @return Time interval after applying time effects.
- */
-- (MovieousTimeRange)getEffectedRangeTimeFromOriginalTimeRange:(MovieousTimeRange)originalTimeRange;
-
-/**
- * Tool method that maps the time interval in which the time effect has been applied to the time interval in which the time effect is removed.
- *
- * @param effectedTimeRange Time interval after applying time effects.
- *
- * @return Time interval after removing the time effect.
- */
-- (MovieousTimeRange)getOriginalTimeRangeFromEffectedTimeRange:(MovieousTimeRange)effectedTimeRange;
+- (BOOL)commitChangeWithError:(NSError *_Nullable *_Nullable)outError;
 
 @end
 

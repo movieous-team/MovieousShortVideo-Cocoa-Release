@@ -14,59 +14,59 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MSVGifGenerator : NSObject
 
 /**
- * The output URL for the generated GIF file, only supports local file address.
- * The default is the automatically generated address.
+ * GIF 文件输出地址，仅支持本地地址。
+ * 默认为自动生成的地址。
  */
-@property (strong, nonatomic, nullable) NSURL *outputURL;
+@property (strong, nonatomic, nullable) NSString *outputPath;
 
 /**
- * Whether the generating task is running.
+ * 生成任务是否正在运行。
  */
 @property (nonatomic, assign, readonly) BOOL running;
 
 /**
- * The interval between frames of the generated gif file.
- * The default is 0.1.
+ * 生成的 GIF 文件中各帧之间的间隔时长。
+ * 默认为 0.1。
  */
 @property (assign, nonatomic) float interval;
 
 /**
- * The loop count of the generated gif, 0 means loop forever.
- * The default is 0.
+ * gif 轮播次数，0 表示无限轮播。
+ * 默认为 0。
  */
 @property (assign, nonatomic) NSUInteger loopCount;
 
 /**
- * Generating progress callback.
+ * 生成任务进度回调。
  */
 @property (nonatomic, copy, nullable) void(^progressHandler)(float progress);
 
 /**
- * Generating failure callback.
+ * 生成任务失败回调。
  */
 @property (nonatomic, copy, nullable) void(^failureHandler)(NSError *error);
 
 /**
- * Generating successful callback.
+ * 生成任务成功回调。
  */
-@property (nonatomic, copy, nullable) void(^completionHandler)(NSURL *URL);
+@property (nonatomic, copy, nullable) void(^completionHandler)(NSString *path);
 
 /**
- * Initialize an MSVGifGenerator objects with images.
+ * 使用图片数组初始化 MSVGifGenerator 对象。
  *
- * @param images Images used to generate gif.
+ * @param images 用于生成 gif 的图片数组。
  *
- * @return The initialized object.
+ * @return 初始化完成的对象。
  */
 - (instancetype)initWithImages:(NSArray<UIImage *> *)images;
 
 /**
- * Start the generating tasks.
+ * 开始生成任务。
  */
 - (void)start;
 
 /**
- * Cancel the generating task.
+ * 取消生成任务。
  */
 - (void)cancel;
 
