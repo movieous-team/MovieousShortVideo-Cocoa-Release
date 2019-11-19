@@ -1,5 +1,17 @@
 *其他语言版本: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v3.0.0(2019-11-4)
+## 功能
+- 添加动态贴纸支持。
+- `MSVClip` 支持生成快照。
+- `MSVClip` 支持获取 `originalDuration`、`originalDurationAtMainTrack`、`size` 和 `frameRate` 参数。
+- `MSVEditor` 支持直接使用 `graffitiManager` 添加涂鸦。
+- `MSVEditor` 添加 `displayingRect`
+- `MSVExporter` 支持 `reverseVideo` 参数用于生成倒放视频。
+- `MSVGraffitiView` 添加 `displayingRect` 参数及 `-exportAsImageStickerEditorEffect` 方法。
+## 其它
+- 部分接口重构，具体参考 [v2.x.x 到 v3.x.x 迁移指南](v2.x.x to v3.x.x transfer guide.md)
+
 # v2.2.21(2019-10-31)
 ## 功能
 - 添加 `MSVExporter.maxKeyFrameInterval` 属性用于指定最大关键帧间隔。

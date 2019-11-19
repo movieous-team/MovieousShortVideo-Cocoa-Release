@@ -101,7 +101,7 @@ sudo gem install cocoapods
 
 ```ruby
 target 'YourTargetName' do
-    pod 'MovieousShortVideo'
+    pod 'MovieousShortVideo-CN'
 end
 ```
 

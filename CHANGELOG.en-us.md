@@ -1,5 +1,17 @@
 *Read this in other languages: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v3.0.0(2019-11-4)
+## Features
+- add animated sticker support.
+- support snapshot for `MSVClip`.
+- support `originalDuration`、`originalDurationAtMainTrack`、`size` and `frameRate` parameters for `MSVClip`.
+- support `graffitiManager` used directly for graffiti drawing in `MSVEditor`.
+- add `displayingRect` for `MSVEditor`.
+- add `reverseVideo` to generate reversed video.
+- add `displayingRect` parameters and `-exportAsImageStickerEditorEffect` method for `MSVGraffitiView`.
+## Others
+- refactor some interfaces, you can refer to [v2.x.x 到 v3.x.x 迁移指南](v2.x.x to v3.x.x transfer guide.md).
+
 # v2.2.21(2019-10-31)
 ## Features
 - add `MSVExporter.maxKeyFrameInterval` property to specify max key frame interval.
