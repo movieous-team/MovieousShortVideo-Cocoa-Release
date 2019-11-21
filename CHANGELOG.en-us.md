@@ -1,5 +1,9 @@
 *Read this in other languages: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.23(2019-11-21)
+## Fixes
+- fix issue that valid video region is not in the center of the whole video when export aspect ratio is not equal to that of original video.
+
 # v2.2.21(2019-10-31)
 ## Features
 - add `MSVExporter.maxKeyFrameInterval` property to specify max key frame interval.

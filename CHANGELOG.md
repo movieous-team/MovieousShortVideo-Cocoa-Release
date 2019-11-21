@@ -1,5 +1,9 @@
 *其他语言版本: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.23(2019-11-21)
+## 修复
+- 修复导出比例与原视频比例不一致时可能出现有效视频区域不在视频中间位置的问题。
+
 # v2.2.21(2019-10-31)
 ## 功能
 - 添加 `MSVExporter.maxKeyFrameInterval` 属性用于指定最大关键帧间隔。
