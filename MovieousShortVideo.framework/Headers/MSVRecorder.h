@@ -61,7 +61,7 @@ typedef void(^MSVFinishRecordingWithCompletionHandler)(MSVMainTrackClip *_Nullab
  * @param point 用户点击的位置。
  * @param action 采取的动作类型。
  */
-- (void)recorder:(MSVRecorder *)recorder  didTakeTapActionAtPoint:(CGPoint)point action:(MovieousRecorderTapPreviewAction)action;
+- (void)recorder:(MSVRecorder *)recorder didTakeTapActionAtPoint:(CGPoint)point action:(MovieousRecorderTapPreviewAction)action;
 
 /**
  * 录制器播放背景音乐时发生错误。
@@ -162,6 +162,9 @@ typedef void(^MSVFinishRecordingWithCompletionHandler)(MSVMainTrackClip *_Nullab
  */
 @property (nonatomic, assign, readonly) BOOL recording;
 
+/**
+ * 当前是否处于正在停止的状态。
+ */
 @property (nonatomic, assign, readonly) BOOL finishing;
 
 /**

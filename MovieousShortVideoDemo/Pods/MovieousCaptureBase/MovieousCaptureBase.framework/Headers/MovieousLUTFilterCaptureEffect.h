@@ -24,6 +24,11 @@ MovieousCaptureEffect
 @property (nonatomic, strong) UIImage *image;
 
 /**
+ * 滤镜的强度。
+ */
+@property(nonatomic, assign) CGFloat intensity;
+
+/**
  * 用另一个 MovieousLUTFilterCaptureEffect 对象初始化此 MovieousLUTFilterCaptureEffect。
  *
  * @param LUTFilterCaptureEffect 用于初始化的另一个 MovieousLUTFilterCaptureEffect 对象。

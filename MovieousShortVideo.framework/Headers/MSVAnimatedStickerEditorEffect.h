@@ -21,6 +21,8 @@ MSVEditorEffect
 */
 @property (nonatomic, assign) MovieousTimeRange timeRangeAtMainTrack;
 
+- (instancetype)initWithAnimatedStickerEditorEffect:(MSVAnimatedStickerEditorEffect *)animatedStickerEditorEffect;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -70,8 +70,8 @@ NSObject
 @property (nonatomic, assign) BOOL blurSwitch;
 
 /**
- * What action to take when tap specified point in the preview.
- * The default is MovieousRecorderTapPreviewActionFocus | MovieousRecorderTapPreviewActionExposure | MovieousRecorderTapPreviewActionShowIndicator.
+ * 当点击预览视图特定点时应采取什么动作。
+ * 默认为 MovieousRecorderTapPreviewActionFocus | MovieousRecorderTapPreviewActionExposure | MovieousRecorderTapPreviewActionShowIndicator。
  */
 @property (nonatomic, assign) MovieousRecorderTapPreviewAction tapPreviewAction;
 

@@ -29,11 +29,11 @@ MSVEditorEffect
 /**
  * 用另一个 MSVExternalFilterEditorEffect 对象初始化此 MSVExternalFilterEditorEffect
  *
- * @param externalFilterCaptureEffect 用于初始化的另一个 MSVExternalFilterEditorEffect 对象。
+ * @param externalFilterEditorEffect 用于初始化的另一个 MSVExternalFilterEditorEffect 对象。
  *
  * @return 初始化完成的 MSVExternalFilterEditorEffect 对象。
  */
-- (instancetype)initWithExternalFilterCaptureEffect:(MSVExternalFilterEditorEffect *)externalFilterCaptureEffect;
+- (instancetype)initWithExternalFilterEditorEffect:(MSVExternalFilterEditorEffect *)externalFilterEditorEffect;
 
 @end
 

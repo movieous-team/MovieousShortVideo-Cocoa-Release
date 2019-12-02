@@ -27,11 +27,11 @@ MSVEditorEffect
 /**
  * 用另一个 MSVLUTFilterEditorEffect 对象初始化此 MSVLUTFilterEditorEffect
  *
- * @param LUTFilterCaptureEffect 用于初始化的另一个 MSVLUTFilterEditorEffect 对象。
+ * @param LUTFilterEditorEffect 用于初始化的另一个 MSVLUTFilterEditorEffect 对象。
  *
  * @return 初始化完成的 MSVLUTFilterEditorEffect 对象。
  */
-- (instancetype)initWithLUTFilterCaptureEffect:(MSVLUTFilterEditorEffect *)LUTFilterCaptureEffect;
+- (instancetype)initWithLUTFilterEditorEffect:(MSVLUTFilterEditorEffect *)LUTFilterEditorEffect;
 
 @end
 

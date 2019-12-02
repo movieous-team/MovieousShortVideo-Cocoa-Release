@@ -27,11 +27,11 @@ MSVEditorEffect
 /**
  * 用另一个 MSVImageStickerEditorEffect 对象初始化此 MSVImageStickerEditorEffect
  *
- * @param imageStickerCaptureEffect 用于初始化的另一个 MSVImageStickerEditorEffect 对象。
+ * @param imageStickerEditorEffect 用于初始化的另一个 MSVImageStickerEditorEffect 对象。
  *
  * @return 初始化完成的 MSVImageStickerEditorEffect 对象。
  */
-- (instancetype)initWithImageStickerCaptureEffect:(MSVImageStickerEditorEffect *)imageStickerCaptureEffect;
+- (instancetype)initWithImageStickerEditorEffect:(MSVImageStickerEditorEffect *)imageStickerEditorEffect;
 
 @end
 
