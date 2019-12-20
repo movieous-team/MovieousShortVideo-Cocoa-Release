@@ -1,5 +1,13 @@
 *Read this in other languages: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.24(2019-12-20)
+## Features
+- add blur feature for editor canvas.
+## Fixes
+- fix issue that progress callback won't be called when `[MSVExporter startExport]` is not called main thread.
+- fix issue that `MSVExporter` may won't call error callback when error occurs.
+- fix issue that orientation may be error when you use image to init `MSVMainTrackClip`.
+
 # v2.2.23(2019-11-21)
 ## Fixes
 - fix issue that valid video region is not in the center of the whole video when export aspect ratio is not equal to that of original video.

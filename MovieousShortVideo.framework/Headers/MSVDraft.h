@@ -73,6 +73,25 @@ NSCopying
 - (BOOL)updateBackgroundColor:(UIColor *)backgroundColor error:(NSError **)outError;
 
 /**
+ * Indicate whether to use blur background, if video has not cover the whole space whose size is assigned by the videoSize property.
+ * if blurBackground is YES, value in backgroundColor is ignored.
+ * if you use different sourceDisplayFrame, destDisplayFrame, rotation value than default, blurBackground will display wrong content now.
+ */
+@property (nonatomic, assign) BOOL blurBackground;
+
+/**
+ * blurRadiusInPixels for blurBackground, only valid when blurBackground is on.
+ * the default is 50.
+ */
+@property (nonatomic, assign) CGFloat blurRadiusInPixels;
+
+/**
+ * downSampleRate for blurBackground, only valid when blurBackground is on.
+ * the default is 2.
+ */
+@property (nonatomic, assign) CGFloat blurDownSampleRate;
+
+/**
  * The main track clip array, the main track clip is arranged in the order of the duration specified by its durationAtMainTrack to form the main track of the video, and the length of the draft is determined by the length of the main track.
  */
 @property (nonatomic, strong, readonly) NSArray<MSVMainTrackClip *> *mainTrackClips;
