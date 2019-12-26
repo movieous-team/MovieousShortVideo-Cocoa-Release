@@ -1,5 +1,9 @@
 *其他语言版本: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.25(2019-12-26)
+## 修复
+- 防止 `EffectPipeline` 中因找不到正确的 `videoSize` 导致的偶现 crash。
+
 # v2.2.24(2019-12-20)
 ## 功能
 - 添加编辑画布背景模糊功能

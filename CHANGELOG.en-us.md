@@ -1,5 +1,9 @@
 *Read this in other languages: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.25(2019-12-26)
+## Fixes
+- avoid accasional crash when correct `videoSize` of `EffectPipeline` can not be found.
+
 # v2.2.24(2019-12-20)
 ## Features
 - add blur feature for editor canvas.
