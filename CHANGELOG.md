@@ -1,15 +1,19 @@
 *其他语言版本: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.26(2020-1-2)
+## 功能
+- 增加以首帧作为画布模糊背景的功能。
+
 # v2.2.25(2019-12-26)
 ## 修复
 - 防止 `EffectPipeline` 中因找不到正确的 `videoSize` 导致的偶现 crash。
 
 # v2.2.24(2019-12-20)
 ## 功能
-- 添加编辑画布背景模糊功能
+- 添加编辑画布背景模糊功能。
 ## 修复
-- 修复 `[MSVExporter startExport]` 方法在非主线程调用后不回调进度的问题
-- 修复 `MSVExporter` 发生错误后偶尔出现不回调错误的问题
+- 修复 `[MSVExporter startExport]` 方法在非主线程调用后不回调进度的问题。
+- 修复 `MSVExporter` 发生错误后偶尔出现不回调错误的问题。
 - 修复使用图片初始化 `MSVMainTrackClip` 时方向可能错误的问题。
 
 # v2.2.23(2019-11-21)

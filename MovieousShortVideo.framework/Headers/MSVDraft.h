@@ -79,6 +79,8 @@ NSCopying
  */
 @property (nonatomic, assign) BOOL blurBackground;
 
+@property (nonatomic, assign) BOOL dynamicBlur;
+
 /**
  * blurRadiusInPixels for blurBackground, only valid when blurBackground is on.
  * the default is 50.
