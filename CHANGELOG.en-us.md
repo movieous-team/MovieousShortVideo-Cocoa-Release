@@ -1,5 +1,17 @@
 *Read this in other languages: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v3.0.2(2020-1-8)
+## Fixes
+- fix issue that `MSVDraft.timeRange` has no effect in export stage.
+
+# v3.0.1(2019-12-2)
+## Features
+- support inner face beauty effect for editor.
+## Fixes
+- fix issue that nil `image` property of `MSVLUTFilterEditorEffect` and `MSVImageStickerEditorEffect` may incur crash.
+## Others
+- refator some code in render pipeline.
+
 # v3.0.0(2019-11-4)
 ## Features
 - add animated sticker support.

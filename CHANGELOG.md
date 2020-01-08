@@ -1,5 +1,17 @@
 *其他语言版本: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v3.0.2(2020-1-8)
+## 修复
+- 修复 `MSVDraft.timeRange` 在导出阶段不生效的问题。
+
+# v3.0.1(2019-12-2)
+## 功能
+- 编辑器支持内置美颜特效。
+## 修复
+- 修复 `MSVLUTFilterEditorEffect` 和 `MSVImageStickerEditorEffect` 的 `image` 属性为 nil 可能引起 crash 的问题。
+## 其他
+- 重构渲染管线部分代码。
+
 # v3.0.0(2019-11-4)
 ## 功能
 - 添加动态贴纸支持。
