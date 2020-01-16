@@ -1,5 +1,9 @@
 *其他语言版本: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.28(2020-1-16)
+## 修复
+- 修复开启 `blurBackground` 且 `scalingMode` 不为 `MovieousScalingModeAspectFit` 时依然会出现背景模糊的问题、
+
 # v2.2.26(2020-1-2)
 ## 功能
 - 增加以首帧作为画布模糊背景的功能。

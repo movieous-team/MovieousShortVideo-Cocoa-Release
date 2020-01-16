@@ -1,5 +1,9 @@
 *Read this in other languages: [English](CHANGELOG.en-us.md), [简体中文](CHANGELOG.md).*
 
+# v2.2.28(2020-1-16)
+## Fixes
+- fix issue that video will still show background blur when `blurBackground` is on and `scalingMode` is not `MovieousScalingModeAspectFit`.
+
 # v2.2.26(2020-1-2)
 ## Features
 - add blur canvas with first video frame.
