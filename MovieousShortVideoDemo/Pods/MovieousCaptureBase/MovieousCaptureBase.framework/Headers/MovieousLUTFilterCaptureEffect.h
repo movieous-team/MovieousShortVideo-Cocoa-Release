@@ -13,10 +13,7 @@
 /**
  * LUT(颜色查找表)采集特效。
  */
-@interface MovieousLUTFilterCaptureEffect : MovieousObject
-<
-MovieousCaptureEffect
->
+@interface MovieousLUTFilterCaptureEffect : MovieousCaptureEffect
 
 /**
  * 颜色查找表(look up table) 图片。

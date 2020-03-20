@@ -22,11 +22,8 @@ FOUNDATION_EXPORT const unsigned char MovieousShortVideoVersionString[];
 #import <MovieousShortVideo/MSVBrush.h>
 #import <MovieousShortVideo/MSVGraffitiView.h>
 #import <MovieousShortVideo/MSVSnapshotGenerator.h>
-#import <MovieousShortVideo/MSVImageStickerEditorEffect.h>
-#import <MovieousShortVideo/MSVExternalFilterEditorEffect.h>
-#import <MovieousShortVideo/MSVLUTFilterEditorEffect.h>
 #import <MovieousShortVideo/MSVAuthentication.h>
-#import <MovieousShortVideo/MSVGifGenerator.h>
-#import <MovieousShortVideo/MSVAnimatedStickerEditorEffect.h>
-#import <MovieousShortVideo/MSVFaceBeautyEditorEffect.h>
-#import <MovieousShortVideo/MSVGraffitiManager.h>
+#import <MovieousShortVideo/MSVMainTrackTransition.h>
+#import <MovieousShortVideo/MSVBeautifyFilterEffect.h>
+#import <MovieousShortVideo/MSVLUTFilterEffect.h>
+#import <MovieousShortVideo/MSVExternalFilterEffect.h>

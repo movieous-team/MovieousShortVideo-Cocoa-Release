@@ -15,10 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * 图片贴纸特效。
  */
-@interface MovieousImageStickerCaptureEffect : MovieousObject
-<
-MovieousCaptureEffect
->
+@interface MovieousImageStickerCaptureEffect : MovieousCaptureEffect
 
 /**
  * 用作图片贴纸的图片
@@ -26,16 +23,42 @@ MovieousCaptureEffect
 @property (nonatomic, strong) UIImage *image;
 
 /**
- * 贴纸的目标位置和大小
- * 
- * @warning 当图片的比例和贴纸目标大小的比例不一致时贴纸会被拉伸变形。
+ * 取材的视频区域的中心点。
+ * @warning 如果取材的视频区域超过源视频的范围，源视频以外的区域将显示为以源视频边缘的颜色向外延伸的栅格状图形。
  */
-@property (nonatomic, assign) CGRect destRect;
+@property (nonatomic, assign) CGPoint sourceCenter;
 
 /**
- * 图片贴纸的旋转弧度
+ * 取材的视频区域的大小。
+ * @warning 如果取材的视频区域超过源视频的范围，源视频以外的区域将显示为以源视频边缘的颜色向外延伸的栅格状图形。
  */
-@property (nonatomic, assign) CGFloat rotation;
+@property (nonatomic, assign) CGSize sourceSize;
+
+/**
+ * 取材的视频区域的旋转弧度，以 sourceCenter 为中心。
+ * @warning 如果取材的视频区域超过源视频的范围，源视频以外的区域将显示为以源视频边缘的颜色向外延伸的栅格状图形。
+ */
+@property (nonatomic, assign) float sourceRotation;
+
+/**
+ * 片段在目标视频当中的中心点。
+ */
+@property (nonatomic, assign) CGPoint destCenter;
+
+/**
+ * 片段在目标视频当中的大小。
+ */
+@property (nonatomic, assign) CGSize destSize;
+
+/**
+ * 片段在目标视频当中的旋转弧度。
+ */
+@property (nonatomic, assign) float destRotation;
+
+/**
+ * 片段在目标视频当中的透明度。
+ */
+@property (nonatomic, assign) float alpha;
 
 /**
  * 用另一个 MovieousImageStickerCaptureEffect 对象初始化此 MovieousImageStickerCaptureEffect

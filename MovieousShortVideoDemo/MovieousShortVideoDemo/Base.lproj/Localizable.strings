@@ -1,0 +1,50 @@
+/* 
+  Localizable.strings
+  MovieousShortVideoDemo
+
+  Created by Chris Wang on 2019/12/9.
+  Copyright © 2019 Movieous Team. All rights reserved.
+*/
+
+"global.ok" = "OK";
+"global.error" = "error";
+"global.export" = "export";
+"global.alert" = "alert";
+"global.prompt" = "prompt";
+
+"MSVDHomeViewController.startRecording" = "record";
+"MSVDHomeViewController.startEditing" = "edit";
+
+"MSVDToolboxView.music" = "music";
+"MSVDToolboxView.pip" = "pip";
+"MSVDToolboxView.text" = "text";
+"MSVDToolboxView.sticker" = "sticker";
+"MSVDToolboxView.filter" = "filter";
+"MSVDToolboxView.beautify" = "beautify";
+"MSVDToolboxView.background" = "background";
+
+"MSVDMusicsViewController.musics" = "musics";
+"MSVDMusicsViewController.save" = "save";
+"MSVDMusicsViewController.downloading" = "downloading";
+
+"MSVDToolboxView.delete" = "delete";
+"MSVDToolboxView.split" = "split";
+"MSVDToolboxView.speed" = "speed";
+"MSVDToolboxView.volume" = "volume";
+"MSVDToolboxView.replace" = "replace";
+"MSVDToolboxView.opacity" = "opacity";
+"MSVDToolboxView.copy" = "copy";
+"MSVDToolboxView.reverse" = "reverse";
+"MSVDToolboxView.audio" = "audio";
+"MSVDToolboxView.music" = "music";
+"MSVDToolboxView.audio.record" = "record";
+"MSVDToolboxView.canvas" = "canvas";
+"MSVDToolboxView.ratio" = "ratio";
+"MSVDToolboxView.background" = "background";
+"MSVDToolboxView.color" = "color";
+"MSVDToolboxView.blur" = "blur";
+
+"MSVDExportViewController.exporting" = "exporting";
+"MSVDExportViewController.done" = "export done";
+"MSVDExportViewController.export" = "export";
+"MSVDExportViewController.resolution" = "resolution";

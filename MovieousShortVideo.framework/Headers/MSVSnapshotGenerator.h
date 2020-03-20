@@ -18,15 +18,15 @@ typedef NS_ENUM(NSInteger, MSVSnapshotGeneratorResult) {
     /**
      * 视频快照生成成功。
      */
-    MSVSnapshotGeneratorSucceeded   = 0,
+    MSVSnapshotGeneratorResultSucceeded   = 0,
     /**
      * 视频快照生成失败。
      */
-    MSVSnapshotGeneratorFailed      = 1,
+    MSVSnapshotGeneratorResultFailed      = 1,
     /**
      * 视频快照生成操作被取消。
      */
-    MSVSnapshotGeneratorCancelled   = 2,
+    MSVSnapshotGeneratorResultCancelled   = 2,
 };
 
 /**
@@ -57,7 +57,7 @@ typedef NS_ENUM(NSInteger, MSVSnapshotGeneratorApertureMode) {
  * @param result 指示快照生成过程是成功，失败还是被取消的状态码。
  * @param error 如果 `result` 为 MSVSnapshotGeneratorFailed，该错误对象将描述问题产生的具体原因。
  */
-typedef void (^MSVSnapshotGeneratorCompletionHandler)(NSTimeInterval requestedTime, UIImage *_Nullable image, NSTimeInterval actualTime, MSVSnapshotGeneratorResult result, NSError * _Nullable error);
+typedef void (^MSVSnapshotGeneratorCompletionHandler)(MovieousTime requestedTime, UIImage *_Nullable image, MovieousTime actualTime, MSVSnapshotGeneratorResult result, NSError * _Nullable error);
 
 /**
  * 视频快照生成器。
@@ -83,13 +83,13 @@ NSCopying
  * 生成快照的时间戳比请求时间戳小的最大允许的差值，该值越小时间越精确，但会让快照生成的速度越慢。
  * 默认为无穷大。
  */
-@property (nonatomic, assign) NSTimeInterval requestedTimeToleranceBefore;
+@property (nonatomic, assign) MovieousTime requestedTimeToleranceBefore;
 
 /**
  * 生成快照的时间戳比请求时间戳大的最大允许的差值，该值越小时间越精确，但会让快照生成的速度越慢。
  * 默认为无穷大。
  */
-@property (nonatomic, assign) NSTimeInterval requestedTimeToleranceAfter;
+@property (nonatomic, assign) MovieousTime requestedTimeToleranceAfter;
 
 /**
  * 生成指定时间点的单张快照。
@@ -100,7 +100,7 @@ NSCopying
  *
  * @return 生成的快照对象，生成失败返回 nil。
  */
-- (UIImage *_Nullable)generateSnapshotAtTime:(NSTimeInterval)requestedTime actualTime:(nullable NSTimeInterval *)actualTime error:(NSError * _Nullable * _Nullable)outError;
+- (UIImage *_Nullable)generateSnapshotAtTime:(MovieousTime)requestedTime actualTime:(nullable MovieousTime *)actualTime error:(NSError * _Nullable * _Nullable)outError;
 
 /**
  * @abstract 生成一系列指定时间点或附近的快照对象。

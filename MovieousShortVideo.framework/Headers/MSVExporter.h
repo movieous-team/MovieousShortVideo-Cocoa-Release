@@ -13,42 +13,19 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * 导出器对象。
+ * 导出器格式参数集。
  */
-@interface MSVExporter : NSObject
+@protocol MSVExporterFormatParameters <NSObject>
+
+@end
 
 /**
- * 草稿对象。
+ * 音视频导出器格式参数集。
  */
-@property (nonatomic, strong, nullable) MSVDraft *draft;
-
-/**
- * 是否在导出时将视频部分倒放。
- */
-@property (nonatomic, assign) BOOL reverseVideo;
-
-/**
- * 导出任务是否正在运行.
- */
-@property (nonatomic, assign, readonly) BOOL running;
-
-/**
- * 视频导出的文件类型。
- * 默认为 MSVFileTypeMPEG4(.mp4)。
- */
-@property (assign, nonatomic) MSVFileType outputFileType;
-
-/**
- * 视频导出的路径，只支持本地文件地址。
- * 默认为自动生成的地址。
- */
-@property (strong, nonatomic, nullable) NSString *outputPath;
-
-/**
- * 是否同时将视频导出到相册。
- * 默认为 NO。
- */
-@property (assign, nonatomic) BOOL saveToPhotosAlbum;
+@interface MSVExporterAVFormatParameters : NSObject
+<
+MSVExporterFormatParameters
+>
 
 /**
  * 视频的码率。
@@ -85,6 +62,67 @@ NS_ASSUME_NONNULL_BEGIN
  * 默认使用原视频的码率。
  */
 @property (assign, nonatomic) BOOL shouldOptimizeForNetworkUse;
+
+/**
+ * 生成一个默认的音视频格式参数集对象。
+ */
++ (instancetype)defaultFormatParameters;
+
+@end
+
+/**
+ * 导出器对象。
+ */
+@interface MSVExporter : NSObject
+
+/**
+ * 草稿对象。
+ */
+@property (nonatomic, strong, nullable) MSVDraft *draft;
+
+/**
+ * 是否在导出时将视频部分倒放。
+ */
+@property (nonatomic, assign) BOOL reverseVideo;
+
+/**
+ * 导出任务是否正在运行。
+ */
+@property (nonatomic, assign, readonly) BOOL running;
+
+/**
+ * 进度回调时间间隔。
+ */
+@property (nonatomic, assign) NSTimeInterval progressCallbackInterval;
+
+/**
+ * 导出进度。
+ */
+@property (nonatomic, assign, readonly) float progress;
+
+/**
+ * 视频导出的文件类型。
+ * 默认为 MSVFileTypeMPEG4(.mp4)。
+ */
+@property (assign, nonatomic) MSVFileType outputFileType;
+
+/**
+ * 视频导出的路径，只支持本地文件地址。
+ * 默认为自动生成的地址。
+ */
+@property (strong, nonatomic, nullable) NSString *outputPath;
+
+/**
+ * 是否同时将视频导出到相册。
+ * 默认为 NO。
+ */
+@property (assign, nonatomic) BOOL saveToPhotosAlbum;
+
+/**
+ * 格式参数集对象。
+ * 默认为 [MSVExporterAVFormatParameters defaultFormatParameters]
+ */
+@property (nonatomic, strong) id<MSVExporterFormatParameters> formatParameters;
 
 /**
  * Export 导出进度回调。

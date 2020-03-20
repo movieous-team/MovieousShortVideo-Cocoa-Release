@@ -6,9 +6,6 @@
 //  Copyright © 2018 Movieous Team. All rights reserved.
 //
 
-#ifndef MovieousCameraConfiguration_h
-#define MovieousCameraConfiguration_h
-
 #import <AVFoundation/AVFoundation.h>
 #import <MovieousBase/MovieousTypeDefines.h>
 #import <MovieousCaptureBase/MovieousCaptureEffect.h>
@@ -16,22 +13,20 @@
 /**
  * 摄像头配置对象。
  */
-@protocol MovieousCameraConfiguration
-<
-NSObject
->
+@interface MovieousCameraConfiguration : NSObject
 
 /**
- * Video 编码时的视频分辨率，默认 (1280, 720)。
+ * Video 编码时的视频分辨率。
+ * 默认 (720, 1280)。
  *
  * @discussion 需要注意的是，这个参数影响的是视频编码时的分辨率，而非摄像头采集到数据的预览大小，传递给编码器的图像尺寸与此尺寸不同时，会按照保持比例并填充的方式生成最终的视频，从而确保图像不会出现压缩的现象（但编码视频的比例与采集视频的比例不同时会出现裁剪的现象）。
  */
-@property (nonatomic, assign) CGSize size;
+@property (nonatomic, assign) CGSize videoSize;
 
 /**
  * 采集时应用的特效组。
  */
-@property (nonatomic, strong) NSArray<id<MovieousCaptureEffect>> *captureEffects;
+@property (nonatomic, strong) NSArray<MovieousCaptureEffect *> *captureEffects;
 
 /**
  * 当 size（编码时的视频分辨率） 和 preview 的尺寸比例不一致时使用的填充模式。
@@ -70,14 +65,15 @@ NSObject
 @property (nonatomic, assign) BOOL blurSwitch;
 
 /**
- * 当点击预览视图特定点时应采取什么动作。
- * 默认为 MovieousRecorderTapPreviewActionFocus | MovieousRecorderTapPreviewActionExposure | MovieousRecorderTapPreviewActionShowIndicator。
+ * 当点击预览视图上的指定点时采取什么操作。
+ * 默认为 MovieousRecorderTapPreviewActionFocus | MovieousRecorderTapPreviewActionExposure | MovieousRecorderTapPreviewActionShowIndicator.
  */
 @property (nonatomic, assign) MovieousRecorderTapPreviewAction tapPreviewAction;
 
 /**
  * 指定期望的摄像头手电筒模式，需要注意的是 preferredTorchMode 的值不一定能够被成功应用，实际的手电筒模式可以通过 MSVRecorder.torchMode 来获取。
- * 默认为 AVCaptureTorchModeAuto。
+ *
+ * 默认为 AVCaptureTorchModeAuto
  */
 @property (nonatomic, assign) AVCaptureTorchMode preferredTorchMode;
 
@@ -112,10 +108,16 @@ NSObject
 @property (nonatomic, assign) AVCaptureDevicePosition preferredDevicePosition;
 
 /**
- * 指定期望的摄像头方向，需要注意的是 preferredVideoOrientation 的值不一定能够被成功应用，实际的摄像头方向可以通过 MSVRecorder.videoOrientation 来获取。
- * 默认为 AVCaptureVideoOrientationPortrait。
+ * 预览视频的旋转方向。
+ * 默认为 MovieousVideoOrientationPortrait。
  */
-@property (nonatomic, assign) AVCaptureVideoOrientation preferredVideoOrientation;
+@property (nonatomic, assign) MovieousVideoOrientation videoOrientationForPreview;
+
+/**
+ * 编码视频的旋转方向。
+ * 默认为 MovieousVideoOrientationPortrait。
+ */
+@property (nonatomic, assign) MovieousVideoOrientation videoOrientationForEncoded;
 
 /**
  * 指定期望的视频缩放比例，需要注意的是 preferredVideoZoomFactor 的值不一定能够被成功应用，实际的视频缩放比例可以通过 MSVRecorder.videoZoomFactor 来获取。
@@ -148,5 +150,3 @@ NSObject
 @property (nonatomic, assign) CGPoint preferredExposurePointOfInterest;
 
 @end
-
-#endif

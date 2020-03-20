@@ -1,7 +1,12 @@
-platform :ios, '8.0'
 use_frameworks!
-
+platform :ios, '9.0'
 target 'MovieousShortVideoDemo' do
-	pod 'Masonry'
-	pod 'MovieousShortVideo', :path => '../'
+  pod 'MovieousShortVideo', :path => '../'
+  pod 'Masonry'
+  pod 'TZImagePickerController'
+  pod 'SVProgressHUD'
+  pod 'SDWebImage'
+  pod 'M13ProgressSuite'
+  pod 'FDWaveformView'
+  pod 'SSZipArchive'
 end

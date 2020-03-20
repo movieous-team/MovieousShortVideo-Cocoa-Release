@@ -2,8 +2,8 @@
 //  MovieousShortVideoDemoTests.m
 //  MovieousShortVideoDemoTests
 //
-//  Created by Chris Wang on 2018/11/25.
-//  Copyright © 2018 Chris Wang. All rights reserved.
+//  Created by Chris Wang on 2019/12/9.
+//  Copyright © 2019 Movieous Team. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>

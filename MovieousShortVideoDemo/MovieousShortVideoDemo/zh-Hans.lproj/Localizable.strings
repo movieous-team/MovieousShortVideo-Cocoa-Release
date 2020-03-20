@@ -1,0 +1,50 @@
+/* 
+  Localizable.strings
+  MovieousShortVideoDemo
+
+  Created by Chris Wang on 2019/12/9.
+  Copyright © 2019 Movieous Team. All rights reserved.
+*/
+
+"global.ok" = "好的";
+"global.error" = "错误";
+"global.export" = "导出";
+"global.alert" = "警告";
+"global.prompt" = "提示";
+
+"MSVDHomeViewController.startRecording" = "录制";
+"MSVDHomeViewController.startEditing" = "开始创作";
+
+"MSVDToolboxView.music" = "音乐";
+"MSVDToolboxView.pip" = "画中画";
+"MSVDToolboxView.text" = "文字";
+"MSVDToolboxView.sticker" = "贴纸";
+"MSVDToolboxView.filter" = "滤镜";
+"MSVDToolboxView.beautify" = "美颜";
+"MSVDToolboxView.background" = "背景";
+
+"MSVDMusicsViewController.musics" = "音乐库";
+"MSVDMusicsViewController.save" = "保存";
+"MSVDMusicsViewController.downloading" = "下载中";
+
+"MSVDToolboxView.delete" = "删除";
+"MSVDToolboxView.split" = "分割";
+"MSVDToolboxView.speed" = "速度";
+"MSVDToolboxView.volume" = "音量";
+"MSVDToolboxView.replace" = "替换";
+"MSVDToolboxView.opacity" = "不透明度";
+"MSVDToolboxView.copy" = "复制";
+"MSVDToolboxView.reverse" = "倒放";
+"MSVDToolboxView.audio" = "音频";
+"MSVDToolboxView.music" = "音乐";
+"MSVDToolboxView.audio.record" = "录音";
+"MSVDToolboxView.canvas" = "画布";
+"MSVDToolboxView.ratio" = "比例";
+"MSVDToolboxView.background" = "背景";
+"MSVDToolboxView.color" = "颜色";
+"MSVDToolboxView.blur" = "模糊";
+
+"MSVDExportViewController.exporting" = "正在导出";
+"MSVDExportViewController.done" = "导出完成";
+"MSVDExportViewController.export" = "导出";
+"MSVDExportViewController.resolution" = "分辨率";

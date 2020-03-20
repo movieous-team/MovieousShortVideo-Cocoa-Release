@@ -1,31 +1,57 @@
 PODS:
+  - FDWaveformView (5.0.1)
+  - M13ProgressSuite (1.2.9)
   - Masonry (1.1.0)
-  - MovieousBase (2.0.1)
-  - MovieousCaptureBase (2.0.2):
-    - MovieousBase (= 2.0.1)
-  - MovieousShortVideo (3.0.3):
-    - MovieousCaptureBase (~> 2.0.2)
+  - MovieousBase (3.0.0)
+  - MovieousCaptureBase (3.0.0):
+    - MovieousBase (= 3.0.0)
+  - MovieousShortVideo (4.0.0):
+    - MovieousCaptureBase (= 3.0.0)
+  - SDWebImage (5.6.1):
+    - SDWebImage/Core (= 5.6.1)
+  - SDWebImage/Core (5.6.1)
+  - SSZipArchive (2.2.2)
+  - SVProgressHUD (2.2.5)
+  - TZImagePickerController (3.3.1)
 
 DEPENDENCIES:
+  - FDWaveformView
+  - M13ProgressSuite
   - Masonry
   - MovieousShortVideo (from `../`)
+  - SDWebImage
+  - SSZipArchive
+  - SVProgressHUD
+  - TZImagePickerController
 
 SPEC REPOS:
   trunk:
+    - FDWaveformView
+    - M13ProgressSuite
     - Masonry
     - MovieousBase
     - MovieousCaptureBase
+    - SDWebImage
+    - SSZipArchive
+    - SVProgressHUD
+    - TZImagePickerController
 
 EXTERNAL SOURCES:
   MovieousShortVideo:
     :path: "../"
 
 SPEC CHECKSUMS:
+  FDWaveformView: c188be613947273cc83d6f0056505f60e6c4b9ac
+  M13ProgressSuite: ea9f7263e73e9215e6849dfa54e29ee0ad6a145c
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  MovieousBase: a72a4ddb407b597e2542616330777299df4f9829
-  MovieousCaptureBase: 87b6b2309bef451c17d8661dafe6be1cbbb334c5
-  MovieousShortVideo: 9f42004a177d901f4f2bffae1f3622a0edb5156a
+  MovieousBase: fcb80d25bf77c10904ed9b2240d51d5b71900362
+  MovieousCaptureBase: 8f8e6043982202f616a8f86b38d4fc3705a4a96c
+  MovieousShortVideo: 66d962567b16551145da96d2c2d0a0ab5f14b2ba
+  SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
+  SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  TZImagePickerController: 99f03b64145a8c92c55b9b1b931410967d9be4cb
 
-PODFILE CHECKSUM: 6ae5cc534eb98289bb7d640ea04835e189e4a80f
+PODFILE CHECKSUM: c2b3ed8f9fe894a883504e238ae1e5679db36cd7
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1

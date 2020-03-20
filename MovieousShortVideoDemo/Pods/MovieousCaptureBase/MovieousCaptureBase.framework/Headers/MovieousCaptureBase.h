@@ -17,10 +17,9 @@ FOUNDATION_EXPORT const unsigned char MovieousCaptureBaseVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <MovieousCaptureBase/PublicHeader.h>
 
 #import <MovieousBase/MovieousBase.h>
-#import <MovieousCaptureBase/MovieousMicrophoneConfiguration.h>
-#import <MovieousCaptureBase/MovieousCameraConfiguration.h>
 #import <MovieousCaptureBase/MovieousExternalFilterCaptureEffect.h>
 #import <MovieousCaptureBase/MovieousImageStickerCaptureEffect.h>
 #import <MovieousCaptureBase/MovieousLUTFilterCaptureEffect.h>
-#import <MovieousCaptureBase/MovieousAnimatedStickerCaptureEffect.h>
-#import <MovieousCaptureBase/MovieousFaceBeautyCaptureEffect.h>
+#import <MovieousCaptureBase/MovieousBeautifyFilterCaptureEffect.h>
+#import <MovieousCaptureBase/MovieousCameraConfiguration.h>
+#import <MovieousCaptureBase/MovieousMicrophoneConfiguration.h>

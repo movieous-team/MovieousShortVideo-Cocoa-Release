@@ -11,7 +11,7 @@
 /**
  * 麦克风采集配置对象。
  */
-@protocol MovieousMicrophoneConfiguration <NSObject>
+@interface MovieousMicrophoneConfiguration : NSObject
 
 /**
  * 录制时是否静音。

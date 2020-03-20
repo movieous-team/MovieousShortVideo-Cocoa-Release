@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "MSVDraft.h"
 #import "MSVClip.h"
-#import "MSVGraffitiManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -22,6 +21,16 @@ extern NSString *kMSVEditorCurrentTimeUpdatedNotification;
  * 获取当前时间值的 key
  */
 extern NSString *kMSVEditorCurrentTimeKey;
+
+/**
+ * 通知编辑器的当前播放状态已改变，userInfo 的 kMSVEditorPlayingKey 中将携带当前是否播放中的状态。
+ */
+extern NSString *kMSVEditorPlayStateChangedNotification;
+
+/**
+ * 获取当前是否播放中的状态的 key
+ */
+extern NSString *kMSVEditorPlayingKey;
 
 @class MSVEditor;
 /**
@@ -36,7 +45,7 @@ extern NSString *kMSVEditorCurrentTimeKey;
  * @param editor 事件发送者。
  * @param currentTime 编辑器当前播放时间。
  */
-- (void)editor:(MSVEditor *)editor currentTimeDidUpdate:(NSTimeInterval)currentTime;
+- (void)editor:(MSVEditor *)editor currentTimeDidUpdate:(MovieousTime)currentTime;
 
 /**
  * 当前播放状态已改变的回调。
@@ -48,12 +57,20 @@ extern NSString *kMSVEditorCurrentTimeKey;
 
 @end
 
+@interface MSVEditorPreview : UIView
+
+/**
+ * 预览视图的填充模式。
+ * 默认为 MovieousScalingModeAspectFit。
+ */
+@property (nonatomic, assign) MovieousScalingMode scalingMode;
+
+@end
+
 /**
  * 编辑器对象。
  */
 @interface MSVEditor : NSObject
-
-@property (nonatomic, strong, readonly) MSVGraffitiManager *graffitiManager;
 
 /**
  * 底层草稿对象，相关编辑请通过该草稿对象进行操作。
@@ -63,7 +80,12 @@ extern NSString *kMSVEditorCurrentTimeKey;
 /**
  * 编辑预览视图。
  */
-@property (nonatomic, strong, readonly) UIView *preview;
+@property (nonatomic, strong, readonly) MSVEditorPreview *preview;
+
+/**
+ * 编辑器的状态。
+ */
+@property (nonatomic, assign, readonly) MSVEditorStatus status;
 
 /**
  * 视频内容在 preview 中展示的区域。
@@ -76,15 +98,9 @@ extern NSString *kMSVEditorCurrentTimeKey;
 @property (nonatomic, assign, readonly) CGRect displayingRect;
 
 /**
- * 预览视图的填充模式。
- * 默认为 MovieousScalingModeAspectFit。
- */
-@property (nonatomic, assign) MovieousScalingMode previewScalingMode;
-
-/**
  * 当前播放进度。
  */
-@property (nonatomic, assign, readonly) NSTimeInterval currentTime;
+@property (nonatomic, assign, readonly) MovieousTime currentTime;
 
 /**
  * 当前是否正在播放。
@@ -117,10 +133,10 @@ extern NSString *kMSVEditorCurrentTimeKey;
 
 /**
  * 使用一个草稿对象创建一个 MSVEditor 对象。
- * 
+ *
  * @param draft 草稿对象。
  * @param outError 如果发生错误，返回发生的错误。
- * 
+ *
  * @return 创建成功则返回草稿对象，失败返回 nil。
  */
 + (instancetype _Nullable)editorWithDraft:(MSVDraft *_Nullable)draft error:(NSError *_Nullable *_Nullable)outError;
@@ -161,7 +177,7 @@ extern NSString *kMSVEditorCurrentTimeKey;
  * @param time 目标时间点。
  * @param accurate 是否是精确的快进，精确的快进将消耗更多的时间。
  */
-- (void)seekToTime:(NSTimeInterval)time accurate:(BOOL)accurate;
+- (void)seekToTime:(MovieousTime)time accurate:(BOOL)accurate;
 
 @end
 

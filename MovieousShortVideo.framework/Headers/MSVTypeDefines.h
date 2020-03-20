@@ -1,6 +1,6 @@
 //
 //  MSVTypeDefines.h
-//  MSVShortVideoKit
+//  MovieousShortVideo
 //
 //  Created by Chris Wang on 18/3/1.
 //  Copyright © 2018年 Movieous Team. All rights reserved.
@@ -8,6 +8,20 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
+
+/**
+ * 视频比例。
+ */
+typedef struct {
+    /**
+     * 横向空间。
+     */
+    NSInteger    horizontalSpacing;
+    /**
+     * 纵向空间。
+     */
+    NSInteger    verticalSpacing;
+} MSVAspectRatio;
 
 /**
  * 视频输入源类型。
@@ -86,19 +100,23 @@ typedef NS_ENUM(NSInteger, MSVVideoTransitionType) {
      */
     MSVVideoTransitionTypeDissolve,
     /**
-     * 向右扫动转场。
+     * 淡化转场。
+     */
+    MSVVideoTransitionTypeFade,
+    /**
+     * 向右擦除转场。
      */
     MSVVideoTransitionTypeWipeRight,
     /**
-     * 向左扫动转场。
+     * 向左擦除转场。
      */
     MSVVideoTransitionTypeWipeLeft,
     /**
-     * 向上扫动转场。
+     * 向上擦除转场。
      */
     MSVVideoTransitionTypeWipeUp,
     /**
-     * 向下扫动转场。
+     * 向下擦除转场。
      */
     MSVVideoTransitionTypeWipeDown,
     /**
@@ -116,11 +134,7 @@ typedef NS_ENUM(NSInteger, MSVVideoTransitionType) {
     /**
      * 向下滑动转场。
      */
-    MSVVideoTransitionTypeSlideDown,
-    /**
-     * 渐隐渐现转场。
-     */
-    MSVVideoTransitionTypeFade
+    MSVVideoTransitionTypeSlideDown
 };
 
 /**
@@ -134,10 +148,44 @@ typedef NS_ENUM(NSInteger, MSVClipType) {
     /**
      * 图片类型的片段。
      */
-    MSVClipTypeImage
+    MSVClipTypeStillImage,
+    /**
+     * 动态图片类型的片段。
+     */
+    MSVClipTypeAnimatedImage
 };
 
 /**
- * Notify that the media service has reset, you should do neccessary restart on your audio services.
+ * 编辑器状态类型。
  */
-extern NSString *kMediaServiceResetNotification;
+typedef NS_ENUM(NSInteger, MSVEditorStatus) {
+    /**
+     * 未知编辑器状态。
+     */
+    MSVEditorStatusUnknown,
+    /**
+     * 暂停中编辑器状态。
+     */
+    MSVEditorStatusPaused,
+    /**
+     * 播放中编辑器状态。
+     */
+    MSVEditorStatusPlaying,
+    /**
+     * 正在寻迹的编辑器状态。
+     */
+    MSVEditorStatusSeeking,
+    /**
+     * 已停止编辑器状态。
+     */
+    MSVEditorStatusStopped,
+    /**
+     * 播放失败编辑器状态。
+     */
+    MSVEditorStatusFailed,
+};
+
+/**
+ * 媒体服务被重置的通知，你需要做一些必要的操作以重启音频服务。
+ */
+extern NSNotificationName const kMSVMediaServiceResetNotification;

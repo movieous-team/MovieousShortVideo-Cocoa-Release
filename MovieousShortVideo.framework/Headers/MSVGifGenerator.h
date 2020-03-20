@@ -1,6 +1,6 @@
 //
 //  MSVGifGenerator.h
-//  MSVShortVideoKit
+//  MovieousShortVideo
 //
 //  Created by Chris Wang on 2019/7/14.
 //  Copyright © 2019年 Movieous Team. All rights reserved.

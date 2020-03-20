@@ -11,10 +11,11 @@
 #import "MSVTypeDefines.h"
 #import "MSVMainTrackClip.h"
 #import "MSVClip.h"
-#import "MSVLUTFilterEditorEffect.h"
-#import "MSVEditorEffect.h"
 #import "MSVMixTrackClip.h"
 #import "MSVSnapshotGenerator.h"
+#import "MSVMainTrackTransition.h"
+#import "MSVCanvasConfiguration.h"
+#import "MSVTimeDomainObject.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -27,55 +28,51 @@ NSCopying
 >
 
 /**
- * 使用音视频文件地址来初始化一份草稿，初始化后的草稿将包含一个 MSVMainTrackClip 指向该文件的地址。
+ * 使用主轨片段数组实例化一个 MSVDraft 对象。
  *
- * @param path 音视频文件的地址。
+ * @param mainTrackClips 新的主轨片段集。
  * @param outError 如果发生错误，返回发生的错误。
- *
- * @return 初始化成功的草稿对象。
- */
-+ (instancetype _Nullable)draftWithAVPath:(NSString *)path error:(NSError *_Nullable *_Nullable)outError;
-
-/**
- * 使用图片文件地址来创建一个草稿对象，初始化后的草稿将包含一个 MSVMainTrackClip 指向该文件的地址。
- *
- * @param path 图片文件的地址。
- * @param outError 如果发生错误，返回发生的错误。
- *
- * @return 创建成功则返回草稿对象，失败返回 nil。
- */
-+ (instancetype _Nullable)draftWithImagePath:(NSString *)path error:(NSError *_Nullable *_Nullable)outError;
-
-/**
- * 初始化草稿对象。
- *
- * @param mainTrackClipType 主轨道片段类型。
- * @param path 主轨道片段的地址。
- * @param outError 如果发生错误，返回发生的错误。
- *
- * @return 初始化成功则返回草稿对象，失败返回 nil。
- */
-- (instancetype _Nullable)initWithMainTrackClipType:(MSVClipType)mainTrackClipType path:(NSString *)path error:(NSError *_Nullable *_Nullable)outError;
-
-/**
- * 视频容器的背景颜色。
- */
-@property (nonatomic, strong, readonly) UIColor *backgroundColor;
-
-/**
- * 更新视频容器的背景颜色。
- *
- * @param backgroundColor 新背景颜色。
- * @param outError 如果发生错误，返回错误对象。
  *
  * @return 如果操作成功返回 YES，否则返回 NO。
  */
-- (BOOL)updateBackgroundColor:(UIColor *)backgroundColor error:(NSError *_Nullable *_Nullable)outError NS_SWIFT_NAME(update(backgroundColor:));
++ (instancetype)draftWithMainTrackClips:(NSArray<MSVMainTrackClip *> *)mainTrackClips error:(NSError **)outError;
+
+/**
+ * 使用主轨片段数组初始化一个 MSVDraft 对象。
+ *
+ * @param mainTrackClips 新的主轨片段集。
+ * @param outError 如果发生错误，返回发生的错误。
+ *
+ * @return 如果操作成功返回 YES，否则返回 NO。
+ */
+- (instancetype)initWithMainTrackClips:(NSArray<MSVMainTrackClip *> *)mainTrackClips error:(NSError **)outError;
+
+/**
+ * 目标视频的画布配置。
+ */
+@property (nonatomic, strong) id<MSVCanvasConfiguration> canvasConfiguration;
 
 /**
  * @brief 主轨道片段数组，主轨道片段按照其 durationAtMainTrack 所指定的时长顺序排列组成视频的主轨道，草稿的长度由主轨道时长决定
  */
 @property (nonatomic, strong, readonly) NSArray<MSVMainTrackClip *> *mainTrackClips;
+
+/**
+ * @brief 主轨转场 dictionary，key 为应用转场的两个相邻 MSVMainTrackClip 对象中前一个的 index
+ * 例如 mainTrackClips 由 [mainTrackClip1, mainTrackClip2, mainTrackClip3] 组成，那么 mainTrackClip2 和 mainTrackClip3 之间的转场 key 值为 1（即 mainTrackClip2 的 index ）
+ */
+@property (nonatomic, strong, readonly) NSDictionary<NSNumber *, MSVMainTrackTransition *> *mainTrackTransitions;
+
+/**
+ * 同时更新主轨片段集和主轨转场集，非 readonly 的参数可以直接在相关对象中调整，其他操作（增、删、替换等）需要使用该接口进行刷新。
+ *
+ * @param mainTrackClips 新的主轨片段集。
+ * @param mainTrackTransitions 新的主轨转场集。
+ * @param outError 如果发生错误，返回发生的错误。
+ *
+ * @return 如果操作成功返回 YES，否则返回 NO。
+ */
+- (BOOL)updateMainTrackClips:(NSArray<MSVMainTrackClip *> *_Nullable)mainTrackClips mainTrackTransitions:(NSDictionary<NSNumber *, MSVMainTrackTransition *> *_Nullable)mainTrackTransitions error:(NSError *_Nullable *_Nullable)outError NS_SWIFT_NAME(update(mainTrackClips:mainTrackTransitions:));
 
 /**
  * 更新主轨片段集，非 readonly 的参数可以直接在相关对象中调整，其他操作（增、删、替换等）需要使用该接口进行刷新。
@@ -88,59 +85,56 @@ NSCopying
 - (BOOL)updateMainTrackClips:(NSArray<MSVMainTrackClip *> *_Nullable)mainTrackClips error:(NSError *_Nullable *_Nullable)outError NS_SWIFT_NAME(update(mainTrackClips:));
 
 /**
- * 合成轨片段数组，最终生成的视频的可视部分由 mainTrackClips 和 mixTrackClips 根据各自的位置和大小合成得到
- */
-@property (nonatomic, strong, readonly) NSArray<MSVMixTrackClip *> *mixTrackClips;
-
-/**
- * 更新合成轨片段集，非 readonly 的参数可以直接在相关对象中调整，其他操作（增、删、替换等）需要使用该接口进行刷新。
+ * 更新主轨转场集，非 readonly 的参数可以直接在相关对象中调整，其他操作（增、删、替换等）需要使用该接口进行刷新。
  *
- * @param mixTrackClips 新的合成轨片段集。
+ * @param mainTrackTransitions 新的主轨转场集。
  * @param outError 如果发生错误，返回发生的错误。
  *
  * @return 如果操作成功返回 YES，否则返回 NO。
  */
-- (BOOL)updateMixTrackClips:(NSArray<MSVMixTrackClip *> *_Nullable)mixTrackClips error:(NSError *_Nullable *_Nullable)outError NS_SWIFT_NAME(update(mixTrackClips:));
+- (BOOL)updateMainTrackTransitions:(NSDictionary<NSNumber *, MSVMainTrackTransition *> *_Nullable)mainTrackTransitions error:(NSError *_Nullable *_Nullable)outError NS_SWIFT_NAME(update(mainTrackTransitions:));
 
 /**
- * 基础特效数组，当前支持 MSVExternalFilterEditorEffect, MSVLUTFilterEditorEffect, MSVImageEffect，所有特效均被应用于整个目标视频。
+ * 合成轨片段或特效数组，合成轨片段的视频叠加顺序和特效应用的顺序与该数组的顺序保持一致。
+ * 例如 mixTrackClipsOrEffects 的构成为 [mixTrackClip1, mixTrackClip2, effect1, mixTrackClip3, effect2]，mixTrackClip1，mixTrackClip2，mixTrackClip3，则任意一帧的生成将是按照如下方式：在画布上绘制 mixTrackClip1，在画布上绘制 mixTrackClip2，应用 effect1 特效，在画布上绘制 mixTrackClip3，应用 effect2 特效。
  */
-@property (nonatomic, strong, readonly) NSArray<id<MSVEditorEffect>> *basicEffects;
+@property (nonatomic, strong, readonly) NSArray<id<MSVTimeDomainObject>> *mixTrackClipsOrEffects;
 
 /**
- * 更新基础特效数组。
+ * 更新合成轨片段或特效数组，非 readonly 的参数可以直接在相关对象中调整，其他操作（增、删、替换等）需要使用该接口进行刷新。
+ * 例如 mixTrackClipsOrEffects 的构成为 [mixTrackClip1, mixTrackClip2, effect1, mixTrackClip3, effect2]，mixTrackClip1，mixTrackClip2，mixTrackClip3，则任意一帧的生成将是按照如下方式：在画布上绘制 mixTrackClip1，在画布上绘制 mixTrackClip2，应用 effect1 特效，在画布上绘制 mixTrackClip3，应用 effect2 特效。
  *
- * @param basicEffects 新的基础特效数组。
+ * @param mixTrackClipsOrEffects 新的合成轨片段集。
  * @param outError 如果发生错误，返回发生的错误。
  *
  * @return 如果操作成功返回 YES，否则返回 NO。
  */
-- (BOOL)updateBasicEffects:(NSArray<id<MSVEditorEffect>> *_Nullable)basicEffects error:(NSError *_Nullable *_Nullable)outError NS_SWIFT_NAME(update(basicEffects:));
+- (BOOL)updateMixTrackClipsOrEffects:(NSArray<id<MSVTimeDomainObject>> *_Nullable)mixTrackClipsOrEffects error:(NSError *_Nullable *_Nullable)outError NS_SWIFT_NAME(update(mixTrackClipsOrEffects:));
 
 /**
- * 草稿总时长（不考虑 timeRange）
+ * 草稿的在应用 timeRange 之前的总时长。
  */
-@property (nonatomic, assign, readonly) NSTimeInterval duration;
+@property (nonatomic, assign, readonly) MovieousTime originalDuration;
 
 /**
- * 视频的大小，预览时如果 preview 的比例与 videoSize 的比例不同，将按照 editor.previewScalingMode 指定的缩放方式进行缩放填充。
+ * 视频分辨率，该分辨率由 maximumSize 和 aspectRatio 经过计算得到，分辨率在 maximumSize 形成的矩形区域之内，比例近似为 aspectRatio 且满足宽高均为 8 的整数倍的要求（编码视频的硬性要求）。
  */
 @property (nonatomic, assign, readonly) CGSize videoSize;
 
 /**
- * 设置视频的大小，预览时如果窗口的大小与 videoSize 的大小不一致，将按照 editor.previewScalingMode 指定的缩放方式进行缩放。
- *
- * @param videoSize 新的视频大小。
- * @param outError 如果发生错误，返回发生的错误。
- *
- * @return 如果操作成功返回 YES，否则返回 NO。
+ * 视频的横纵比，最终的视频分辨率会尽量保证此横纵比。
  */
-- (BOOL)updateVideoSize:(CGSize)videoSize error:(NSError *_Nullable *_Nullable)outError NS_SWIFT_NAME(update(videoSize:));
+@property (nonatomic, assign) MSVAspectRatio aspectRatio;
+
+/**
+ * 视频的最大分辨率。
+ */
+@property (nonatomic, assign) CGSize maximumSize;
 
 /**
  * 目标视频的帧率。
  */
-@property (nonatomic, assign, readonly) float frameRate;
+@property (nonatomic, assign) float frameRate;
 
 /**
  * 有效的时间区间，其他部分将在预览和导出时被忽略。
@@ -153,15 +147,15 @@ NSCopying
  *
  * @return 生成的图片生成器对象。
  */
-@property (nonatomic, strong) MSVSnapshotGenerator *imageGenerator;
+@property (nonatomic, strong, readonly) MSVSnapshotGenerator *imageGenerator;
 
 /**
- * 除了更新音量以外的其他操作，当你需要批量对相关属性进行操作时可以调用该方法开始一个 transaction，然后再完成所有操作之后再调用 -commitChangeWithError: 方法提交所有修改。
+ * 当你需要批量对相关属性进行操作时可以调用该方法开始一个 transaction，然后再完成所有操作之后再调用 -commitChangeWithError: 方法提交所有修改。
  */
 - (void)beginChangeTransaction;
 
 /**
- * 提交一般属性的更新。
+ * 提交批量属性的更新。
  *
  * @param outError 如果发生错误，返回发生的错误。
  *

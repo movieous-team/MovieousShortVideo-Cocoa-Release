@@ -1,6 +1,6 @@
 //
-//  MSVAudioConfiguration.h
-//  MSVShortVideoKit
+//  MSVRecorderAudioConfiguration.h
+//  MovieousShortVideo
 //
 //  Created by Chris Wang on 18/3/1.
 //  Copyright © 2018年 Movieous Team. All rights reserved.
@@ -16,24 +16,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * 音频配置类
  */
-@interface MSVRecorderAudioConfiguration : NSObject
-<
-MovieousMicrophoneConfiguration
->
+@interface MSVRecorderAudioConfiguration : MovieousMicrophoneConfiguration
 
 /**
  * 音频输入源类型。
  * 默认为 MSVAudioSourceMicrophone。
  */
 @property (nonatomic, assign) MSVAudioSource source;
-
-#pragma mark - microphone configurations
-
-/**
- * 录制时是否静音。
- * 默认为 NO。
- */
-@property (nonatomic, assign) BOOL mute;
 
 #pragma mark - encoder configurations
 

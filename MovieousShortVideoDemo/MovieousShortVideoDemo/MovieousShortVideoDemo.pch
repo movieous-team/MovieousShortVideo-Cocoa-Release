@@ -1,0 +1,28 @@
+//
+//  MovieousShortVideoDemo.pch
+//  MovieousShortVideoDemo
+//
+//  Created by Chris Wang on 2019/12/9.
+//  Copyright © 2019 Movieous Team. All rights reserved.
+//
+
+#ifndef MovieousShortVideoDemo_pch
+#define MovieousShortVideoDemo_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import <Masonry/Masonry.h>
+#import <MovieousShortVideo/MovieousShortVideo.h>
+#import <SVProgressHUD/SVProgressHUD.h>
+#import <SDWebImage/SDWebImage.h>
+#import "MSVDTypeDefines.h"
+#import "MSVDGlobalConfiguration.h"
+#import "MSVDUtils.h"
+#import "UIColor+MSVD.h"
+
+#define SHOW_ALERT_FOR(title,detailMessage,actionMessage,baseController) do{dispatch_async(dispatch_get_main_queue(), ^{UIAlertController *controller = [UIAlertController alertControllerWithTitle:title message:detailMessage preferredStyle:UIAlertControllerStyleAlert];[controller addAction:[UIAlertAction actionWithTitle:actionMessage style:UIAlertActionStyleDefault handler:nil]];[baseController presentViewController:controller animated:YES completion:nil];});}while(0);
+#define SHOW_ERROR_ALERT_FOR(baseController) SHOW_ALERT_FOR(NSLocalizedString(@"global.error", @""), error.localizedDescription, NSLocalizedString(@"global.ok", @""), baseController)
+#define SHOW_ALERT(title,detailMessage,actionMessage) SHOW_ALERT_FOR(title,detailMessage,actionMessage,self);
+#define SHOW_ERROR_ALERT SHOW_ALERT(NSLocalizedString(@"global.error", @""), error.localizedDescription, NSLocalizedString(@"global.ok", @""))
+
+#endif /* MovieousShortVideoDemo_pch */

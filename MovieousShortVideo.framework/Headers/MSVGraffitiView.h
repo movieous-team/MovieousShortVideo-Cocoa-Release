@@ -7,7 +7,6 @@
 //
 
 #import "MSVBrush.h"
-#import "MSVImageStickerEditorEffect.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -119,7 +118,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @return 生成的 MSVImageStickerEditorEffect 对象。
  */
-- (MSVImageStickerEditorEffect *)exportAsImageStickerEditorEffect;
+//- (MSVImageStickerEditorEffect *)exportAsImageStickerEditorEffect;
 
 @end
 

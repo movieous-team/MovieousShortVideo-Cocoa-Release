@@ -2,16 +2,15 @@
 //  AppDelegate.h
 //  MovieousShortVideoDemo
 //
-//  Created by Chris Wang on 2018/11/25.
-//  Copyright © 2018 Chris Wang. All rights reserved.
+//  Created by Chris Wang on 2019/12/9.
+//  Copyright © 2019 Movieous Team. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
-
+@property (nullable, nonatomic, strong) UIWindow *window API_AVAILABLE(ios(5.0));
 
 @end
 

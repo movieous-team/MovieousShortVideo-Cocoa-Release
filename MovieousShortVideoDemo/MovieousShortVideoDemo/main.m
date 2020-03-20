@@ -2,15 +2,18 @@
 //  main.m
 //  MovieousShortVideoDemo
 //
-//  Created by Chris Wang on 2018/11/25.
-//  Copyright © 2018 Chris Wang. All rights reserved.
+//  Created by Chris Wang on 2019/12/9.
+//  Copyright © 2019 Movieous Team. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
 int main(int argc, char * argv[]) {
+    NSString * appDelegateClassName;
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+        // Setup code that might create autoreleased objects goes here.
+        appDelegateClassName = NSStringFromClass([AppDelegate class]);
     }
+    return UIApplicationMain(argc, argv, nil, appDelegateClassName);
 }
