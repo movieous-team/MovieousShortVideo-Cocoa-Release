@@ -11,10 +11,15 @@
 "global.export" = "导出";
 "global.alert" = "警告";
 "global.prompt" = "提示";
+"global.cancel" = "取消";
+"global.inputText" = "输入文字";
 
-"MSVDHomeViewController.startRecording" = "录制";
-"MSVDHomeViewController.startEditing" = "开始创作";
+"MSVDHomeViewController.startComposition" = "开始创作";
+"MSVDHomeViewController.resourceSource" = "选择素材来源";
+"MSVDHomeViewController.record" = "录制";
+"MSVDHomeViewController.photoLibrary" = "相册";
 
+"MSVDToolboxView.none" = "无";
 "MSVDToolboxView.music" = "音乐";
 "MSVDToolboxView.pip" = "画中画";
 "MSVDToolboxView.text" = "文字";
@@ -22,6 +27,19 @@
 "MSVDToolboxView.filter" = "滤镜";
 "MSVDToolboxView.beautify" = "美颜";
 "MSVDToolboxView.background" = "背景";
+"MSVDToolboxView.smoothLevel" = "磨皮";
+"MSVDToolboxView.whiteLevel" = "美白";
+"MSVDToolboxView.redLevel" = "红润";
+"MSVDToolboxView.dissolve" = "溶解";
+"MSVDToolboxView.fade" = "淡化";
+"MSVDToolboxView.wipeRight" = "右擦除";
+"MSVDToolboxView.wipeLeft" = "左擦除";
+"MSVDToolboxView.wipeUp" = "上擦除";
+"MSVDToolboxView.wipeDown" = "下擦除";
+"MSVDToolboxView.slideRight" = "右滑动";
+"MSVDToolboxView.slideLeft" = "左滑动";
+"MSVDToolboxView.slideUp" = "上滑动";
+"MSVDToolboxView.slideDown" = "下滑动";
 
 "MSVDMusicsViewController.musics" = "音乐库";
 "MSVDMusicsViewController.save" = "保存";
@@ -39,12 +57,27 @@
 "MSVDToolboxView.music" = "音乐";
 "MSVDToolboxView.audio.record" = "录音";
 "MSVDToolboxView.canvas" = "画布";
-"MSVDToolboxView.ratio" = "比例";
+"MSVDToolboxView.aspectRatio" = "比例";
 "MSVDToolboxView.background" = "背景";
 "MSVDToolboxView.color" = "颜色";
 "MSVDToolboxView.blur" = "模糊";
+"MSVToolboxView.originalSize" = "原始";
 
 "MSVDExportViewController.exporting" = "正在导出";
 "MSVDExportViewController.done" = "导出完成";
 "MSVDExportViewController.export" = "导出";
 "MSVDExportViewController.resolution" = "分辨率";
+
+"MSVDRecordTypeSelectView.photo" = "图片";
+"MSVDRecordTypeSelectView.video" = "视频";
+"MSVDRecorderViewController.musics" = "音乐库";
+"MSVDRecorderViewController.switch" = "切换";
+"MSVDRecorderViewController.torch" = "补光";
+"MSVDRecorderViewController.beautify" = "美颜";
+"MSVDRecorderViewController.filter" = "滤镜";
+"MSVDRecorderViewController.sticker" = "贴纸";
+"MSVDRecorderViewController.meihu" = "美狐";
+"MSVDRecorderViewController.smooth" = "磨皮";
+"MSVDRecorderViewController.white" = "美白";
+"MSVDRecorderViewController.red" = "红润";
+"MSVDRecorderViewController.isOn" = "开启";

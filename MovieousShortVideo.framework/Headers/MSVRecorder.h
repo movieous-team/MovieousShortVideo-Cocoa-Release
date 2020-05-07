@@ -31,7 +31,7 @@ typedef void(^MSVStartCapturingCompletionHandler)(BOOL audioGranted, NSError *_N
  * @param path 录制过程中生成的视频文件地址。
  * @param error 如果发生错误返回错误对象。
  */
-typedef void(^MSVFinishRecordingWithCompletionHandler)(NSString *_Nullable path, NSError *_Nullable error);
+typedef void(^MSVFinishRecordingCompletionHandler)(NSString *_Nullable path, NSError *_Nullable error);
 
 @class MSVRecorder;
 
@@ -48,15 +48,6 @@ typedef void(^MSVFinishRecordingWithCompletionHandler)(NSString *_Nullable path,
  * @param error 产生的具体错误。
  */
 - (void)recorder:(MSVRecorder *)recorder didErrorOccurred:(NSError *)error;
-
-/**
- * 当用户点击屏幕对焦成功时调用。
- *
- * @param recorder 产生事件的录制器对象。
- * @param point 用户点击的位置。
- * @param action 采取的动作类型。
- */
-- (void)recorder:(MSVRecorder *)recorder didTakeTapActionAtPoint:(CGPoint)point action:(MovieousRecorderTapPreviewAction)action;
 
 /**
  * 当前录制片段的时长发生更新的回调。
@@ -257,7 +248,7 @@ typedef void(^MSVFinishRecordingWithCompletionHandler)(NSString *_Nullable path,
  *
  * @param completionHandler 停止成功的回调。
  */
-- (void)finishRecordingWithCompletionHandler:(MSVFinishRecordingWithCompletionHandler _Nullable)completionHandler;
+- (void)finishRecordingWithCompletionHandler:(MSVFinishRecordingCompletionHandler _Nullable)completionHandler;
 
 /**
  * 取消当前录制。

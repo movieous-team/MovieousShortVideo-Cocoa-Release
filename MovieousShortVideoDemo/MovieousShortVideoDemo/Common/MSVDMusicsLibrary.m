@@ -8,6 +8,9 @@
 
 #import "MSVDMusicsLibrary.h"
 
+NSNotificationName const MSVDMusicDidUpdatedNotification = @"MSVDMusicDidUpdatedNotification";
+NSNotificationName const MSVDMusicsLibraryRefreshDoneNotification = @"MSVDMusicsLibraryRefreshDoneNotification";
+
 @interface MSVDMusic ()
 <
 NSURLSessionDownloadDelegate

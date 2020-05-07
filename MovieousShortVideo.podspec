@@ -9,5 +9,5 @@ Pod::Spec.new do |spec|
   spec.static_framework = true
   spec.vendored_frameworks = 'MovieousShortVideo.framework'
   spec.libraries    = 'c++', 'resolv'
-  spec.dependency 'MovieousCaptureBase', '3.0.0'
+  spec.dependency 'MovieousCaptureBase', '3.0.1'
 end

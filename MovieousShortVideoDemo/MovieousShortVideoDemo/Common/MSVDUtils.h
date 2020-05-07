@@ -26,6 +26,7 @@ NSArray<NSString *> *sortAnimatedImagePaths(NSArray<NSString *> * imagePaths);
 + (TZImagePickerController *)generateImagePickerControllerWithDelegate:(id<TZImagePickerControllerDelegate>)delegate maxImagesCount:(NSInteger)maxImagesCount;
 + (NSMutableArray<MSVMainTrackClip *> *)generateMainTrackClipsWithAssets:(NSArray<PHAsset *> *)assets videoSize:(CGSize)videoSize scalingMode:(MovieousScalingMode)scalingMode error:(NSError **)outError;
 + (MSVMixTrackClip *)generateMixTrackClipWithAsset:(PHAsset *)asset videoSize:(CGSize)videoSize scalingMode:(MovieousScalingMode)scalingMode startTimeAtMainTrack:(MovieousTime)startTimeAtMainTrack error:(NSError **)outError;
++ (BOOL)ensureTransitionDurationWithDraft:(MSVDraft *)draft error:(NSError **)outError;
 
 @end
 

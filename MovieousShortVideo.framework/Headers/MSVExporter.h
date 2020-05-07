@@ -91,11 +91,6 @@ MSVExporterFormatParameters
 @property (nonatomic, assign, readonly) BOOL running;
 
 /**
- * 进度回调时间间隔。
- */
-@property (nonatomic, assign) NSTimeInterval progressCallbackInterval;
-
-/**
  * 导出进度。
  */
 @property (nonatomic, assign, readonly) float progress;

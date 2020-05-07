@@ -9,30 +9,15 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-#define MSVDSnapshotBarKey  @"MSVDSnapshotBarKey"
 
-#define MinDurationPerClip  1
+#define VideoFrameRate              30
+// 一帧
+#define MinDurationPerClip          33333
+#define DefaultTransitionDuration   5e6
+#define MinTransitionDuration       0.1
+#define IsEmptyStringKey            @"IsEmptyStringKey"
 
 extern NSNotificationName const MSVDErrorNotification;
 extern NSString *const MSVDErrorKey;
-
-extern NSNotificationName const MSVDMusicDidUpdatedNotification;
-extern NSNotificationName const MSVDMusicsLibraryRefreshDoneNotification;
-
-extern NSNotificationName const MSVDStickerUpdatedNotification;
-extern NSNotificationName const MSVDStickersLibraryUpdatedNotification;
-
-extern NSNotificationName const MSVDAddMainTrackClipButtonPressedNotification;
-
-extern NSNotificationName const MSVDDidSelectClipOrEffectNotification;
-extern NSNotificationName const MSVDDidDeselectClipOrEffectNotification;
-
-extern NSNotificationName const MSVDToolboxViewToolSelectedNotification;
-extern NSNotificationName const MSVDToolboxViewChangeToToolboxNotification;
-extern NSString *const MSVDToolboxViewSelectedToolKey;
-extern NSString *const MSVDToolboxViewToolboxConfigurationKey;
-
-extern NSNotificationName const MSVDStickersViewSelectStickerNotification;
-extern NSString *const MSVDStickersViewSelectedStickerKey;
 
 NS_ASSUME_NONNULL_END

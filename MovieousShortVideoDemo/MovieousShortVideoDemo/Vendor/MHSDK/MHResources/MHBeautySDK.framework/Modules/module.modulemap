@@ -1,0 +1,6 @@
+framework module MHBeautySDK {
+  umbrella header "MHBeautySDK.h"
+
+  export *
+  module * { export * }
+}

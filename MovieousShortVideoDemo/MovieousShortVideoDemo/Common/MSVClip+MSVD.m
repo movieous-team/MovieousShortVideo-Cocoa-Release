@@ -11,12 +11,18 @@
 @implementation MSVClip(MSVD)
 
 - (BOOL)isSameSourceWithClip:(MSVClip *)clip {
-    if ([self.path isEqualToString:clip.path] || self.asset == clip.asset) {
-        return YES;
-    }
-    if ([self.asset isKindOfClass:AVURLAsset.class] && [clip.asset isKindOfClass:AVURLAsset.class]) {
-        if ([((AVURLAsset *)self.asset).URL.absoluteString isEqualToString:((AVURLAsset *)clip.asset).URL.absoluteString]) {
+    if (self.path) {
+        if ([self.path isEqualToString:clip.path]) {
             return YES;
+        }
+    } else if (self.asset) {
+        if (self.asset == clip.asset) {
+            return YES;
+        }
+        if ([self.asset isKindOfClass:AVURLAsset.class] && [clip.asset isKindOfClass:AVURLAsset.class]) {
+            if (((AVURLAsset *)self.asset).URL.absoluteString && [((AVURLAsset *)self.asset).URL.absoluteString isEqualToString:((AVURLAsset *)clip.asset).URL.absoluteString]) {
+                return YES;
+            }
         }
     }
     return NO;

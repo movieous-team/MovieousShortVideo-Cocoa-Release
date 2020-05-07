@@ -8,15 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
+extern NSNotificationName const MSVDAddMainTrackClipButtonPressedNotification;
+extern NSNotificationName const MSVDDidSelectClipOrEffectNotification;
+extern NSNotificationName const MSVDDidSelectTransitionNotification;
 
 @interface MSVDClipsAndEeffectsView : UIView
 
-@property (nonatomic, strong) id selectedClipOrEffect;
+@property (nonatomic, strong, readonly) id<MSVClipOrEffect> selectedClipOrEffect;
+@property (nonatomic, assign, readonly) NSInteger selectedMainTrackClipIndex;
+@property (nonatomic, assign, readonly) NSInteger selectedMainTrackTransitionIndex;
 
 - (instancetype)initWithEditor:(MSVEditor *)editor;
-- (void)deselectClipOrEffect;
+- (void)selectClipOrEffect:(id)clipOrEffect;
 
 @end
-
-NS_ASSUME_NONNULL_END

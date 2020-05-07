@@ -12,6 +12,10 @@
 #import "MSVDStickersLibrary.h"
 #import <M13ProgressSuite/M13ProgressViewPie.h>
 
+NSNotificationName const MSVDStickersViewSelectStickerNotification = @"MSVDStickersViewSelectStickerNotification";
+NSNotificationName const MSVDStickersViewDoneNotification = @"MSVDStickersViewDoneNotification";
+NSString *const MSVDStickersViewSelectedStickerKey = @"MSVDStickersViewSelectedStickerKey";
+
 @interface MSVDCategoriesCollectionViewCell: UICollectionViewCell
 
 @property (nonatomic, strong) UIImage *iconImage;
@@ -120,6 +124,7 @@ UICollectionViewDataSource
     UIButton *_doneButton;
     UICollectionView *_categoriesCollectionView;
     UICollectionView *_stickersCollectionView;
+    NSMutableArray *_stickers;
 }
 
 - (instancetype)init {
@@ -128,7 +133,6 @@ UICollectionViewDataSource
         
         CGFloat topViewHeight = 40;
         _topView = [UIView new];
-        _topView.backgroundColor = UIColor.lightGrayColor;
         [self addSubview:_topView];
         [_topView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(@0);
@@ -138,9 +142,8 @@ UICollectionViewDataSource
         }];
         
         _doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _doneButton.backgroundColor = UIColor.redColor;
         _doneButton.titleLabel.textColor = UIColor.whiteColor;
-        [_doneButton setTitle:@"done" forState:UIControlStateNormal];
+        [_doneButton setImage:[UIImage imageNamed:@"text_ic_confirm_n_Normal"] forState:UIControlStateNormal];
         [_doneButton addTarget:self action:@selector(doneButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [_topView addSubview:_doneButton];
         [_doneButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -187,6 +190,12 @@ UICollectionViewDataSource
     return self;
 }
 
+- (void)setBackgroundColor:(UIColor *)backgroundColor {
+    super.backgroundColor = backgroundColor;
+    _stickersCollectionView.backgroundColor = backgroundColor;
+    _categoriesCollectionView.backgroundColor = backgroundColor;
+}
+
 - (void)stickersLibraryUpdated:(NSNotification *)notification {
     if (!NSThread.currentThread.isMainThread) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -206,7 +215,7 @@ UICollectionViewDataSource
 }
 
 - (void)doneButtonPressed:(UIButton *)sender {
-    [self removeFromSuperview];
+    [NSNotificationCenter.defaultCenter postNotificationName:MSVDStickersViewDoneNotification object:self];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -220,7 +229,7 @@ UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if (collectionView == _categoriesCollectionView) {
-        return 1;
+        return 0;
     } else {
         return MSVDStickersLibrary.stickers.count;
     }
@@ -229,7 +238,6 @@ UICollectionViewDataSource
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (collectionView == _categoriesCollectionView) {
         MSVDCategoriesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-        cell.backgroundColor = UIColor.blueColor;
         return cell;
     } else {
         MSVDStickersCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];

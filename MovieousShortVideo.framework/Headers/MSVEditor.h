@@ -12,51 +12,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- * 通知编辑器的当前播放时间已更新，userInfo 的 kMSVEditorCurrentTimeKey 中将携带当前的时间值。
- */
-extern NSString *kMSVEditorCurrentTimeUpdatedNotification;
-
-/**
- * 获取当前时间值的 key
- */
-extern NSString *kMSVEditorCurrentTimeKey;
-
-/**
- * 通知编辑器的当前播放状态已改变，userInfo 的 kMSVEditorPlayingKey 中将携带当前是否播放中的状态。
- */
-extern NSString *kMSVEditorPlayStateChangedNotification;
-
-/**
- * 获取当前是否播放中的状态的 key
- */
-extern NSString *kMSVEditorPlayingKey;
-
-@class MSVEditor;
-/**
- * 编辑器的代理对象，接受编辑器事件回调。
- */
-@protocol MSVEditorDelegate <NSObject>
-
-@optional
-/**
- * 当前播放时间已更新的回调。
- *
- * @param editor 事件发送者。
- * @param currentTime 编辑器当前播放时间。
- */
-- (void)editor:(MSVEditor *)editor currentTimeDidUpdate:(MovieousTime)currentTime;
-
-/**
- * 当前播放状态已改变的回调。
- *
- * @param editor 事件发送者。
- * @param playing 当前是否正在播放的状态。
- */
-- (void)editor:(MSVEditor *)editor playStateChanged:(BOOL)playing;
-
-@end
-
 @interface MSVEditorPreview : UIView
 
 /**
@@ -75,7 +30,7 @@ extern NSString *kMSVEditorPlayingKey;
 /**
  * 底层草稿对象，相关编辑请通过该草稿对象进行操作。
  */
-@property (nonatomic, strong, readonly) MSVDraft *draft;
+@property (nonatomic, strong) MSVDraft *draft;
 
 /**
  * 编辑预览视图。
@@ -83,29 +38,32 @@ extern NSString *kMSVEditorPlayingKey;
 @property (nonatomic, strong, readonly) MSVEditorPreview *preview;
 
 /**
- * 编辑器的状态。
- */
-@property (nonatomic, assign, readonly) MSVEditorStatus status;
-
-/**
  * 视频内容在 preview 中展示的区域。
  */
 @property (nonatomic, assign, readonly) CGRect contentFrame;
 
 /**
- * 展示在画面.
+ * 展示在画面。
  */
 @property (nonatomic, assign, readonly) CGRect displayingRect;
 
 /**
- * 当前播放进度。
+ * 编辑器错误。
+ * 支持 KVO
  */
-@property (nonatomic, assign, readonly) MovieousTime currentTime;
+@property (nonatomic, strong, readonly) NSError *error;
 
 /**
- * 当前是否正在播放。
+ * 编辑器的状态。
+ * 支持 KVO
  */
-@property (nonatomic, assign, readonly) BOOL playing;
+@property (nonatomic, assign, readonly) MSVEditorStatus status;
+
+/**
+ * 当前播放进度。
+ * 支持 KVO
+ */
+@property (nonatomic, assign, readonly) MovieousTime currentTime;
 
 /**
  *是否循环播放。
@@ -116,11 +74,6 @@ extern NSString *kMSVEditorPlayingKey;
  * 编辑器的预览播放器音量。
  */
 @property (nonatomic, assign) float volume;
-
-/**
- * 编辑器代理对象。
- */
-@property (nonatomic, weak) id<MSVEditorDelegate> delegate;
 
 /**
  * 代理方法回调的队列。
@@ -150,16 +103,6 @@ extern NSString *kMSVEditorPlayingKey;
  * @return 初始化成功则返回草稿对象，失败返回 nil。
  */
 - (instancetype _Nullable)initWithDraft:(MSVDraft *_Nullable)draft error:(NSError *_Nullable *_Nullable)outError NS_DESIGNATED_INITIALIZER;
-
-/**
- * 更新底层 MSVDraft 对象。
- *
- * @param draft 新的 MSVDraft 对象。
- * @param outError 如果发生错误，返回错误对象。
- *
- * @return 如果操作成功返回 YES，否则返回 NO。
- */
-- (BOOL)updateDraft:(MSVDraft *)draft error:(NSError **)outError;
 
 /**
  * 开始预览草稿。

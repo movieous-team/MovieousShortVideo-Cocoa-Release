@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MSVDStickersLibrary.h"
 
 NS_ASSUME_NONNULL_BEGIN
+
+extern NSNotificationName const MSVDStickersViewSelectStickerNotification;
+extern NSNotificationName const MSVDStickersViewDoneNotification;
+extern NSString *const MSVDStickersViewSelectedStickerKey;
 
 @interface MSVDStickersView : UIView
 

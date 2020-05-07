@@ -10,6 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+extern NSNotificationName const MSVDMusicDidUpdatedNotification;
+extern NSNotificationName const MSVDMusicsLibraryRefreshDoneNotification;
+
 @interface MSVDMusic : NSObject
 
 @property (nonatomic, strong) NSURL *sourceURL;

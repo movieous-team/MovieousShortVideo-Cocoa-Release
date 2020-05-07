@@ -7,6 +7,6 @@ target 'MovieousShortVideoDemo' do
   pod 'SVProgressHUD'
   pod 'SDWebImage'
   pod 'M13ProgressSuite'
-  pod 'FDWaveformView'
   pod 'SSZipArchive'
+  pod 'SDMagicHook'
 end

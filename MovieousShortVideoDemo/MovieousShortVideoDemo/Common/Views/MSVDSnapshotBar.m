@@ -7,9 +7,64 @@
 //
 
 #import "MSVDSnapshotBar.h"
+#import "MSVClip+MSVD.h"
 
 // 最多缓存多少张快照，缓存太多会导致内存消耗过多。
 #define MaximumSnapshotCount    1000
+
+@interface MSVDSnapshotBarMaskView : UIView
+
+@property (nonatomic, assign) CGFloat leadingTransitionWidth;
+@property (nonatomic, assign) CGFloat trailingTransitionWidth;
+@property (nonatomic, assign) CGFloat leadingMargin;
+@property (nonatomic, assign) CGFloat trailingMargin;
+
+@end
+
+@implementation MSVDSnapshotBarMaskView
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        self.backgroundColor = UIColor.clearColor;
+    }
+    return self;
+}
+
+- (void)drawRect:(CGRect)rect {
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    // 保证中间距离是 margin
+    CGFloat leadingRatio = 1.0 / sin(atan2(self.bounds.size.height, MAX(_leadingMargin, _leadingTransitionWidth) - _leadingMargin));
+    CGFloat trailingRatio = 1.0 / sin(atan2(self.bounds.size.height, MAX(_trailingMargin, _trailingTransitionWidth) - _trailingMargin));
+    [path moveToPoint:CGPointMake(MAX(_leadingMargin * leadingRatio, _leadingTransitionWidth), 0)];
+    [path addLineToPoint:CGPointMake(self.bounds.size.width - _trailingMargin * trailingRatio, 0)];
+    [path addLineToPoint:CGPointMake(self.bounds.size.width - MAX(_trailingTransitionWidth, _trailingMargin * trailingRatio), self.bounds.size.height)];
+    [path addLineToPoint:CGPointMake(_leadingMargin * leadingRatio, self.bounds.size.height)];
+    [path closePath];
+    [UIColor.whiteColor setFill];
+    [path fill];
+}
+
+- (void)setLeadingTransitionWidth:(CGFloat)leadingTransitionWidth {
+    _leadingTransitionWidth = leadingTransitionWidth;
+    [self setNeedsDisplay];
+}
+
+- (void)setTrailingTransitionWidth:(CGFloat)trailingTransitionWidth {
+    _trailingTransitionWidth = trailingTransitionWidth;
+    [self setNeedsDisplay];
+}
+
+- (void)setLeadingMargin:(CGFloat)leadingMargin {
+    _leadingMargin = leadingMargin;
+    [self setNeedsDisplay];
+}
+
+- (void)setTrailingMargin:(CGFloat)trailingMargin {
+    _trailingMargin = trailingMargin;
+    [self setNeedsDisplay];
+}
+
+@end
 
 @interface MSVDSnapshot : NSObject
 
@@ -25,28 +80,43 @@
 static NSNotificationName MSVDSnapshotsCacheNewAvailableNotification = @"MSVDSnapshotsCacheNewAvailableNotification";
 static NSString *kMSVDSnapshotsNewSnapshotKey = @"kMSVDSnapshotsNewSnapshotKey";
 
+static NSMutableArray<MSVDSnapshotsCache *> *_snapshotsCachePool;
+
 @interface MSVDSnapshotsCache ()
 
 @property (nonatomic, strong) NSArray<MSVDSnapshot *> *snapshots;
 
-- (instancetype)initWithSnapshotGenerator:(MSVSnapshotGenerator *)snapshotGenerator;
 - (void)lockForReading;
 - (void)unlockForReading;
 
 @end
 
 @implementation MSVDSnapshotsCache {
-    MSVSnapshotGenerator *_snapshotGenerator;
     NSMutableArray<MSVDSnapshot *> *_snapshots;
     // 存储所有已经请求过生成且未失败的时间戳，以方便判断是否需要再次请求邻近的时间戳
     NSMutableArray<NSNumber *> *_pendingTimes;
     dispatch_queue_t _snapshotRefreshQueue;
     NSRecursiveLock *_snapshotsLock;
+    MSVClip *_clip;
 }
 
-- (instancetype)initWithSnapshotGenerator:(MSVSnapshotGenerator *)snapshotGenerator {
++ (instancetype)createSnapshotCacheWithClip:(MSVClip *)clip {
+    if (!_snapshotsCachePool) {
+        _snapshotsCachePool = [NSMutableArray array];
+    }
+    for (MSVDSnapshotsCache *snapshotsCache in _snapshotsCachePool) {
+        if ([snapshotsCache->_clip isSameSourceWithClip:clip]) {
+            return snapshotsCache;
+        }
+    }
+    MSVDSnapshotsCache *snapshotsCache = [[MSVDSnapshotsCache alloc] initWithClip:clip];
+    [_snapshotsCachePool addObject:snapshotsCache];
+    return snapshotsCache;
+}
+
+- (instancetype)initWithClip:(MSVClip *)clip {
     if (self = [super init]) {
-        _snapshotGenerator = snapshotGenerator;
+        _clip = clip;
         _snapshots = [NSMutableArray array];
         _snapshotsLock = [NSRecursiveLock new];
         _pendingTimes = [NSMutableArray array];
@@ -55,10 +125,15 @@ static NSString *kMSVDSnapshotsNewSnapshotKey = @"kMSVDSnapshotsNewSnapshotKey";
     return self;
 }
 
+- (void)dealloc {
+    [_snapshotsCachePool removeObject:self];
+}
+
 - (void)refreshSnapshotsWithSnapshotCount:(NSUInteger)snapshotCount frameInterval:(MovieousTime)frameInterval {
     if (_pendingTimes.count >= MaximumSnapshotCount) {
         return;
     }
+    MSVSnapshotGenerator *snapshotGenerator = _clip.snapshotGenerator;
     dispatch_async(_snapshotRefreshQueue, ^{
         NSMutableArray<NSNumber *> *requestedTimes = [NSMutableArray array];
         // 请求快照的最小时间间隔。
@@ -104,10 +179,10 @@ static NSString *kMSVDSnapshotsNewSnapshotKey = @"kMSVDSnapshotsNewSnapshotKey";
             }
         }
         if (requestedTimes.count > 0) {
-            self->_snapshotGenerator.requestedTimeToleranceBefore = minimumInterval;
-            self->_snapshotGenerator.requestedTimeToleranceAfter = minimumInterval;
+            snapshotGenerator.requestedTimeToleranceBefore = minimumInterval;
+            snapshotGenerator.requestedTimeToleranceAfter = minimumInterval;
             MovieousWeakSelf
-            [self->_snapshotGenerator generateSnapshotsAsynchronouslyForTimes:requestedTimes completionHandler:^(MovieousTime requestedTime, UIImage * _Nullable image, MovieousTime actualTime, MSVSnapshotGeneratorResult result, NSError * _Nullable error) {
+            [snapshotGenerator generateSnapshotsAsynchronouslyForTimes:requestedTimes completionHandler:^(MovieousTime requestedTime, UIImage * _Nullable image, MovieousTime actualTime, MSVSnapshotGeneratorResult result, NSError * _Nullable error) {
                 if (!wSelf) {
                     return;
                 }
@@ -205,6 +280,8 @@ static NSString *kMSVDSnapshotsNewSnapshotKey = @"kMSVDSnapshotsNewSnapshotKey";
     int _lastEndIndex;
     CGFloat _lastStartPoint;
     BOOL _needRefreshSnapshots;
+    UIImage *_image;
+    MSVDSnapshotBarMaskView *_maskView;
 }
 
 - (instancetype)init {
@@ -212,25 +289,11 @@ static NSString *kMSVDSnapshotsNewSnapshotKey = @"kMSVDSnapshotsNewSnapshotKey";
         _lastStartIndex = -1;
         _lastEndIndex = -1;
         _lastStartPoint = -1;
-    }
-    return self;
-}
-
-- (instancetype)initWithSnapshotGenerator:(MSVSnapshotGenerator *)snapshotGenerator timeRange:(MovieousTimeRange)timeRange {
-    if (self = [self init]) {
-        _snapshotsCache = [[MSVDSnapshotsCache alloc] initWithSnapshotGenerator:snapshotGenerator];
-        _timeRange = timeRange;
-        _imageViewPool = [NSMutableArray array];
-        _visibleImageViews = [NSMutableArray array];
         self.clipsToBounds = YES;
-        self.maskView = [UIView new];
-        self.maskView.backgroundColor = UIColor.clearColor;
-        UIView *maskSubview = [UIView new];
-        maskSubview.backgroundColor = UIColor.whiteColor;
-        [self.maskView addSubview:maskSubview];
+        _maskView = [[MSVDSnapshotBarMaskView alloc] initWithFrame:self.bounds];
+        self.maskView = _maskView;
         [self addObserver:self forKeyPath:@"center" options:NSKeyValueObservingOptionNew context:nil];
         [self addObserver:self forKeyPath:@"bounds" options:NSKeyValueObservingOptionNew context:nil];
-        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(newSnapshotAvailable:) name:MSVDSnapshotsCacheNewAvailableNotification object:_snapshotsCache];
     }
     return self;
 }
@@ -241,32 +304,17 @@ static NSString *kMSVDSnapshotsNewSnapshotKey = @"kMSVDSnapshotsNewSnapshotKey";
         _timeRange = timeRange;
         _imageViewPool = [NSMutableArray array];
         _visibleImageViews = [NSMutableArray array];
-        self.clipsToBounds = YES;
-        self.maskView = [UIView new];
-        self.maskView.backgroundColor = UIColor.clearColor;
-        UIView *maskSubview = [UIView new];
-        maskSubview.backgroundColor = UIColor.whiteColor;
-        [self.maskView addSubview:maskSubview];
-        [self addObserver:self forKeyPath:@"center" options:NSKeyValueObservingOptionNew context:nil];
-        [self addObserver:self forKeyPath:@"bounds" options:NSKeyValueObservingOptionNew context:nil];
         [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(newSnapshotAvailable:) name:MSVDSnapshotsCacheNewAvailableNotification object:_snapshotsCache];
     }
     return self;
 }
 
-- (instancetype)initWithImage:(UIImage *)image {
+- (instancetype)initWithImage:(UIImage *)image originalWidthWhenLeftPanStarts:(CGFloat)originalWidthWhenLeftPanStarts {
     if (self = [self init]) {
         _image = image;
+        _originalWidthWhenLeftPanStarts = originalWidthWhenLeftPanStarts;
         _imageViewPool = [NSMutableArray array];
         _visibleImageViews = [NSMutableArray array];
-        self.clipsToBounds = YES;
-        self.maskView = [UIView new];
-        self.maskView.backgroundColor = UIColor.clearColor;
-        UIView *maskSubview = [UIView new];
-        maskSubview.backgroundColor = UIColor.whiteColor;
-        [self.maskView addSubview:maskSubview];
-        [self addObserver:self forKeyPath:@"center" options:NSKeyValueObservingOptionNew context:nil];
-        [self addObserver:self forKeyPath:@"bounds" options:NSKeyValueObservingOptionNew context:nil];
     }
     return self;
 }
@@ -277,24 +325,20 @@ static NSString *kMSVDSnapshotsNewSnapshotKey = @"kMSVDSnapshotsNewSnapshotKey";
     [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
-- (void)updateMaskViewFrame {
-    UIView *maskSubview = self.maskView.subviews.firstObject;
-    self.maskView.frame = self.bounds;
-    maskSubview.frame = CGRectMake(_leadingMargin, 0, self.bounds.size.width - _leadingMargin - _trailingMargin, self.bounds.size.height);
-}
-
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:@"center"] || [keyPath isEqualToString:@"bounds"]) {
         if (CGRectEqualToRect(_lastFrame, self.frame)) {
             return;
         }
-        [self updateMaskViewFrame];
-        _frameInterval = _timeRange.duration * self.bounds.size.height / self.bounds.size.width;
-        [self refreshImageViewsForVisibleArea];
         _lastFrame = self.frame;
-        if (_needRefreshSnapshots) {
-            [self refreshSnapshots];
-            _needRefreshSnapshots = NO;
+        _maskView.frame = self.bounds;
+        if (_snapshotsCache || _image) {
+            _frameInterval = _timeRange.duration * self.bounds.size.height / self.bounds.size.width;
+            [self refreshImageViewsForVisibleArea];
+            if (_needRefreshSnapshots) {
+                [self refreshSnapshots];
+                _needRefreshSnapshots = NO;
+            }
         }
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
@@ -340,7 +384,9 @@ static NSString *kMSVDSnapshotsNewSnapshotKey = @"kMSVDSnapshotsNewSnapshotKey";
 
 - (void)setTimeRange:(MovieousTimeRange)timeRange {
     _timeRange = timeRange;
-    [self refreshImageViewsForVisibleArea];
+    if (_snapshotsCache || _image) {
+        [self refreshImageViewsForVisibleArea];
+    }
 }
 
 - (void)refreshImageViewsForVisibleArea {
@@ -414,7 +460,7 @@ static NSString *kMSVDSnapshotsNewSnapshotKey = @"kMSVDSnapshotsNewSnapshotKey";
             [_snapshotsCache unlockForReading];
             return;
         }
-        CGFloat startPoint = -_timeRange.start / _frameInterval * self.frame.size.height;
+        CGFloat startPoint = -_timeRange.start * self.frame.size.height / _frameInterval;
         // 用于存储当前循环到 _snapshot 的第几个项了。
         NSUInteger currentIndex = 0;
         for (int i = 0; i < _visibleImageViews.count; i++) {
@@ -452,14 +498,24 @@ static NSString *kMSVDSnapshotsNewSnapshotKey = @"kMSVDSnapshotsNewSnapshotKey";
     }
 }
 
+- (void)setLeadingTransitionWidth:(CGFloat)leadingTransitionWidth {
+    _leadingTransitionWidth = leadingTransitionWidth;
+    _maskView.leadingTransitionWidth = leadingTransitionWidth;
+}
+
+- (void)setTrailingTransitionWidth:(CGFloat)trailingTransitionWidth {
+    _trailingTransitionWidth = trailingTransitionWidth;
+    _maskView.trailingTransitionWidth = trailingTransitionWidth;
+}
+
 - (void)setLeadingMargin:(CGFloat)leadingMargin {
     _leadingMargin = leadingMargin;
-    [self updateMaskViewFrame];
+    _maskView.leadingMargin = leadingMargin;
 }
 
 - (void)setTrailingMargin:(CGFloat)trailingMargin {
     _trailingMargin = trailingMargin;
-    [self updateMaskViewFrame];
+    _maskView.trailingMargin = trailingMargin;
 }
 
 @end

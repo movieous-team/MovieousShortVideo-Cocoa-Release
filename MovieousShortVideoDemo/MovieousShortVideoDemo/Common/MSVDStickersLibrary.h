@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef NS_ENUM(NSUInteger, MSVDStickerType) {
     MSVDStickerTypeImage = 0b001,
     MSVDStickerTypeGif = 0b010,
@@ -15,7 +17,8 @@ typedef NS_ENUM(NSUInteger, MSVDStickerType) {
     MSVDStickerTypeAll = MSVDStickerTypeImage | MSVDStickerTypeGif | MSVDStickerTypeImages,
 };
 
-NS_ASSUME_NONNULL_BEGIN
+extern NSNotificationName const MSVDStickerUpdatedNotification;
+extern NSNotificationName const MSVDStickersLibraryUpdatedNotification;
 
 @interface MSVDSticker : NSObject
 

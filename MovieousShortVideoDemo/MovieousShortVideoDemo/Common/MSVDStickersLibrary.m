@@ -9,6 +9,9 @@
 #import "MSVDStickersLibrary.h"
 #import <SSZipArchive/SSZipArchive.h>
 
+NSNotificationName const MSVDStickerUpdatedNotification = @"MSVDStickerUpdatedNotification";
+NSNotificationName const MSVDStickersLibraryUpdatedNotification = @"MSVDStickersLibraryUpdatedNotification";
+
 @interface MSVDSticker ()
 <
 NSURLSessionDownloadDelegate,

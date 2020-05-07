@@ -10,7 +10,6 @@
 #import <TZImagePickerController/TZImagePickerController.h>
 #import "MSVDEditorViewController.h"
 #import "MSVDUtils.h"
-#import "MSVDTransitionProcessor.h"
 #import "MSVDRecorderViewController.h"
 #import "MSVDExportViewController.h"
 
@@ -22,42 +21,36 @@ TZImagePickerControllerDelegate
 @end
 
 @implementation MSVDHomeViewController {
-    UIButton *_startEditingButton;
-    UIButton *_startRecordingButton;
+    UIButton *_startCompositionButton;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _startEditingButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_startEditingButton setTitle:NSLocalizedString(@"MSVDHomeViewController.startEditing", nil) forState:UIControlStateNormal];
-    [_startEditingButton addTarget:self action:@selector(startEditingButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    _startEditingButton.titleLabel.textColor = UIColor.whiteColor;
-    _startEditingButton.backgroundColor = [UIColor colorWithRed:0.1255 green:0.1255 blue:0.1333 alpha:1];
-    [self.view addSubview:_startEditingButton];
-    [_startEditingButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    _startCompositionButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_startCompositionButton setTitle:NSLocalizedString(@"MSVDHomeViewController.startComposition", nil) forState:UIControlStateNormal];
+    [_startCompositionButton addTarget:self action:@selector(startEditingButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    _startCompositionButton.titleLabel.textColor = UIColor.whiteColor;
+    _startCompositionButton.backgroundColor = [UIColor colorWithRed:0.1255 green:0.1255 blue:0.1333 alpha:1];
+    [self.view addSubview:_startCompositionButton];
+    [_startCompositionButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@0);
         make.left.equalTo(@0);
         make.right.equalTo(@0);
         make.height.equalTo(@240);
     }];
-    
-    _startRecordingButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_startRecordingButton setTitle:NSLocalizedString(@"MSVDHomeViewController.startRecording", nil) forState:UIControlStateNormal];
-    [_startRecordingButton addTarget:self action:@selector(startRecordingButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_startRecordingButton];
-    [_startRecordingButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(@0);
-        make.centerY.equalTo(@-30);
-    }];
 }
 
 - (void)startEditingButtonPressed:(UIButton *)sender {
-    [self presentViewController:[MSVDUtils generateImagePickerControllerWithDelegate:self maxImagesCount:9] animated:YES completion:nil];
-}
-
-- (void)startRecordingButtonPressed:(UIButton *)sender {
-    [self presentViewController:[MSVDRecorderViewController new] animated:YES completion:nil];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"global.prompt", nil) message:NSLocalizedString(@"MSVDHomeViewController.resourceSource", nil) preferredStyle:UIAlertControllerStyleActionSheet];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"MSVDHomeViewController.record", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self presentViewController:[MSVDRecorderViewController new] animated:YES completion:nil];
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"MSVDHomeViewController.photoLibrary", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self presentViewController:[MSVDUtils generateImagePickerControllerWithDelegate:self maxImagesCount:9] animated:YES completion:nil];
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"global.cancel", nil) style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingPhotos:(NSArray<UIImage *> *)photos sourceAssets:(NSArray *)assets isSelectOriginalPhoto:(BOOL)isSelectOriginalPhoto infos:(NSArray<NSDictionary *> *)infos {
@@ -97,7 +90,7 @@ TZImagePickerControllerDelegate
 
 - (BOOL)isAssetCanSelect:(PHAsset *)asset {
     if (asset.mediaType == PHAssetMediaTypeVideo) {
-        if (asset.duration < MinDurationPerClip) {
+        if (asset.duration < MovieousTimeGetSeconds(MinDurationPerClip)) {
             return NO;
         }
     }

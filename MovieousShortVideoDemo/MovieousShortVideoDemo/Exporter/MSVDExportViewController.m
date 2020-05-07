@@ -29,15 +29,21 @@
         _exporter.saveToPhotosAlbum = YES;
         MovieousWeakSelf
         _exporter.progressHandler = ^(float progress) {
-            [SVProgressHUD showProgress:progress status:NSLocalizedString(@"MSVDExportViewController.exporting", "")];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [SVProgressHUD showProgress:progress status:NSLocalizedString(@"MSVDExportViewController.exporting", "")];
+            });
         };
         _exporter.completionHandler = ^(NSString * _Nonnull path) {
-            [SVProgressHUD dismiss];
-            SHOW_ALERT_FOR(NSLocalizedString(@"global.prompt", ""), NSLocalizedString(@"MSVDExportViewController.done", ""), NSLocalizedString(@"global.ok", ""), wSelf);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [SVProgressHUD dismiss];
+                SHOW_ALERT_FOR(NSLocalizedString(@"global.prompt", ""), NSLocalizedString(@"MSVDExportViewController.done", ""), NSLocalizedString(@"global.ok", ""), wSelf);
+            });
         };
         _exporter.failureHandler = ^(NSError * _Nonnull error) {
-            [SVProgressHUD dismiss];
-            SHOW_ERROR_ALERT_FOR(wSelf)
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [SVProgressHUD dismiss];
+                SHOW_ERROR_ALERT_FOR(wSelf)
+            });
         };
         _resolutionConfigurations = @[
             @{

@@ -1,24 +1,33 @@
 PODS:
-  - FDWaveformView (5.0.1)
+  - fishhook (0.2)
   - M13ProgressSuite (1.2.9)
   - Masonry (1.1.0)
-  - MovieousBase (3.0.0)
-  - MovieousCaptureBase (3.0.0):
-    - MovieousBase (= 3.0.0)
-  - MovieousShortVideo (4.0.0):
-    - MovieousCaptureBase (= 3.0.0)
-  - SDWebImage (5.6.1):
-    - SDWebImage/Core (= 5.6.1)
-  - SDWebImage/Core (5.6.1)
-  - SSZipArchive (2.2.2)
+  - MovieousBase (3.0.1)
+  - MovieousCaptureBase (3.0.1):
+    - MovieousBase (= 3.0.1)
+  - MovieousShortVideo (4.0.1):
+    - MovieousCaptureBase (= 3.0.1)
+  - SDMagicHook (1.2.4):
+    - fishhook
+    - SDMagicHook/SDMagicHookMRCTool (= 1.2.4)
+    - SDMagicHook/SDMagicHookUtils (= 1.2.4)
+  - SDMagicHook/SDMagicHookMRCTool (1.2.4):
+    - fishhook
+    - SDMagicHook/SDMagicHookUtils
+  - SDMagicHook/SDMagicHookUtils (1.2.4):
+    - fishhook
+  - SDWebImage (5.7.4):
+    - SDWebImage/Core (= 5.7.4)
+  - SDWebImage/Core (5.7.4)
+  - SSZipArchive (2.2.3)
   - SVProgressHUD (2.2.5)
   - TZImagePickerController (3.3.1)
 
 DEPENDENCIES:
-  - FDWaveformView
   - M13ProgressSuite
   - Masonry
   - MovieousShortVideo (from `../`)
+  - SDMagicHook
   - SDWebImage
   - SSZipArchive
   - SVProgressHUD
@@ -26,11 +35,12 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - FDWaveformView
+    - fishhook
     - M13ProgressSuite
     - Masonry
     - MovieousBase
     - MovieousCaptureBase
+    - SDMagicHook
     - SDWebImage
     - SSZipArchive
     - SVProgressHUD
@@ -41,17 +51,18 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FDWaveformView: c188be613947273cc83d6f0056505f60e6c4b9ac
+  fishhook: ea19933abfe8f2f52c55fd8b6e2718467d3ebc89
   M13ProgressSuite: ea9f7263e73e9215e6849dfa54e29ee0ad6a145c
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  MovieousBase: fcb80d25bf77c10904ed9b2240d51d5b71900362
-  MovieousCaptureBase: 8f8e6043982202f616a8f86b38d4fc3705a4a96c
-  MovieousShortVideo: 66d962567b16551145da96d2c2d0a0ab5f14b2ba
-  SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
-  SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
+  MovieousBase: 0585e4a72ca960a6fc18aeeb87469d3b6aebcb5f
+  MovieousCaptureBase: 31ee1b933f0f62dbe9bcfa9eb901f0ed6ad6e27a
+  MovieousShortVideo: 62418bbd9e5c2c904bb7b534a574dc6a46a7908f
+  SDMagicHook: 02780b027a1f6275b4a587e31d784f754564b607
+  SDWebImage: 48b88379b798fd1e4298f95bb25d2cdabbf4deb3
+  SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TZImagePickerController: 99f03b64145a8c92c55b9b1b931410967d9be4cb
 
-PODFILE CHECKSUM: c2b3ed8f9fe894a883504e238ae1e5679db36cd7
+PODFILE CHECKSUM: cd2459e305b0c9265cc1b3c9f667af486546ccbe
 
 COCOAPODS: 1.9.1

@@ -11,7 +11,6 @@
 #import <MovieousBase/MovieousBase.h>
 #import "MSVSnapshotGenerator.h"
 #import "MSVEffect.h"
-#import "MSVRenderContext.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -22,13 +21,12 @@ NS_ASSUME_NONNULL_BEGIN
  * 外置片段处理回调，你需要在此回调中处理 clip 的帧并返回。
  *
  * @param clip 处理的帧来源的 MSVClip 对象。
- * @param renderContext 渲染环境对象。
  * @param pixelBuffer 待处理的原始帧。
  * @param time 待处理的帧时间戳。
  *
  * @return 处理完成的帧，请对要返回的 CVPixelBufferRef 对象依次调用 CFRetain 和 CFAutorelease 函数之后再返回，以便正确管理对象生命周期。
  */
-- (CVPixelBufferRef)clip:(MSVClip *)clip renderContext:(MSVRenderContext *)renderContext shouldProcessPixelBuffer:(CVPixelBufferRef)pixelBuffer time:(MovieousTime)time;
+- (CVPixelBufferRef)clip:(MSVClip *)clip shouldProcessPixelBuffer:(CVPixelBufferRef)pixelBuffer time:(MovieousTime)time;
 
 @end
 
@@ -37,7 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface MSVClip : MovieousObject
 <
-NSCopying
+NSCopying,
+MSVClipOrEffect
 >
 
 /**
@@ -112,6 +111,8 @@ NSCopying
  */
 - (instancetype _Nullable)initWithAnimatedImage:(UIImage *)image error:(NSError *_Nullable *_Nullable)outError;
 
+- (instancetype _Nullable)initWithStillText:(NSAttributedString *)text duration:(MovieousTime)duration error:(NSError *_Nullable *_Nullable)outError;
+
 /**
  * 使用另一个 MSVClip 对象来初始化一个 MSVClip 对象。
  *
@@ -142,6 +143,8 @@ NSCopying
  */
 @property (nonatomic, strong, readonly) AVAsset *asset;
 
+@property (nonatomic, strong) NSAttributedString *text;
+
 /**
  * 片段的自然尺寸（将源文件默认的旋转考虑在内）。
  */
@@ -156,6 +159,11 @@ NSCopying
  * 片段的默认镜像情况。
  */
 @property (nonatomic, assign, readonly) BOOL defaultMirrored;
+
+/**
+ * 背景颜色。
+ */
+@property (nonatomic, strong) UIColor *backgroundColor;
 
 /**
  * 取材的视频区域的中心点。

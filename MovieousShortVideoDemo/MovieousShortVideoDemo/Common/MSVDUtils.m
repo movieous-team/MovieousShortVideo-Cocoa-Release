@@ -155,10 +155,11 @@ NSArray<NSString *> *sortAnimatedImagePaths(NSArray<NSString *> * imagePaths) {
 + (TZImagePickerController *)generateImagePickerControllerWithDelegate:(id<TZImagePickerControllerDelegate>)delegate maxImagesCount:(NSInteger)maxImagesCount {
     TZImagePickerController *imagePickerController = [[TZImagePickerController alloc] initWithMaxImagesCount:maxImagesCount delegate:delegate];
     imagePickerController.modalPresentationStyle = UIModalPresentationFullScreen;
+    imagePickerController.allowPickingVideo = YES;
     imagePickerController.allowPickingGif = YES;
+    imagePickerController.allowPickingImage = YES;
     imagePickerController.allowPickingMultipleVideo = YES;
     imagePickerController.allowPickingOriginalPhoto = NO;
-    imagePickerController.allowPickingImage = YES;
     imagePickerController.showSelectedIndex = YES;
     imagePickerController.onlyReturnAsset = YES;
     return imagePickerController;
@@ -280,6 +281,35 @@ NSArray<NSString *> *sortAnimatedImagePaths(NSArray<NSString *> * imagePaths) {
         }
     }
     return mixTrackClip;
+}
+
++ (BOOL)ensureTransitionDurationWithDraft:(MSVDraft *)draft error:(NSError **)outError {
+    [draft beginChangeTransaction];
+    NSMutableDictionary<NSNumber *, MSVMainTrackTransition *> *mainTrackTransitions = [draft.mainTrackTransitions mutableCopy];
+    BOOL shouldUpdateTransition = NO;
+    for (NSNumber *index in draft.mainTrackTransitions) {
+        int i = index.intValue;
+        if (i < draft.mainTrackClips.count - 1) {
+            MSVMainTrackTransition *transition = draft.mainTrackTransitions[index];
+            if (transition) {
+                MSVMainTrackClip *leadingClip = draft.mainTrackClips[i];
+                MSVMainTrackClip *trailingClip = draft.mainTrackClips[i + 1];
+                MovieousTime maxDuration = MIN(leadingClip.durationAtMainTrack / 2, trailingClip.durationAtMainTrack / 2);
+                if (maxDuration < MovieousTimeMakeWithSeconds(MinTransitionDuration)) {
+                    mainTrackTransitions[index] = nil;
+                    shouldUpdateTransition = YES;
+                } else {
+                    if (transition.durationAtMainTrack > maxDuration) {
+                        transition.durationAtMainTrack = maxDuration;
+                    }
+                }
+            }
+        }
+    }
+    if (shouldUpdateTransition) {
+        [draft updateMainTrackTransitions:mainTrackTransitions error:nil];
+    }
+    return [draft commitChangeWithError:outError];
 }
 
 @end

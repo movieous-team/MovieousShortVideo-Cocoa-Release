@@ -8,7 +8,7 @@
 
 #import "MSVClip.h"
 #import "MSVTypeDefines.h"
-#import "MSVTimeDomainObject.h"
+#import "MSVClipOrEffect.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface MSVMixTrackClip : MSVClip
 <
-MSVTimeDomainObject
+MSVMutableClipOrEffect
 >
 
 /**
@@ -176,6 +176,8 @@ MSVTimeDomainObject
  */
 - (instancetype _Nullable)initWithAnimatedImage:(UIImage *)image startTimeAtMainTrack:(MovieousTime)startTimeAtMainTrack error:(NSError *_Nullable *_Nullable)outError;
 
++ (instancetype _Nullable)mixTrackClipWithStillText:(NSAttributedString *)text duration:(MovieousTime)duration startTimeAtMainTrack:(MovieousTime)startTimeAtMainTrack error:(NSError *_Nullable *_Nullable)outError;
+- (instancetype _Nullable)initWithStillText:(NSAttributedString *)text duration:(MovieousTime)duration startTimeAtMainTrack:(MovieousTime)startTimeAtMainTrack error:(NSError *_Nullable *_Nullable)outError;
 
 /**
  * 使用其他 MSVMixTrackClip 来初始化一个 MSVMixTrackClip 对象。

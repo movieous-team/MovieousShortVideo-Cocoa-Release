@@ -14,8 +14,7 @@
 #import "MSVMixTrackClip.h"
 #import "MSVSnapshotGenerator.h"
 #import "MSVMainTrackTransition.h"
-#import "MSVCanvasConfiguration.h"
-#import "MSVTimeDomainObject.h"
+#import "MSVClipOrEffect.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -48,31 +47,9 @@ NSCopying
 - (instancetype)initWithMainTrackClips:(NSArray<MSVMainTrackClip *> *)mainTrackClips error:(NSError **)outError;
 
 /**
- * 目标视频的画布配置。
- */
-@property (nonatomic, strong) id<MSVCanvasConfiguration> canvasConfiguration;
-
-/**
  * @brief 主轨道片段数组，主轨道片段按照其 durationAtMainTrack 所指定的时长顺序排列组成视频的主轨道，草稿的长度由主轨道时长决定
  */
 @property (nonatomic, strong, readonly) NSArray<MSVMainTrackClip *> *mainTrackClips;
-
-/**
- * @brief 主轨转场 dictionary，key 为应用转场的两个相邻 MSVMainTrackClip 对象中前一个的 index
- * 例如 mainTrackClips 由 [mainTrackClip1, mainTrackClip2, mainTrackClip3] 组成，那么 mainTrackClip2 和 mainTrackClip3 之间的转场 key 值为 1（即 mainTrackClip2 的 index ）
- */
-@property (nonatomic, strong, readonly) NSDictionary<NSNumber *, MSVMainTrackTransition *> *mainTrackTransitions;
-
-/**
- * 同时更新主轨片段集和主轨转场集，非 readonly 的参数可以直接在相关对象中调整，其他操作（增、删、替换等）需要使用该接口进行刷新。
- *
- * @param mainTrackClips 新的主轨片段集。
- * @param mainTrackTransitions 新的主轨转场集。
- * @param outError 如果发生错误，返回发生的错误。
- *
- * @return 如果操作成功返回 YES，否则返回 NO。
- */
-- (BOOL)updateMainTrackClips:(NSArray<MSVMainTrackClip *> *_Nullable)mainTrackClips mainTrackTransitions:(NSDictionary<NSNumber *, MSVMainTrackTransition *> *_Nullable)mainTrackTransitions error:(NSError *_Nullable *_Nullable)outError NS_SWIFT_NAME(update(mainTrackClips:mainTrackTransitions:));
 
 /**
  * 更新主轨片段集，非 readonly 的参数可以直接在相关对象中调整，其他操作（增、删、替换等）需要使用该接口进行刷新。
@@ -83,6 +60,12 @@ NSCopying
  * @return 如果操作成功返回 YES，否则返回 NO。
  */
 - (BOOL)updateMainTrackClips:(NSArray<MSVMainTrackClip *> *_Nullable)mainTrackClips error:(NSError *_Nullable *_Nullable)outError NS_SWIFT_NAME(update(mainTrackClips:));
+
+/**
+ * @brief 主轨转场 dictionary，key 为应用转场的两个相邻 MSVMainTrackClip 对象中前一个的 index
+ * 例如 mainTrackClips 由 [mainTrackClip1, mainTrackClip2, mainTrackClip3] 组成，那么 mainTrackClip2 和 mainTrackClip3 之间的转场 key 值为 1（即 mainTrackClip2 的 index ）
+ */
+@property (nonatomic, strong, readonly) NSDictionary<NSNumber *, MSVMainTrackTransition *> *mainTrackTransitions;
 
 /**
  * 更新主轨转场集，非 readonly 的参数可以直接在相关对象中调整，其他操作（增、删、替换等）需要使用该接口进行刷新。
@@ -98,7 +81,7 @@ NSCopying
  * 合成轨片段或特效数组，合成轨片段的视频叠加顺序和特效应用的顺序与该数组的顺序保持一致。
  * 例如 mixTrackClipsOrEffects 的构成为 [mixTrackClip1, mixTrackClip2, effect1, mixTrackClip3, effect2]，mixTrackClip1，mixTrackClip2，mixTrackClip3，则任意一帧的生成将是按照如下方式：在画布上绘制 mixTrackClip1，在画布上绘制 mixTrackClip2，应用 effect1 特效，在画布上绘制 mixTrackClip3，应用 effect2 特效。
  */
-@property (nonatomic, strong, readonly) NSArray<id<MSVTimeDomainObject>> *mixTrackClipsOrEffects;
+@property (nonatomic, strong, readonly) NSArray<id<MSVMutableClipOrEffect>> *mixTrackClipsOrEffects;
 
 /**
  * 更新合成轨片段或特效数组，非 readonly 的参数可以直接在相关对象中调整，其他操作（增、删、替换等）需要使用该接口进行刷新。
@@ -109,7 +92,7 @@ NSCopying
  *
  * @return 如果操作成功返回 YES，否则返回 NO。
  */
-- (BOOL)updateMixTrackClipsOrEffects:(NSArray<id<MSVTimeDomainObject>> *_Nullable)mixTrackClipsOrEffects error:(NSError *_Nullable *_Nullable)outError NS_SWIFT_NAME(update(mixTrackClipsOrEffects:));
+- (BOOL)updateMixTrackClipsOrEffects:(NSArray<id<MSVMutableClipOrEffect>> *_Nullable)mixTrackClipsOrEffects error:(NSError *_Nullable *_Nullable)outError NS_SWIFT_NAME(update(mixTrackClipsOrEffects:));
 
 /**
  * 草稿的在应用 timeRange 之前的总时长。
@@ -124,7 +107,7 @@ NSCopying
 /**
  * 视频的横纵比，最终的视频分辨率会尽量保证此横纵比。
  */
-@property (nonatomic, assign) MSVAspectRatio aspectRatio;
+@property (nonatomic, assign) CGSize aspectRatio;
 
 /**
  * 视频的最大分辨率。

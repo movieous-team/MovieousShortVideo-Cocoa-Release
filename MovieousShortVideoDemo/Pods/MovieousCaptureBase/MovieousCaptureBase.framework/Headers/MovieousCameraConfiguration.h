@@ -34,30 +34,6 @@
  */
 @property (nonatomic, assign) MovieousScalingMode previewScalingMode;
 
-/*!
- * 是否对前置摄像头预览进行镜像处理。
- * 默认为 YES。
- */
-@property (nonatomic, assign) BOOL mirrorFrontPreview;
-
-/*!
- * 是否对后置摄像头预览进行镜像处理。
- * 默认为 NO。
- */
-@property (nonatomic, assign) BOOL mirrorBackPreview;
-
-/*!
- * 是否对前置摄像头编码的视频进行镜像处理。
- * 默认为 NO。
- */
-@property (nonatomic, assign) BOOL mirrorFrontEncoded;
-
-/*!
- * 是否对后置摄像头编码的视频进行镜像处理。
- * 默认为 NO。
- */
-@property (nonatomic, assign) BOOL mirrorBackEncoded;
-
 /**
  * 切换摄像头时是否进行模糊化过渡
  * 默认为 NO。
@@ -65,21 +41,15 @@
 @property (nonatomic, assign) BOOL blurSwitch;
 
 /**
- * 当点击预览视图上的指定点时采取什么操作。
- * 默认为 MovieousRecorderTapPreviewActionFocus | MovieousRecorderTapPreviewActionExposure | MovieousRecorderTapPreviewActionShowIndicator.
- */
-@property (nonatomic, assign) MovieousRecorderTapPreviewAction tapPreviewAction;
-
-/**
  * 指定期望的摄像头手电筒模式，需要注意的是 preferredTorchMode 的值不一定能够被成功应用，实际的手电筒模式可以通过 MSVRecorder.torchMode 来获取。
  *
- * 默认为 AVCaptureTorchModeAuto
+ * 默认为 AVCaptureTorchModeOff
  */
 @property (nonatomic, assign) AVCaptureTorchMode preferredTorchMode;
 
 /**
  * 指定期望的摄像头闪光灯模式，需要注意的是 preferredFlashMode 的值不一定能够被成功应用，实际的闪光灯模式可以通过 MSVRecorder.flashMode 来获取。
- * 默认为 AVCaptureFlashModeAuto。
+ * 默认为 AVCaptureFlashModeOff。
  */
 @property (nonatomic, assign) AVCaptureFlashMode preferredFlashMode;
 
@@ -108,16 +78,12 @@
 @property (nonatomic, assign) AVCaptureDevicePosition preferredDevicePosition;
 
 /**
- * 预览视频的旋转方向。
+ * 目标视频的旋转方向。
  * 默认为 MovieousVideoOrientationPortrait。
  */
-@property (nonatomic, assign) MovieousVideoOrientation videoOrientationForPreview;
+@property (nonatomic, assign) MovieousVideoOrientation videoOrientation;
 
-/**
- * 编码视频的旋转方向。
- * 默认为 MovieousVideoOrientationPortrait。
- */
-@property (nonatomic, assign) MovieousVideoOrientation videoOrientationForEncoded;
+@property (nonatomic, assign) BOOL videoMirrored;
 
 /**
  * 指定期望的视频缩放比例，需要注意的是 preferredVideoZoomFactor 的值不一定能够被成功应用，实际的视频缩放比例可以通过 MSVRecorder.videoZoomFactor 来获取。

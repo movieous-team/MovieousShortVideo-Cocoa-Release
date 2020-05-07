@@ -11,10 +11,15 @@
 "global.export" = "export";
 "global.alert" = "alert";
 "global.prompt" = "prompt";
+"global.cancel" = "cancel";
+"global.inputText" = "input text";
 
-"MSVDHomeViewController.startRecording" = "record";
-"MSVDHomeViewController.startEditing" = "edit";
+"MSVDHomeViewController.startComposition" = "composition";
+"MSVDHomeViewController.resourceSource" = "select resource source";
+"MSVDHomeViewController.record" = "record";
+"MSVDHomeViewController.photoLibrary" = "photo library";
 
+"MSVDToolboxView.none" = "none";
 "MSVDToolboxView.music" = "music";
 "MSVDToolboxView.pip" = "pip";
 "MSVDToolboxView.text" = "text";
@@ -22,6 +27,19 @@
 "MSVDToolboxView.filter" = "filter";
 "MSVDToolboxView.beautify" = "beautify";
 "MSVDToolboxView.background" = "background";
+"MSVDToolboxView.smoothLevel" = "smoothLevel";
+"MSVDToolboxView.whiteLevel" = "whiteLevel";
+"MSVDToolboxView.redLevel" = "redLevel";
+"MSVDToolboxView.dissolve" = "dissolve";
+"MSVDToolboxView.fade" = "fade";
+"MSVDToolboxView.wipeRight" = "wipeRight";
+"MSVDToolboxView.wipeLeft" = "wipeLeft";
+"MSVDToolboxView.wipeUp" = "wipeUp";
+"MSVDToolboxView.wipeDown" = "wipeDown";
+"MSVDToolboxView.slideRight" = "slideRight";
+"MSVDToolboxView.slideLeft" = "slideLeft";
+"MSVDToolboxView.slideUp" = "slideUp";
+"MSVDToolboxView.slideDown" = "slideDown";
 
 "MSVDMusicsViewController.musics" = "musics";
 "MSVDMusicsViewController.save" = "save";
@@ -39,12 +57,27 @@
 "MSVDToolboxView.music" = "music";
 "MSVDToolboxView.audio.record" = "record";
 "MSVDToolboxView.canvas" = "canvas";
-"MSVDToolboxView.ratio" = "ratio";
-"MSVDToolboxView.background" = "background";
+"MSVDToolboxView.aspectRatio" = "ratio";
+"MSVDToolboxView.background" = "bg";
 "MSVDToolboxView.color" = "color";
 "MSVDToolboxView.blur" = "blur";
+"MSVToolboxView.originalSize" = "original";
 
 "MSVDExportViewController.exporting" = "exporting";
 "MSVDExportViewController.done" = "export done";
 "MSVDExportViewController.export" = "export";
 "MSVDExportViewController.resolution" = "resolution";
+
+"MSVDRecordTypeSelectView.photo" = "photo";
+"MSVDRecordTypeSelectView.video" = "video";
+"MSVDRecorderViewController.musics" = "musics";
+"MSVDRecorderViewController.switch" = "switch";
+"MSVDRecorderViewController.torch" = "torch";
+"MSVDRecorderViewController.beautify" = "beautify";
+"MSVDRecorderViewController.filter" = "filter";
+"MSVDRecorderViewController.sticker" = "sticker";
+"MSVDRecorderViewController.meihu" = "meihu";
+"MSVDRecorderViewController.smooth" = "smooth";
+"MSVDRecorderViewController.white" = "white";
+"MSVDRecorderViewController.red" = "red";
+"MSVDRecorderViewController.isOn" = "isOn";

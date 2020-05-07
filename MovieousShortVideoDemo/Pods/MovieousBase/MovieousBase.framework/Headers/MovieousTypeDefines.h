@@ -13,13 +13,13 @@
 /// 视频朝向类型。
 typedef NS_ENUM(NSInteger, MovieousVideoOrientation) {
     // 手机顶部采集到的视频在预览视图或编码视频的上部。
-    MovieousVideoOrientationPortrait,
+    MovieousVideoOrientationPortrait = 1,
     // 手机顶部采集到的视频在预览视图或编码视频的下部。
-    MovieousVideoOrientationPortraitUpsideDown,
+    MovieousVideoOrientationPortraitUpsideDown = 2,
     // 手机顶部采集到的视频在预览视图或编码视频的右部。
-    MovieousVideoOrientationLandscapeRight,
+    MovieousVideoOrientationLandscapeRight = 3,
     // 手机顶部采集到的视频在预览视图或编码视频的左部。
-    MovieousVideoOrientationLandscapeLeft,
+    MovieousVideoOrientationLandscapeLeft = 4,
 };
 
 /// 填充模式类型。
@@ -30,26 +30,6 @@ typedef NS_ENUM(NSInteger, MovieousScalingMode) {
     MovieousScalingModeAspectFit,
     /// 填充满目标容器，保持原始比例，比例不一致会出现部分画面被裁剪掉。
     MovieousScalingModeAspectFill
-};
-
-/// 当预览视图被点击时采取的行为
-typedef NS_ENUM(NSInteger, MovieousRecorderTapPreviewAction) {
-    /// 不采取任何行动。
-    MovieousRecorderTapPreviewActionNone = 0,
-    /// 对焦到点击的地方。
-    MovieousRecorderTapPreviewActionFocus = 1 << 0,
-    /// 调整曝光参考点到点击的地方。
-    MovieousRecorderTapPreviewActionExposure = 1 << 1,
-    /// 在点击的地方显示标志。
-    MovieousRecorderTapPreviewActionShowIndicator = 1 << 2,
-    /// 对焦并调整曝光参考点到点击的地方。
-    MovieousRecorderTapPreviewActionFocusExposure = MovieousRecorderTapPreviewActionFocus | MovieousRecorderTapPreviewActionExposure,
-    /// 对焦并在点击的地方显示标志。
-    MovieousRecorderTapPreviewActionFocusShowIndicator = MovieousRecorderTapPreviewActionFocus | MovieousRecorderTapPreviewActionShowIndicator,
-    /// 调整曝光参考点并在点击的地方显示标志
-    MovieousRecorderTapPreviewActionExposureShowIndicator = MovieousRecorderTapPreviewActionExposure | MovieousRecorderTapPreviewActionShowIndicator,
-    /// 对焦、调整曝光参考点在点击的地方显示标志
-    MovieousRecorderTapPreviewActionFocusExposureShowIndicator = MovieousRecorderTapPreviewActionFocus | MovieousRecorderTapPreviewActionExposure | MovieousRecorderTapPreviewActionShowIndicator
 };
 
 /// 时间戳类型，单位为微秒。

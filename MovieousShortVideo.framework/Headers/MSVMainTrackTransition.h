@@ -9,7 +9,6 @@
 #import <AVFoundation/AVFoundation.h>
 #import "MSVTypeDefines.h"
 #import <MovieousBase/MovieousBase.h>
-#import "MSVRenderContext.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -33,7 +32,7 @@ NSObject
  * @return 处理后的视频数据。
  * @warning pixelBuffer 在内部会被复用，请不要保留。返回的 pixelBuffer 请对要返回的 CVPixelBufferRef 对象依次调用 CFRetain 和 CFAutorelease 函数之后再返回，一遍正确管理对象生命周期。
  */
-- (CVPixelBufferRef)transition:(MSVExternalMainTrackTransition *)transition renderContext:(MSVRenderContext *)renderContext shouldProcessDisappearingPixelBuffer:(CVPixelBufferRef)disappearingPixelBuffer appearingPixelBuffer:(CVPixelBufferRef)appearingPixelBuffer time:(MovieousTime)time;
+- (CVPixelBufferRef)transition:(MSVExternalMainTrackTransition *)transition shouldProcessDisappearingPixelBuffer:(CVPixelBufferRef)disappearingPixelBuffer appearingPixelBuffer:(CVPixelBufferRef)appearingPixelBuffer time:(MovieousTime)time;
 
 @end
 

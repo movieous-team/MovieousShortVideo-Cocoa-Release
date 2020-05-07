@@ -10,20 +10,6 @@
 #import <AVFoundation/AVFoundation.h>
 
 /**
- * 视频比例。
- */
-typedef struct {
-    /**
-     * 横向空间。
-     */
-    NSInteger    horizontalSpacing;
-    /**
-     * 纵向空间。
-     */
-    NSInteger    verticalSpacing;
-} MSVAspectRatio;
-
-/**
  * 视频输入源类型。
  */
 typedef NS_ENUM(NSInteger, MSVVideoSource) {
@@ -152,7 +138,8 @@ typedef NS_ENUM(NSInteger, MSVClipType) {
     /**
      * 动态图片类型的片段。
      */
-    MSVClipTypeAnimatedImage
+    MSVClipTypeAnimatedImage,
+    MSVClipTypeStillText,
 };
 
 /**

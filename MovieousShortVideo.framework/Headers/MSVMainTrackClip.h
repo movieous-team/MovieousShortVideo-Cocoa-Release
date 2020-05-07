@@ -88,6 +88,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype _Nullable)mainTrackClipWithAnimatedImage:(UIImage *)image error:(NSError *_Nullable *_Nullable)outError;
 
++ (instancetype _Nullable)mainTrackClipWithStillText:(NSAttributedString *)text duration:(MovieousTime)duration error:(NSError *_Nullable *_Nullable)outError;
+
 /**
  * 使用已存在的 MSVMainTrackClip 对象来初始化一个 MSVMainTrackClip 对象。
  *
