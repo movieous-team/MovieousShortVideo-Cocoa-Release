@@ -27,7 +27,6 @@
 		83345CA42463ACA400C8C0D7 /* top_left_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 83345C622463ACA300C8C0D7 /* top_left_selected.png */; };
 		83345CA52463ACA400C8C0D7 /* bottom_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83345C632463ACA300C8C0D7 /* bottom_left@2x.png */; };
 		83345CA62463ACA400C8C0D7 /* MHSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 83345C642463ACA300C8C0D7 /* MHSDK.bundle */; };
-		83345CA72463ACA400C8C0D7 /* tracking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83345C652463ACA300C8C0D7 /* tracking.framework */; };
 		83345CA82463ACA400C8C0D7 /* MHMeiyanMenusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83345C672463ACA300C8C0D7 /* MHMeiyanMenusView.m */; };
 		83345CA92463ACA400C8C0D7 /* MHQuickBeautyParams.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83345C692463ACA300C8C0D7 /* MHQuickBeautyParams.plist */; };
 		83345CAA2463ACA400C8C0D7 /* MHFilterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83345C6B2463ACA300C8C0D7 /* MHFilterModel.m */; };
@@ -73,6 +72,8 @@
 		83345D022463ACCB00C8C0D7 /* MSVDToolboxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83345CE82463ACCB00C8C0D7 /* MSVDToolboxView.m */; };
 		83345D032463ACCB00C8C0D7 /* MSVDExportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83345CEB2463ACCB00C8C0D7 /* MSVDExportViewController.m */; };
 		83345D042463ACCB00C8C0D7 /* MSVDHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83345CEF2463ACCB00C8C0D7 /* MSVDHomeViewController.m */; };
+		834ADF3024E0F09800954FBA /* tracking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83345C652463ACA300C8C0D7 /* tracking.framework */; };
+		834ADF3124E0F09800954FBA /* tracking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 83345C652463ACA300C8C0D7 /* tracking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		834BD15E239E48C0004B0F89 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 834BD15C239E48C0004B0F89 /* Localizable.strings */; };
 		B2A1A4F18416453DC7FA1AB7 /* Pods_MovieousShortVideoDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EAFFB9E54D1023134EC8152 /* Pods_MovieousShortVideoDemo.framework */; };
 		B6CE82572406C3900065F5AB /* Filters.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B6CE82502406C3900065F5AB /* Filters.bundle */; };
@@ -95,6 +96,20 @@
 			remoteInfo = MovieousShortVideoDemo;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		834ADF3224E0F09800954FBA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				834ADF3124E0F09800954FBA /* tracking.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		02DAE9C23B6B016B02DB4971 /* Pods-MovieousShortVideoDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieousShortVideoDemo.debug.xcconfig"; path = "Target Support Files/Pods-MovieousShortVideoDemo/Pods-MovieousShortVideoDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -233,7 +248,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83345CA72463ACA400C8C0D7 /* tracking.framework in Frameworks */,
+				834ADF3024E0F09800954FBA /* tracking.framework in Frameworks */,
 				83345C9A2463ACA400C8C0D7 /* MHBeautySDK.framework in Frameworks */,
 				B2A1A4F18416453DC7FA1AB7 /* Pods_MovieousShortVideoDemo.framework in Frameworks */,
 			);
@@ -561,6 +576,7 @@
 				8328A96D239E39C900BA738F /* Frameworks */,
 				8328A96E239E39C900BA738F /* Resources */,
 				D298250DEB7F58CF15FE48FA /* [CP] Embed Pods Frameworks */,
+				834ADF3224E0F09800954FBA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
