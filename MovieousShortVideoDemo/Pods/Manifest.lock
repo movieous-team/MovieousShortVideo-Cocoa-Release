@@ -7,21 +7,21 @@ PODS:
     - MovieousBase (= 3.0.1)
   - MovieousShortVideo (4.0.1):
     - MovieousCaptureBase (= 3.0.1)
-  - SDMagicHook (1.2.4):
+  - SDMagicHook (1.2.5):
     - fishhook
-    - SDMagicHook/SDMagicHookMRCTool (= 1.2.4)
-    - SDMagicHook/SDMagicHookUtils (= 1.2.4)
-  - SDMagicHook/SDMagicHookMRCTool (1.2.4):
+    - SDMagicHook/SDMagicHookMRCTool (= 1.2.5)
+    - SDMagicHook/SDMagicHookUtils (= 1.2.5)
+  - SDMagicHook/SDMagicHookMRCTool (1.2.5):
     - fishhook
     - SDMagicHook/SDMagicHookUtils
-  - SDMagicHook/SDMagicHookUtils (1.2.4):
+  - SDMagicHook/SDMagicHookUtils (1.2.5):
     - fishhook
-  - SDWebImage (5.7.4):
-    - SDWebImage/Core (= 5.7.4)
-  - SDWebImage/Core (5.7.4)
+  - SDWebImage (5.8.4):
+    - SDWebImage/Core (= 5.8.4)
+  - SDWebImage/Core (5.8.4)
   - SSZipArchive (2.2.3)
   - SVProgressHUD (2.2.5)
-  - TZImagePickerController (3.3.1)
+  - TZImagePickerController (3.4.1)
 
 DEPENDENCIES:
   - M13ProgressSuite
@@ -57,11 +57,11 @@ SPEC CHECKSUMS:
   MovieousBase: 0585e4a72ca960a6fc18aeeb87469d3b6aebcb5f
   MovieousCaptureBase: 31ee1b933f0f62dbe9bcfa9eb901f0ed6ad6e27a
   MovieousShortVideo: 62418bbd9e5c2c904bb7b534a574dc6a46a7908f
-  SDMagicHook: 02780b027a1f6275b4a587e31d784f754564b607
-  SDWebImage: 48b88379b798fd1e4298f95bb25d2cdabbf4deb3
+  SDMagicHook: 30913b726d88060a6bb1c2b90d959116fdd4bb62
+  SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  TZImagePickerController: 99f03b64145a8c92c55b9b1b931410967d9be4cb
+  TZImagePickerController: 4e7a7b3d314f8a75f11042931dfd9d34c270c7db
 
 PODFILE CHECKSUM: cd2459e305b0c9265cc1b3c9f667af486546ccbe
 
