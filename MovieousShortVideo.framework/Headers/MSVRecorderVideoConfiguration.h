@@ -25,17 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, assign) MSVVideoSource source;
 
-/**
- * 创建一个默认配置的 MSVVideoConfiguration 实例。
- *
- * @return 创建的默认 MSVVideoConfiguration 对象。
- */
-+ (instancetype)defaultConfiguration;
-
-@end
-
-@interface MSVRecorderAVVideoConfiguration : MSVRecorderVideoConfiguration
-
 #pragma mark - encoder configurations
 /**
  * 平均视频编码码率。默认为 1024*1000
@@ -67,6 +56,13 @@ NS_ASSUME_NONNULL_BEGIN
  * @discussion 当允许帧排序时会生成 B 帧，否则不会生成 B 帧。
 */
 @property (nonatomic, assign) BOOL allowFrameReordering;
+
+/**
+ * 创建一个默认配置的 MSVVideoConfiguration 实例。
+ *
+ * @return 创建的默认 MSVVideoConfiguration 对象。
+ */
++ (instancetype)defaultConfiguration;
 
 @end
 

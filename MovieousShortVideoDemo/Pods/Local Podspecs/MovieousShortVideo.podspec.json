@@ -3,7 +3,7 @@
   "platforms": {
     "ios": "8.0"
   },
-  "version": "4.0.1",
+  "version": "4.0.2",
   "homepage": "https://github.com/movieous-team/MovieousShortVideo-Cocoa-Release",
   "authors": {
     "movieous": "cloudop@movieous.video"
@@ -11,7 +11,7 @@
   "summary": "Movieous short video SDK for iOS.",
   "source": {
     "git": "https://github.com/movieous-team/MovieousShortVideo-Cocoa-Release.git",
-    "tag": "v4.0.1"
+    "tag": "v4.0.2"
   },
   "static_framework": true,
   "vendored_frameworks": "MovieousShortVideo.framework",

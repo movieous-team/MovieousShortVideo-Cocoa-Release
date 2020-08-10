@@ -499,7 +499,7 @@ MHMeiyanMenusViewDelegate
     _recordedClips = [NSMutableArray array];
     
     MSVRecorderAudioConfiguration *audioConfiguration = [MSVRecorderAudioConfiguration defaultConfiguration];
-    MSVRecorderAVVideoConfiguration *videoConfiguration = [MSVRecorderAVVideoConfiguration defaultConfiguration];
+    MSVRecorderVideoConfiguration *videoConfiguration = [MSVRecorderVideoConfiguration defaultConfiguration];
     videoConfiguration.videoSize = CGSizeMake(544, 960);
     videoConfiguration.preferredDevicePosition = AVCaptureDevicePositionBack;
     videoConfiguration.previewScalingMode = MovieousScalingModeAspectFit;
