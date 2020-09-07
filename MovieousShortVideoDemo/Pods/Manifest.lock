@@ -5,7 +5,7 @@ PODS:
   - MovieousBase (3.0.1)
   - MovieousCaptureBase (3.0.1):
     - MovieousBase (= 3.0.1)
-  - MovieousShortVideo (4.0.3):
+  - MovieousShortVideo (4.0.4):
     - MovieousCaptureBase (= 3.0.1)
   - SDMagicHook (1.2.5):
     - fishhook
@@ -56,7 +56,7 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MovieousBase: 0585e4a72ca960a6fc18aeeb87469d3b6aebcb5f
   MovieousCaptureBase: 31ee1b933f0f62dbe9bcfa9eb901f0ed6ad6e27a
-  MovieousShortVideo: 20a6b6ad34828186a0a873bac63d11c3075ed9fd
+  MovieousShortVideo: 2ef45f1eead9fbbeb824ecbb74202cb47c7daf53
   SDMagicHook: 30913b726d88060a6bb1c2b90d959116fdd4bb62
   SDWebImage: 62ae4a18473520c67b79e9724c31a63599cc9423
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9

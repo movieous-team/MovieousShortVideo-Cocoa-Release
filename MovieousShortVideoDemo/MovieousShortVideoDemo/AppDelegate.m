@@ -22,7 +22,6 @@
     self.window = [UIWindow new];
     [self.window makeKeyAndVisible];
     self.window.rootViewController = [MSVDHomeViewController new];
-    [MSVAuthentication registerWithLicense:@"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhcHBpZCI6InZpZGVvLm1vdmllb3VzLk1vdmllb3VzU2hvcnRWaWRlb0RlbW8iLCJsb2NhbGF1dGgiOnRydWV9.qfY35jrCd9qb3X6p04Bus-reLTaWQvkrNDJyvDyzqNA"];
     [MHSDK.shareInstance init:@"f5fe7ecab78ae9a67f66c04c3d0f988d"];
     return YES;
 }

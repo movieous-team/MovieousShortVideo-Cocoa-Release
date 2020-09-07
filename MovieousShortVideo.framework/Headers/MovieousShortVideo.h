@@ -22,7 +22,6 @@ FOUNDATION_EXPORT const unsigned char MovieousShortVideoVersionString[];
 #import <MovieousShortVideo/MSVBrush.h>
 #import <MovieousShortVideo/MSVGraffitiView.h>
 #import <MovieousShortVideo/MSVSnapshotGenerator.h>
-#import <MovieousShortVideo/MSVAuthentication.h>
 #import <MovieousShortVideo/MSVMainTrackTransition.h>
 #import <MovieousShortVideo/MSVBeautifyFilterEffect.h>
 #import <MovieousShortVideo/MSVLUTFilterEffect.h>
