@@ -982,7 +982,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 32SCWS77Q5;
+				DEVELOPMENT_TEAM = FD2DV5K3ZQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MovieousShortVideoDemo/Vendor/MHSDK/MHResources",
@@ -1026,7 +1026,7 @@
 					"\"UIKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = video.movieous.MovieousShortVideoDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = video.movieous.MovieousShortVideoDemo.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MovieousShortVideoDemo/MovieousShortVideoDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1044,7 +1044,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 32SCWS77Q5;
+				DEVELOPMENT_TEAM = FD2DV5K3ZQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MovieousShortVideoDemo/Vendor/MHSDK/MHResources",
@@ -1088,7 +1088,7 @@
 					"\"UIKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = video.movieous.MovieousShortVideoDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = video.movieous.MovieousShortVideoDemo.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MovieousShortVideoDemo/MovieousShortVideoDemo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

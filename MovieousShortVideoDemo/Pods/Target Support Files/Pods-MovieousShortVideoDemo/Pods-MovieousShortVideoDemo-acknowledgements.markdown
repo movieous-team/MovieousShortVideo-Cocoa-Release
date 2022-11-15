@@ -64,7 +64,7 @@ SOFTWARE.
 
 ## SDWebImage
 
-Copyright (c) 2009-2018 Olivier Poitrey rs@dailymotion.com
+Copyright (c) 2009-2020 Olivier Poitrey rs@dailymotion.com
  
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -88,7 +88,7 @@ THE SOFTWARE.
 
 ## SSZipArchive
 
-Copyright (c) 2010-2015, Sam Soffes, https://soff.es
+Copyright (c) 2013-2021, ZipArchive, https://github.com/ZipArchive
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
